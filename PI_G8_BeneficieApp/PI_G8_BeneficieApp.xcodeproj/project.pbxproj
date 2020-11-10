@@ -15,7 +15,8 @@
 		0D778636255A235800255307 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D778634255A235800255307 /* LaunchScreen.storyboard */; };
 		0D77863F255A260200255307 /* LoginSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77863E255A260200255307 /* LoginSB.storyboard */; };
 		0D778641255A263200255307 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D778640255A263200255307 /* LoginViewController.swift */; };
-		0DA44243255AD1CD00C82076 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA44242255AD1CD00C82076 /* GradientView.swift */; };
+		0DA44248255ADC2F00C82076 /* SingUpSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA44247255ADC2F00C82076 /* SingUpSB.storyboard */; };
+		0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA44249255ADC5900C82076 /* SingUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +30,8 @@
 		0D778637255A235800255307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D77863E255A260200255307 /* LoginSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginSB.storyboard; sourceTree = "<group>"; };
 		0D778640255A263200255307 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		0DA44242255AD1CD00C82076 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		0DA44247255ADC2F00C82076 /* SingUpSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingUpSB.storyboard; sourceTree = "<group>"; };
+		0DA44249255ADC5900C82076 /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +64,8 @@
 		0D778628255A235300255307 /* PI_G8_BeneficieApp */ = {
 			isa = PBXGroup;
 			children = (
-				0D77863D255A25E500255307 /* Login */,
+				0DA44244255ADBD200C82076 /* SingUp */,
+				0D77863D255A25E500255307 /* SingIn */,
 				0D778629255A235300255307 /* AppDelegate.swift */,
 				0D77862B255A235300255307 /* SceneDelegate.swift */,
 				0D77862D255A235300255307 /* ViewController.swift */,
@@ -70,18 +73,26 @@
 				0D778632255A235800255307 /* Assets.xcassets */,
 				0D778634255A235800255307 /* LaunchScreen.storyboard */,
 				0D778637255A235800255307 /* Info.plist */,
-				0DA44242255AD1CD00C82076 /* GradientView.swift */,
 			);
 			path = PI_G8_BeneficieApp;
 			sourceTree = "<group>";
 		};
-		0D77863D255A25E500255307 /* Login */ = {
+		0D77863D255A25E500255307 /* SingIn */ = {
 			isa = PBXGroup;
 			children = (
 				0D77863E255A260200255307 /* LoginSB.storyboard */,
 				0D778640255A263200255307 /* LoginViewController.swift */,
 			);
-			path = Login;
+			path = SingIn;
+			sourceTree = "<group>";
+		};
+		0DA44244255ADBD200C82076 /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+				0DA44247255ADC2F00C82076 /* SingUpSB.storyboard */,
+				0DA44249255ADC5900C82076 /* SingUpViewController.swift */,
+			);
+			path = SingUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +155,7 @@
 			files = (
 				0D778636255A235800255307 /* LaunchScreen.storyboard in Resources */,
 				0D778633255A235800255307 /* Assets.xcassets in Resources */,
+				0DA44248255ADC2F00C82076 /* SingUpSB.storyboard in Resources */,
 				0D778631255A235300255307 /* Main.storyboard in Resources */,
 				0D77863F255A260200255307 /* LoginSB.storyboard in Resources */,
 			);
@@ -158,8 +170,8 @@
 			files = (
 				0D778641255A263200255307 /* LoginViewController.swift in Sources */,
 				0D77862E255A235300255307 /* ViewController.swift in Sources */,
-				0DA44243255AD1CD00C82076 /* GradientView.swift in Sources */,
 				0D77862A255A235300255307 /* AppDelegate.swift in Sources */,
+				0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */,
 				0D77862C255A235300255307 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
