@@ -13,6 +13,8 @@
 		0D778631255A235300255307 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77862F255A235300255307 /* Main.storyboard */; };
 		0D778633255A235800255307 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D778632255A235800255307 /* Assets.xcassets */; };
 		0D778636255A235800255307 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D778634255A235800255307 /* LaunchScreen.storyboard */; };
+		0D77863F255A260200255307 /* LoginSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77863E255A260200255307 /* LoginSB.storyboard */; };
+		0D778641255A263200255307 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D778640255A263200255307 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0D778632255A235800255307 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D778635255A235800255307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D778637255A235800255307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D77863E255A260200255307 /* LoginSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginSB.storyboard; sourceTree = "<group>"; };
+		0D778640255A263200255307 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		0D778628255A235300255307 /* PI_G8_BeneficieApp */ = {
 			isa = PBXGroup;
 			children = (
+				0D77863D255A25E500255307 /* Login */,
 				0D778629255A235300255307 /* AppDelegate.swift */,
 				0D77862B255A235300255307 /* SceneDelegate.swift */,
 				0D77862D255A235300255307 /* ViewController.swift */,
@@ -65,6 +70,15 @@
 				0D778637255A235800255307 /* Info.plist */,
 			);
 			path = PI_G8_BeneficieApp;
+			sourceTree = "<group>";
+		};
+		0D77863D255A25E500255307 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0D77863E255A260200255307 /* LoginSB.storyboard */,
+				0D778640255A263200255307 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +142,7 @@
 				0D778636255A235800255307 /* LaunchScreen.storyboard in Resources */,
 				0D778633255A235800255307 /* Assets.xcassets in Resources */,
 				0D778631255A235300255307 /* Main.storyboard in Resources */,
+				0D77863F255A260200255307 /* LoginSB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D778641255A263200255307 /* LoginViewController.swift in Sources */,
 				0D77862E255A235300255307 /* ViewController.swift in Sources */,
 				0D77862A255A235300255307 /* AppDelegate.swift in Sources */,
 				0D77862C255A235300255307 /* SceneDelegate.swift in Sources */,
