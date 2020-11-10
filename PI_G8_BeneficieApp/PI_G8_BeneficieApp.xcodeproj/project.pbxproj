@@ -15,6 +15,7 @@
 		0D778636255A235800255307 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D778634255A235800255307 /* LaunchScreen.storyboard */; };
 		0D77863F255A260200255307 /* LoginSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77863E255A260200255307 /* LoginSB.storyboard */; };
 		0D778641255A263200255307 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D778640255A263200255307 /* LoginViewController.swift */; };
+		0DA44243255AD1CD00C82076 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA44242255AD1CD00C82076 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		0D778637255A235800255307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D77863E255A260200255307 /* LoginSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginSB.storyboard; sourceTree = "<group>"; };
 		0D778640255A263200255307 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0DA44242255AD1CD00C82076 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				0D778632255A235800255307 /* Assets.xcassets */,
 				0D778634255A235800255307 /* LaunchScreen.storyboard */,
 				0D778637255A235800255307 /* Info.plist */,
+				0DA44242255AD1CD00C82076 /* GradientView.swift */,
 			);
 			path = PI_G8_BeneficieApp;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			files = (
 				0D778641255A263200255307 /* LoginViewController.swift in Sources */,
 				0D77862E255A235300255307 /* ViewController.swift in Sources */,
+				0DA44243255AD1CD00C82076 /* GradientView.swift in Sources */,
 				0D77862A255A235300255307 /* AppDelegate.swift in Sources */,
 				0D77862C255A235300255307 /* SceneDelegate.swift in Sources */,
 			);
