@@ -52,7 +52,9 @@ class LoginViewController: UIViewController {
     //MARK: - Actions
    
     @IBAction func HandleLogIn(_ sender: Any) {
-        print("DEBUG: Login Pressed")
+        if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
+            navigationController?.pushViewController(userSubscription, animated: true)
+        }
     }
     
     @IBAction func HandleForgotPassword(_ sender: UIButton) {

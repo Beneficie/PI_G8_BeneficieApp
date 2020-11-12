@@ -78,9 +78,9 @@
 				33477AD8255B4D3200D916D2 /* Main.storyboard */,
 				333EC054255B2DB0008ABFC1 /* Assets.xcassets */,
 				33D7AB4E255B4A5C000F0B7B /* Principal */,
-				33D7AB49255B4A33000F0B7B /* RedesSociais */,
 				33D7AB45255B49C8000F0B7B /* InscricaoAcao */,
 				33477ADC255B51C600D916D2 /* InfosFinanceiras */,
+				33D7AB49255B4A33000F0B7B /* RedesSociais */,
 				333EC056255B2DB0008ABFC1 /* LaunchScreen.storyboard */,
 				333EC059255B2DB0008ABFC1 /* Info.plist */,
 			);

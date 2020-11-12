@@ -13,7 +13,12 @@ class SingUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+      
+    }
+    @IBAction func actionSignUpPressed(_ sender: Any) {
+        if let userSocialNetworks = UIStoryboard(name: "User_SocialNetworks", bundle: nil).instantiateInitialViewController() as? User_SocialNetworksViewController {
+            navigationController?.pushViewController(userSocialNetworks, animated: true)
+        }
     }
     
 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DEq-sF-emY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Social Networks View Controller-->
+        <scene sceneID="qFc-uy-kGC">
+            <objects>
+                <viewController id="DEq-sF-emY" customClass="User_SocialNetworksViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DSK-yG-kkb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nossas Redes Sociais" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZE-ra-Oue">
+                                <rect key="frame" x="20" y="124" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_hands (2)" translatesAutoresizingMaskIntoConstraints="NO" id="he8-rs-h5X">
+                                <rect key="frame" x="143" y="210" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="WkF-bV-EhR"/>
+                                    <constraint firstAttribute="height" constant="128" id="uC1-T5-ACd"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_hands (2)" translatesAutoresizingMaskIntoConstraints="NO" id="cs8-Dl-Dd3">
+                                <rect key="frame" x="143" y="388" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="ybY-1q-RAr"/>
+                                    <constraint firstAttribute="width" constant="128" id="zFZ-db-fh4"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_hands (2)" translatesAutoresizingMaskIntoConstraints="NO" id="J1E-b1-UPa">
+                                <rect key="frame" x="143" y="566" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="IRN-qg-etV"/>
+                                    <constraint firstAttribute="width" constant="128" id="gC2-bD-OaA"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rtt-5g-VFe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CZE-ra-Oue" firstAttribute="leading" secondItem="rtt-5g-VFe" secondAttribute="leading" constant="20" id="0co-hT-zTW"/>
+                            <constraint firstItem="rtt-5g-VFe" firstAttribute="trailing" secondItem="CZE-ra-Oue" secondAttribute="trailing" constant="20" id="4WJ-Or-m06"/>
+                            <constraint firstItem="rtt-5g-VFe" firstAttribute="trailing" secondItem="J1E-b1-UPa" secondAttribute="trailing" constant="143" id="5Ph-ns-mZt"/>
+                            <constraint firstItem="he8-rs-h5X" firstAttribute="top" secondItem="CZE-ra-Oue" secondAttribute="bottom" constant="50" id="I3i-H2-epM"/>
+                            <constraint firstItem="J1E-b1-UPa" firstAttribute="leading" secondItem="rtt-5g-VFe" secondAttribute="leading" constant="143" id="I9j-L8-67x"/>
+                            <constraint firstItem="CZE-ra-Oue" firstAttribute="top" secondItem="rtt-5g-VFe" secondAttribute="top" constant="80" id="QH4-Ru-f2C"/>
+                            <constraint firstItem="rtt-5g-VFe" firstAttribute="trailing" secondItem="cs8-Dl-Dd3" secondAttribute="trailing" constant="143" id="aG2-wk-JXD"/>
+                            <constraint firstItem="J1E-b1-UPa" firstAttribute="top" secondItem="cs8-Dl-Dd3" secondAttribute="bottom" constant="50" id="c4u-Ba-W4n"/>
+                            <constraint firstItem="rtt-5g-VFe" firstAttribute="trailing" secondItem="he8-rs-h5X" secondAttribute="trailing" constant="143" id="kI5-u5-JLX"/>
+                            <constraint firstItem="cs8-Dl-Dd3" firstAttribute="top" secondItem="he8-rs-h5X" secondAttribute="bottom" constant="50" id="kiI-Kf-Y0J"/>
+                            <constraint firstItem="he8-rs-h5X" firstAttribute="leading" secondItem="rtt-5g-VFe" secondAttribute="leading" constant="143" id="nYu-pU-RCm"/>
+                            <constraint firstItem="cs8-Dl-Dd3" firstAttribute="leading" secondItem="rtt-5g-VFe" secondAttribute="leading" constant="143" id="pi8-Nj-BFw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9iM-CY-Goe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-323.1884057971015" y="-15.401785714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="image_hands (2)" width="256" height="256"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
