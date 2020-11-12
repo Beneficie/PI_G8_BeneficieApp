@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q3y-UA-5CS">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Infos Financeiras View Controller-->
+        <scene sceneID="2dt-Wn-ZV4">
+            <objects>
+                <viewController id="q3y-UA-5CS" customClass="InfosFinanceirasViewController" customModule="PI_G8_Beneficie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TWg-A8-9Mh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BANCO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GE-v1-eqS">
+                                <rect key="frame" x="59" y="285" width="297" height="449"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="449" id="QBi-pV-qCB"/>
+                                    <constraint firstAttribute="width" constant="297" id="wiu-ZO-6ZZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informações Financeiras" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6w-Tt-RlD">
+                                <rect key="frame" x="59" y="202" width="297" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.46198064090000002" green="0.475060761" blue="0.87847304339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nd8-fu-nG2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nd8-fu-nG2" firstAttribute="bottom" secondItem="7GE-v1-eqS" secondAttribute="bottom" constant="128" id="0Qp-uF-O7a"/>
+                            <constraint firstItem="nd8-fu-nG2" firstAttribute="trailing" secondItem="7GE-v1-eqS" secondAttribute="trailing" constant="58" id="27z-rk-RK1"/>
+                            <constraint firstItem="7GE-v1-eqS" firstAttribute="top" secondItem="u6w-Tt-RlD" secondAttribute="bottom" constant="62" id="3ek-WK-f4b"/>
+                            <constraint firstItem="u6w-Tt-RlD" firstAttribute="top" secondItem="nd8-fu-nG2" secondAttribute="top" constant="158" id="6nt-3V-LzR"/>
+                            <constraint firstItem="u6w-Tt-RlD" firstAttribute="leading" secondItem="nd8-fu-nG2" secondAttribute="leading" constant="59" id="8k5-0p-is3"/>
+                            <constraint firstItem="7GE-v1-eqS" firstAttribute="leading" secondItem="nd8-fu-nG2" secondAttribute="leading" constant="59" id="9gS-65-23a"/>
+                            <constraint firstItem="nd8-fu-nG2" firstAttribute="trailing" secondItem="u6w-Tt-RlD" secondAttribute="trailing" constant="58" id="ksQ-fh-SOg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GWE-XE-vPM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="43.526785714285715"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
