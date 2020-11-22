@@ -24,6 +24,9 @@ class AdmActionsViewController: UIViewController {
         }
     }
     
+    @IBAction func Backbutton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension AdmActionsViewController: UITableViewDelegate, UITableViewDataSource{

@@ -96,6 +96,20 @@
                                     <action selector="ProfileButton:" destination="DKr-Uq-VGf" eventType="touchUpInside" id="fwK-8N-iMN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZf-Mp-3eM">
+                                <rect key="frame" x="28" y="80" width="30" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="iwz-AY-iv7"/>
+                                    <constraint firstAttribute="width" constant="30" id="zwB-Bu-1hc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Backbutton:" destination="DKr-Uq-VGf" eventType="touchUpInside" id="Ore-Hk-bl9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -104,9 +118,12 @@
                             <constraint firstItem="El2-X1-NBI" firstAttribute="top" secondItem="b2z-Xu-tWJ" secondAttribute="topMargin" constant="-44" id="7X2-sM-k3i"/>
                             <constraint firstItem="Obe-3K-4Nf" firstAttribute="centerX" secondItem="q6L-cx-RhB" secondAttribute="centerX" id="9Ft-QV-g57"/>
                             <constraint firstItem="OZz-z0-Xbz" firstAttribute="top" secondItem="ceZ-73-YdL" secondAttribute="top" constant="48" id="C4j-dN-fDB"/>
+                            <constraint firstItem="YZf-Mp-3eM" firstAttribute="top" secondItem="ceZ-73-YdL" secondAttribute="top" constant="36" id="CDU-Yp-xV3"/>
                             <constraint firstItem="rmm-wR-L4t" firstAttribute="top" secondItem="ceZ-73-YdL" secondAttribute="top" constant="47" id="CoP-tU-2Ub"/>
+                            <constraint firstItem="OZz-z0-Xbz" firstAttribute="leading" secondItem="YZf-Mp-3eM" secondAttribute="trailing" constant="84" id="Eg9-TL-gAs"/>
                             <constraint firstItem="Ttz-mA-GfC" firstAttribute="bottom" secondItem="ceZ-73-YdL" secondAttribute="bottom" id="GMd-Kn-of1"/>
                             <constraint firstItem="Obe-3K-4Nf" firstAttribute="top" secondItem="ceZ-73-YdL" secondAttribute="top" constant="56" id="GQ4-ex-WYs"/>
+                            <constraint firstItem="YZf-Mp-3eM" firstAttribute="leading" secondItem="ceZ-73-YdL" secondAttribute="leading" constant="28" id="Jev-UC-RLe"/>
                             <constraint firstItem="Ttz-mA-GfC" firstAttribute="top" secondItem="Obe-3K-4Nf" secondAttribute="bottom" constant="8" id="NeL-ss-6pd"/>
                             <constraint firstItem="Ttz-mA-GfC" firstAttribute="top" secondItem="q6L-cx-RhB" secondAttribute="bottom" constant="24" id="Pwg-yo-QKc"/>
                             <constraint firstItem="q6L-cx-RhB" firstAttribute="leading" secondItem="ceZ-73-YdL" secondAttribute="leading" constant="150" id="evI-2J-SxN"/>
@@ -114,6 +131,7 @@
                             <constraint firstItem="Ttz-mA-GfC" firstAttribute="leading" secondItem="ceZ-73-YdL" secondAttribute="leading" id="iIs-LT-kJN"/>
                             <constraint firstItem="Obe-3K-4Nf" firstAttribute="centerX" secondItem="El2-X1-NBI" secondAttribute="centerX" id="n1I-cL-zVq"/>
                             <constraint firstItem="Ttz-mA-GfC" firstAttribute="trailing" secondItem="ceZ-73-YdL" secondAttribute="trailing" id="ntX-2R-djl"/>
+                            <constraint firstItem="Ttz-mA-GfC" firstAttribute="top" secondItem="YZf-Mp-3eM" secondAttribute="bottom" constant="149" id="v8b-4y-bDZ"/>
                             <constraint firstItem="q6L-cx-RhB" firstAttribute="top" secondItem="El2-X1-NBI" secondAttribute="bottom" constant="39" id="vo5-dg-6MK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ceZ-73-YdL"/>

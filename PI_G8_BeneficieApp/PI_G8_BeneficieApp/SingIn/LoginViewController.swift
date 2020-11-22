@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
         passwordTextField.keyboardAppearance = .dark
         passwordTextField.leftViewMode = .always
         passwordTextField.borderStyle = .none
+        passwordTextField.isSecureTextEntry = true
         
         LoginButtonOutlet.layer.cornerRadius = 25
         LoginButtonOutlet.layer.shadowOpacity = 0.3
@@ -61,6 +62,8 @@ class LoginViewController: UIViewController {
         print("DEBUG: Forgot Password")
     }
     @IBAction func HandleSingUp(_ sender: UIButton) {
-        print("DEBUG: SingUp")
+        if let signUp = UIStoryboard(name: "SingUp", bundle: nil).instantiateInitialViewController() as? SingUpViewController {
+            navigationController?.pushViewController(signUp, animated: true)
+        }
     }
 }

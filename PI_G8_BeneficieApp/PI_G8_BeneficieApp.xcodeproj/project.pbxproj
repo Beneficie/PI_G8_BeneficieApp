@@ -16,6 +16,11 @@
 		0D1068D225694CF1002E5909 /* MonthAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1068D125694CF1002E5909 /* MonthAction.storyboard */; };
 		0D1068D425695209002E5909 /* MonthActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1068D325695209002E5909 /* MonthActionViewController.swift */; };
 		0D1068D625695D72002E5909 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1068D525695D72002E5909 /* Extensions.swift */; };
+		0D153B39256A9D8E00E391AB /* CreateAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D153B38256A9D8E00E391AB /* CreateAction.storyboard */; };
+		0D153B3B256AA35400E391AB /* CreateActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D153B3A256AA35400E391AB /* CreateActionViewController.swift */; };
+		0D153B3E256AB10900E391AB /* ParticipantsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D153B3D256AB10900E391AB /* ParticipantsList.storyboard */; };
+		0D153B40256AB26600E391AB /* ParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D153B3F256AB26600E391AB /* ParticipantsViewController.swift */; };
+		0D153B42256AB28C00E391AB /* ParticipantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D153B41256AB28C00E391AB /* ParticipantsCell.swift */; };
 		0D77862A255A235300255307 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D778629255A235300255307 /* AppDelegate.swift */; };
 		0D77862C255A235300255307 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77862B255A235300255307 /* SceneDelegate.swift */; };
 		0D77862E255A235300255307 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D77862D255A235300255307 /* ViewController.swift */; };
@@ -45,6 +50,11 @@
 		0D1068D125694CF1002E5909 /* MonthAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonthAction.storyboard; sourceTree = "<group>"; };
 		0D1068D325695209002E5909 /* MonthActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthActionViewController.swift; sourceTree = "<group>"; };
 		0D1068D525695D72002E5909 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0D153B38256A9D8E00E391AB /* CreateAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAction.storyboard; sourceTree = "<group>"; };
+		0D153B3A256AA35400E391AB /* CreateActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActionViewController.swift; sourceTree = "<group>"; };
+		0D153B3D256AB10900E391AB /* ParticipantsList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ParticipantsList.storyboard; sourceTree = "<group>"; };
+		0D153B3F256AB26600E391AB /* ParticipantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsViewController.swift; sourceTree = "<group>"; };
+		0D153B41256AB28C00E391AB /* ParticipantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsCell.swift; sourceTree = "<group>"; };
 		0D778626255A235300255307 /* PI_G8_BeneficieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PI_G8_BeneficieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D778629255A235300255307 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D77862B255A235300255307 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +115,25 @@
 			path = Adm_MonthAction;
 			sourceTree = "<group>";
 		};
+		0D153B37256A9D5300E391AB /* Adm_CreateAction */ = {
+			isa = PBXGroup;
+			children = (
+				0D153B38256A9D8E00E391AB /* CreateAction.storyboard */,
+				0D153B3A256AA35400E391AB /* CreateActionViewController.swift */,
+			);
+			path = Adm_CreateAction;
+			sourceTree = "<group>";
+		};
+		0D153B3C256AB03D00E391AB /* Adm_Participants */ = {
+			isa = PBXGroup;
+			children = (
+				0D153B3D256AB10900E391AB /* ParticipantsList.storyboard */,
+				0D153B3F256AB26600E391AB /* ParticipantsViewController.swift */,
+				0D153B41256AB28C00E391AB /* ParticipantsCell.swift */,
+			);
+			path = Adm_Participants;
+			sourceTree = "<group>";
+		};
 		0D77861D255A235300255307 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +153,8 @@
 		0D778628255A235300255307 /* PI_G8_BeneficieApp */ = {
 			isa = PBXGroup;
 			children = (
+				0D153B3C256AB03D00E391AB /* Adm_Participants */,
+				0D153B37256A9D5300E391AB /* Adm_CreateAction */,
 				0D1068D025694CC3002E5909 /* Adm_MonthAction */,
 				0D1068C925693BB2002E5909 /* Adm_ListActions */,
 				0D1068C225693429002E5909 /* Profile */,
@@ -259,6 +290,8 @@
 			files = (
 				0D778636255A235800255307 /* LaunchScreen.storyboard in Resources */,
 				0DA44248255ADC2F00C82076 /* SingUp.storyboard in Resources */,
+				0D153B3E256AB10900E391AB /* ParticipantsList.storyboard in Resources */,
+				0D153B39256A9D8E00E391AB /* CreateAction.storyboard in Resources */,
 				0D778631255A235300255307 /* Main.storyboard in Resources */,
 				33D07E9E255DC35000272FBF /* User_InformacoesFinanceiras.storyboard in Resources */,
 				0D1068C825693A15002E5909 /* Assets.xcassets in Resources */,
@@ -285,7 +318,10 @@
 				0D778641255A263200255307 /* LoginViewController.swift in Sources */,
 				0D77862E255A235300255307 /* ViewController.swift in Sources */,
 				0D1068CF25693FC6002E5909 /* ActionsCell.swift in Sources */,
+				0D153B3B256AA35400E391AB /* CreateActionViewController.swift in Sources */,
+				0D153B42256AB28C00E391AB /* ParticipantsCell.swift in Sources */,
 				0D77862A255A235300255307 /* AppDelegate.swift in Sources */,
+				0D153B40256AB26600E391AB /* ParticipantsViewController.swift in Sources */,
 				0D1068CD25693EF5002E5909 /* AdmActionsViewController.swift in Sources */,
 				0D1068D425695209002E5909 /* MonthActionViewController.swift in Sources */,
 				0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */,

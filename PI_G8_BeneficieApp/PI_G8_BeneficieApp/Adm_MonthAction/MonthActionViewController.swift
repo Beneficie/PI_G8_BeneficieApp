@@ -28,6 +28,27 @@ class MonthActionViewController: UIViewController {
         
     }
     
+    @IBAction func BackButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    @IBAction func EditAction(_ sender: UIButton) {
+    }
+    @IBAction func ListAction(_ sender: UIButton) {
+        if let actions = UIStoryboard(name: "AdmActions", bundle: nil).instantiateInitialViewController() as? AdmActionsViewController {
+            navigationController?.pushViewController(actions, animated: true)
+        }
+    }
+    @IBAction func CreateAction(_ sender: UIButton) {
+        if let actions = UIStoryboard(name: "CreateAction", bundle: nil).instantiateInitialViewController() as? CreateActionViewController {
+            navigationController?.pushViewController(actions, animated: true)
+        }
+    }
+    @IBAction func ParticipantsButton(_ sender: UIButton) {
+        
+        if let ParticipantsView = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
+            navigationController?.pushViewController(ParticipantsView, animated: true)
+        }
+    }
     func configureUI(){
         purpleView.RoundView()
         pinkView.RoundView()
