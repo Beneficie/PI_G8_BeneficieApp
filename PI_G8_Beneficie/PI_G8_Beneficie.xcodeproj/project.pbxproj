@@ -21,6 +21,10 @@
 		33D7AB47255B4A02000F0B7B /* InscricaoAcaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D7AB46255B4A02000F0B7B /* InscricaoAcaoViewController.swift */; };
 		33D7AB4B255B4A4F000F0B7B /* RedesSociaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D7AB4A255B4A4F000F0B7B /* RedesSociaisViewController.swift */; };
 		33D7AB53255B4AE6000F0B7B /* Principal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D7AB52255B4AE6000F0B7B /* Principal.storyboard */; };
+		CA39945B256A36B40006C650 /* AcaoDoMes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA39945A256A36B40006C650 /* AcaoDoMes.storyboard */; };
+		CA39945E256A36D40006C650 /* AcaodoMesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39945D256A36D40006C650 /* AcaodoMesViewController.swift */; };
+		CA399462256A39A50006C650 /* AcaoDoMesConfirmacao.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA399461256A39A50006C650 /* AcaoDoMesConfirmacao.storyboard */; };
+		CA399466256A39BB0006C650 /* AcaoDoMesConfirmacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA399465256A39BB0006C650 /* AcaoDoMesConfirmacaoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		33D7AB46255B4A02000F0B7B /* InscricaoAcaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscricaoAcaoViewController.swift; sourceTree = "<group>"; };
 		33D7AB4A255B4A4F000F0B7B /* RedesSociaisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedesSociaisViewController.swift; sourceTree = "<group>"; };
 		33D7AB52255B4AE6000F0B7B /* Principal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Principal.storyboard; sourceTree = "<group>"; };
+		CA39945A256A36B40006C650 /* AcaoDoMes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AcaoDoMes.storyboard; sourceTree = "<group>"; };
+		CA39945D256A36D40006C650 /* AcaodoMesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcaodoMesViewController.swift; sourceTree = "<group>"; };
+		CA399461256A39A50006C650 /* AcaoDoMesConfirmacao.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AcaoDoMesConfirmacao.storyboard; sourceTree = "<group>"; };
+		CA399465256A39BB0006C650 /* AcaoDoMesConfirmacaoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcaoDoMesConfirmacaoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,8 @@
 		333EC04A255B2DAE008ABFC1 /* PI_G8_Beneficie */ = {
 			isa = PBXGroup;
 			children = (
+				CA399460256A398D0006C650 /* AcaoDoMesConfirmacao */,
+				CA399459256A368A0006C650 /* AcaoDoMes */,
 				333EC04B255B2DAE008ABFC1 /* AppDelegate.swift */,
 				333EC04D255B2DAE008ABFC1 /* SceneDelegate.swift */,
 				333EC04F255B2DAE008ABFC1 /* ViewController.swift */,
@@ -121,6 +131,24 @@
 				33477AD4255B4C8700D916D2 /* PrincipalViewController.swift */,
 			);
 			path = Principal;
+			sourceTree = "<group>";
+		};
+		CA399459256A368A0006C650 /* AcaoDoMes */ = {
+			isa = PBXGroup;
+			children = (
+				CA39945A256A36B40006C650 /* AcaoDoMes.storyboard */,
+				CA39945D256A36D40006C650 /* AcaodoMesViewController.swift */,
+			);
+			path = AcaoDoMes;
+			sourceTree = "<group>";
+		};
+		CA399460256A398D0006C650 /* AcaoDoMesConfirmacao */ = {
+			isa = PBXGroup;
+			children = (
+				CA399461256A39A50006C650 /* AcaoDoMesConfirmacao.storyboard */,
+				CA399465256A39BB0006C650 /* AcaoDoMesConfirmacaoViewController.swift */,
+			);
+			path = AcaoDoMesConfirmacao;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA399462256A39A50006C650 /* AcaoDoMesConfirmacao.storyboard in Resources */,
 				333EC061255B30C5008ABFC1 /* RedesSociais.storyboard in Resources */,
 				33477AE2255B520400D916D2 /* InfosFinanceiras.storyboard in Resources */,
 				333EC058255B2DB0008ABFC1 /* LaunchScreen.storyboard in Resources */,
@@ -187,6 +216,7 @@
 				33477AD9255B4D3200D916D2 /* Main.storyboard in Resources */,
 				333EC064255B34A5008ABFC1 /* InscricaoAcao.storyboard in Resources */,
 				33D7AB53255B4AE6000F0B7B /* Principal.storyboard in Resources */,
+				CA39945B256A36B40006C650 /* AcaoDoMes.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,10 +230,12 @@
 				333EC050255B2DAE008ABFC1 /* ViewController.swift in Sources */,
 				333EC04C255B2DAE008ABFC1 /* AppDelegate.swift in Sources */,
 				33D7AB4B255B4A4F000F0B7B /* RedesSociaisViewController.swift in Sources */,
+				CA39945E256A36D40006C650 /* AcaodoMesViewController.swift in Sources */,
 				33477AD5255B4C8700D916D2 /* PrincipalViewController.swift in Sources */,
 				33D7AB47255B4A02000F0B7B /* InscricaoAcaoViewController.swift in Sources */,
 				33477ADE255B51F300D916D2 /* InfosFinanceirasViewController.swift in Sources */,
 				333EC04E255B2DAE008ABFC1 /* SceneDelegate.swift in Sources */,
+				CA399466256A39BB0006C650 /* AcaoDoMesConfirmacaoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
