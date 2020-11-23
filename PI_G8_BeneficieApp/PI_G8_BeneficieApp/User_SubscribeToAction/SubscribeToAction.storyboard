@@ -28,6 +28,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="7zi-9K-VQH"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7zi-9K-VQH"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="93" translatesAutoresizingMaskIntoConstraints="NO" id="Gce-M6-tU6">
                                 <rect key="frame" x="20" y="74" width="374" height="51"/>
@@ -120,6 +125,7 @@
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="20" id="EbA-Wd-WXO"/>
                             <constraint firstItem="34a-qF-NrK" firstAttribute="leading" secondItem="F3Q-kt-G1H" secondAttribute="trailing" constant="8" id="FBz-s6-fJa"/>
                             <constraint firstItem="34a-qF-NrK" firstAttribute="top" secondItem="txn-Y0-9iU" secondAttribute="bottom" constant="60" id="H04-J4-ZgW"/>
+                            <constraint firstItem="txn-Y0-9iU" firstAttribute="top" secondItem="jBs-Sz-8d8" secondAttribute="bottom" constant="151.5" id="LgU-CK-GdD"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="top" secondItem="mkO-Z9-d0O" secondAttribute="bottom" constant="36" id="Ni3-Gl-okE"/>
                             <constraint firstItem="txn-Y0-9iU" firstAttribute="top" secondItem="H22-kQ-cjO" secondAttribute="bottom" constant="141" id="Oho-X8-EYU"/>
                             <constraint firstItem="mkO-Z9-d0O" firstAttribute="leading" secondItem="4Pc-Z9-hCv" secondAttribute="leading" id="Ozz-Er-jYw"/>
@@ -137,6 +143,11 @@
                             <constraint firstItem="5W5-Lr-sCn" firstAttribute="top" secondItem="F3Q-kt-G1H" secondAttribute="bottom" constant="221" id="wIP-Xl-9A6"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="jBs-Sz-8d8" secondAttribute="trailing" constant="20" id="zm6-w6-Dud"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ni3-Gl-okE"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gJ-gx-w4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

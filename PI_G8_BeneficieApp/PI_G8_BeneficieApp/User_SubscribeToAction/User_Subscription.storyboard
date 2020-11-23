@@ -55,7 +55,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ação do Mês" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-Sz-8d8">
-                                <rect key="frame" x="141.5" y="232" width="129.5" height="21"/>
+                                <rect key="frame" x="141.5" y="225.5" width="129.5" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -216,6 +216,11 @@
                             <constraint firstItem="fmr-lo-hUO" firstAttribute="leading" secondItem="5W5-Lr-sCn" secondAttribute="trailing" constant="29" id="xLi-j6-5CA"/>
                             <constraint firstItem="qGh-0W-C3s" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="27" id="y1g-DA-Fjs"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Ni3-Gl-okE"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gJ-gx-w4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
