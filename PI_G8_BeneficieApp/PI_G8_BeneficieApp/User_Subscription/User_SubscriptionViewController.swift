@@ -15,21 +15,19 @@ class User_SubscriptionViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    @IBAction func actionSubscribePressed(_ sender: Any) {
+        if let userSubscribe = UIStoryboard(name: "SubscribeToAction", bundle: nil).instantiateInitialViewController() as? SubscribeToActionViewController {
+                navigationController?.pushViewController(userSubscribe, animated: true)
+            }
+    }
     
-    @IBAction func actionConfirmPressed(_ sender: Any) {
-        if let userFinanceData = UIStoryboard(name: "User_InformacoesFinanceiras", bundle: nil).instantiateInitialViewController() as? User_InformacoesFinanceirasViewController {
-            navigationController?.pushViewController(userFinanceData, animated: true)
+    @IBAction func actionDonatePressed(_ sender: Any) {
+        if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
+                navigationController?.pushViewController(userFinanceData, animated: true)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

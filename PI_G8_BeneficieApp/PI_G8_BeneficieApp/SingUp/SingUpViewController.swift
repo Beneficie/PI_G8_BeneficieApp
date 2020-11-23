@@ -26,9 +26,7 @@ class SingUpViewController: UIViewController {
     }
     
     @IBAction func actionSignUpPressed(_ sender: Any) {
-        if let userSocialNetworks = UIStoryboard(name: "User_SocialNetworks", bundle: nil).instantiateInitialViewController() as? User_SocialNetworksViewController {
-            navigationController?.pushViewController(userSocialNetworks, animated: true)
-        }
+        
     }
     
      private func configureUI(){

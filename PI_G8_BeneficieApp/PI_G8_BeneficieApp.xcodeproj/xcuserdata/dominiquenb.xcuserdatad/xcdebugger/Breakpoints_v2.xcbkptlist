@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "actionSignUpPressed(_:)"
-            landmarkType = "7">
+            landmarkName = "SingUpViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,7 +32,71 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "actionSignUpPressed(_:)"
+            landmarkName = "SingUpViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE2A0BD9-9FF9-4C67-9D83-E0E5B08725DB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PI_G8_BeneficieApp/User_BanksMenu/BankCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "setUpCell(bank:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3BD38D1F-4FF1-48A1-93AA-B81C3F64F646"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PI_G8_BeneficieApp/User_SubscribeToAction/SubscribeToActionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "confirmButtonPressed(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1CF7F39D-7DDF-47F3-8607-5C71E05EB490"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PI_G8_BeneficieApp/User_FinancialDetails/FinancialDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "alertDonation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "577D229D-5E26-40DC-9708-D30F13F1B0B4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PI_G8_BeneficieApp/User_FinancialDetails/FinancialDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "openSocialNetwork()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
