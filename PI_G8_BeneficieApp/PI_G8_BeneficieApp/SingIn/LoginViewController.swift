@@ -52,6 +52,10 @@ class LoginViewController: UIViewController {
     
     //MARK: - Actions
    
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func HandleLogIn(_ sender: Any) {
         if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
             navigationController?.pushViewController(userSubscription, animated: true)

@@ -120,7 +120,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EF0F7C7E-EF7E-4B5A-ACB4-77520A1E67A2"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PI_G8_BeneficieApp/User_BanksMenu/BanksMenuViewController.swift"
