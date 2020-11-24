@@ -21,7 +21,12 @@ class ParticipantsViewController: UIViewController {
     @IBAction func BackButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-
+    @IBAction func profilleButton(_ sender: Any) {
+        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            navigationController?.pushViewController(Profile, animated: true)
+        }
+    }
+    
 }
 
 //MARK: - TableViewDelegate and DataSource

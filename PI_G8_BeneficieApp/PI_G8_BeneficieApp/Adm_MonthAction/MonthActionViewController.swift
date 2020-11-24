@@ -11,10 +11,7 @@ import UIKit
 class MonthActionViewController: UIViewController {
 
     @IBOutlet weak var purpleView: UIView!
-  
-    
     @IBOutlet weak var pinkView: UIView!
-    
     @IBOutlet weak var whiteView: UIView!
     
     @IBOutlet weak var FinancesContainer: UIView!
@@ -30,6 +27,17 @@ class MonthActionViewController: UIViewController {
     
     @IBAction func BackButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    @IBAction func profileButton(_ sender: Any) {
+        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            navigationController?.pushViewController(Profile, animated: true)
+        }
+    }
+    @IBAction func bankInformations(_ sender: Any) {
+        if let bankInformations = UIStoryboard(name: "BankInformations", bundle: nil).instantiateInitialViewController() as? BankInformationsViewController {
+            navigationController?.pushViewController(bankInformations, animated: true)
+        }
+
     }
     @IBAction func EditAction(_ sender: UIButton) {
     }

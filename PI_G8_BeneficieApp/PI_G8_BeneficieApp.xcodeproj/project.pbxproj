@@ -36,6 +36,8 @@
 		33683803256C3DA700FCF70C /* BanksMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33683802256C3DA600FCF70C /* BanksMenu.storyboard */; };
 		33683807256C3DD700FCF70C /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33683806256C3DD700FCF70C /* BankCell.swift */; };
 		3368380C256C3F2700FCF70C /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368380B256C3F2700FCF70C /* Bank.swift */; };
+		339282F9256D3FB60051DA2A /* BankInformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339282F8256D3FB60051DA2A /* BankInformations.storyboard */; };
+		33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33928301256D461F0051DA2A /* BankInformationsViewController.swift */; };
 		33D07E86255DB4B600272FBF /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D07E85255DB4B600272FBF /* MainScreenViewController.swift */; };
 		33D07E8A255DB4C400272FBF /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D07E89255DB4C400272FBF /* MainScreen.storyboard */; };
 		33D07E8E255DC0CD00272FBF /* User_SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D07E8D255DC0CD00272FBF /* User_SubscriptionViewController.swift */; };
@@ -77,6 +79,8 @@
 		33683802256C3DA600FCF70C /* BanksMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BanksMenu.storyboard; sourceTree = "<group>"; };
 		33683806256C3DD700FCF70C /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
 		3368380B256C3F2700FCF70C /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		339282F8256D3FB60051DA2A /* BankInformations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BankInformations.storyboard; path = PI_G8_BeneficieApp/Adm_MonthAction/BankInformations.storyboard; sourceTree = SOURCE_ROOT; };
+		33928301256D461F0051DA2A /* BankInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInformationsViewController.swift; sourceTree = "<group>"; };
 		33D07E85255DB4B600272FBF /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		33D07E89255DB4C400272FBF /* MainScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		33D07E8D255DC0CD00272FBF /* User_SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_SubscriptionViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 				0D153B3C256AB03D00E391AB /* Adm_Participants */,
 				0D153B37256A9D5300E391AB /* Adm_CreateAction */,
 				0D1068D025694CC3002E5909 /* Adm_MonthAction */,
+				339282F6256D3F790051DA2A /* Adm_BankInformations */,
 				0D1068C925693BB2002E5909 /* Adm_ListActions */,
 				0D1068C225693429002E5909 /* Profile */,
 				33D07E84255DB41200272FBF /* MainScreen  */,
@@ -239,6 +244,15 @@
 				33683809256C3EF100FCF70C /* Bank */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		339282F6256D3F790051DA2A /* Adm_BankInformations */ = {
+			isa = PBXGroup;
+			children = (
+				339282F8256D3FB60051DA2A /* BankInformations.storyboard */,
+				33928301256D461F0051DA2A /* BankInformationsViewController.swift */,
+			);
+			path = Adm_BankInformations;
 			sourceTree = "<group>";
 		};
 		33D07E84255DB41200272FBF /* MainScreen  */ = {
@@ -340,6 +354,7 @@
 				0DA44248255ADC2F00C82076 /* SingUp.storyboard in Resources */,
 				0D153B3E256AB10900E391AB /* ParticipantsList.storyboard in Resources */,
 				0D153B39256A9D8E00E391AB /* CreateAction.storyboard in Resources */,
+				339282F9256D3FB60051DA2A /* BankInformations.storyboard in Resources */,
 				0D778631255A235300255307 /* Main.storyboard in Resources */,
 				33D07E9E255DC35000272FBF /* FinancialDetails.storyboard in Resources */,
 				0D1068C825693A15002E5909 /* Assets.xcassets in Resources */,
@@ -372,6 +387,7 @@
 				0D77862A255A235300255307 /* AppDelegate.swift in Sources */,
 				0D153B40256AB26600E391AB /* ParticipantsViewController.swift in Sources */,
 				0D1068CD25693EF5002E5909 /* AdmActionsViewController.swift in Sources */,
+				33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */,
 				0D1068D425695209002E5909 /* MonthActionViewController.swift in Sources */,
 				336837EF256C33A200FCF70C /* SubscribeToActionViewController.swift in Sources */,
 				0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */,

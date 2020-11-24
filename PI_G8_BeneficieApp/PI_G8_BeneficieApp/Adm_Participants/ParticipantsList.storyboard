@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="khG-pE-MSb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="khG-pE-MSb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,7 +33,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="93" translatesAutoresizingMaskIntoConstraints="NO" id="WS0-32-wpG">
                                 <rect key="frame" x="21" y="74" width="372" height="51"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c97-xf-Rv8">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c97-xf-Rv8">
                                         <rect key="frame" x="0.0" y="0.0" width="29.5" height="51"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <state key="normal" title="&lt;">
@@ -50,12 +52,15 @@
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbR-dZ-UqW">
                                         <rect key="frame" x="345.5" y="12" width="26.5" height="27.5"/>
                                         <state key="normal" image="Path 176"/>
+                                        <connections>
+                                            <action selector="profilleButton:" destination="khG-pE-MSb" eventType="touchUpInside" id="EdZ-VA-2gV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-6Z-SxS">
                                 <rect key="frame" x="1" y="280" width="412" height="582"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseCell" rowHeight="83" id="lnO-uu-6MV" customClass="ParticipantsCell" customModule="PI_G8_BeneficieApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="412" height="83"/>
@@ -85,13 +90,14 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participantes Cadastrados" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3H-nP-h96">
-                                <rect key="frame" x="76.5" y="228.5" width="261.5" height="27.5"/>
+                                <rect key="frame" x="76.5" y="228.5" width="261" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Qbb-h0-EDF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rhA-mX-PAy" firstAttribute="centerX" secondItem="WS0-32-wpG" secondAttribute="centerX" id="0ho-Be-9TC"/>
                             <constraint firstItem="58v-70-xiO" firstAttribute="leading" secondItem="qxx-g1-PDM" secondAttribute="leading" id="0iG-Ut-qs8"/>
@@ -110,7 +116,6 @@
                             <constraint firstAttribute="trailing" secondItem="58v-70-xiO" secondAttribute="trailing" id="uHW-jL-SEz"/>
                             <constraint firstItem="58v-70-xiO" firstAttribute="top" secondItem="qxx-g1-PDM" secondAttribute="top" id="yhs-ts-cp2"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Qbb-h0-EDF"/>
                     </view>
                     <connections>
                         <outlet property="ParticipantsTableView" destination="fFs-6Z-SxS" id="UHB-Ii-MhE"/>
@@ -125,5 +130,8 @@
         <image name="Path 176" width="26.5" height="27.5"/>
         <image name="Rectangle 366" width="187.5" height="87"/>
         <image name="Rectangle 367" width="217" height="78"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
