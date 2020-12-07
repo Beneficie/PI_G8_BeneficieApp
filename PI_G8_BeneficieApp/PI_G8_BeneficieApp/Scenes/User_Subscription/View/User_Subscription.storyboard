@@ -29,13 +29,13 @@
                                     <constraint firstAttribute="height" constant="172" id="7zi-9K-VQH"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="93" translatesAutoresizingMaskIntoConstraints="NO" id="Gce-M6-tU6">
-                                <rect key="frame" x="18" y="74" width="376" height="51"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="73" translatesAutoresizingMaskIntoConstraints="NO" id="Gce-M6-tU6">
+                                <rect key="frame" x="18" y="74" width="376" height="27.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0n-PH-95Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="33.5" height="51"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                        <state key="normal" title="&lt;">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0n-PH-95Q">
+                                        <rect key="frame" x="0.0" y="3" width="73.5" height="22"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Voltar" image="chevron.backward" catalog="system">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -43,14 +43,17 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano de Tal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBa-7K-jPh">
-                                        <rect key="frame" x="126.5" y="12" width="130" height="27.5"/>
+                                        <rect key="frame" x="146.5" y="0.0" width="130" height="27.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WW-jp-raa">
-                                        <rect key="frame" x="349.5" y="12" width="26.5" height="27.5"/>
+                                        <rect key="frame" x="349.5" y="0.0" width="26.5" height="27.5"/>
                                         <state key="normal" image="Path 176"/>
+                                        <connections>
+                                            <action selector="profileButton:" destination="o6S-to-EFc" eventType="touchUpInside" id="i30-u4-irN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -186,10 +189,17 @@
                                     <action selector="actionSubscribePressed:" destination="o6S-to-EFc" eventType="touchUpInside" id="kJr-e0-AAa"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voluntário" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHt-jw-WhZ">
+                                <rect key="frame" x="163" y="162.5" width="89" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MHt-k1-2uj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jBs-Sz-8d8" firstAttribute="top" secondItem="uHt-jw-WhZ" secondAttribute="bottom" constant="39" id="0qa-ZU-fOO"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="Gce-M6-tU6" secondAttribute="trailing" constant="20" id="1a8-S6-q9x"/>
                             <constraint firstAttribute="trailing" secondItem="mkO-Z9-d0O" secondAttribute="trailing" id="3F3-uS-E5Z"/>
                             <constraint firstItem="5W5-Lr-sCn" firstAttribute="top" secondItem="qGh-0W-C3s" secondAttribute="bottom" constant="65" id="3sm-BM-wo6"/>
@@ -201,6 +211,7 @@
                             <constraint firstItem="RXH-tD-uUO" firstAttribute="top" secondItem="jBs-Sz-8d8" secondAttribute="bottom" constant="24" id="CIs-cO-Gxe"/>
                             <constraint firstItem="Gce-M6-tU6" firstAttribute="top" secondItem="MHt-k1-2uj" secondAttribute="top" constant="30" id="EXL-ze-BTq"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerX" secondItem="qGh-0W-C3s" secondAttribute="centerX" id="EZA-Id-WwK"/>
+                            <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="uHt-jw-WhZ" secondAttribute="trailing" constant="162" id="EgS-RP-gD3"/>
                             <constraint firstItem="RXH-tD-uUO" firstAttribute="top" secondItem="H22-kQ-cjO" secondAttribute="bottom" constant="7" id="NbX-sa-OqJ"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="top" secondItem="mkO-Z9-d0O" secondAttribute="bottom" constant="36" id="Ni3-Gl-okE"/>
                             <constraint firstItem="mkO-Z9-d0O" firstAttribute="leading" secondItem="4Pc-Z9-hCv" secondAttribute="leading" id="Ozz-Er-jYw"/>
@@ -208,6 +219,7 @@
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="bottom" secondItem="5W5-Lr-sCn" secondAttribute="bottom" constant="25" id="Wex-Ha-tSh"/>
                             <constraint firstItem="H22-kQ-cjO" firstAttribute="centerX" secondItem="RXH-tD-uUO" secondAttribute="centerX" id="YdJ-qt-hu2"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="qGh-0W-C3s" secondAttribute="trailing" constant="29" id="exx-hj-4Yp"/>
+                            <constraint firstItem="uHt-jw-WhZ" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="163" id="hEC-pQ-Mdt"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="fmr-lo-hUO" secondAttribute="trailing" constant="42" id="jUG-2s-TWV"/>
                             <constraint firstItem="qGh-0W-C3s" firstAttribute="top" secondItem="RXH-tD-uUO" secondAttribute="bottom" constant="19" id="kLF-aD-AWt"/>
                             <constraint firstItem="H22-kQ-cjO" firstAttribute="centerX" secondItem="jBs-Sz-8d8" secondAttribute="centerX" id="nsP-3o-7xy"/>
@@ -232,6 +244,7 @@
         <image name="Path 176" width="26.5" height="27.5"/>
         <image name="Rectangle 366" width="187.5" height="87"/>
         <image name="Rectangle 367" width="217" height="78"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -126,10 +126,9 @@
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E73-ww-DBA">
-                                <rect key="frame" x="20" y="84" width="33.5" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="&lt;">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E73-ww-DBA">
+                                <rect key="frame" x="20" y="84" width="59.5" height="22"/>
+                                <state key="normal" title="Voltar" image="chevron.backward" catalog="system">
                                     <color key="titleColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -163,6 +162,11 @@
                             <constraint firstItem="bZg-yi-i5t" firstAttribute="trailing" secondItem="Ied-lQ-2cQ" secondAttribute="trailing" constant="149" id="uqB-Bz-aOt"/>
                             <constraint firstItem="Ied-lQ-2cQ" firstAttribute="leading" secondItem="E73-ww-DBA" secondAttribute="trailing" constant="96.5" id="vUN-nG-1pi"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vUN-nG-1pi"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="hk2-JC-yu6"/>
                     <connections>
@@ -178,6 +182,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="image_hands (2)" width="256" height="256"/>
         <systemColor name="scrollViewTexturedBackgroundColor">
             <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

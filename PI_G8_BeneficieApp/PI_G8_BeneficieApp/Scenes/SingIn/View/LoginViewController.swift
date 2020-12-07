@@ -10,14 +10,50 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    //  MARK: - Outlets
     @IBOutlet weak var singUpButtonOutlet: UIButton!
     @IBOutlet weak var LoginButtonOutlet: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInTextField: UITextField!
     
+    func isInformationValid() -> Bool {
+        if logInTextField.text == nil || logInTextField.text!.isEmpty {
+            alertToMissingAnswer(field: "usuário")
+            return false
+        }
+        else if passwordTextField.text == nil || passwordTextField.text!.isEmpty {
+            alertToMissingAnswer(field: "senha")
+            return false
+        }
+        return true
+    }
+    
+    func alertToMissingAnswer(field: String){
+            let alert = UIAlertController(title: "Atenção", message: "Falta \(field)", preferredStyle: .alert)
+
+            let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true) {
+               
+            }
+        }
+    
+    func isAdmin(user: String) -> Bool{
+        if user.contains("admin@admin") {
+            return true
+        } else {
+            return false
+        }
+}
+    
+    //  MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        logInTextField.delegate = self
+        passwordTextField.delegate = self
+        
         configureUI()
         
     }
@@ -57,10 +93,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func handleLogIn(_ sender: Any) {
-//        condição de autenticação do user
-        
-        if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
-            navigationController?.pushViewController(userSubscription, animated: true)
+        if isInformationValid() {
+            if textFieldDidEndEditing(logInTextField) {
+                if let signIn = UIStoryboard(name: "MonthAction", bundle: nil).instantiateInitialViewController() as? MonthActionViewController {
+                    navigationController?.pushViewController(signIn, animated: true)
+                }
+            } else {
+                if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
+                    navigationController?.pushViewController(userSubscription, animated: true)
+                }
+            }
         }
     }
     
@@ -71,5 +113,28 @@ class LoginViewController: UIViewController {
         if let signUp = UIStoryboard(name: "SingUp", bundle: nil).instantiateInitialViewController() as? SingUpViewController {
             navigationController?.pushViewController(signUp, animated: true)
         }
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField != nil {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            isInformationValid()
+        }
+        handleLogIn(LoginButtonOutlet)
+        return true
+        
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) -> Bool {
+        if let user = textField.text {
+            var login = isAdmin(user: user)
+            if login {
+                return true
+            }
+        }
+        return false
     }
 }

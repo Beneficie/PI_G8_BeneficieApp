@@ -24,6 +24,11 @@ class CreateActionViewController: UIViewController {
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
         saveButtonOutlet.layer.cornerRadius = 15
     }
+    @IBAction func profileButton(_ sender: Any) {
+        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            navigationController?.pushViewController(Profile, animated: true)
+        }
+    }
     
     @IBAction func saveButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Ação Salva", message: "Ação salva com sucesso", preferredStyle: .alert)

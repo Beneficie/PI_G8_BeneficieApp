@@ -25,6 +25,10 @@ class SubscribeToActionViewController: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    @IBAction func profileButton(_ sender: Any) {
+        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController { navigationController?.pushViewController(Profile, animated: true) }
+    }
+    
     @IBAction func confirmButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Inscrição Confirmada", message: "Você foi inscrito na ação", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
