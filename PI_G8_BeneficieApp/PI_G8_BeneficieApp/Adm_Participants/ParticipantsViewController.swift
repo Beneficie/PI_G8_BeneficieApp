@@ -10,15 +10,15 @@ import UIKit
 
 class ParticipantsViewController: UIViewController {
 
-    @IBOutlet weak var ParticipantsTableView: UITableView!
+    @IBOutlet weak var participantsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ParticipantsTableView.delegate = self
-        ParticipantsTableView.dataSource = self
+        participantsTableView.delegate = self
+        participantsTableView.dataSource = self
     }
     
-    @IBAction func BackButton(_ sender: Any) {
+    @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func profilleButton(_ sender: Any) {

@@ -10,10 +10,10 @@ import UIKit
 
 class ParticipantsCell: UITableViewCell{
     
-    @IBOutlet weak var ParticipantLabel: UILabel!
+    @IBOutlet weak var participantLabel: UILabel!
     
     func configure(with model: ParticipantsModel){
-        ParticipantLabel.text = model.name
+        participantLabel.text = model.name
     }
 }
 

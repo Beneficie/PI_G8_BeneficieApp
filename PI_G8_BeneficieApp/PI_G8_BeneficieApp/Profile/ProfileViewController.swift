@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var labelUserName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,5 +21,19 @@ class ProfileViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-
+    @IBAction func buttonEmail(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func configurationButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func contactButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func exitButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }

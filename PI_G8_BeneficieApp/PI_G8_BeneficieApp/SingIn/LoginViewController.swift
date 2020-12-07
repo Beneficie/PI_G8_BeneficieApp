@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var SingUpButtonOutlet: UIButton!
+    @IBOutlet weak var singUpButtonOutlet: UIButton!
     @IBOutlet weak var LoginButtonOutlet: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInTextField: UITextField!
@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
    
         attrbText.append(NSAttributedString(string: "Cadastre-se", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15),NSAttributedString.Key.foregroundColor: UIColor.gray]))
         
-        SingUpButtonOutlet.setAttributedTitle(attrbText, for: .normal)
+        singUpButtonOutlet.setAttributedTitle(attrbText, for: .normal)
         
         
     
@@ -56,16 +56,18 @@ class LoginViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func HandleLogIn(_ sender: Any) {
+    @IBAction func handleLogIn(_ sender: Any) {
+//        condição de autenticação do user
+        
         if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
             navigationController?.pushViewController(userSubscription, animated: true)
         }
     }
     
-    @IBAction func HandleForgotPassword(_ sender: UIButton) {
+    @IBAction func handleForgotPassword(_ sender: UIButton) {
         print("DEBUG: Forgot Password")
     }
-    @IBAction func HandleSingUp(_ sender: UIButton) {
+    @IBAction func handleSingUp(_ sender: UIButton) {
         if let signUp = UIStoryboard(name: "SingUp", bundle: nil).instantiateInitialViewController() as? SingUpViewController {
             navigationController?.pushViewController(signUp, animated: true)
         }

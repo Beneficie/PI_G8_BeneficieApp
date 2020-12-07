@@ -14,9 +14,10 @@ class MonthActionViewController: UIViewController {
     @IBOutlet weak var pinkView: UIView!
     @IBOutlet weak var whiteView: UIView!
     
-    @IBOutlet weak var FinancesContainer: UIView!
-    @IBOutlet weak var ParticipantsContainer: UIView!
-    @IBOutlet weak var ConfigureActionsContainer: UIView!
+    @IBOutlet weak var financesContainer: UIView!
+    @IBOutlet weak var participantsContainer: UIView!
+    @IBOutlet weak var configureActionsContainer: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,7 +26,7 @@ class MonthActionViewController: UIViewController {
         
     }
     
-    @IBAction func BackButton(_ sender: Any) {
+    @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func profileButton(_ sender: Any) {
@@ -39,19 +40,19 @@ class MonthActionViewController: UIViewController {
         }
 
     }
-    @IBAction func EditAction(_ sender: UIButton) {
+    @IBAction func editAction(_ sender: UIButton) {
     }
     @IBAction func ListAction(_ sender: UIButton) {
         if let actions = UIStoryboard(name: "AdmActions", bundle: nil).instantiateInitialViewController() as? AdmActionsViewController {
             navigationController?.pushViewController(actions, animated: true)
         }
     }
-    @IBAction func CreateAction(_ sender: UIButton) {
+    @IBAction func createAction(_ sender: UIButton) {
         if let actions = UIStoryboard(name: "CreateAction", bundle: nil).instantiateInitialViewController() as? CreateActionViewController {
             navigationController?.pushViewController(actions, animated: true)
         }
     }
-    @IBAction func ParticipantsButton(_ sender: UIButton) {
+    @IBAction func participantsButton(_ sender: UIButton) {
         
         if let ParticipantsView = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
             navigationController?.pushViewController(ParticipantsView, animated: true)
@@ -62,9 +63,9 @@ class MonthActionViewController: UIViewController {
         pinkView.RoundView()
         whiteView.RoundView()
         
-        FinancesContainer.setupShadow(opacity: 0.2, radius: 4)
-        ParticipantsContainer.setupShadow(opacity: 0.2, radius: 4)
-        ConfigureActionsContainer.setupShadow(opacity: 0.2, radius: 4)
+        financesContainer.setupShadow(opacity: 0.2, radius: 4)
+        participantsContainer.setupShadow(opacity: 0.2, radius: 4)
+        configureActionsContainer.setupShadow(opacity: 0.2, radius: 4)
     }
     
 	

@@ -17,7 +17,7 @@ class ProfileViewModel {
 //        }
 //    }
 //
-//    func navigationPop(screenName: String, screenViewController: UIViewController) {
+//    func navigationPop() {
 //        navigationController?.popViewController(animated: true)
 //    }
     

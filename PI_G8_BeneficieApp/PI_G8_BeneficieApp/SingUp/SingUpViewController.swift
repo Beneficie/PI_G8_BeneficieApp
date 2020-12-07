@@ -10,18 +10,20 @@ import UIKit
 
 class SingUpViewController: UIViewController {
 
-    @IBOutlet weak var LoginTextFieldOutlet: UITextField!
-    @IBOutlet weak var PasswordTextFieldOutlet: UITextField!
-    @IBOutlet weak var ContactTextFieldOutlet: UITextField!
+    @IBOutlet weak var loginTextFieldOutlet: UITextField!
+    @IBOutlet weak var passwordTextFieldOutlet: UITextField!
+    @IBOutlet weak var contactTextFieldOutlet: UITextField!
     
-    @IBOutlet weak var GoogleButtonOutlet: UIButton!
-    @IBOutlet weak var FacebookButtonOutlet: UIButton!
-    @IBOutlet weak var SingUpButtonOutlet: UIButton!
-    @IBOutlet weak var SingInButtonOutlet: UIButton!
+    @IBOutlet weak var googleButtonOutlet: UIButton!
+    @IBOutlet weak var facebookButtonOutlet: UIButton!
+    @IBOutlet weak var singUpButtonOutlet: UIButton!
+    @IBOutlet weak var singInButtonOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
       configureUI()
+        
         
     }
     
@@ -31,31 +33,31 @@ class SingUpViewController: UIViewController {
     
      private func configureUI(){
         
-        LoginTextFieldOutlet.keyboardAppearance = .dark
-        LoginTextFieldOutlet.leftViewMode = .always
-        LoginTextFieldOutlet.borderStyle = .none
-        LoginTextFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        loginTextFieldOutlet.keyboardAppearance = .dark
+        loginTextFieldOutlet.leftViewMode = .always
+        loginTextFieldOutlet.borderStyle = .none
+        loginTextFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        ContactTextFieldOutlet.keyboardAppearance = .dark
-        ContactTextFieldOutlet.leftViewMode = .always
-        ContactTextFieldOutlet.borderStyle = .none
-        ContactTextFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        contactTextFieldOutlet.keyboardAppearance = .dark
+        contactTextFieldOutlet.leftViewMode = .always
+        contactTextFieldOutlet.borderStyle = .none
+        contactTextFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        PasswordTextFieldOutlet.keyboardAppearance = .dark
-        PasswordTextFieldOutlet.leftViewMode = .always
-        PasswordTextFieldOutlet.borderStyle = .none
-        PasswordTextFieldOutlet.isSecureTextEntry = true
-        PasswordTextFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Contato", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        passwordTextFieldOutlet.keyboardAppearance = .dark
+        passwordTextFieldOutlet.leftViewMode = .always
+        passwordTextFieldOutlet.borderStyle = .none
+        passwordTextFieldOutlet.isSecureTextEntry = true
+        passwordTextFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Contato", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        GoogleButtonOutlet.layer.cornerRadius = 5
-        FacebookButtonOutlet.layer.cornerRadius = 5
+        googleButtonOutlet.layer.cornerRadius = 5
+        facebookButtonOutlet.layer.cornerRadius = 5
 
         
-        SingUpButtonOutlet.layer.cornerRadius = 25
-        SingUpButtonOutlet.layer.shadowOpacity = 0.3
-        SingUpButtonOutlet.layer.shadowRadius = 25
-        SingUpButtonOutlet.layer.shadowOffset = .zero
-        SingUpButtonOutlet.layer.shadowColor = UIColor.black.cgColor
+        singUpButtonOutlet.layer.cornerRadius = 25
+        singUpButtonOutlet.layer.shadowOpacity = 0.3
+        singUpButtonOutlet.layer.shadowRadius = 25
+        singUpButtonOutlet.layer.shadowOffset = .zero
+        singUpButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         
         
         
@@ -63,17 +65,17 @@ class SingUpViewController: UIViewController {
         
              attrbText.append(NSAttributedString(string: "Entrar", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15),NSAttributedString.Key.foregroundColor: UIColor.white]))
              
-             SingInButtonOutlet.setAttributedTitle(attrbText, for: .normal)
+             singInButtonOutlet.setAttributedTitle(attrbText, for: .normal)
     }
     
 
-    @IBAction func SingInButton(_ sender: UIButton) {
+    @IBAction func singInButton(_ sender: UIButton) {
         if let signIn = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as? LoginViewController {
             navigationController?.pushViewController(signIn, animated: true)
         }
     }
     
-    @IBAction func SocialLoginButton(_ sender: UIButton) {
+    @IBAction func socialLoginButton(_ sender: UIButton) {
         //****** tag = 0 para facebook e tag = 1 para google *********//
         if (sender.tag == 0){
             print("DEBUG: Facebook")
