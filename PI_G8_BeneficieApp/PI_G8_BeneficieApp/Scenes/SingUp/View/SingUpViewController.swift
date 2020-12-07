@@ -27,6 +27,9 @@ class SingUpViewController: UIViewController {
         
     }
     
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     @IBAction func actionSignUpPressed(_ sender: Any) {
         
     }

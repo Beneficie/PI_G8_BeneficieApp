@@ -18,6 +18,10 @@ class User_SubscriptionViewController: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    @IBAction func profileButton(_ sender: Any) {
+        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController { navigationController?.pushViewController(Profile, animated: true) }
+    }
+    
     @IBAction func actionSubscribePressed(_ sender: Any) {
         if let userSubscribe = UIStoryboard(name: "SubscribeToAction", bundle: nil).instantiateInitialViewController() as? SubscribeToActionViewController {
                 navigationController?.pushViewController(userSubscribe, animated: true)

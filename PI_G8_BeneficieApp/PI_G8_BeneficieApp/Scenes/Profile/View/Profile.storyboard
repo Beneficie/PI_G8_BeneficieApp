@@ -32,7 +32,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano de Tal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLO-ZB-66S">
-                                <rect key="frame" x="131" y="78" width="152" height="32.5"/>
+                                <rect key="frame" x="131" y="59" width="152" height="32.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -120,10 +120,10 @@
                                     <action selector="exitButton:" destination="Qn9-rD-5DG" eventType="touchUpInside" id="TRa-Sb-5Hk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbQ-Yc-sXA">
-                                <rect key="frame" x="20" y="69" width="30" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <state key="normal" title="&lt;">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbQ-Yc-sXA">
+                                <rect key="frame" x="20" y="64" width="59.5" height="22"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Voltar" image="chevron.backward" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -162,6 +162,7 @@
                             <constraint firstItem="ggO-j2-4TF" firstAttribute="bottom" secondItem="co8-Cs-Jgn" secondAttribute="bottom" constant="10" id="NrY-mR-co8"/>
                             <constraint firstItem="TkR-1B-nPF" firstAttribute="top" secondItem="Rql-Nw-Mmd" secondAttribute="top" constant="11" id="PK5-xI-QET"/>
                             <constraint firstItem="Rql-Nw-Mmd" firstAttribute="trailing" secondItem="TkR-1B-nPF" secondAttribute="trailing" constant="12" id="Q8m-Bl-hu1"/>
+                            <constraint firstItem="YbQ-Yc-sXA" firstAttribute="leading" secondItem="LYd-OT-efo" secondAttribute="leading" constant="20" id="QUj-n2-hfn"/>
                             <constraint firstItem="xt0-Of-HBC" firstAttribute="trailing" secondItem="dsV-Up-Vyw" secondAttribute="trailing" constant="235" id="SeV-Px-bRj"/>
                             <constraint firstItem="3aU-Z2-B63" firstAttribute="centerX" secondItem="ZvY-hb-lsq" secondAttribute="centerX" id="YBD-Cu-mOc"/>
                             <constraint firstItem="14k-zO-ho4" firstAttribute="top" secondItem="lKc-z7-T8m" secondAttribute="top" constant="10" id="YEt-3x-IMn"/>
@@ -173,6 +174,8 @@
                             <constraint firstItem="Rql-Nw-Mmd" firstAttribute="top" secondItem="ggO-j2-4TF" secondAttribute="bottom" constant="20" id="d94-V5-0s8"/>
                             <constraint firstAttribute="trailing" secondItem="fw9-1x-wyJ" secondAttribute="trailing" constant="-441.5" id="dTu-s7-d4o"/>
                             <constraint firstItem="fw9-1x-wyJ" firstAttribute="top" secondItem="ZvY-hb-lsq" secondAttribute="top" constant="-4" id="fXM-LB-R3a"/>
+                            <constraint firstItem="MLO-ZB-66S" firstAttribute="top" secondItem="LYd-OT-efo" secondAttribute="top" constant="15" id="hRr-yH-m4S"/>
+                            <constraint firstItem="YbQ-Yc-sXA" firstAttribute="top" secondItem="LYd-OT-efo" secondAttribute="top" constant="20" id="l2v-DA-0aI"/>
                             <constraint firstItem="lKc-z7-T8m" firstAttribute="trailing" secondItem="14k-zO-ho4" secondAttribute="trailing" constant="10" id="l9P-Pu-vhg"/>
                             <constraint firstItem="Rql-Nw-Mmd" firstAttribute="leading" secondItem="LYd-OT-efo" secondAttribute="leading" constant="26" id="lKG-CW-NlI"/>
                             <constraint firstAttribute="trailing" secondItem="xt0-Of-HBC" secondAttribute="trailing" constant="-72" id="lek-fF-yDE"/>
@@ -187,6 +190,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="BBG-je-TNR"/>
+                                <exclude reference="wvk-Ie-m4X"/>
+                                <exclude reference="0IK-ls-9qE"/>
                                 <exclude reference="GgK-tx-WXh"/>
                                 <exclude reference="PK5-xI-QET"/>
                                 <exclude reference="uWV-00-Xtz"/>
@@ -212,6 +218,7 @@
         <image name="Rectangle 367" width="217" height="78"/>
         <image name="avatar" width="238" height="265"/>
         <image name="chat" width="30" height="26"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
