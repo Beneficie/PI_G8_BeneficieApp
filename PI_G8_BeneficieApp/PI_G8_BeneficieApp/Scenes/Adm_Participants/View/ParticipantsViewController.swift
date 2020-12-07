@@ -10,6 +10,8 @@ import UIKit
 
 class ParticipantsViewController: UIViewController {
 
+    var viewModel = ParticipantsViewModel()
+    
     @IBOutlet weak var participantsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +32,16 @@ class ParticipantsViewController: UIViewController {
 }
 
 //MARK: - TableViewDelegate and DataSource
+extension ParticipantsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
 
-extension ParticipantsViewController: UITableViewDelegate, UITableViewDataSource{
+
+extension ParticipantsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return viewModel.getNumberofRows()
         return 10
     }
     

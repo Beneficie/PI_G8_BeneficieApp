@@ -10,4 +10,11 @@ import Foundation
 
 class ParticipantsViewModel {
     
+    var arrayUsersSubscribed = [UserSubscribed]()
+    
+
+    
+    func getNumberofRows() -> Int {
+        return arrayUsersSubscribed.count
+    }
 }

@@ -88,7 +88,7 @@
                                 <rect key="frame" x="131" y="319" width="153" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="goToList:" destination="ZyD-5R-aqa" eventType="touchUpInside" id="nDR-GR-myi"/>
+                                    <action selector="goToADMFlow:" destination="ZyD-5R-aqa" eventType="touchUpInside" id="Rne-Va-edn"/>
                                 </connections>
                             </button>
                         </subviews>

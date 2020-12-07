@@ -15,14 +15,11 @@ class MainScreenViewController: UIViewController {
 
     }
     
-    //****************** Temporario ***********************
-    @IBAction func goToList(_ sender: UIButton) {
+    @IBAction func goToADMFlow(_ sender: UIButton) {
         if let signIn = UIStoryboard(name: "MonthAction", bundle: nil).instantiateInitialViewController() as? MonthActionViewController {
                    navigationController?.pushViewController(signIn, animated: true)
-               }
+        }
     }
-    //****************** Temporario ***********************
-    
     
     
     @IBAction func actionSignIn(_ sender: Any) {

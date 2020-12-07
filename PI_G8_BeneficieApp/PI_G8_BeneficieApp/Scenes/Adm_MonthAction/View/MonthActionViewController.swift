@@ -26,20 +26,23 @@ class MonthActionViewController: UIViewController {
         
     }
     
+    
+    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func profileButton(_ sender: Any) {
-        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            navigationController?.pushViewController(Profile, animated: true)
-        }
+        let profileScreen = ProfileViewController.getView()
+        navigationController?.pushViewController(profileScreen, animated: true)
     }
+    
     @IBAction func bankInformations(_ sender: Any) {
         if let bankInformations = UIStoryboard(name: "BankInformations", bundle: nil).instantiateInitialViewController() as? BankInformationsViewController {
             navigationController?.pushViewController(bankInformations, animated: true)
         }
 
     }
+    
     @IBAction func editAction(_ sender: UIButton) {
     }
     @IBAction func ListAction(_ sender: UIButton) {
@@ -54,8 +57,8 @@ class MonthActionViewController: UIViewController {
     }
     @IBAction func participantsButton(_ sender: UIButton) {
         
-        if let ParticipantsView = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
-            navigationController?.pushViewController(ParticipantsView, animated: true)
+        if let participantsView = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
+            navigationController?.pushViewController(participantsView, animated: true)
         }
     }
     func configureUI(){

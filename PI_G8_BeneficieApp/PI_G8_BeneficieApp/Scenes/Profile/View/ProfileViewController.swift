@@ -12,6 +12,11 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var labelUserName: UILabel!
     
+    static func getView() -> ProfileViewController {
+        let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
+        return profile
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

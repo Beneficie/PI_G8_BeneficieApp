@@ -105,9 +105,6 @@
                                 <state key="normal" title="Esqueceu a senha ?">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="HandleForgotPassword:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="BL6-fl-mr0"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O86-N2-Luf" userLabel="LoginButton">
                                 <rect key="frame" x="20" y="524" width="374" height="56"/>
@@ -120,7 +117,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="HandleLogIn:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="rfX-Hd-sb9"/>
+                                    <action selector="handleLogIn:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="Wen-lk-YPA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-dQ-GxA" userLabel="SingUpButton">
@@ -128,9 +125,6 @@
                                 <state key="normal" title="Não tem conta? Cadastre-se">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="HandleSingUp:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="aiW-qW-84O"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E73-ww-DBA">
                                 <rect key="frame" x="20" y="84" width="33.5" height="51"/>
