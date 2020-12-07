@@ -10,8 +10,9 @@ import UIKit
 
 class CreateActionViewController: UIViewController {
 
-    @IBOutlet weak var SaveButtonOutlet: UIButton!
-    @IBOutlet weak var ActionContainer: UIView!
+    @IBOutlet weak var saveButtonOutlet: UIButton!
+    @IBOutlet weak var actionContainer: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,16 +22,16 @@ class CreateActionViewController: UIViewController {
     
     func configureUI(){
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
-        SaveButtonOutlet.layer.cornerRadius = 15
+        saveButtonOutlet.layer.cornerRadius = 15
     }
     
-    @IBAction func SaveButton(_ sender: UIButton) {
+    @IBAction func saveButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Ação Salva", message: "Ação salva com sucesso", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    @IBAction func BackButton(_ sender: Any) {
+    @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
 }

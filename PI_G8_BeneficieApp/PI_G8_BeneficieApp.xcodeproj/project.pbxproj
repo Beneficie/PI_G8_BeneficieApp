@@ -38,6 +38,7 @@
 		3368380C256C3F2700FCF70C /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368380B256C3F2700FCF70C /* Bank.swift */; };
 		339282F9256D3FB60051DA2A /* BankInformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339282F8256D3FB60051DA2A /* BankInformations.storyboard */; };
 		33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33928301256D461F0051DA2A /* BankInformationsViewController.swift */; };
+		33B1A80925714890009C792B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B1A80825714890009C792B /* ProfileViewModel.swift */; };
 		33D07E86255DB4B600272FBF /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D07E85255DB4B600272FBF /* MainScreenViewController.swift */; };
 		33D07E8A255DB4C400272FBF /* MainScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D07E89255DB4C400272FBF /* MainScreen.storyboard */; };
 		33D07E8E255DC0CD00272FBF /* User_SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D07E8D255DC0CD00272FBF /* User_SubscriptionViewController.swift */; };
@@ -81,6 +82,7 @@
 		3368380B256C3F2700FCF70C /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		339282F8256D3FB60051DA2A /* BankInformations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BankInformations.storyboard; path = PI_G8_BeneficieApp/Adm_MonthAction/BankInformations.storyboard; sourceTree = SOURCE_ROOT; };
 		33928301256D461F0051DA2A /* BankInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInformationsViewController.swift; sourceTree = "<group>"; };
+		33B1A80825714890009C792B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		33D07E85255DB4B600272FBF /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		33D07E89255DB4C400272FBF /* MainScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainScreen.storyboard; sourceTree = "<group>"; };
 		33D07E8D255DC0CD00272FBF /* User_SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_SubscriptionViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				0D1068C325693440002E5909 /* ProfileViewController.swift */,
+				33B1A80825714890009C792B /* ProfileViewModel.swift */,
 				0D1068C525693453002E5909 /* Profile.storyboard */,
 			);
 			path = Profile;
@@ -394,6 +397,7 @@
 				336837F8256C3BBB00FCF70C /* BanksMenuViewController.swift in Sources */,
 				0D77862C255A235300255307 /* SceneDelegate.swift in Sources */,
 				33D07E86255DB4B600272FBF /* MainScreenViewController.swift in Sources */,
+				33B1A80925714890009C792B /* ProfileViewModel.swift in Sources */,
 				33683807256C3DD700FCF70C /* BankCell.swift in Sources */,
 				33D07EA4255DCE2000272FBF /* User_SocialNetworksViewController.swift in Sources */,
 				0D1068D625695D72002E5909 /* Extensions.swift in Sources */,

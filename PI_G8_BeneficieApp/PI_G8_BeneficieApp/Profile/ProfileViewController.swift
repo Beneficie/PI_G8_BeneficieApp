@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var labelUserName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,16 +20,20 @@ class ProfileViewController: UIViewController {
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func buttonEmail(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
-    */
-
+    
+    @IBAction func configurationButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func contactButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func exitButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }

@@ -18,13 +18,13 @@ class AdmActionsViewController: UIViewController {
         actionsTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
-    @IBAction func ProfileButton(_ sender: UIButton) {
+    @IBAction func profileButton(_ sender: UIButton) {
         if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
             navigationController?.pushViewController(Profile, animated: true)
         }
     }
     
-    @IBAction func Backbutton(_ sender: Any) {
+    @IBAction func backbutton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
 }
