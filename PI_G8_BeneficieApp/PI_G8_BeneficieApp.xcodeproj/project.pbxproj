@@ -29,11 +29,14 @@
 		0D778641255A263200255307 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D778640255A263200255307 /* LoginViewController.swift */; };
 		0DA44248255ADC2F00C82076 /* SingUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA44247255ADC2F00C82076 /* SingUp.storyboard */; };
 		0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA44249255ADC5900C82076 /* SingUpViewController.swift */; };
+		333FBC21258D258700C66BD6 /* EditActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FBC1F258D258700C66BD6 /* EditActionViewController.swift */; };
 		336837EB256C335700FCF70C /* SubscribeToAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336837EA256C335700FCF70C /* SubscribeToAction.storyboard */; };
 		336837EF256C33A200FCF70C /* SubscribeToActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336837EE256C33A200FCF70C /* SubscribeToActionViewController.swift */; };
 		336837F8256C3BBB00FCF70C /* BanksMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336837F7256C3BBB00FCF70C /* BanksMenuViewController.swift */; };
 		33683803256C3DA700FCF70C /* BanksMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33683802256C3DA600FCF70C /* BanksMenu.storyboard */; };
 		33683807256C3DD700FCF70C /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33683806256C3DD700FCF70C /* BankCell.swift */; };
+		3369A333258D2B12006BB5BB /* EditAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333FBC20258D258700C66BD6 /* EditAction.storyboard */; };
+		3369A336258D2E96006BB5BB /* EditActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A335258D2E96006BB5BB /* EditActionViewModel.swift */; };
 		33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33928301256D461F0051DA2A /* BankInformationsViewController.swift */; };
 		33B9045F257E581C004DA579 /* BankInformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B9045E257E581B004DA579 /* BankInformations.storyboard */; };
 		33B90489257E5AC4004DA579 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B90488257E5AC4004DA579 /* Bank.swift */; };
@@ -87,11 +90,14 @@
 		0D778640255A263200255307 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0DA44247255ADC2F00C82076 /* SingUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingUp.storyboard; sourceTree = "<group>"; };
 		0DA44249255ADC5900C82076 /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
+		333FBC1F258D258700C66BD6 /* EditActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActionViewController.swift; sourceTree = "<group>"; };
+		333FBC20258D258700C66BD6 /* EditAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditAction.storyboard; sourceTree = "<group>"; };
 		336837EA256C335700FCF70C /* SubscribeToAction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubscribeToAction.storyboard; sourceTree = "<group>"; };
 		336837EE256C33A200FCF70C /* SubscribeToActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeToActionViewController.swift; sourceTree = "<group>"; };
 		336837F7256C3BBB00FCF70C /* BanksMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksMenuViewController.swift; sourceTree = "<group>"; };
 		33683802256C3DA600FCF70C /* BanksMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BanksMenu.storyboard; sourceTree = "<group>"; };
 		33683806256C3DD700FCF70C /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
+		3369A335258D2E96006BB5BB /* EditActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActionViewModel.swift; sourceTree = "<group>"; };
 		33928301256D461F0051DA2A /* BankInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInformationsViewController.swift; sourceTree = "<group>"; };
 		33B9045E257E581B004DA579 /* BankInformations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BankInformations.storyboard; sourceTree = "<group>"; };
 		33B90488257E5AC4004DA579 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bank.swift; path = PI_G8_BeneficieApp/Scenes/User_BanksMenu/Model/Bank.swift; sourceTree = SOURCE_ROOT; };
@@ -232,6 +238,30 @@
 			path = SingUp;
 			sourceTree = "<group>";
 		};
+		333FBC24258D25CE00C66BD6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3369A335258D2E96006BB5BB /* EditActionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		333FBC25258D25DA00C66BD6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				333FBC20258D258700C66BD6 /* EditAction.storyboard */,
+				333FBC1F258D258700C66BD6 /* EditActionViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		333FBC26258D25E300C66BD6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		336837ED256C335F00FCF70C /* User_SubscribeToAction */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +298,7 @@
 				0D1068D025694CC3002E5909 /* Adm_MonthAction */,
 				0D153B3C256AB03D00E391AB /* Adm_Participants */,
 				0D153B37256A9D5300E391AB /* Adm_CreateAction */,
+				33C240BE258D22B0009323CE /* Adm_EditAction */,
 				339282F6256D3F790051DA2A /* Adm_BankInformations */,
 				0D1068C925693BB2002E5909 /* Adm_ListActions */,
 				0D1068C225693429002E5909 /* Profile */,
@@ -624,6 +655,16 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		33C240BE258D22B0009323CE /* Adm_EditAction */ = {
+			isa = PBXGroup;
+			children = (
+				333FBC26258D25E300C66BD6 /* Model */,
+				333FBC25258D25DA00C66BD6 /* View */,
+				333FBC24258D25CE00C66BD6 /* ViewModel */,
+			);
+			path = Adm_EditAction;
+			sourceTree = "<group>";
+		};
 		33D07E84255DB41200272FBF /* MainScreen  */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +769,7 @@
 				0D153B3E256AB10900E391AB /* ParticipantsList.storyboard in Resources */,
 				0D153B39256A9D8E00E391AB /* CreateAction.storyboard in Resources */,
 				33B9045F257E581C004DA579 /* BankInformations.storyboard in Resources */,
+				3369A333258D2B12006BB5BB /* EditAction.storyboard in Resources */,
 				0D778631255A235300255307 /* Main.storyboard in Resources */,
 				33D07E9E255DC35000272FBF /* FinancialDetails.storyboard in Resources */,
 				0D1068C825693A15002E5909 /* Assets.xcassets in Resources */,
@@ -753,6 +795,7 @@
 				33B90493257E5C80004DA579 /* MonthActionViewModel.swift in Sources */,
 				33D07E8E255DC0CD00272FBF /* User_SubscriptionViewController.swift in Sources */,
 				0D1068C425693440002E5909 /* ProfileViewController.swift in Sources */,
+				333FBC21258D258700C66BD6 /* EditActionViewController.swift in Sources */,
 				0D778641255A263200255307 /* LoginViewController.swift in Sources */,
 				0D1068CF25693FC6002E5909 /* ActionsCell.swift in Sources */,
 				33B9049E257E5D99004DA579 /* ProfileViewModel.swift in Sources */,
@@ -778,6 +821,7 @@
 				0D77862C255A235300255307 /* SceneDelegate.swift in Sources */,
 				33B904A6257E5E19004DA579 /* SignUpViewModel.swift in Sources */,
 				33D07E86255DB4B600272FBF /* MainScreenViewController.swift in Sources */,
+				3369A336258D2E96006BB5BB /* EditActionViewModel.swift in Sources */,
 				33B904BA257E5F1C004DA579 /* UserSociaNetworksViewModel.swift in Sources */,
 				33683807256C3DD700FCF70C /* BankCell.swift in Sources */,
 				33B90497257E5CE4004DA579 /* BankInformationsViewModel.swift in Sources */,
@@ -929,13 +973,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 682P77XX9D;
+				DEVELOPMENT_TEAM = 8S274G86MW;
 				INFOPLIST_FILE = PI_G8_BeneficieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.juansouza.PI-G8-BeneficieApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "dominiquenb.PI-G8-BeneficieApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -947,13 +991,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 682P77XX9D;
+				DEVELOPMENT_TEAM = 8S274G86MW;
 				INFOPLIST_FILE = PI_G8_BeneficieApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.juansouza.PI-G8-BeneficieApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "dominiquenb.PI-G8-BeneficieApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
