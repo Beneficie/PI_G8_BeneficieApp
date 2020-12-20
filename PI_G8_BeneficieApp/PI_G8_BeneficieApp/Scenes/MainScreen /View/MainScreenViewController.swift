@@ -16,8 +16,8 @@ class MainScreenViewController: UIViewController {
     }
     
     @IBAction func goToADMFlow(_ sender: UIButton) {
-        if let signIn = UIStoryboard(name: "MonthAction", bundle: nil).instantiateInitialViewController() as? MonthActionViewController {
-                   navigationController?.pushViewController(signIn, animated: true)
+        if let edit = UIStoryboard(name: "EditAction", bundle: nil).instantiateInitialViewController() as? EditActionViewController {
+            navigationController?.pushViewController(edit, animated: true)
         }
     }
     

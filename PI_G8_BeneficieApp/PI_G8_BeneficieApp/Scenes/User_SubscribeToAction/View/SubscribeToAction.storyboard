@@ -62,7 +62,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doação de fraldas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-Sz-8d8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmar Inscrição" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-Sz-8d8">
                                 <rect key="frame" x="20" y="232" width="374" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -119,10 +119,23 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subgrupo X" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es6-f8-LNl">
+                                <rect key="frame" x="50" y="345" width="314" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título da Ação" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uv-d7-qrv">
+                                <rect key="frame" x="20" y="280" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MHt-k1-2uj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6uv-d7-qrv" firstAttribute="top" secondItem="H22-kQ-cjO" secondAttribute="bottom" constant="10" id="1IJ-P2-5xq"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="Gce-M6-tU6" secondAttribute="trailing" constant="20" id="1a8-S6-q9x"/>
                             <constraint firstAttribute="trailing" secondItem="mkO-Z9-d0O" secondAttribute="trailing" id="3F3-uS-E5Z"/>
                             <constraint firstItem="mkO-Z9-d0O" firstAttribute="top" secondItem="4Pc-Z9-hCv" secondAttribute="top" id="4CT-Dj-ZSL"/>
@@ -135,19 +148,24 @@
                             <constraint firstItem="34a-qF-NrK" firstAttribute="leading" secondItem="F3Q-kt-G1H" secondAttribute="trailing" constant="8" id="FBz-s6-fJa"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="top" secondItem="CsF-VF-ZSr" secondAttribute="bottom" constant="40" id="Gcb-Bw-N3o"/>
                             <constraint firstItem="34a-qF-NrK" firstAttribute="top" secondItem="txn-Y0-9iU" secondAttribute="bottom" constant="60" id="H04-J4-ZgW"/>
+                            <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="es6-f8-LNl" secondAttribute="trailing" constant="50" id="IuR-rr-C0t"/>
                             <constraint firstItem="txn-Y0-9iU" firstAttribute="top" secondItem="jBs-Sz-8d8" secondAttribute="bottom" constant="151.5" id="LgU-CK-GdD"/>
+                            <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="6uv-d7-qrv" secondAttribute="trailing" constant="20" id="N0k-Pn-B59"/>
                             <constraint firstItem="CsF-VF-ZSr" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="20" id="NGm-7Y-6LS"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="top" secondItem="mkO-Z9-d0O" secondAttribute="bottom" constant="36" id="Ni3-Gl-okE"/>
-                            <constraint firstItem="txn-Y0-9iU" firstAttribute="top" secondItem="H22-kQ-cjO" secondAttribute="bottom" constant="141" id="Oho-X8-EYU"/>
+                            <constraint firstItem="txn-Y0-9iU" firstAttribute="top" secondItem="es6-f8-LNl" secondAttribute="bottom" constant="42" id="Oho-X8-EYU"/>
                             <constraint firstItem="mkO-Z9-d0O" firstAttribute="leading" secondItem="4Pc-Z9-hCv" secondAttribute="leading" id="Ozz-Er-jYw"/>
+                            <constraint firstItem="CsF-VF-ZSr" firstAttribute="top" secondItem="Gce-M6-tU6" secondAttribute="bottom" constant="66.5" id="Pfr-e8-ycw"/>
                             <constraint firstItem="H22-kQ-cjO" firstAttribute="centerX" secondItem="Gce-M6-tU6" secondAttribute="centerX" id="QYs-li-8KQ"/>
                             <constraint firstItem="tEO-L9-p6b" firstAttribute="top" secondItem="H22-kQ-cjO" secondAttribute="bottom" constant="141" id="WcT-s9-N7r"/>
                             <constraint firstItem="tEO-L9-p6b" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="51" id="Y8N-NP-Mwz"/>
+                            <constraint firstItem="es6-f8-LNl" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="50" id="YZi-2W-RsT"/>
                             <constraint firstItem="F3Q-kt-G1H" firstAttribute="top" secondItem="tEO-L9-p6b" secondAttribute="bottom" constant="60" id="ah7-Cz-UOD"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="5W5-Lr-sCn" secondAttribute="trailing" constant="57" id="bAz-vt-27G"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="CsF-VF-ZSr" secondAttribute="trailing" constant="20" id="bCX-Dj-ImE"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="34a-qF-NrK" secondAttribute="trailing" constant="74" id="cVT-4f-XIk"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="bottom" secondItem="5W5-Lr-sCn" secondAttribute="bottom" constant="37" id="ezQ-Hs-Xms"/>
+                            <constraint firstItem="6uv-d7-qrv" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="20" id="g01-ZB-Wip"/>
                             <constraint firstItem="H22-kQ-cjO" firstAttribute="centerX" secondItem="jBs-Sz-8d8" secondAttribute="centerX" id="nsP-3o-7xy"/>
                             <constraint firstItem="F3Q-kt-G1H" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="51" id="qDe-Gz-QTH"/>
                             <constraint firstItem="txn-Y0-9iU" firstAttribute="leading" secondItem="tEO-L9-p6b" secondAttribute="trailing" constant="8" id="sED-mw-exb"/>
@@ -158,6 +176,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Ni3-Gl-okE"/>
+                                <exclude reference="LgU-CK-GdD"/>
                             </mask>
                         </variation>
                     </view>

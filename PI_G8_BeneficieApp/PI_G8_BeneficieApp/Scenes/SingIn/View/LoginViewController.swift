@@ -95,8 +95,8 @@ class LoginViewController: UIViewController {
     @IBAction func handleLogIn(_ sender: Any) {
         if isInformationValid() {
             if textFieldDidEndEditing(logInTextField) {
-                if let signIn = UIStoryboard(name: "MonthAction", bundle: nil).instantiateInitialViewController() as? MonthActionViewController {
-                    navigationController?.pushViewController(signIn, animated: true)
+                if let edit = UIStoryboard(name: "EditAction", bundle: nil).instantiateInitialViewController() as? EditActionViewController {
+                    navigationController?.pushViewController(edit, animated: true)
                 }
             } else {
                 if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {

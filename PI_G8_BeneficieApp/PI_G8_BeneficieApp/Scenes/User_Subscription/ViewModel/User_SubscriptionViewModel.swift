@@ -9,5 +9,5 @@
 import Foundation
 
 class User_SubscriptionViewModel {
-    
+    var arraySubGroups = ["1", "2", "3", "4", "5"]
 }

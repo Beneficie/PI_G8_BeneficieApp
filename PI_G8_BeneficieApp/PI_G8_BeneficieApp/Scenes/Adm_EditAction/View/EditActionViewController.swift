@@ -35,6 +35,11 @@ class EditActionViewController: UIViewController {
             navigationController?.pushViewController(Profile, animated: true)
         }
     }
+    @IBAction func createEvent(_ sender: Any) {
+        if let actions = UIStoryboard(name: "CreateAction", bundle: nil).instantiateInitialViewController() as? CreateActionViewController {
+            navigationController?.pushViewController(actions, animated: true)
+        }
+    }
     
     @IBAction func saveButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Ação Salva", message: "Ação salva com sucesso", preferredStyle: .alert)
@@ -57,6 +62,12 @@ class EditActionViewController: UIViewController {
             navigationController?.pushViewController(list, animated: true)
         }
     }
+    
+    func editAction() {
+        if let actions = UIStoryboard(name: "CreateAction", bundle: nil).instantiateInitialViewController() as? CreateActionViewController {
+            navigationController?.pushViewController(actions, animated: true)
+        }
+    }
 }
 
 extension EditActionViewController: UITableViewDelegate {
@@ -70,7 +81,7 @@ extension EditActionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Evento", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Editar Ação", style: .default, handler: {_ in
-            
+            self.editAction()
         }))
         alert.addAction(UIAlertAction(title: "Informações Bancárias", style: .default, handler: {_ in
             self.bankInformationsScreen()

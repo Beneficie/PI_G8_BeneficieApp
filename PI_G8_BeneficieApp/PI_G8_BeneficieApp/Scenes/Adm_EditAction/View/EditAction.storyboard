@@ -89,6 +89,9 @@
                                 <state key="normal" title="  Criar">
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="createEvent:" destination="o6S-to-EFc" eventType="touchUpInside" id="nVZ-ta-CSH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MHt-k1-2uj"/>

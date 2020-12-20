@@ -37,6 +37,7 @@
 		33683807256C3DD700FCF70C /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33683806256C3DD700FCF70C /* BankCell.swift */; };
 		3369A333258D2B12006BB5BB /* EditAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333FBC20258D258700C66BD6 /* EditAction.storyboard */; };
 		3369A336258D2E96006BB5BB /* EditActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A335258D2E96006BB5BB /* EditActionViewModel.swift */; };
+		3369A339258D4E3E006BB5BB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A338258D4E3E006BB5BB /* Event.swift */; };
 		33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33928301256D461F0051DA2A /* BankInformationsViewController.swift */; };
 		33B9045F257E581C004DA579 /* BankInformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B9045E257E581B004DA579 /* BankInformations.storyboard */; };
 		33B90489257E5AC4004DA579 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B90488257E5AC4004DA579 /* Bank.swift */; };
@@ -98,6 +99,7 @@
 		33683802256C3DA600FCF70C /* BanksMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BanksMenu.storyboard; sourceTree = "<group>"; };
 		33683806256C3DD700FCF70C /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
 		3369A335258D2E96006BB5BB /* EditActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActionViewModel.swift; sourceTree = "<group>"; };
+		3369A338258D4E3E006BB5BB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		33928301256D461F0051DA2A /* BankInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInformationsViewController.swift; sourceTree = "<group>"; };
 		33B9045E257E581B004DA579 /* BankInformations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BankInformations.storyboard; sourceTree = "<group>"; };
 		33B90488257E5AC4004DA579 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bank.swift; path = PI_G8_BeneficieApp/Scenes/User_BanksMenu/Model/Bank.swift; sourceTree = SOURCE_ROOT; };
@@ -157,14 +159,14 @@
 			path = Adm_ListActions;
 			sourceTree = "<group>";
 		};
-		0D1068D025694CC3002E5909 /* Adm_MonthAction */ = {
+		0D1068D025694CC3002E5909 /* DISABLED_Adm_MonthAction */ = {
 			isa = PBXGroup;
 			children = (
 				33B90456257E4F44004DA579 /* Model */,
 				33B90455257E4F3D004DA579 /* View */,
 				33B90454257E4F35004DA579 /* ViewModel */,
 			);
-			path = Adm_MonthAction;
+			path = DISABLED_Adm_MonthAction;
 			sourceTree = "<group>";
 		};
 		0D153B37256A9D5300E391AB /* Adm_CreateAction */ = {
@@ -295,7 +297,7 @@
 		33B9044D257E4E43004DA579 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				0D1068D025694CC3002E5909 /* Adm_MonthAction */,
+				0D1068D025694CC3002E5909 /* DISABLED_Adm_MonthAction */,
 				0D153B3C256AB03D00E391AB /* Adm_Participants */,
 				0D153B37256A9D5300E391AB /* Adm_CreateAction */,
 				33C240BE258D22B0009323CE /* Adm_EditAction */,
@@ -360,6 +362,7 @@
 		33B90453257E4F0A004DA579 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3369A338258D4E3E006BB5BB /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 				0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */,
 				33B904AE257E5E6A004DA579 /* User_SubscriptionViewModel.swift in Sources */,
 				33B904B4257E5ED5004DA579 /* BanksMenuViewModel.swift in Sources */,
+				3369A339258D4E3E006BB5BB /* Event.swift in Sources */,
 				336837F8256C3BBB00FCF70C /* BanksMenuViewController.swift in Sources */,
 				33B9048C257E5BC4004DA579 /* ParticipantsViewModel.swift in Sources */,
 				0D77862C255A235300255307 /* SceneDelegate.swift in Sources */,

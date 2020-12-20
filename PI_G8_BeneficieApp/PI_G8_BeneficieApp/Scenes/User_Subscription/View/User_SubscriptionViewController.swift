@@ -10,10 +10,15 @@ import UIKit
 
 class User_SubscriptionViewController: UIViewController {
 
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    var viewModel = User_SubscriptionViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -34,4 +39,22 @@ class User_SubscriptionViewController: UIViewController {
         }
     }
 
+}
+
+extension User_SubscriptionViewController: UIPickerViewDelegate {
+    
+}
+
+extension User_SubscriptionViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return viewModel.arraySubGroups.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.arraySubGroups[row]
+    }
 }
