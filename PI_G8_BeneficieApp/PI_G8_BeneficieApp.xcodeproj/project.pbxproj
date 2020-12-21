@@ -30,6 +30,7 @@
 		0DA44248255ADC2F00C82076 /* SingUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA44247255ADC2F00C82076 /* SingUp.storyboard */; };
 		0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA44249255ADC5900C82076 /* SingUpViewController.swift */; };
 		333FBC21258D258700C66BD6 /* EditActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FBC1F258D258700C66BD6 /* EditActionViewController.swift */; };
+		3363FBFF258F85FC0096D27A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3363FBFE258F85FC0096D27A /* APIManager.swift */; };
 		336837EB256C335700FCF70C /* SubscribeToAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336837EA256C335700FCF70C /* SubscribeToAction.storyboard */; };
 		336837EF256C33A200FCF70C /* SubscribeToActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336837EE256C33A200FCF70C /* SubscribeToActionViewController.swift */; };
 		336837F8256C3BBB00FCF70C /* BanksMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336837F7256C3BBB00FCF70C /* BanksMenuViewController.swift */; };
@@ -93,6 +94,7 @@
 		0DA44249255ADC5900C82076 /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		333FBC1F258D258700C66BD6 /* EditActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActionViewController.swift; sourceTree = "<group>"; };
 		333FBC20258D258700C66BD6 /* EditAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditAction.storyboard; sourceTree = "<group>"; };
+		3363FBFE258F85FC0096D27A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		336837EA256C335700FCF70C /* SubscribeToAction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubscribeToAction.storyboard; sourceTree = "<group>"; };
 		336837EE256C33A200FCF70C /* SubscribeToActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeToActionViewController.swift; sourceTree = "<group>"; };
 		336837F7256C3BBB00FCF70C /* BanksMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksMenuViewController.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				33B90499257E5D36004DA579 /* AdmActionsViewModel.swift */,
+				3363FBFE258F85FC0096D27A /* APIManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				33B904A6257E5E19004DA579 /* SignUpViewModel.swift in Sources */,
 				33D07E86255DB4B600272FBF /* MainScreenViewController.swift in Sources */,
 				3369A336258D2E96006BB5BB /* EditActionViewModel.swift in Sources */,
+				3363FBFF258F85FC0096D27A /* APIManager.swift in Sources */,
 				33B904BA257E5F1C004DA579 /* UserSociaNetworksViewModel.swift in Sources */,
 				33683807256C3DD700FCF70C /* BankCell.swift in Sources */,
 				33B90497257E5CE4004DA579 /* BankInformationsViewModel.swift in Sources */,

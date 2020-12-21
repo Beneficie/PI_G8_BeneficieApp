@@ -152,7 +152,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "362283B2-271F-48B9-B6AA-3077F72C63ED"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PI_G8_BeneficieApp/Scenes/User_SubscribeToAction/View/SubscribeToActionViewController.swift"

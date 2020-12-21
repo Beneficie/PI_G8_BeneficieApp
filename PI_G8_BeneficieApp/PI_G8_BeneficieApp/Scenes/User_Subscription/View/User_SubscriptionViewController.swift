@@ -11,6 +11,7 @@ import UIKit
 class User_SubscriptionViewController: UIViewController {
 
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var labelAvailable: UILabel!
     
     var viewModel = User_SubscriptionViewModel()
     
@@ -42,7 +43,9 @@ class User_SubscriptionViewController: UIViewController {
 }
 
 extension User_SubscriptionViewController: UIPickerViewDelegate {
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        labelAvailable.text = "08"
+    }
 }
 
 extension User_SubscriptionViewController: UIPickerViewDataSource {
@@ -54,7 +57,7 @@ extension User_SubscriptionViewController: UIPickerViewDataSource {
         return viewModel.arraySubGroups.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel.arraySubGroups[row]
     }
 }
