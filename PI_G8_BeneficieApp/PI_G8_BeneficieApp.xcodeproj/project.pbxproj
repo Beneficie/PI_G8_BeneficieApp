@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,16 +29,17 @@
 		0D778641255A263200255307 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D778640255A263200255307 /* LoginViewController.swift */; };
 		0DA44248255ADC2F00C82076 /* SingUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA44247255ADC2F00C82076 /* SingUp.storyboard */; };
 		0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA44249255ADC5900C82076 /* SingUpViewController.swift */; };
-		333FBC21258D258700C66BD6 /* EditActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FBC1F258D258700C66BD6 /* EditActionViewController.swift */; };
+		333FBC21258D258700C66BD6 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FBC1F258D258700C66BD6 /* EventListViewController.swift */; };
 		3363FBFF258F85FC0096D27A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3363FBFE258F85FC0096D27A /* APIManager.swift */; };
+		3363FC05259122B60096D27A /* EventList_APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3363FC04259122B60096D27A /* EventList_APIManager.swift */; };
+		3363FC0B259126040096D27A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3363FC0A259126040096D27A /* Event.swift */; };
 		336837EB256C335700FCF70C /* SubscribeToAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336837EA256C335700FCF70C /* SubscribeToAction.storyboard */; };
 		336837EF256C33A200FCF70C /* SubscribeToActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336837EE256C33A200FCF70C /* SubscribeToActionViewController.swift */; };
 		336837F8256C3BBB00FCF70C /* BanksMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336837F7256C3BBB00FCF70C /* BanksMenuViewController.swift */; };
 		33683803256C3DA700FCF70C /* BanksMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33683802256C3DA600FCF70C /* BanksMenu.storyboard */; };
 		33683807256C3DD700FCF70C /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33683806256C3DD700FCF70C /* BankCell.swift */; };
-		3369A333258D2B12006BB5BB /* EditAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333FBC20258D258700C66BD6 /* EditAction.storyboard */; };
+		3369A333258D2B12006BB5BB /* EventList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333FBC20258D258700C66BD6 /* EventList.storyboard */; };
 		3369A336258D2E96006BB5BB /* EditActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A335258D2E96006BB5BB /* EditActionViewModel.swift */; };
-		3369A339258D4E3E006BB5BB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A338258D4E3E006BB5BB /* Event.swift */; };
 		33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33928301256D461F0051DA2A /* BankInformationsViewController.swift */; };
 		33B9045F257E581C004DA579 /* BankInformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B9045E257E581B004DA579 /* BankInformations.storyboard */; };
 		33B90489257E5AC4004DA579 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B90488257E5AC4004DA579 /* Bank.swift */; };
@@ -65,6 +66,7 @@
 		33D07E9E255DC35000272FBF /* FinancialDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D07E9D255DC35000272FBF /* FinancialDetails.storyboard */; };
 		33D07EA4255DCE2000272FBF /* User_SocialNetworksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D07EA3255DCE2000272FBF /* User_SocialNetworksViewController.swift */; };
 		33D07EA8255DCE2A00272FBF /* User_SocialNetworks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D07EA7255DCE2A00272FBF /* User_SocialNetworks.storyboard */; };
+		C8B8DF0A0EAC1FD586899469 /* Pods_PI_G8_BeneficieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1FDB9B11AC600231616460 /* Pods_PI_G8_BeneficieApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,16 +94,18 @@
 		0D778640255A263200255307 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0DA44247255ADC2F00C82076 /* SingUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingUp.storyboard; sourceTree = "<group>"; };
 		0DA44249255ADC5900C82076 /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
-		333FBC1F258D258700C66BD6 /* EditActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActionViewController.swift; sourceTree = "<group>"; };
-		333FBC20258D258700C66BD6 /* EditAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditAction.storyboard; sourceTree = "<group>"; };
+		169221CD294399835A8C4C90 /* Pods-PI_G8_BeneficieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PI_G8_BeneficieApp.release.xcconfig"; path = "Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp.release.xcconfig"; sourceTree = "<group>"; };
+		333FBC1F258D258700C66BD6 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		333FBC20258D258700C66BD6 /* EventList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventList.storyboard; sourceTree = "<group>"; };
 		3363FBFE258F85FC0096D27A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		3363FC04259122B60096D27A /* EventList_APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList_APIManager.swift; sourceTree = "<group>"; };
+		3363FC0A259126040096D27A /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		336837EA256C335700FCF70C /* SubscribeToAction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubscribeToAction.storyboard; sourceTree = "<group>"; };
 		336837EE256C33A200FCF70C /* SubscribeToActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeToActionViewController.swift; sourceTree = "<group>"; };
 		336837F7256C3BBB00FCF70C /* BanksMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksMenuViewController.swift; sourceTree = "<group>"; };
 		33683802256C3DA600FCF70C /* BanksMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BanksMenu.storyboard; sourceTree = "<group>"; };
 		33683806256C3DD700FCF70C /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
 		3369A335258D2E96006BB5BB /* EditActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActionViewModel.swift; sourceTree = "<group>"; };
-		3369A338258D4E3E006BB5BB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		33928301256D461F0051DA2A /* BankInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInformationsViewController.swift; sourceTree = "<group>"; };
 		33B9045E257E581B004DA579 /* BankInformations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BankInformations.storyboard; sourceTree = "<group>"; };
 		33B90488257E5AC4004DA579 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bank.swift; path = PI_G8_BeneficieApp/Scenes/User_BanksMenu/Model/Bank.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +132,8 @@
 		33D07E9D255DC35000272FBF /* FinancialDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FinancialDetails.storyboard; sourceTree = "<group>"; };
 		33D07EA3255DCE2000272FBF /* User_SocialNetworksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User_SocialNetworksViewController.swift; sourceTree = "<group>"; };
 		33D07EA7255DCE2A00272FBF /* User_SocialNetworks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User_SocialNetworks.storyboard; sourceTree = "<group>"; };
+		5A1FDB9B11AC600231616460 /* Pods_PI_G8_BeneficieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PI_G8_BeneficieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7C43B157917F34BB7E9EF1B /* Pods-PI_G8_BeneficieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PI_G8_BeneficieApp.debug.xcconfig"; path = "Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8B8DF0A0EAC1FD586899469 /* Pods_PI_G8_BeneficieApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +203,8 @@
 			children = (
 				0D778628255A235300255307 /* PI_G8_BeneficieApp */,
 				0D778627255A235300255307 /* Products */,
+				2AABF31458102468FA4E7332 /* Pods */,
+				24FAD24730F524C75ECC7246 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,10 +251,28 @@
 			path = SingUp;
 			sourceTree = "<group>";
 		};
+		24FAD24730F524C75ECC7246 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A1FDB9B11AC600231616460 /* Pods_PI_G8_BeneficieApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2AABF31458102468FA4E7332 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7C43B157917F34BB7E9EF1B /* Pods-PI_G8_BeneficieApp.debug.xcconfig */,
+				169221CD294399835A8C4C90 /* Pods-PI_G8_BeneficieApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		333FBC24258D25CE00C66BD6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				3369A335258D2E96006BB5BB /* EditActionViewModel.swift */,
+				3363FC04259122B60096D27A /* EventList_APIManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -253,8 +280,8 @@
 		333FBC25258D25DA00C66BD6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				333FBC20258D258700C66BD6 /* EditAction.storyboard */,
-				333FBC1F258D258700C66BD6 /* EditActionViewController.swift */,
+				333FBC20258D258700C66BD6 /* EventList.storyboard */,
+				333FBC1F258D258700C66BD6 /* EventListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,6 +289,7 @@
 		333FBC26258D25E300C66BD6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3363FC0A259126040096D27A /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -302,14 +330,14 @@
 				0D1068D025694CC3002E5909 /* DISABLED_Adm_MonthAction */,
 				0D153B3C256AB03D00E391AB /* Adm_Participants */,
 				0D153B37256A9D5300E391AB /* Adm_CreateAction */,
-				33C240BE258D22B0009323CE /* Adm_EditAction */,
 				339282F6256D3F790051DA2A /* Adm_BankInformations */,
 				0D1068C925693BB2002E5909 /* Adm_ListActions */,
+				33C240BE258D22B0009323CE /* Adm_EventList */,
+				33D07E8C255DBE2600272FBF /* User_Subscription */,
 				0D1068C225693429002E5909 /* Profile */,
 				33D07E84255DB41200272FBF /* MainScreen  */,
 				0DA44244255ADBD200C82076 /* SingUp */,
 				0D77863D255A25E500255307 /* SingIn */,
-				33D07E8C255DBE2600272FBF /* User_Subscription */,
 				336837ED256C335F00FCF70C /* User_SubscribeToAction */,
 				336837F6256C3B9500FCF70C /* User_BanksMenu */,
 				33D07E98255DC2F800272FBF /* User_FinancialDetails */,
@@ -364,7 +392,6 @@
 		33B90453257E4F0A004DA579 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3369A338258D4E3E006BB5BB /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -661,14 +688,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		33C240BE258D22B0009323CE /* Adm_EditAction */ = {
+		33C240BE258D22B0009323CE /* Adm_EventList */ = {
 			isa = PBXGroup;
 			children = (
 				333FBC26258D25E300C66BD6 /* Model */,
 				333FBC25258D25DA00C66BD6 /* View */,
 				333FBC24258D25CE00C66BD6 /* ViewModel */,
 			);
-			path = Adm_EditAction;
+			path = Adm_EventList;
 			sourceTree = "<group>";
 		};
 		33D07E84255DB41200272FBF /* MainScreen  */ = {
@@ -718,9 +745,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D77863A255A235800255307 /* Build configuration list for PBXNativeTarget "PI_G8_BeneficieApp" */;
 			buildPhases = (
+				AF48595D7CDD827122E0C6DC /* [CP] Check Pods Manifest.lock */,
 				0D778622255A235300255307 /* Sources */,
 				0D778623255A235300255307 /* Frameworks */,
 				0D778624255A235300255307 /* Resources */,
+				D670D07D6524F36D0A0EF4EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -775,7 +804,7 @@
 				0D153B3E256AB10900E391AB /* ParticipantsList.storyboard in Resources */,
 				0D153B39256A9D8E00E391AB /* CreateAction.storyboard in Resources */,
 				33B9045F257E581C004DA579 /* BankInformations.storyboard in Resources */,
-				3369A333258D2B12006BB5BB /* EditAction.storyboard in Resources */,
+				3369A333258D2B12006BB5BB /* EventList.storyboard in Resources */,
 				0D778631255A235300255307 /* Main.storyboard in Resources */,
 				33D07E9E255DC35000272FBF /* FinancialDetails.storyboard in Resources */,
 				0D1068C825693A15002E5909 /* Assets.xcassets in Resources */,
@@ -792,6 +821,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AF48595D7CDD827122E0C6DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PI_G8_BeneficieApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D670D07D6524F36D0A0EF4EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0D778622255A235300255307 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -801,7 +872,7 @@
 				33B90493257E5C80004DA579 /* MonthActionViewModel.swift in Sources */,
 				33D07E8E255DC0CD00272FBF /* User_SubscriptionViewController.swift in Sources */,
 				0D1068C425693440002E5909 /* ProfileViewController.swift in Sources */,
-				333FBC21258D258700C66BD6 /* EditActionViewController.swift in Sources */,
+				333FBC21258D258700C66BD6 /* EventListViewController.swift in Sources */,
 				0D778641255A263200255307 /* LoginViewController.swift in Sources */,
 				0D1068CF25693FC6002E5909 /* ActionsCell.swift in Sources */,
 				33B9049E257E5D99004DA579 /* ProfileViewModel.swift in Sources */,
@@ -822,7 +893,6 @@
 				0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */,
 				33B904AE257E5E6A004DA579 /* User_SubscriptionViewModel.swift in Sources */,
 				33B904B4257E5ED5004DA579 /* BanksMenuViewModel.swift in Sources */,
-				3369A339258D4E3E006BB5BB /* Event.swift in Sources */,
 				336837F8256C3BBB00FCF70C /* BanksMenuViewController.swift in Sources */,
 				33B9048C257E5BC4004DA579 /* ParticipantsViewModel.swift in Sources */,
 				0D77862C255A235300255307 /* SceneDelegate.swift in Sources */,
@@ -835,7 +905,9 @@
 				33B90497257E5CE4004DA579 /* BankInformationsViewModel.swift in Sources */,
 				33B904A2257E5DCC004DA579 /* MainScreenViewModel.swift in Sources */,
 				33B904B1257E5EAD004DA579 /* SubscribeToActionViewModel.swift in Sources */,
+				3363FC05259122B60096D27A /* EventList_APIManager.swift in Sources */,
 				33D07EA4255DCE2000272FBF /* User_SocialNetworksViewController.swift in Sources */,
+				3363FC0B259126040096D27A /* Event.swift in Sources */,
 				0D1068D625695D72002E5909 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -978,6 +1050,7 @@
 		};
 		0D77863B255A235800255307 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7C43B157917F34BB7E9EF1B /* Pods-PI_G8_BeneficieApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -996,6 +1069,7 @@
 		};
 		0D77863C255A235800255307 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 169221CD294399835A8C4C90 /* Pods-PI_G8_BeneficieApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

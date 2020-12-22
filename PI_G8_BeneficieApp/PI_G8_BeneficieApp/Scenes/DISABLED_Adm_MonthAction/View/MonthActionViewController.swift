@@ -43,8 +43,8 @@ class MonthActionViewController: UIViewController {
 
     }
     
-    @IBAction func editAction(_ sender: UIButton) {
-        if let edit = UIStoryboard(name: "EditAction", bundle: nil).instantiateInitialViewController() as? EditActionViewController {
+    @IBAction func eventList(_ sender: UIButton) {
+        if let edit = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
             navigationController?.pushViewController(edit, animated: true)
         }
     }

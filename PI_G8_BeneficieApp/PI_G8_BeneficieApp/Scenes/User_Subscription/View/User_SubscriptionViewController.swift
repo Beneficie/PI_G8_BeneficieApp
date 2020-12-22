@@ -10,10 +10,12 @@ import UIKit
 
 class User_SubscriptionViewController: UIViewController {
 
+    var viewModel = User_SubscriptionViewModel()
+    
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var labelAvailable: UILabel!
     
-    var viewModel = User_SubscriptionViewModel()
+//    var viewModel = User_SubscriptionViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,18 @@ class User_SubscriptionViewController: UIViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
     }
+    
+    func setUpUI() {
+        
+    }
+    
+    func loadData() {
+            viewModel.loadData { success in
+//                self.tableViewList.reloadData()
+            }
+
+        }
+    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }

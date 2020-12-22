@@ -8,9 +8,9 @@
 
 import UIKit
 
-class EditActionViewController: UIViewController {
+class EventListViewController: UIViewController {
 
-    var viewModel = EditActionViewModel()
+    var viewModel = EventListViewModel()
     
     @IBOutlet weak var saveButtonOutlet: UIButton!
     @IBOutlet var tableViewEvents: UITableView!
@@ -22,9 +22,18 @@ class EditActionViewController: UIViewController {
         tableViewEvents.delegate = self
         tableViewEvents.dataSource = self
         
+        loadData()
+        
         configureUI()
         // Do any additional setup after loading the view.
     }
+    
+    func loadData() {
+            viewModel.loadData { success in
+                self.tableViewEvents.reloadData()
+            }
+
+        }
     
     func configureUI(){
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
@@ -70,7 +79,7 @@ class EditActionViewController: UIViewController {
     }
 }
 
-extension EditActionViewController: UITableViewDelegate {
+extension EventListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             viewModel.arrayEvents.remove(at: indexPath.row)
@@ -99,14 +108,14 @@ extension EditActionViewController: UITableViewDelegate {
     }
 }
 
-extension EditActionViewController: UITableViewDataSource {
+extension EventListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.arrayEvents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel!.text = viewModel.arrayEvents[indexPath.row]
+        cell.textLabel!.text = viewModel.arrayEvents[indexPath.row].titulo
         return cell
     }
     

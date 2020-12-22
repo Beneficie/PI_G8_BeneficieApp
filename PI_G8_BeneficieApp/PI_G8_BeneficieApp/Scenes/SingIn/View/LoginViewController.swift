@@ -95,7 +95,7 @@ class LoginViewController: UIViewController {
     @IBAction func handleLogIn(_ sender: Any) {
         if isInformationValid() {
             if textFieldDidEndEditing(logInTextField) {
-                if let edit = UIStoryboard(name: "EditAction", bundle: nil).instantiateInitialViewController() as? EditActionViewController {
+                if let edit = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
                     navigationController?.pushViewController(edit, animated: true)
                 }
             } else {

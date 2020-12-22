@@ -16,7 +16,7 @@ class MainScreenViewController: UIViewController {
     }
     
     @IBAction func goToADMFlow(_ sender: UIButton) {
-        if let edit = UIStoryboard(name: "EditAction", bundle: nil).instantiateInitialViewController() as? EditActionViewController {
+        if let edit = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
             navigationController?.pushViewController(edit, animated: true)
         }
     }
