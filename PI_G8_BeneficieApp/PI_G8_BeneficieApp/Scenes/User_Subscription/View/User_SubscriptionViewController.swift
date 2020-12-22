@@ -12,28 +12,39 @@ class User_SubscriptionViewController: UIViewController {
 
     var viewModel = User_SubscriptionViewModel()
     
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var labelAvailable: UILabel!
+    @IBOutlet weak var labelEventDate: UILabel!
+    @IBOutlet weak var labelEventLocal: UILabel!
+    @IBOutlet weak var labelEventTitle: UILabel!
+    @IBOutlet weak var labelEventVacancies: UILabel!
+    @IBOutlet weak var pickerViewSubGroups: UIPickerView!
+    @IBOutlet weak var labelEventSubGroupVacancies: UILabel!
     
 //    var viewModel = User_SubscriptionViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        pickerView.delegate = self
-        pickerView.dataSource = self
+        pickerViewSubGroups.delegate = self
+        pickerViewSubGroups.dataSource = self
+        
+        loadData()
     }
     
-    func setUpUI() {
-        
+    func setUpUI(event: Event) {
+        labelEventDate.text = event.data
+        labelEventLocal.text = event.local
+        labelEventTitle.text = event.titulo
+        labelEventVacancies.text = String(event.vagasTotais)
+        labelEventSubGroupVacancies.text = String(event.vagasDisponiveis)
     }
     
     func loadData() {
-            viewModel.loadData { success in
-//                self.tableViewList.reloadData()
-            }
-
+        viewModel.loadData { success in
+            print("Success")
+                        self.setUpUI(event: self.viewModel.arrayEvents[0])
         }
+        
+    }
     
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -57,9 +68,6 @@ class User_SubscriptionViewController: UIViewController {
 }
 
 extension User_SubscriptionViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        labelAvailable.text = "08"
-    }
 }
 
 extension User_SubscriptionViewController: UIPickerViewDataSource {
@@ -72,6 +80,7 @@ extension User_SubscriptionViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        loadData(row: row)
         return viewModel.arraySubGroups[row]
     }
 }

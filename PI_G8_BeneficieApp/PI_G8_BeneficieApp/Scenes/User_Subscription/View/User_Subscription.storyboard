@@ -277,8 +277,12 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="labelAvailable" destination="g5o-VP-iSr" id="Q0l-w5-5EZ"/>
-                        <outlet property="pickerView" destination="tQq-BA-E8w" id="V2n-8G-Mca"/>
+                        <outlet property="labelEventDate" destination="dEy-rD-0kM" id="ydk-oj-0hG"/>
+                        <outlet property="labelEventLocal" destination="Iae-xD-K26" id="SOo-Du-rb2"/>
+                        <outlet property="labelEventSubGroupVacancies" destination="g5o-VP-iSr" id="Q0l-w5-5EZ"/>
+                        <outlet property="labelEventTitle" destination="f4C-dC-wbf" id="Naw-wg-liW"/>
+                        <outlet property="labelEventVacancies" destination="i8p-qm-7wM" id="zmT-OS-0Rq"/>
+                        <outlet property="pickerViewSubGroups" destination="tQq-BA-E8w" id="V2n-8G-Mca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gJ-gx-w4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

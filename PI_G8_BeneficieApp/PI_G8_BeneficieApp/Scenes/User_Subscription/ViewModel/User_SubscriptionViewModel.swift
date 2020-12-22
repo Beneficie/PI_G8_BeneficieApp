@@ -13,18 +13,20 @@ class User_SubscriptionViewModel {
     var arrayEvents = [Event]()
     var arraySubGroups = [String]()
     
-    var apiManager = EventList_APIManager()
+    var apiManager = APIManager()
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
         apiManager.request(url: "https://beneficie-app.herokuapp.com/beneficie/actions/") { (json, jsonArray, string) in
+            print("gg")
                 if let jsonArray = jsonArray {
                     var events = [Event]()
                     var groups = [String]()
                     for item in jsonArray {
                         events.append(Event(fromDictionary: item))
                     }
-                    for event in events {
-                        groups.append(String(event.grupos))
+                    for event in 1...events.count {
+                        var count = 0
+                        groups.append("\(count + 1)")
                     }
                     self.arrayEvents = events
                     self.arraySubGroups = groups

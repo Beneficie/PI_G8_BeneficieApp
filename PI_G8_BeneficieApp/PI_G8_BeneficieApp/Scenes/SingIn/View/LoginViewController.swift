@@ -16,6 +16,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInTextField: UITextField!
     
+    var eventListViewModel = EventListViewModel()
+    var viewModel = LoginViewModel()
+    
     func isInformationValid() -> Bool {
         if logInTextField.text == nil || logInTextField.text!.isEmpty {
             alertToMissingAnswer(field: "usuário")
@@ -46,6 +49,12 @@ class LoginViewController: UIViewController {
             return false
         }
 }
+    
+    func didLoadDataFromAPI() {
+        eventListViewModel.loadData { success in
+            
+        }
+    }
     
     //  MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -95,9 +104,12 @@ class LoginViewController: UIViewController {
     @IBAction func handleLogIn(_ sender: Any) {
         if isInformationValid() {
             if textFieldDidEndEditing(logInTextField) {
-                if let edit = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
-                    navigationController?.pushViewController(edit, animated: true)
-                }
+                if let admScreen = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
+//                    if let event = eventListViewModel.arrayEvents[]  {
+//                            modelList.brand = carModel
+//                        }
+                            navigationController?.pushViewController(admScreen, animated: true)
+                        }
             } else {
                 if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
                     navigationController?.pushViewController(userSubscription, animated: true)

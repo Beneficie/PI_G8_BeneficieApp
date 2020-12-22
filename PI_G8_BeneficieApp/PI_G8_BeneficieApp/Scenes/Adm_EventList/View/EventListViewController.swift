@@ -29,11 +29,11 @@ class EventListViewController: UIViewController {
     }
     
     func loadData() {
-            viewModel.loadData { success in
-                self.tableViewEvents.reloadData()
-            }
-
+        viewModel.loadData { success in
+            self.tableViewEvents.reloadData()
         }
+
+    }
     
     func configureUI(){
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)

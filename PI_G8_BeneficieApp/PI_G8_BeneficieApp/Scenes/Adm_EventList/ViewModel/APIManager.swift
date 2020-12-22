@@ -9,11 +9,17 @@
 import Foundation
 import Alamofire
 
-class EventList_APIManager {
+class APIManager {
     
     func request(url: String, completion: @escaping (_ json: [String: Any]?, _ jsonArray: [[String: Any]]?, _ error: String?) -> Void) {
         
         AF.request(url).responseJSON { response in
+            
+            switch response.result {
+            case .success(let data): print("Success")
+            case .failure(let error): print("Request failed \(error)")
+            }
+            
             guard let jsonObj = response.value else {
                 completion(nil, nil, "")
                 return
@@ -30,8 +36,6 @@ class EventList_APIManager {
             } else {
                 completion(nil, nil, "")
             }
-            
         }
-        completion(nil,nil, "")
     }
 }
