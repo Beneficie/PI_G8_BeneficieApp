@@ -7,4 +7,5 @@ target 'PI_G8_BeneficieApp' do
 
   # Pods for PI_G8_BeneficieApp
 	pod 'Alamofire'
+	pod 'IQKeyboardManagerSwift'
 end
