@@ -22,3 +22,15 @@ extension UIView{
            layer.shadowColor = color.cgColor
        }
 }
+
+extension UITextField{
+
+    open func configureTextField(placeHolder: String){
+        keyboardAppearance = .dark
+        textColor = .white
+        leftViewMode = .always
+        borderStyle = .none
+        attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+    }
+    
+}

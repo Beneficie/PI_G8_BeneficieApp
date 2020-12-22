@@ -13,6 +13,9 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var loginTextFieldOutlet: UITextField!
     @IBOutlet weak var passwordTextFieldOutlet: UITextField!
     @IBOutlet weak var contactTextFieldOutlet: UITextField!
+    @IBOutlet weak var ConfirmPasswordTextFieldOutlet: UITextField!
+    @IBOutlet weak var FullNameTextFieldOutlet: UITextField!
+    @IBOutlet weak var CPFTextFieldOutlet: UITextField!
     
     @IBOutlet weak var googleButtonOutlet: UIButton!
     @IBOutlet weak var facebookButtonOutlet: UIButton!
@@ -21,8 +24,14 @@ class SingUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loginTextFieldOutlet.delegate = self
+        passwordTextFieldOutlet.delegate = self
+        contactTextFieldOutlet.delegate = self
+        ConfirmPasswordTextFieldOutlet.delegate = self
+        FullNameTextFieldOutlet.delegate = self
+        CPFTextFieldOutlet.delegate = self
       configureUI()
+        
         
         
     }
@@ -36,21 +45,15 @@ class SingUpViewController: UIViewController {
     
      private func configureUI(){
         
-        loginTextFieldOutlet.keyboardAppearance = .dark
-        loginTextFieldOutlet.leftViewMode = .always
-        loginTextFieldOutlet.borderStyle = .none
-        loginTextFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        
-        contactTextFieldOutlet.keyboardAppearance = .dark
-        contactTextFieldOutlet.leftViewMode = .always
-        contactTextFieldOutlet.borderStyle = .none
-        contactTextFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Senha", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-        
-        passwordTextFieldOutlet.keyboardAppearance = .dark
-        passwordTextFieldOutlet.leftViewMode = .always
-        passwordTextFieldOutlet.borderStyle = .none
-        passwordTextFieldOutlet.isSecureTextEntry = true
-        passwordTextFieldOutlet.attributedPlaceholder = NSAttributedString(string: "Contato", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        loginTextFieldOutlet.configureTextField(placeHolder: "Email")
+        loginTextFieldOutlet.keyboardType = .emailAddress
+        FullNameTextFieldOutlet.configureTextField(placeHolder: "Nome Completo")
+        CPFTextFieldOutlet.configureTextField(placeHolder: "CPF")
+        contactTextFieldOutlet.configureTextField(placeHolder: "Contato")
+        contactTextFieldOutlet.keyboardType = .numbersAndPunctuation
+        ConfirmPasswordTextFieldOutlet.configureTextField(placeHolder: "Confirmar Senha")
+        passwordTextFieldOutlet.configureTextField(placeHolder: "Senha")
+       
         
         googleButtonOutlet.layer.cornerRadius = 5
         facebookButtonOutlet.layer.cornerRadius = 5
@@ -86,4 +89,24 @@ class SingUpViewController: UIViewController {
             print("DEBUG: Google")
         }
     }
+}
+
+extension SingUpViewController:UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+         case loginTextFieldOutlet:
+             FullNameTextFieldOutlet.becomeFirstResponder()
+         case FullNameTextFieldOutlet:
+             contactTextFieldOutlet.becomeFirstResponder()
+         case contactTextFieldOutlet:
+             CPFTextFieldOutlet.becomeFirstResponder()
+        case CPFTextFieldOutlet:
+            passwordTextFieldOutlet.becomeFirstResponder()
+        case passwordTextFieldOutlet:
+            ConfirmPasswordTextFieldOutlet.becomeFirstResponder()
+         default:
+             textField.resignFirstResponder()
+         }
+         return false
+      }
 }
