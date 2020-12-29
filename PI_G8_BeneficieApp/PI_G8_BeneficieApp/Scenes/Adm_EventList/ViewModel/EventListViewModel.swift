@@ -12,7 +12,7 @@ class EventListViewModel {
     
     var arrayEvents = [Event]()
     
-    var apiManager = EventList_APIManager()
+    var apiManager = APIManager()
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
         apiManager.request(url: "https://beneficie-app.herokuapp.com/beneficie/actions/") { (json, jsonArray, string) in
