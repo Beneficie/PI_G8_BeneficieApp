@@ -50,25 +50,55 @@
                                 <color key="textColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-NQ-UeL">
+                                <rect key="frame" x="143" y="210" width="128" height="128"/>
+                                <connections>
+                                    <action selector="instagramButtonTapped:" destination="DEq-sF-emY" eventType="touchUpInside" id="ret-M9-qWK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRJ-ti-1U5">
+                                <rect key="frame" x="143" y="388" width="128" height="128"/>
+                                <connections>
+                                    <action selector="facebookButtonTapped:" destination="DEq-sF-emY" eventType="touchUpInside" id="XNh-f5-Pf1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHb-oY-iN2">
+                                <rect key="frame" x="143" y="566" width="128" height="128"/>
+                                <connections>
+                                    <action selector="twitterButtonTapped:" destination="DEq-sF-emY" eventType="touchUpInside" id="jFV-4c-5os"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rtt-5g-VFe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="CZE-ra-Oue" firstAttribute="leading" secondItem="rtt-5g-VFe" secondAttribute="leading" constant="20" id="0co-hT-zTW"/>
+                            <constraint firstItem="xg5-NQ-UeL" firstAttribute="top" secondItem="he8-rs-h5X" secondAttribute="top" id="2aC-c0-hB9"/>
                             <constraint firstItem="cZ6-L8-8A0" firstAttribute="top" secondItem="J1E-b1-UPa" secondAttribute="bottom" constant="50" id="2mw-ia-hiH"/>
                             <constraint firstItem="rtt-5g-VFe" firstAttribute="trailing" secondItem="CZE-ra-Oue" secondAttribute="trailing" constant="20" id="4WJ-Or-m06"/>
                             <constraint firstItem="rtt-5g-VFe" firstAttribute="trailing" secondItem="J1E-b1-UPa" secondAttribute="trailing" constant="143" id="5Ph-ns-mZt"/>
+                            <constraint firstItem="J1E-b1-UPa" firstAttribute="trailing" secondItem="ZHb-oY-iN2" secondAttribute="trailing" id="AmE-MC-XPF"/>
+                            <constraint firstItem="cs8-Dl-Dd3" firstAttribute="bottom" secondItem="DRJ-ti-1U5" secondAttribute="bottom" id="EaX-t3-tsk"/>
+                            <constraint firstItem="ZHb-oY-iN2" firstAttribute="top" secondItem="J1E-b1-UPa" secondAttribute="top" id="Gsy-Wv-wWp"/>
                             <constraint firstItem="he8-rs-h5X" firstAttribute="top" secondItem="CZE-ra-Oue" secondAttribute="bottom" constant="50" id="I3i-H2-epM"/>
                             <constraint firstItem="J1E-b1-UPa" firstAttribute="leading" secondItem="rtt-5g-VFe" secondAttribute="leading" constant="143" id="I9j-L8-67x"/>
                             <constraint firstItem="CZE-ra-Oue" firstAttribute="top" secondItem="rtt-5g-VFe" secondAttribute="top" constant="80" id="QH4-Ru-f2C"/>
+                            <constraint firstItem="cs8-Dl-Dd3" firstAttribute="trailing" secondItem="DRJ-ti-1U5" secondAttribute="trailing" id="QWU-bb-oo4"/>
+                            <constraint firstItem="xg5-NQ-UeL" firstAttribute="leading" secondItem="he8-rs-h5X" secondAttribute="leading" id="QXJ-Gs-FwF"/>
                             <constraint firstItem="cZ6-L8-8A0" firstAttribute="leading" secondItem="rtt-5g-VFe" secondAttribute="leading" constant="20" id="QlS-7w-HNH"/>
+                            <constraint firstItem="DRJ-ti-1U5" firstAttribute="leading" secondItem="cs8-Dl-Dd3" secondAttribute="leading" id="V05-Ze-Zgj"/>
+                            <constraint firstItem="he8-rs-h5X" firstAttribute="bottom" secondItem="xg5-NQ-UeL" secondAttribute="bottom" id="Ypf-QD-16B"/>
                             <constraint firstItem="rtt-5g-VFe" firstAttribute="trailing" secondItem="cs8-Dl-Dd3" secondAttribute="trailing" constant="143" id="aG2-wk-JXD"/>
                             <constraint firstItem="J1E-b1-UPa" firstAttribute="top" secondItem="cs8-Dl-Dd3" secondAttribute="bottom" constant="50" id="c4u-Ba-W4n"/>
+                            <constraint firstItem="he8-rs-h5X" firstAttribute="trailing" secondItem="xg5-NQ-UeL" secondAttribute="trailing" id="d5x-rn-wn9"/>
                             <constraint firstItem="rtt-5g-VFe" firstAttribute="trailing" secondItem="cZ6-L8-8A0" secondAttribute="trailing" constant="20" id="ejd-ZF-akp"/>
+                            <constraint firstItem="J1E-b1-UPa" firstAttribute="bottom" secondItem="ZHb-oY-iN2" secondAttribute="bottom" id="gaZ-U4-i2c"/>
+                            <constraint firstItem="DRJ-ti-1U5" firstAttribute="top" secondItem="cs8-Dl-Dd3" secondAttribute="top" id="hml-JD-ZaP"/>
                             <constraint firstItem="rtt-5g-VFe" firstAttribute="trailing" secondItem="he8-rs-h5X" secondAttribute="trailing" constant="143" id="kI5-u5-JLX"/>
                             <constraint firstItem="cs8-Dl-Dd3" firstAttribute="top" secondItem="he8-rs-h5X" secondAttribute="bottom" constant="50" id="kiI-Kf-Y0J"/>
                             <constraint firstItem="he8-rs-h5X" firstAttribute="leading" secondItem="rtt-5g-VFe" secondAttribute="leading" constant="143" id="nYu-pU-RCm"/>
                             <constraint firstItem="cs8-Dl-Dd3" firstAttribute="leading" secondItem="rtt-5g-VFe" secondAttribute="leading" constant="143" id="pi8-Nj-BFw"/>
+                            <constraint firstItem="ZHb-oY-iN2" firstAttribute="leading" secondItem="J1E-b1-UPa" secondAttribute="leading" id="xhM-Hb-2Hb"/>
                         </constraints>
                     </view>
                 </viewController>

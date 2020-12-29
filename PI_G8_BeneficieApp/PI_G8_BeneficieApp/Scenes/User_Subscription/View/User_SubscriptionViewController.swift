@@ -41,7 +41,7 @@ class User_SubscriptionViewController: UIViewController {
     func loadData() {
         viewModel.loadData { success in
             print("Success")
-                        self.setUpUI(event: self.viewModel.arrayEvents[0])
+//                        self.setUpUI(event: self.viewModel.arrayEvents[0])
         }
         
     }

@@ -26,5 +26,38 @@ class User_SocialNetworksViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func instagramButtonTapped(_ sender: Any) {
+        let userURL = "mudadoresderua"
+        guard let url = URL(string: "https://instagram.com/\(userURL)")  else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    @IBAction func facebookButtonTapped(_ sender: Any) {
+        let userURL = "mudadoresderua"
+        guard let url = URL(string: "https://facebook.com/\(userURL)")  else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    @IBAction func twitterButtonTapped(_ sender: Any) {
+        let userURL = "mudadoresderua"
+        guard let url = URL(string: "https://twitter.com/\(userURL)")  else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    
 }
