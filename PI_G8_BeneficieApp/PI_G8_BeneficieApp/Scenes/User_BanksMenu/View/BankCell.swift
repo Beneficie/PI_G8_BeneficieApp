@@ -12,7 +12,9 @@ class BankCell: UICollectionViewCell {
     
     @IBOutlet weak var imageViewBank: UIImageView!
     
-    func setUpCell(bank: Bank) {
-        imageViewBank.image = UIImage(named: bank.photo)
+    func setUpCell(bank: BankAccount?) {
+        if let bank = bank {
+            imageViewBank.image = UIImage(named: bank.photo!)
+        }
     }
 }

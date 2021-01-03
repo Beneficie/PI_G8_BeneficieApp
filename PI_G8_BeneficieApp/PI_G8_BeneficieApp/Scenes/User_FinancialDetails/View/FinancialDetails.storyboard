@@ -164,6 +164,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="agencyTitle" destination="JDP-Dq-gbV" id="eH9-L8-aoY"/>
+                        <outlet property="bankTitle" destination="cEo-Ee-gc1" id="hVp-rN-EiS"/>
+                        <outlet property="benefitedTitle" destination="nlA-K7-825" id="MzI-sy-c4r"/>
+                        <outlet property="choosenBankAccount" destination="huK-n1-dfb" id="RPT-bf-CY8"/>
+                        <outlet property="choosenBankAccountType" destination="rL4-Lu-kcL" id="ADQ-ia-7W1"/>
+                        <outlet property="choosenBankAgency" destination="0rd-CJ-16M" id="hby-uO-Jlp"/>
+                        <outlet property="choosenBankBenefited" destination="qyV-xy-esD" id="o6p-2t-Rha"/>
+                        <outlet property="choosenBankName" destination="YMT-2H-KBi" id="9hu-7K-tep"/>
                         <outlet property="switchButton" destination="wME-cX-e7H" id="r9Q-DJ-Vva"/>
                     </connections>
                 </viewController>

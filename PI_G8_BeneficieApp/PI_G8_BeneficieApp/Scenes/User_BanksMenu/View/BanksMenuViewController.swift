@@ -11,7 +11,7 @@ import UIKit
 class BanksMenuViewController: UIViewController {
     
     @IBOutlet var collectionViewBanks: UICollectionView!
-    var arrayBanks = [Bank]()
+    var arrayBanks = [BankAccount]()
     
     
     override func viewDidLoad() {
@@ -20,14 +20,14 @@ class BanksMenuViewController: UIViewController {
         collectionViewBanks.delegate = self
         collectionViewBanks.dataSource = self
 
-        arrayBanks.append(Bank(name: "Pix", photo: "PIX"))
-        arrayBanks.append(Bank(name: "Santander", photo: "BancoSantander"))
-        arrayBanks.append(Bank(name: "Nubank", photo: "BancoNubank"))
-        arrayBanks.append(Bank(name: "Inter", photo: "BancoInter"))
-        arrayBanks.append(Bank(name: "Bradesco", photo: "BancoBradesco"))
-        arrayBanks.append(Bank(name: "Banco do Brasil", photo: "BancoDoBrasil"))
-        arrayBanks.append(Bank(name: "Caixa", photo: "BancoCaixa"))
-        arrayBanks.append(Bank(name: "Itau", photo: "BancoItau"))
+        arrayBanks.append(BankAccount(name: "PIX", photo: "PIX", agency: "", accountType: "Conta Corrente", accountNumber: "", accountBeneficited: ""))
+        arrayBanks.append( BankAccount(name: "Santander", photo: "BancoSantander", agency: "", accountType: "Conta ", accountNumber: "", accountBeneficited: "Mudadores"))
+        arrayBanks.append(BankAccount(name: "Nubank", photo: "BancoNubank", agency: "0001", accountType: "Conta Corrente", accountNumber: "000000-1", accountBeneficited: "Mudadores"))
+        arrayBanks.append(BankAccount(name: "Inter", photo: "BancoInter", agency: "BancoInter", accountType: "Conta ", accountNumber: "", accountBeneficited: "Mudadores"))
+        arrayBanks.append(BankAccount(name: "Bradesco", photo: "BancoBradesco", agency: "3142-9", accountType: "Conta Poupança", accountNumber: "1001908-7", accountBeneficited: "Mudadores"))
+        arrayBanks.append(BankAccount(name: "Banco do Brasil", photo: "BancoDoBrasil", agency: "1197-5", accountType: "Conta Corrente", accountNumber: "53923-6", accountBeneficited: "Mudadores"))
+        arrayBanks.append(BankAccount(name: "Caixa", photo: "BancoCaixa", agency: "3205", accountType: "Conta Poupança", accountNumber: "34102-3 Operação: 013", accountBeneficited: "Mudadores"))
+        arrayBanks.append(BankAccount(name: "Itaú", photo: "BancoItau", agency: "5488", accountType: "Conta ", accountNumber: "01610-5", accountBeneficited: "Mudadores"))
         
     }
     
@@ -41,6 +41,7 @@ class BanksMenuViewController: UIViewController {
 extension BanksMenuViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let financialDetails = UIStoryboard(name: "FinancialDetails", bundle: nil).instantiateInitialViewController() as? FinancialDetailsViewController {
+            financialDetails.bank = arrayBanks[indexPath.row]
             present(financialDetails, animated: true, completion: nil)
         }
     }

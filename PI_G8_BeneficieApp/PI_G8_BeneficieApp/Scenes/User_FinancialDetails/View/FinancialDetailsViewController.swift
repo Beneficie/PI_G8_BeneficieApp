@@ -10,12 +10,43 @@ import UIKit
 
 class FinancialDetailsViewController: UIViewController {
 
+    @IBOutlet weak var choosenBankName: UILabel!
+    @IBOutlet weak var choosenBankAgency: UILabel!
+    @IBOutlet weak var choosenBankAccountType: UILabel!
+    @IBOutlet weak var choosenBankAccount: UILabel!
+    @IBOutlet weak var choosenBankBenefited: UILabel!
+    @IBOutlet weak var bankTitle: UILabel!
+    @IBOutlet weak var agencyTitle: UILabel!
+    @IBOutlet weak var benefitedTitle: UILabel!
+    
     @IBOutlet weak var switchButton: UISwitch!
+    
+    var viewModel = FinancialDetailsViewModel()
+    var bank = BankAccount()
     
     func openSocialNetwork() {
         if let userSocialNetworks = UIStoryboard(name: "User_SocialNetworks", bundle: nil).instantiateInitialViewController() as? User_SocialNetworksViewController {
-//            navigationController?.pushViewController(userSocialNetworks, animated: true)
             present(userSocialNetworks, animated: true, completion: nil)
+        }
+    }
+    
+    func setUpLabels(bank: BankAccount) {
+        if bank.name?.lowercased() != "pix" {
+            choosenBankName.text = bank.name
+            choosenBankAgency.text  = bank.agency
+            choosenBankAccountType.text  = bank.accountType
+            choosenBankAccount.text = bank.accountNumber
+            choosenBankBenefited.text = bank.accountBeneficited
+        } else {
+            bankTitle.text = "Chave Pix"
+            choosenBankName.text = bank.name
+            agencyTitle.text = bank.accountBeneficited
+            choosenBankAgency.text = ""
+            choosenBankAccountType.text  = ""
+//            accountTitle.text = ""
+            benefitedTitle.text = ""
+            choosenBankAccount.text = ""
+            choosenBankBenefited.text = ""
         }
     }
     
@@ -33,7 +64,8 @@ class FinancialDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.setUpLabels(bank: self.bank)
         // Do any additional setup after loading the view.
     }
     

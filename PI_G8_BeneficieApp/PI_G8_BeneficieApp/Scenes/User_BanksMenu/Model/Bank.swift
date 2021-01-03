@@ -10,12 +10,12 @@ import Foundation
 
 class Bank {
     
-    var name: String
-    var photo: String
-    
-    init(name: String, photo: String) {
-        self.name = name
-        self.photo = photo
-    }
+//    var name: String
+//    var photo: String
+//    
+//    init(name: String, photo: String) {
+//        self.name = name
+//        self.photo = photo
+//    }
     
 }
