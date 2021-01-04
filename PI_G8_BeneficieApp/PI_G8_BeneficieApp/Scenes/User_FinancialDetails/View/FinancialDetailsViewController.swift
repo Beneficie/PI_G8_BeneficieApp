@@ -19,6 +19,7 @@ class FinancialDetailsViewController: UIViewController {
     @IBOutlet weak var agencyTitle: UILabel!
     @IBOutlet weak var benefitedTitle: UILabel!
     
+    
     @IBOutlet weak var switchButton: UISwitch!
     
     var viewModel = FinancialDetailsViewModel()
@@ -67,6 +68,14 @@ class FinancialDetailsViewController: UIViewController {
         
         self.setUpLabels(bank: self.bank)
         // Do any additional setup after loading the view.
+    }
+    @IBAction func copyAgency(_ sender: Any) {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = choosenBankAgency.text
+    }
+    @IBAction func copyAccount(_ sender: Any) {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = choosenBankAccount.text
     }
     
     @IBAction func switchDonation(_ sender: Any) {
