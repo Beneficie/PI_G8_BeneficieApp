@@ -12,26 +12,26 @@ class LoginViewController: UIViewController {
 
     //  MARK: - Outlets
     @IBOutlet weak var singUpButtonOutlet: UIButton!
-    @IBOutlet weak var LoginButtonOutlet: UIButton!
+    @IBOutlet weak var loginButtonOutlet: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInTextField: UITextField!
     
     var eventListViewModel = EventListViewModel()
     var viewModel = LoginViewModel()
     
-    func isInformationValid() -> Bool {
+    func checkEmptyTextFields() -> Bool {
         if logInTextField.text == nil || logInTextField.text!.isEmpty {
-            alertToMissingAnswer(field: "usuário")
+            alertToEmptyFields(field: "usuário")
             return false
         }
         else if passwordTextField.text == nil || passwordTextField.text!.isEmpty {
-            alertToMissingAnswer(field: "senha")
+            alertToEmptyFields(field: "senha")
             return false
         }
         return true
     }
     
-    func alertToMissingAnswer(field: String){
+    func alertToEmptyFields(field: String){
             let alert = UIAlertController(title: "Atenção", message: "Falta \(field)", preferredStyle: .alert)
 
             let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
@@ -79,11 +79,11 @@ class LoginViewController: UIViewController {
         passwordTextField.borderStyle = .none
         passwordTextField.isSecureTextEntry = true
         
-        LoginButtonOutlet.layer.cornerRadius = 25
-        LoginButtonOutlet.layer.shadowOpacity = 0.3
-        LoginButtonOutlet.layer.shadowRadius = 25
-        LoginButtonOutlet.layer.shadowOffset = .zero
-        LoginButtonOutlet.layer.shadowColor = UIColor.black.cgColor
+        loginButtonOutlet.layer.cornerRadius = 25
+        loginButtonOutlet.layer.shadowOpacity = 0.3
+        loginButtonOutlet.layer.shadowRadius = 25
+        loginButtonOutlet.layer.shadowOffset = .zero
+        loginButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         
         let attrbText = NSMutableAttributedString(string: "Não tem conta? ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),                                                                                      NSAttributedString.Key.foregroundColor: UIColor.lightGray])
    
@@ -102,7 +102,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func handleLogIn(_ sender: Any) {
-        if isInformationValid() {
+        if checkEmptyTextFields() {
             if textFieldDidEndEditing(logInTextField) {
                 if let admScreen = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
                     navigationController?.pushViewController(admScreen, animated: true)
@@ -132,14 +132,14 @@ extension LoginViewController: UITextFieldDelegate {
         } else {
             textField.resignFirstResponder()
         }
-        isInformationValid()
-        handleLogIn(LoginButtonOutlet)
+        checkEmptyTextFields()
+        handleLogIn(loginButtonOutlet)
         return true
         
     }
-    func textFieldDidEndEditing(_ textField: UITextField) -> Bool {
+    private func textFieldDidEndEditing(_ textField: UITextField) -> Bool {
         if let user = textField.text {
-            var login = isAdmin(user: user)
+            let login = isAdmin(user: user)
             if login {
                 return true
             }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QS-Mh-Vwb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QS-Mh-Vwb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -170,8 +170,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="hk2-JC-yu6"/>
                     <connections>
-                        <outlet property="LoginButtonOutlet" destination="O86-N2-Luf" id="wTO-ub-7nk"/>
                         <outlet property="logInTextField" destination="q5E-WK-PJ4" id="zcl-zG-gYf"/>
+                        <outlet property="loginButtonOutlet" destination="O86-N2-Luf" id="wTO-ub-7nk"/>
                         <outlet property="passwordTextField" destination="qVa-L7-MZU" id="nQg-SY-tNO"/>
                         <outlet property="singUpButtonOutlet" destination="aLD-dQ-GxA" id="W1e-2F-gJw"/>
                     </connections>
@@ -183,9 +183,6 @@
     </scenes>
     <resources>
         <image name="image_hands (2)" width="256" height="256"/>
-        <systemColor name="scrollViewTexturedBackgroundColor">
-            <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="scrollViewTexturedBackgroundColor">
             <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
