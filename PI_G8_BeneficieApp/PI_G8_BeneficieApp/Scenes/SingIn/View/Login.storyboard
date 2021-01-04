@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QS-Mh-Vwb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QS-Mh-Vwb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,18 +42,18 @@
                                             <constraint firstAttribute="width" constant="374" id="ubW-gN-pbu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="yes" smartInsertDeleteType="yes" textContentType="email"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIz-ge-zd1" userLabel="SeparatorView">
                                         <rect key="frame" x="0.0" y="35" width="374" height="2"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="374" id="DOl-Md-rpj"/>
                                             <constraint firstAttribute="height" constant="2" id="Eap-CT-YNC"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="LIz-ge-zd1" firstAttribute="top" secondItem="q5E-WK-PJ4" secondAttribute="bottom" constant="1" id="1v1-Pi-NoE"/>
                                     <constraint firstItem="q5E-WK-PJ4" firstAttribute="leading" secondItem="dZe-Ha-E1i" secondAttribute="leading" id="23B-xP-aFS"/>
@@ -79,14 +81,14 @@
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcN-8a-uAg" userLabel="SeparatorView">
                                         <rect key="frame" x="0.0" y="35" width="374" height="2"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="lxJ-x6-Fcd"/>
                                             <constraint firstAttribute="width" constant="374" id="ysh-DT-k8O"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="qcN-8a-uAg" secondAttribute="trailing" id="LDh-lX-2lN"/>
                                     <constraint firstAttribute="height" constant="54" id="LGJ-kZ-JEy"/>
@@ -98,13 +100,13 @@
                                     <constraint firstItem="qcN-8a-uAg" firstAttribute="top" secondItem="qVa-L7-MZU" secondAttribute="bottom" constant="1" id="v4N-qx-Ui7"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SC-zV-kDH" userLabel="ForgotPasswordButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SC-zV-kDH" userLabel="ForgotPasswordButton">
                                 <rect key="frame" x="139" y="472" width="136" height="30"/>
                                 <state key="normal" title="Esqueceu a senha ?">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O86-N2-Luf" userLabel="LoginButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O86-N2-Luf" userLabel="LoginButton">
                                 <rect key="frame" x="20" y="524" width="374" height="56"/>
                                 <color key="backgroundColor" red="0.46091520790000001" green="0.47264128919999998" blue="0.90709859130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -118,14 +120,14 @@
                                     <action selector="handleLogIn:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="Wen-lk-YPA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-dQ-GxA" userLabel="SingUpButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-dQ-GxA" userLabel="SingUpButton">
                                 <rect key="frame" x="108.5" y="601" width="197" height="30"/>
                                 <state key="normal" title="Não tem conta? Cadastre-se">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E73-ww-DBA">
-                                <rect key="frame" x="20" y="84" width="48" height="34"/>
+                                <rect key="frame" x="20" y="84" width="47" height="34"/>
                                 <state key="normal" title="Voltar">
                                     <color key="titleColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -134,7 +136,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bZg-yi-i5t"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="O86-N2-Luf" firstAttribute="top" secondItem="8SC-zV-kDH" secondAttribute="bottom" constant="22" id="0pc-Hz-QhN"/>
                             <constraint firstItem="E73-ww-DBA" firstAttribute="top" secondItem="bZg-yi-i5t" secondAttribute="top" constant="40" id="1PH-9b-ZLG"/>
@@ -159,7 +162,6 @@
                             <constraint firstItem="bZg-yi-i5t" firstAttribute="trailing" secondItem="Ied-lQ-2cQ" secondAttribute="trailing" constant="149" id="uqB-Bz-aOt"/>
                             <constraint firstItem="Ied-lQ-2cQ" firstAttribute="leading" secondItem="E73-ww-DBA" secondAttribute="trailing" constant="96.5" id="vUN-nG-1pi"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="bZg-yi-i5t"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="vUN-nG-1pi"/>
@@ -181,5 +183,14 @@
     </scenes>
     <resources>
         <image name="image_hands (2)" width="256" height="256"/>
+        <systemColor name="scrollViewTexturedBackgroundColor">
+            <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="scrollViewTexturedBackgroundColor">
+            <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

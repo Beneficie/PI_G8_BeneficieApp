@@ -18,6 +18,7 @@ class User_SubscriptionViewController: UIViewController {
     @IBOutlet weak var labelEventVacancies: UILabel!
     @IBOutlet weak var pickerViewSubGroups: UIPickerView!
     @IBOutlet weak var labelEventSubGroupVacancies: UILabel!
+    @IBOutlet weak var labelEventDescription: UILabel!
     
 //    var viewModel = User_SubscriptionViewModel()
     
@@ -36,19 +37,41 @@ class User_SubscriptionViewController: UIViewController {
         labelEventTitle.text = event.titulo
         labelEventVacancies.text = String(event.vagasTotais)
         labelEventSubGroupVacancies.text = String(event.vagasDisponiveis)
+        labelEventDescription.text = event.descricao
     }
     
     func loadData() {
         viewModel.loadData { success in
-            print("Success")
 //                        self.setUpUI(event: self.viewModel.arrayEvents[0])
+            if success {
+                print("SuccessInLoadData")
+            } else {
+                print("FailInLoadData")
+                self.alertFailedInLoadData()
+            }
         }
-        
+    }
+    
+    func alertFailedInLoadData() {
+        labelEventDate.text = ""
+        labelEventLocal.text = ""
+        labelEventTitle.text = ""
+        labelEventVacancies.text = ""
+        labelEventSubGroupVacancies.text = ""
+        labelEventDescription.text = ""
+        let alert = UIAlertController(title: "Erro", message: "Não foi possível carregar o evento", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+            if let userSocialNetworks = UIStoryboard(name: "User_SocialNetworks", bundle: nil).instantiateInitialViewController() as? User_SocialNetworksViewController {
+                self.present(userSocialNetworks, animated: true, completion: nil)
+            }
+        }))
+        present(alert, animated: true)
     }
     
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func profileButton(_ sender: Any) {
         if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController { navigationController?.pushViewController(Profile, animated: true) }
     }

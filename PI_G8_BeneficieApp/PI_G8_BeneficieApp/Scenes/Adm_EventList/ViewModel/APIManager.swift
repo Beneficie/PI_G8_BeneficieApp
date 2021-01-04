@@ -11,6 +11,34 @@ import Alamofire
 
 class APIManager {
     
+    func requestArray(
+        url: String,
+        onSuccess: @escaping (_ responseArray: [Any]) -> Void,
+        onFailure: @escaping (_ errorMessage: String?) -> Void
+    ) {
+        AF.request(url).responseJSON { response in
+            
+            switch response.result {
+            case .success(let data):
+                guard let responseValue = response.value else {
+                    onFailure("No response value")
+                    return
+                }
+                
+                if let jsonArray = responseValue as? [Any] {
+                    onSuccess(jsonArray)
+                    print(data)
+                } else {
+                    onFailure("Failed to parse into [Any]")
+                }
+                
+            case .failure(let error):
+                onFailure(error.failureReason)
+                
+            }
+        }
+    }
+    
     func request(url: String, completion: @escaping (_ json: [String: Any]?, _ jsonArray: [[String: Any]]?, _ error: String?) -> Void) {
         
         AF.request(url).responseJSON { response in
@@ -25,12 +53,15 @@ class APIManager {
                 return
             }
             
+//            dic
             if let json = jsonObj as? [String: Any] {
                 if let jsn = json["error"] as? [String:Any] {
                     completion(nil, nil, "")
                 } else {
                     completion(json, nil, nil)
                 }
+                
+//             dic array
             } else if let jsonArray = jsonObj as? [[String: Any]] {
                 completion(nil, jsonArray, nil)
             } else {

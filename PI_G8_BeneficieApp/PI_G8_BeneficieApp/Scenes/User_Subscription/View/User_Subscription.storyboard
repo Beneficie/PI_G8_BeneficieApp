@@ -278,6 +278,7 @@
                     </view>
                     <connections>
                         <outlet property="labelEventDate" destination="dEy-rD-0kM" id="ydk-oj-0hG"/>
+                        <outlet property="labelEventDescription" destination="qGh-0W-C3s" id="RmA-eF-DRM"/>
                         <outlet property="labelEventLocal" destination="Iae-xD-K26" id="SOo-Du-rb2"/>
                         <outlet property="labelEventSubGroupVacancies" destination="g5o-VP-iSr" id="Q0l-w5-5EZ"/>
                         <outlet property="labelEventTitle" destination="f4C-dC-wbf" id="Naw-wg-liW"/>
