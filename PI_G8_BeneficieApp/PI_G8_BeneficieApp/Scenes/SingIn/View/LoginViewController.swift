@@ -50,11 +50,11 @@ class LoginViewController: UIViewController {
         }
 }
     
-    func didLoadDataFromAPI() {
-        eventListViewModel.loadData { success in
-            
-        }
-    }
+//    func loadDataFromAPI() {
+//        eventListViewModel.loadData { success in
+//            
+//        }
+//    }
     
     //  MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -105,11 +105,8 @@ class LoginViewController: UIViewController {
         if isInformationValid() {
             if textFieldDidEndEditing(logInTextField) {
                 if let admScreen = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
-//                    if let event = eventListViewModel.arrayEvents[]  {
-//                            modelList.brand = carModel
-//                        }
-                            navigationController?.pushViewController(admScreen, animated: true)
-                        }
+                    navigationController?.pushViewController(admScreen, animated: true)
+                }
             } else {
                 if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
                     navigationController?.pushViewController(userSubscription, animated: true)
@@ -130,12 +127,12 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField != nil {
+        if logInTextField.text != nil {
             passwordTextField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
-            isInformationValid()
         }
+        isInformationValid()
         handleLogIn(LoginButtonOutlet)
         return true
         
