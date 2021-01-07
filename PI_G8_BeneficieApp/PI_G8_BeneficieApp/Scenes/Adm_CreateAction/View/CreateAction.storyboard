@@ -242,6 +242,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="labelTitle" destination="jBs-Sz-8d8" id="Bc6-ok-PZK"/>
                         <outlet property="saveButtonOutlet" destination="5W5-Lr-sCn" id="R7x-M0-4Fi"/>
                     </connections>
                 </viewController>

@@ -270,11 +270,29 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		330A07BE25A795CF009AED05 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3363FC0A259126040096D27A /* Event.swift */,
+				3360679225A5EC4400DE3A0C /* Subgroup.swift */,
+				3360679725A6619A00DE3A0C /* User.swift */,
+				3360679A25A661C700DE3A0C /* Admin.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		330A07BF25A795FC009AED05 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				3363FC04259122B60096D27A /* APIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
 		333FBC24258D25CE00C66BD6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				3369A335258D2E96006BB5BB /* EventListViewModel.swift */,
-				3363FC04259122B60096D27A /* APIManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -291,10 +309,6 @@
 		333FBC26258D25E300C66BD6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3363FC0A259126040096D27A /* Event.swift */,
-				3360679225A5EC4400DE3A0C /* Subgroup.swift */,
-				3360679725A6619A00DE3A0C /* User.swift */,
-				3360679A25A661C700DE3A0C /* Admin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,19 +344,21 @@
 		33B9044D257E4E43004DA579 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				330A07BF25A795FC009AED05 /* APIManager */,
+				330A07BE25A795CF009AED05 /* Models */,
+				33D07E84255DB41200272FBF /* MainScreen  */,
+				0D77863D255A25E500255307 /* SingIn */,
+				0DA44244255ADBD200C82076 /* SingUp */,
+				0D1068C225693429002E5909 /* Profile */,
 				33C240BE258D22B0009323CE /* Adm_EventList */,
+				0D153B37256A9D5300E391AB /* Adm_CreateAction */,
+				0D153B3C256AB03D00E391AB /* Adm_Participants */,
+				339282F6256D3F790051DA2A /* Adm_BankInformations */,
 				33D07E8C255DBE2600272FBF /* User_Subscription */,
 				336837ED256C335F00FCF70C /* User_SubscribeToAction */,
-				0D77863D255A25E500255307 /* SingIn */,
 				336837F6256C3B9500FCF70C /* User_BanksMenu */,
 				33D07E98255DC2F800272FBF /* User_FinancialDetails */,
 				33D07EA2255DCDFA00272FBF /* User_SocialNetworks */,
-				0D153B3C256AB03D00E391AB /* Adm_Participants */,
-				0D153B37256A9D5300E391AB /* Adm_CreateAction */,
-				339282F6256D3F790051DA2A /* Adm_BankInformations */,
-				0D1068C225693429002E5909 /* Profile */,
-				33D07E84255DB41200272FBF /* MainScreen  */,
-				0DA44244255ADBD200C82076 /* SingUp */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

@@ -11,7 +11,9 @@ import UIKit
 class CreateActionViewController: UIViewController {
 
     @IBOutlet weak var saveButtonOutlet: UIButton!
-    @IBOutlet weak var actionContainer: UIView!
+    @IBOutlet weak var labelTitle: UILabel!
+    
+    var currentAction: String = "Criar"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,7 @@ class CreateActionViewController: UIViewController {
     func configureUI(){
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
         saveButtonOutlet.layer.cornerRadius = 15
+        labelTitle.text = "\(currentAction) Ação"
     }
     @IBAction func profileButton(_ sender: Any) {
         if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
