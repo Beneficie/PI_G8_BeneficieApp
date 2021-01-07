@@ -10,6 +10,13 @@ import UIKit
 
 class SubscribeToActionViewController: UIViewController {
 
+    @IBOutlet var labelSubgroup: UILabel!
+    @IBOutlet var labelEventTitle: UILabel!
+    @IBOutlet var textFieldContact: UITextField!
+    
+    var event = Event()
+    var subgroup: String = ""
+    
     func openFinancialScreen() {
         if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
             navigationController?.pushViewController(userFinanceData, animated: true)
@@ -19,7 +26,14 @@ class SubscribeToActionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpUI()
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpUI() {
+        labelEventTitle.text = event.titulo
+        labelSubgroup.text = "Subgrupo \(subgroup)"
+//        textFieldContact
     }
     
     @IBAction func backButton(_ sender: Any) {

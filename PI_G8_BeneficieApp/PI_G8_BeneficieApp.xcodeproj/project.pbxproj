@@ -30,6 +30,9 @@
 		0DA44248255ADC2F00C82076 /* SingUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA44247255ADC2F00C82076 /* SingUp.storyboard */; };
 		0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA44249255ADC5900C82076 /* SingUpViewController.swift */; };
 		333FBC21258D258700C66BD6 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FBC1F258D258700C66BD6 /* EventListViewController.swift */; };
+		3360679325A5EC4400DE3A0C /* Subgroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360679225A5EC4400DE3A0C /* Subgroup.swift */; };
+		3360679825A6619A00DE3A0C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360679725A6619A00DE3A0C /* User.swift */; };
+		3360679B25A661C700DE3A0C /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360679A25A661C700DE3A0C /* Admin.swift */; };
 		3363FC05259122B60096D27A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3363FC04259122B60096D27A /* APIManager.swift */; };
 		3363FC0B259126040096D27A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3363FC0A259126040096D27A /* Event.swift */; };
 		336837EB256C335700FCF70C /* SubscribeToAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336837EA256C335700FCF70C /* SubscribeToAction.storyboard */; };
@@ -97,6 +100,9 @@
 		169221CD294399835A8C4C90 /* Pods-PI_G8_BeneficieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PI_G8_BeneficieApp.release.xcconfig"; path = "Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp.release.xcconfig"; sourceTree = "<group>"; };
 		333FBC1F258D258700C66BD6 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		333FBC20258D258700C66BD6 /* EventList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventList.storyboard; sourceTree = "<group>"; };
+		3360679225A5EC4400DE3A0C /* Subgroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subgroup.swift; sourceTree = "<group>"; };
+		3360679725A6619A00DE3A0C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3360679A25A661C700DE3A0C /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		3363FC04259122B60096D27A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		3363FC0A259126040096D27A /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		336837EA256C335700FCF70C /* SubscribeToAction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubscribeToAction.storyboard; sourceTree = "<group>"; };
@@ -217,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				33B9044D257E4E43004DA579 /* Scenes */,
+				33D27D66259B6F490014CB38 /* DisabledScreens */,
 				0D778629255A235300255307 /* AppDelegate.swift */,
 				0D77862B255A235300255307 /* SceneDelegate.swift */,
 				0D77862F255A235300255307 /* Main.storyboard */,
@@ -285,6 +292,9 @@
 			isa = PBXGroup;
 			children = (
 				3363FC0A259126040096D27A /* Event.swift */,
+				3360679225A5EC4400DE3A0C /* Subgroup.swift */,
+				3360679725A6619A00DE3A0C /* User.swift */,
+				3360679A25A661C700DE3A0C /* Admin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,20 +330,19 @@
 		33B9044D257E4E43004DA579 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				33D27D66259B6F490014CB38 /* DisabledScreens */,
 				33C240BE258D22B0009323CE /* Adm_EventList */,
+				33D07E8C255DBE2600272FBF /* User_Subscription */,
+				336837ED256C335F00FCF70C /* User_SubscribeToAction */,
+				0D77863D255A25E500255307 /* SingIn */,
+				336837F6256C3B9500FCF70C /* User_BanksMenu */,
+				33D07E98255DC2F800272FBF /* User_FinancialDetails */,
+				33D07EA2255DCDFA00272FBF /* User_SocialNetworks */,
 				0D153B3C256AB03D00E391AB /* Adm_Participants */,
 				0D153B37256A9D5300E391AB /* Adm_CreateAction */,
 				339282F6256D3F790051DA2A /* Adm_BankInformations */,
 				0D1068C225693429002E5909 /* Profile */,
 				33D07E84255DB41200272FBF /* MainScreen  */,
 				0DA44244255ADBD200C82076 /* SingUp */,
-				0D77863D255A25E500255307 /* SingIn */,
-				33D07E8C255DBE2600272FBF /* User_Subscription */,
-				336837ED256C335F00FCF70C /* User_SubscribeToAction */,
-				336837F6256C3B9500FCF70C /* User_BanksMenu */,
-				33D07E98255DC2F800272FBF /* User_FinancialDetails */,
-				33D07EA2255DCDFA00272FBF /* User_SocialNetworks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -803,6 +812,7 @@
 				33B90489257E5AC4004DA579 /* Bank.swift in Sources */,
 				0D153B42256AB28C00E391AB /* ParticipantsCell.swift in Sources */,
 				33B904B7257E5EF8004DA579 /* FinancialDetailsViewModel.swift in Sources */,
+				3360679B25A661C700DE3A0C /* Admin.swift in Sources */,
 				0D77862A255A235300255307 /* AppDelegate.swift in Sources */,
 				0D153B40256AB26600E391AB /* ParticipantsViewController.swift in Sources */,
 				0D1068CD25693EF5002E5909 /* AdmActionsViewController.swift in Sources */,
@@ -822,6 +832,7 @@
 				3369A336258D2E96006BB5BB /* EventListViewModel.swift in Sources */,
 				33B904BA257E5F1C004DA579 /* UserSociaNetworksViewModel.swift in Sources */,
 				33683807256C3DD700FCF70C /* BankCell.swift in Sources */,
+				3360679325A5EC4400DE3A0C /* Subgroup.swift in Sources */,
 				33B90497257E5CE4004DA579 /* BankInformationsViewModel.swift in Sources */,
 				33B904A2257E5DCC004DA579 /* MainScreenViewModel.swift in Sources */,
 				33B904B1257E5EAD004DA579 /* SubscribeToActionViewModel.swift in Sources */,
@@ -829,6 +840,7 @@
 				33D07EA4255DCE2000272FBF /* User_SocialNetworksViewController.swift in Sources */,
 				3363FC0B259126040096D27A /* Event.swift in Sources */,
 				0D1068D625695D72002E5909 /* Extensions.swift in Sources */,
+				3360679825A6619A00DE3A0C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

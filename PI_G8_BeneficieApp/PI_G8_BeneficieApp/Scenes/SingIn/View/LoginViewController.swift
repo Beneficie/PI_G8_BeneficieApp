@@ -50,11 +50,6 @@ class LoginViewController: UIViewController {
         }
 }
     
-//    func loadDataFromAPI() {
-//        eventListViewModel.loadData { success in
-//            
-//        }
-//    }
     
     //  MARK: - viewDidLoad
     override func viewDidLoad() {
