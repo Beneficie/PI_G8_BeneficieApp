@@ -69,6 +69,10 @@ class FinancialDetailsViewController: UIViewController {
         self.setUpLabels(bank: self.bank)
         // Do any additional setup after loading the view.
     }
+    @IBAction func copyBank(_ sender: Any) {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = choosenBankName.text
+    }
     @IBAction func copyAgency(_ sender: Any) {
         let pasteboard = UIPasteboard.general
         pasteboard.string = choosenBankAgency.text

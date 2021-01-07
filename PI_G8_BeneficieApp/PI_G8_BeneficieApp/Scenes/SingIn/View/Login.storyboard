@@ -24,13 +24,18 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ied-lQ-2cQ" userLabel="LogoLabel">
-                                <rect key="frame" x="150" y="95" width="115" height="33"/>
+                                <rect key="frame" x="149.5" y="95" width="115" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ied-lQ-2cQ" secondAttribute="height" multiplier="115:33" id="Jct-Il-AkG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
                                 <color key="textColor" red="0.460915207862854" green="0.47264128923416138" blue="0.90709859132766724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Jct-Il-AkG"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZe-Ha-E1i" userLabel="LogInView">
                                 <rect key="frame" x="20" y="329" width="374" height="54"/>
@@ -42,7 +47,7 @@
                                             <constraint firstAttribute="width" constant="374" id="ubW-gN-pbu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartDashesType="yes" smartInsertDeleteType="yes" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartDashesType="yes" smartInsertDeleteType="yes" textContentType="email"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIz-ge-zd1" userLabel="SeparatorView">
                                         <rect key="frame" x="0.0" y="35" width="374" height="2"/>
@@ -146,6 +151,7 @@
                             <constraint firstItem="dZe-Ha-E1i" firstAttribute="top" secondItem="X6I-nS-smC" secondAttribute="bottom" constant="42" id="6SK-vq-aZU"/>
                             <constraint firstItem="aLD-dQ-GxA" firstAttribute="centerX" secondItem="Dss-W0-gBv" secondAttribute="centerX" id="76H-yR-Pys"/>
                             <constraint firstItem="aLD-dQ-GxA" firstAttribute="top" secondItem="O86-N2-Luf" secondAttribute="bottom" constant="21" id="BaE-yW-rLb"/>
+                            <constraint firstItem="Ied-lQ-2cQ" firstAttribute="centerX" secondItem="Dss-W0-gBv" secondAttribute="centerX" id="D23-rM-5d3"/>
                             <constraint firstItem="X6I-nS-smC" firstAttribute="top" secondItem="Ied-lQ-2cQ" secondAttribute="bottom" constant="31" id="D5x-Xg-Far"/>
                             <constraint firstItem="Evs-5T-nvV" firstAttribute="top" secondItem="dZe-Ha-E1i" secondAttribute="bottom" constant="20" id="DGu-N6-6LA"/>
                             <constraint firstItem="Ied-lQ-2cQ" firstAttribute="leading" secondItem="bZg-yi-i5t" secondAttribute="leading" constant="150" id="Ff6-FE-Xrb"/>
@@ -164,6 +170,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="uqB-Bz-aOt"/>
+                                <exclude reference="Ff6-FE-Xrb"/>
                                 <exclude reference="vUN-nG-1pi"/>
                             </mask>
                         </variation>

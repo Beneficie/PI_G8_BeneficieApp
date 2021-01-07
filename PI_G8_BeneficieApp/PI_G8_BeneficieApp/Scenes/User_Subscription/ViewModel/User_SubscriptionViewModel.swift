@@ -11,35 +11,34 @@ import Foundation
 class User_SubscriptionViewModel {
     
     var arrayEvents = [Event]()
-    var arraySubGroups = [String]()
+    var arraySubGroups = [Subgroup]()
     
     var apiManager = APIManager()
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
         apiManager.requestArray(
             url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseArray) in
-            print("Success \(responseArray)")
+            var events = [Event]()
+            for item in responseArray {
+                events.append(Event(fromDictionary: item as! [String : Any]))
+            }
+            self.arrayEvents = events
             onComplete(true)
-        } onFailure: { (error) in
+            return
+                onComplete(true)
+        }
+        onFailure: { (error) in
             print("Error \(error)")
             onComplete(false)
         }
 
-            
-            
 //            (json, jsonArray, string) in
 //                if let jsonArray = jsonArray {
 //                    var events = [Event]()
-//                    var groups = [String]()
 //                    for item in jsonArray {
 //                        events.append(Event(fromDictionary: item))
 //                    }
-//                    for event in 1...events.count {
-//                        var count = 0
-//                        groups.append("\(count + 1)")
-//                    }
 //                    self.arrayEvents = events
-//                    self.arraySubGroups = groups
 //                    onComplete(true)
 //                    return
 //                }

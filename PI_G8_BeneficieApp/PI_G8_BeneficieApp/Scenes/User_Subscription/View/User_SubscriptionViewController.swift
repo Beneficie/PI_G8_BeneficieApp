@@ -11,6 +11,8 @@ import UIKit
 class User_SubscriptionViewController: UIViewController {
 
     var viewModel = User_SubscriptionViewModel()
+    var event = Event()
+    var subgroup = ""
     
     @IBOutlet weak var labelEventDate: UILabel!
     @IBOutlet weak var labelEventLocal: UILabel!
@@ -20,7 +22,8 @@ class User_SubscriptionViewController: UIViewController {
     @IBOutlet weak var labelEventSubGroupVacancies: UILabel!
     @IBOutlet weak var labelEventDescription: UILabel!
     
-//    var viewModel = User_SubscriptionViewModel()
+    @IBOutlet var buttonDonate: UIButton!
+    @IBOutlet var buttonSubscribe: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +41,14 @@ class User_SubscriptionViewController: UIViewController {
         labelEventVacancies.text = String(event.vagasTotais)
         labelEventSubGroupVacancies.text = String(event.vagasDisponiveis)
         labelEventDescription.text = event.descricao
+        pickerViewSubGroups.reloadComponent(0)
     }
     
     func loadData() {
         viewModel.loadData { success in
             if success {
-                print("SuccessInLoadData")
+                self.event = self.viewModel.arrayEvents[0]
+                self.setUpUI(event: self.event)
             } else {
                 print("FailInLoadData")
                 self.alertFailedInLoadData()
@@ -67,6 +72,15 @@ class User_SubscriptionViewController: UIViewController {
         present(alert, animated: true)
     }
     
+    func availabilityToSubscribe(vacancy: Int) {
+        if vacancy > 0 {
+            buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+            buttonSubscribe.isEnabled = true
+        } else {
+            buttonSubscribe.backgroundColor = .lightGray
+            buttonSubscribe.isEnabled = false
+        }
+    }
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -77,6 +91,9 @@ class User_SubscriptionViewController: UIViewController {
     
     @IBAction func actionSubscribePressed(_ sender: Any) {
         if let userSubscribe = UIStoryboard(name: "SubscribeToAction", bundle: nil).instantiateInitialViewController() as? SubscribeToActionViewController {
+            
+            userSubscribe.event = event
+            userSubscribe.subgroup = subgroup
                 navigationController?.pushViewController(userSubscribe, animated: true)
             }
     }
@@ -90,6 +107,14 @@ class User_SubscriptionViewController: UIViewController {
 }
 
 extension User_SubscriptionViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let vacancy = 0
+        if let vacancy = viewModel.arrayEvents[0].subgrupos[row].vagasDisponiveisSubgrupo {
+            labelEventSubGroupVacancies.text = String(vacancy)
+            self.availabilityToSubscribe(vacancy: vacancy)
+        }
+    }
+    
 }
 
 extension User_SubscriptionViewController: UIPickerViewDataSource {
@@ -98,11 +123,20 @@ extension User_SubscriptionViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.arraySubGroups.count
+        
+        if viewModel.arrayEvents != nil &&
+            viewModel.arrayEvents.count > 0 &&
+            viewModel.arrayEvents[0].subgrupos != nil &&
+            viewModel.arrayEvents[0].subgrupos.count > 0  {
+            return viewModel.arrayEvents[0].subgrupos.count
+        } else {
+            return 0
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        loadData(row: row)
-        return viewModel.arraySubGroups[row]
+        let groups = String(viewModel.arrayEvents[0].subgrupos[row].grupo)
+        self.subgroup = groups
+        return groups
     }
 }
