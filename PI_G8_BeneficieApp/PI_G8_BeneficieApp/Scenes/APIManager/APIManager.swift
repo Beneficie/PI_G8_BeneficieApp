@@ -39,34 +39,34 @@ class APIManager {
         }
     }
     
-    func request(url: String, completion: @escaping (_ json: [String: Any]?, _ jsonArray: [[String: Any]]?, _ error: String?) -> Void) {
-        
-        AF.request(url).responseJSON { response in
-            
-            switch response.result {
-            case .success(let data): print("Success")
-            case .failure(let error): print("Request failed \(error)")
-            }
-            
-            guard let jsonObj = response.value else {
-                completion(nil, nil, "")
-                return
-            }
-            
-//            dic
-            if let json = jsonObj as? [String: Any] {
-                if let jsn = json["error"] as? [String:Any] {
-                    completion(nil, nil, "")
-                } else {
-                    completion(json, nil, nil)
-                }
-                
-//             dic array
-            } else if let jsonArray = jsonObj as? [[String: Any]] {
-                completion(nil, jsonArray, nil)
-            } else {
-                completion(nil, nil, "")
-            }
-        }
-    }
+//    func request(url: String, completion: @escaping (_ json: [String: Any]?, _ jsonArray: [[String: Any]]?, _ error: String?) -> Void) {
+//
+//        AF.request(url).responseJSON { response in
+//
+//            switch response.result {
+//            case .success(let data): print("Success")
+//            case .failure(let error): print("Request failed \(error)")
+//            }
+//
+//            guard let jsonObj = response.value else {
+//                completion(nil, nil, "")
+//                return
+//            }
+//
+////            dic
+//            if let json = jsonObj as? [String: Any] {
+//                if let jsn = json["error"] as? [String:Any] {
+//                    completion(nil, nil, "")
+//                } else {
+//                    completion(json, nil, nil)
+//                }
+//
+////             dic array
+//            } else if let jsonArray = jsonObj as? [[String: Any]] {
+//                completion(nil, jsonArray, nil)
+//            } else {
+//                completion(nil, nil, "")
+//            }
+//        }
+//    }
 }

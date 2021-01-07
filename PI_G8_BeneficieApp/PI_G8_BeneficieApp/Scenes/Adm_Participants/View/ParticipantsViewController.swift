@@ -11,6 +11,22 @@ import UIKit
 class ParticipantsViewController: UIViewController {
 
     var viewModel = ParticipantsViewModel()
+    var event = Event()
+//    var subgroup = Subgroup()
+    
+    func getParticipantsList() -> [String] {
+        var participants = [String]()
+        for subgroup in event.subgrupos {
+            participants.append(contentsOf: subgroup.inscritos.map({ (inscrito) -> String in
+                if let subgrupo = subgroup.grupo {
+                    return "\(inscrito) - Subgrupo \(subgrupo)"
+                }
+                return inscrito + subgroup.grupo
+            }
+            ))
+        }
+        return participants
+    }
     
     @IBOutlet weak var participantsTableView: UITableView!
     override func viewDidLoad() {
@@ -33,8 +49,12 @@ class ParticipantsViewController: UIViewController {
 
 //MARK: - TableViewDelegate and DataSource
 extension ParticipantsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        participantsTableView.deselectRow(at: indexPath, animated: true)
+//        if editingStyle == .delete {
+//            viewModel.arrayEvents.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
     }
 }
 
@@ -42,12 +62,12 @@ extension ParticipantsViewController: UITableViewDelegate {
 extension ParticipantsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return viewModel.getNumberofRows()
-        return 10
+        return getParticipantsList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseCell", for: indexPath) as! ParticipantsCell
-        cell.configure(with: ParticipantsModel(name: "Antonio Guilherme"))
+        cell.configure(name: getParticipantsList()[indexPath.row])
         return cell
     }
     

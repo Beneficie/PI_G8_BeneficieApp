@@ -12,8 +12,8 @@ class ParticipantsCell: UITableViewCell{
     
     @IBOutlet weak var participantLabel: UILabel!
     
-    func configure(with model: ParticipantsModel){
-        participantLabel.text = model.name
+    func configure(name: String){
+        participantLabel.text = name
     }
 }
 

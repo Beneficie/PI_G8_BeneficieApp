@@ -53,7 +53,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="saveButton:" destination="o6S-to-EFc" eventType="touchUpInside" id="an1-j1-neG"/>
+                                    <action selector="createEvent:" destination="o6S-to-EFc" eventType="touchUpInside" id="NS5-s7-kLl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WW-jp-raa">
@@ -149,8 +149,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="buttonCreate" destination="5W5-Lr-sCn" id="hLX-MV-ibQ"/>
-                        <outlet property="saveButtonOutlet" destination="5W5-Lr-sCn" id="R7x-M0-4Fi"/>
+                        <outlet property="buttonCreate" destination="5W5-Lr-sCn" id="agB-2K-3qs"/>
                         <outlet property="tableViewEvents" destination="U7B-yC-QTZ" id="KQN-Gz-0tn"/>
                     </connections>
                 </viewController>

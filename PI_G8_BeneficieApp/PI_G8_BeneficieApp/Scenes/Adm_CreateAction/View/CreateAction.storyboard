@@ -135,6 +135,9 @@
                                         <rect key="frame" x="0.0" y="27" width="109" height="48"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <action selector="actionDatePicker:" destination="o6S-to-EFc" eventType="valueChanged" id="92s-TQ-1On"/>
+                                        </connections>
                                     </datePicker>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Título da Ação" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="INb-pz-lp0">
                                         <rect key="frame" x="0.0" y="112" width="157" height="34"/>
@@ -242,8 +245,15 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="datePicker" destination="cS3-Hf-hsw" id="4TG-ap-Dpr"/>
                         <outlet property="labelTitle" destination="jBs-Sz-8d8" id="Bc6-ok-PZK"/>
                         <outlet property="saveButtonOutlet" destination="5W5-Lr-sCn" id="R7x-M0-4Fi"/>
+                        <outlet property="textFieldAddress" destination="fos-i1-BJB" id="Duf-D9-boI"/>
+                        <outlet property="textFieldAvailable" destination="MKs-J0-kch" id="akR-Bj-nEb"/>
+                        <outlet property="textFieldEventDescription" destination="ldl-r7-VFF" id="GRl-mh-0p9"/>
+                        <outlet property="textFieldEventTitle" destination="INb-pz-lp0" id="hi3-Ni-mWL"/>
+                        <outlet property="textFieldGroups" destination="Vhd-or-6tg" id="K3u-gQ-ZMi"/>
+                        <outlet property="textFieldTotal" destination="ac3-Qd-yZ9" id="xzl-mP-FcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gJ-gx-w4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
