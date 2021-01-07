@@ -112,21 +112,28 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O86-N2-Luf" userLabel="LoginButton">
-                                <rect key="frame" x="20" y="524" width="374" height="56"/>
+                                <rect key="frame" x="57" y="524" width="300" height="45"/>
                                 <color key="backgroundColor" red="0.46091520790000001" green="0.47264128919999998" blue="0.90709859130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="fw3-79-IX0"/>
                                     <constraint firstAttribute="width" secondItem="O86-N2-Luf" secondAttribute="height" multiplier="187:28" id="ivq-gY-mIa"/>
+                                    <constraint firstAttribute="width" constant="300" id="nzG-Nz-HAa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <state key="normal" title="Entrar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ivq-gY-mIa"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="handleLogIn:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="Wen-lk-YPA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-dQ-GxA" userLabel="SingUpButton">
-                                <rect key="frame" x="108.5" y="601" width="197" height="30"/>
+                                <rect key="frame" x="108.5" y="590" width="197" height="30"/>
                                 <state key="normal" title="Não tem conta? Cadastre-se">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -150,6 +157,7 @@
                             <constraint firstItem="X6I-nS-smC" firstAttribute="leading" secondItem="bZg-yi-i5t" secondAttribute="leading" constant="127" id="3Tf-fs-rU8"/>
                             <constraint firstItem="dZe-Ha-E1i" firstAttribute="top" secondItem="X6I-nS-smC" secondAttribute="bottom" constant="42" id="6SK-vq-aZU"/>
                             <constraint firstItem="aLD-dQ-GxA" firstAttribute="centerX" secondItem="Dss-W0-gBv" secondAttribute="centerX" id="76H-yR-Pys"/>
+                            <constraint firstItem="O86-N2-Luf" firstAttribute="centerX" secondItem="Dss-W0-gBv" secondAttribute="centerX" id="8d5-Co-SU0"/>
                             <constraint firstItem="aLD-dQ-GxA" firstAttribute="top" secondItem="O86-N2-Luf" secondAttribute="bottom" constant="21" id="BaE-yW-rLb"/>
                             <constraint firstItem="Ied-lQ-2cQ" firstAttribute="centerX" secondItem="Dss-W0-gBv" secondAttribute="centerX" id="D23-rM-5d3"/>
                             <constraint firstItem="X6I-nS-smC" firstAttribute="top" secondItem="Ied-lQ-2cQ" secondAttribute="bottom" constant="31" id="D5x-Xg-Far"/>
@@ -170,9 +178,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="huI-FI-dbS"/>
                                 <exclude reference="uqB-Bz-aOt"/>
                                 <exclude reference="Ff6-FE-Xrb"/>
                                 <exclude reference="vUN-nG-1pi"/>
+                                <exclude reference="uCd-XI-9FX"/>
                             </mask>
                         </variation>
                     </view>

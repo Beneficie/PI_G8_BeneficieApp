@@ -137,7 +137,7 @@
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="G76-6a-Ryk"/>
                             <constraint firstItem="6uv-d7-qrv" firstAttribute="top" secondItem="jBs-Sz-8d8" secondAttribute="bottom" constant="106" id="G7D-ge-e9L"/>
                             <constraint firstItem="Deg-7m-3xV" firstAttribute="centerY" secondItem="4Pc-Z9-hCv" secondAttribute="centerY" constant="25" id="GNY-hg-ynX"/>
-                            <constraint firstItem="mkO-Z9-d0O" firstAttribute="top" secondItem="MHt-k1-2uj" secondAttribute="top" id="Ian-Ee-QeK"/>
+                            <constraint firstItem="mkO-Z9-d0O" firstAttribute="top" secondItem="4Pc-Z9-hCv" secondAttribute="top" id="Ian-Ee-QeK"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="es6-f8-LNl" secondAttribute="trailing" constant="50" id="IuR-rr-C0t"/>
                             <constraint firstItem="6uv-d7-qrv" firstAttribute="centerY" secondItem="4Pc-Z9-hCv" secondAttribute="centerY" constant="-100" id="JwM-Zx-oiL"/>
                             <constraint firstItem="6uv-d7-qrv" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="KhS-Ok-HRo"/>
@@ -185,6 +185,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="buttonConfirm" destination="5W5-Lr-sCn" id="pfu-p9-fd7"/>
                         <outlet property="labelEventTitle" destination="6uv-d7-qrv" id="evI-Uh-EZy"/>
                         <outlet property="labelSubgroup" destination="es6-f8-LNl" id="BGN-TZ-BQv"/>
                         <outlet property="textFieldContact" destination="34a-qF-NrK" id="JRi-Qn-opJ"/>

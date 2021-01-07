@@ -11,12 +11,15 @@ import UIKit
 class BankInformationsViewController: UIViewController {
 
     @IBOutlet weak var tableViewBanksList: UITableView!
+    @IBOutlet weak var buttonAddNewBank: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableViewBanksList.delegate = self
         tableViewBanksList.dataSource = self
+        
+        buttonAddNewBank.layer.cornerRadius = 15
     }
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)

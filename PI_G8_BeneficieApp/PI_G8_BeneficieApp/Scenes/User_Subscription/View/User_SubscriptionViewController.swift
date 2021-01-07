@@ -31,6 +31,9 @@ class User_SubscriptionViewController: UIViewController {
         pickerViewSubGroups.delegate = self
         pickerViewSubGroups.dataSource = self
         
+        buttonDonate.layer.cornerRadius = 15
+        buttonSubscribe.layer.cornerRadius = 15
+
         loadData()
     }
     

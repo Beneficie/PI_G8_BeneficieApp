@@ -13,6 +13,7 @@ class SubscribeToActionViewController: UIViewController {
     @IBOutlet var labelSubgroup: UILabel!
     @IBOutlet var labelEventTitle: UILabel!
     @IBOutlet var textFieldContact: UITextField!
+    @IBOutlet var buttonConfirm: UIButton!
     
     var event = Event()
     var subgroup: String = ""
@@ -33,6 +34,7 @@ class SubscribeToActionViewController: UIViewController {
     func setUpUI() {
         labelEventTitle.text = event.titulo
         labelSubgroup.text = "Subgrupo \(subgroup)"
+        buttonConfirm.layer.cornerRadius = 15
 //        textFieldContact
     }
     

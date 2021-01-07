@@ -14,6 +14,7 @@ class EventListViewController: UIViewController {
     
     @IBOutlet weak var saveButtonOutlet: UIButton!
     @IBOutlet var tableViewEvents: UITableView!
+    @IBOutlet weak var buttonCreate: UIButton!
     
     
     override func viewDidLoad() {
@@ -38,6 +39,7 @@ class EventListViewController: UIViewController {
     func configureUI(){
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
         saveButtonOutlet.layer.cornerRadius = 15
+        buttonCreate.layer.cornerRadius = 15
     }
     @IBAction func profileButton(_ sender: Any) {
         if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
