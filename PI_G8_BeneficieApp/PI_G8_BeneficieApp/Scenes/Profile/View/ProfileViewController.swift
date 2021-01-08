@@ -11,6 +11,7 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var labelUserName: UILabel!
+    var currentUser = User()
     
     static func getView() -> ProfileViewController {
         let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as! ProfileViewController
@@ -20,7 +21,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        labelUserName.text = currentUser.nome
     }
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)

@@ -16,6 +16,7 @@ class SubscribeToActionViewController: UIViewController {
     @IBOutlet var buttonConfirm: UIButton!
     
     var event = Event()
+    var currentUser = User()
     var subgroup: String = ""
     
     func openFinancialScreen() {
@@ -35,14 +36,16 @@ class SubscribeToActionViewController: UIViewController {
         labelEventTitle.text = event.titulo
         labelSubgroup.text = "Subgrupo \(subgroup)"
         buttonConfirm.layer.cornerRadius = 15
-//        textFieldContact
+        textFieldContact.text = currentUser.telefone
     }
     
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func profileButton(_ sender: Any) {
-        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController { navigationController?.pushViewController(Profile, animated: true) }
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = currentUser
+            navigationController?.pushViewController(profile, animated: true) }
     }
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
