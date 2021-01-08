@@ -87,8 +87,8 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u2-yp-VL0">
-                                        <rect key="frame" x="249.5" y="0.0" width="34.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3u2-yp-VL0">
+                                        <rect key="frame" x="251.5" y="0.0" width="32.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -111,14 +111,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0g-CF-dmg">
-                                        <rect key="frame" x="0.0" y="56.5" width="32.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0g-CF-dmg">
+                                        <rect key="frame" x="0.0" y="56.5" width="34.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Vagas Disponíveis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eut-Lh-wf8">
-                                        <rect key="frame" x="167" y="56.5" width="117" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Vagas Totais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eut-Lh-wf8">
+                                        <rect key="frame" x="202" y="56.5" width="82" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -176,8 +176,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Vagas Totais" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4R-Ev-Cx6">
-                                        <rect key="frame" x="202" y="113" width="82" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Vagas Disponíveis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4R-Ev-Cx6">
+                                        <rect key="frame" x="167" y="113" width="117" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -310,9 +310,9 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="exx-hj-4Yp"/>
+                                <exclude reference="1H6-0v-kp8"/>
                                 <exclude reference="3F3-uS-E5Z"/>
                                 <exclude reference="Ozz-Er-jYw"/>
-                                <exclude reference="1H6-0v-kp8"/>
                                 <exclude reference="EZA-Id-WwK"/>
                                 <exclude reference="NIP-cq-hbe"/>
                                 <exclude reference="Ni3-Gl-okE"/>
@@ -327,9 +327,9 @@
                         <outlet property="labelEventDate" destination="dEy-rD-0kM" id="ydk-oj-0hG"/>
                         <outlet property="labelEventDescription" destination="qGh-0W-C3s" id="RmA-eF-DRM"/>
                         <outlet property="labelEventLocal" destination="Iae-xD-K26" id="SOo-Du-rb2"/>
-                        <outlet property="labelEventSubGroupVacancies" destination="g5o-VP-iSr" id="Q0l-w5-5EZ"/>
+                        <outlet property="labelEventSubGroupVacancies" destination="i8p-qm-7wM" id="LMT-wD-jE5"/>
                         <outlet property="labelEventTitle" destination="f4C-dC-wbf" id="Naw-wg-liW"/>
-                        <outlet property="labelEventVacancies" destination="i8p-qm-7wM" id="zmT-OS-0Rq"/>
+                        <outlet property="labelEventVacancies" destination="g5o-VP-iSr" id="sF6-Wj-3Qi"/>
                         <outlet property="pickerViewSubGroups" destination="tQq-BA-E8w" id="V2n-8G-Mca"/>
                     </connections>
                 </viewController>

@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     //  MARK: - Outlets
     @IBOutlet weak var singUpButtonOutlet: UIButton!
     @IBOutlet weak var loginButtonOutlet: UIButton!
@@ -19,28 +19,30 @@ class LoginViewController: UIViewController {
     var eventListViewModel = EventListViewModel()
     var viewModel = LoginViewModel()
     
-    func checkEmptyTextFields() -> Bool {
-        if logInTextField.text == nil || logInTextField.text!.isEmpty {
-            alertToEmptyFields(field: "usuário")
-            return false
-        }
-        else if passwordTextField.text == nil || passwordTextField.text!.isEmpty {
-            alertToEmptyFields(field: "senha")
-            return false
-        }
-        return true
+    var currentUser = User()
+    
+    //  MARK: - viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        logInTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        configureUI()
+        loadData()
+        
     }
     
     func alertToEmptyFields(field: String){
-            let alert = UIAlertController(title: "Atenção", message: "Falta \(field)", preferredStyle: .alert)
-
-            let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
-            }
-            alert.addAction(okAction)
-            self.present(alert, animated: true) {
-               
-            }
+        let alert = UIAlertController(title: "Atenção", message: "Falta \(field)", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
         }
+        alert.addAction(okAction)
+        self.present(alert, animated: true) {
+            
+        }
+    }
     
     func isAdmin(user: String) -> Bool{
         if user.contains("admin@admin") {
@@ -48,18 +50,50 @@ class LoginViewController: UIViewController {
         } else {
             return false
         }
-}
+    }
     
+    func didRegister(userLogin: String) -> Bool {
+        for user in viewModel.arrayUsers {
+            if userLogin.lowercased() == currentUser.email.lowercased() {
+                return true
+            }
+            return false
+        }
+        return false
+    }
     
-    //  MARK: - viewDidLoad
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        logInTextField.delegate = self
-        passwordTextField.delegate = self
-        
-        configureUI()
-        
+    func checkEmptyTextFields() -> Bool {
+        if logInTextField.text == nil || logInTextField.text!.isEmpty && didRegister(userLogin: logInTextField.text!) == false {
+            alertToEmptyFields(field: "usuário")
+            return false
+        }
+        else if passwordTextField.text == nil || passwordTextField.text!.isEmpty {
+            alertToEmptyFields(field: "senha")
+            return false
+        }
+        return false
+    }
+    
+    func loadData() {
+        viewModel.loadData { success in
+            if success {
+                self.currentUser = self.viewModel.arrayUsers[0]
+            } else {
+                print("FailInLoadData")
+            }
+        }
+    }
+    
+    func alertToRegister() {
+        let alert = UIAlertController(title: "Usuário Inválido", message: "Registre-se", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+            if let signUp = UIStoryboard(name: "SingUp", bundle: nil).instantiateInitialViewController() as? SingUpViewController {
+                self.navigationController?.pushViewController(signUp, animated: true)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: {_ in
+        }))
+        present(alert, animated: true)
     }
     
     //MARK: - Helper Functions
@@ -81,17 +115,15 @@ class LoginViewController: UIViewController {
         loginButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         
         let attrbText = NSMutableAttributedString(string: "Não tem conta? ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),                                                                                      NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-   
+        
         attrbText.append(NSAttributedString(string: "Cadastre-se", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15),NSAttributedString.Key.foregroundColor: UIColor.gray]))
         
         singUpButtonOutlet.setAttributedTitle(attrbText, for: .normal)
         
-        
-    
     }
     
     //MARK: - Actions
-   
+    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -102,13 +134,21 @@ class LoginViewController: UIViewController {
                 if let admScreen = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
                     navigationController?.pushViewController(admScreen, animated: true)
                 }
-            } else {
-                if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
-                    navigationController?.pushViewController(userSubscription, animated: true)
+            }
+        } else {
+            if let user = logInTextField.text {
+                if didRegister(userLogin: user) {
+                    if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
+                            userSubscription.currentUser = self.currentUser
+                            navigationController?.pushViewController(userSubscription, animated: true)
+                    }
+                } else {
+                    alertToRegister()
                 }
             }
         }
     }
+                            
     
     @IBAction func handleForgotPassword(_ sender: UIButton) {
         print("DEBUG: Forgot Password")

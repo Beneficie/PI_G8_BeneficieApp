@@ -12,6 +12,7 @@ class User_SubscriptionViewController: UIViewController {
 
     var viewModel = User_SubscriptionViewModel()
     var event = Event()
+    var currentUser = User()
     var subgroup = ""
     
     @IBOutlet weak var labelEventDate: UILabel!
@@ -89,7 +90,9 @@ class User_SubscriptionViewController: UIViewController {
     }
     
     @IBAction func profileButton(_ sender: Any) {
-        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController { navigationController?.pushViewController(Profile, animated: true) }
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = currentUser
+            navigationController?.pushViewController(profile, animated: true) }
     }
     
     @IBAction func actionSubscribePressed(_ sender: Any) {
@@ -97,6 +100,7 @@ class User_SubscriptionViewController: UIViewController {
             
             userSubscribe.event = event
             userSubscribe.subgroup = subgroup
+            userSubscribe.currentUser = currentUser
                 navigationController?.pushViewController(userSubscribe, animated: true)
             }
     }

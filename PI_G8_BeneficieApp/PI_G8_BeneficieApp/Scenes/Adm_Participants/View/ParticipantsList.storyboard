@@ -35,7 +35,7 @@
                                 </variation>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fFs-6Z-SxS">
-                                <rect key="frame" x="0.5" y="134" width="319" height="400"/>
+                                <rect key="frame" x="0.5" y="145.5" width="319" height="412.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="319" id="12q-Kw-A2K"/>
@@ -68,6 +68,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="jZL-xp-OAD"/>
+                                    </mask>
+                                </variation>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbR-dZ-UqW">
                                 <rect key="frame" x="273.5" y="30" width="26.5" height="28"/>
@@ -94,7 +99,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participantes Cadastrados" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3H-nP-h96">
-                                <rect key="frame" x="29.5" y="94" width="261" height="27.5"/>
+                                <rect key="frame" x="29.5" y="98" width="261" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -109,6 +114,7 @@
                             <constraint firstItem="7eF-vr-YHu" firstAttribute="centerX" secondItem="qxx-g1-PDM" secondAttribute="centerX" id="7Ic-Ab-Qqz"/>
                             <constraint firstItem="7eF-vr-YHu" firstAttribute="centerY" secondItem="58v-70-xiO" secondAttribute="centerY" id="Ajq-lA-av3"/>
                             <constraint firstItem="58v-70-xiO" firstAttribute="top" secondItem="qxx-g1-PDM" secondAttribute="top" id="DFe-AY-orc"/>
+                            <constraint firstItem="S3H-nP-h96" firstAttribute="top" secondItem="58v-70-xiO" secondAttribute="bottom" constant="10" id="HPQ-nm-2K5"/>
                             <constraint firstItem="7eF-vr-YHu" firstAttribute="top" secondItem="Qbb-h0-EDF" secondAttribute="top" constant="10" id="J2k-hh-aZe"/>
                             <constraint firstItem="fFs-6Z-SxS" firstAttribute="top" secondItem="S3H-nP-h96" secondAttribute="bottom" constant="24" id="Kvz-kc-Ghy"/>
                             <constraint firstItem="58v-70-xiO" firstAttribute="trailing" secondItem="Qbb-h0-EDF" secondAttribute="trailing" id="LUa-Ux-3gq"/>
@@ -125,8 +131,9 @@
                             <constraint firstItem="S3H-nP-h96" firstAttribute="centerY" secondItem="qxx-g1-PDM" secondAttribute="centerY" constant="-176.25" id="ZZV-0S-Nhz"/>
                             <constraint firstItem="S3H-nP-h96" firstAttribute="centerX" secondItem="qxx-g1-PDM" secondAttribute="centerX" id="bXS-6I-E4s"/>
                             <constraint firstItem="Qbb-h0-EDF" firstAttribute="trailing" secondItem="S3H-nP-h96" secondAttribute="trailing" constant="20" id="dG1-Zo-WGw"/>
+                            <constraint firstItem="Qbb-h0-EDF" firstAttribute="bottom" secondItem="fFs-6Z-SxS" secondAttribute="bottom" constant="10" id="kNs-me-81C"/>
                             <constraint firstItem="58v-70-xiO" firstAttribute="leading" secondItem="Qbb-h0-EDF" secondAttribute="leading" id="n00-5l-UMO"/>
-                            <constraint firstItem="fFs-6Z-SxS" firstAttribute="centerY" secondItem="qxx-g1-PDM" secondAttribute="centerY" constant="50" id="ocN-UP-U4B"/>
+                            <constraint firstItem="fFs-6Z-SxS" firstAttribute="top" secondItem="S3H-nP-h96" secondAttribute="bottom" constant="20" id="ocN-UP-U4B"/>
                             <constraint firstItem="Qbb-h0-EDF" firstAttribute="trailing" secondItem="fFs-6Z-SxS" secondAttribute="trailing" id="p0J-TH-8wC"/>
                             <constraint firstItem="fFs-6Z-SxS" firstAttribute="bottom" secondItem="Qbb-h0-EDF" secondAttribute="bottom" id="p7L-hv-GYQ"/>
                             <constraint firstItem="S3H-nP-h96" firstAttribute="leading" secondItem="Qbb-h0-EDF" secondAttribute="leading" constant="20" id="prf-To-tPQ"/>
@@ -139,6 +146,12 @@
                             <mask key="constraints">
                                 <exclude reference="dG1-Zo-WGw"/>
                                 <exclude reference="p0J-TH-8wC"/>
+                                <exclude reference="LpP-y4-ehD"/>
+                                <exclude reference="XuE-TE-cm3"/>
+                                <exclude reference="ZZV-0S-Nhz"/>
+                                <exclude reference="prf-To-tPQ"/>
+                                <exclude reference="J2k-hh-aZe"/>
+                                <exclude reference="VwO-ZQ-nTt"/>
                                 <exclude reference="0iG-Ut-qs8"/>
                                 <exclude reference="4JS-z7-GFe"/>
                                 <exclude reference="LUa-Ux-3gq"/>
@@ -146,11 +159,6 @@
                                 <exclude reference="sK0-bl-oBJ"/>
                                 <exclude reference="uHW-jL-SEz"/>
                                 <exclude reference="yhs-ts-cp2"/>
-                                <exclude reference="LpP-y4-ehD"/>
-                                <exclude reference="XuE-TE-cm3"/>
-                                <exclude reference="prf-To-tPQ"/>
-                                <exclude reference="J2k-hh-aZe"/>
-                                <exclude reference="VwO-ZQ-nTt"/>
                                 <exclude reference="Kvz-kc-Ghy"/>
                                 <exclude reference="OeF-8k-8vB"/>
                                 <exclude reference="p7L-hv-GYQ"/>

@@ -12,10 +12,10 @@ class EventListViewController: UIViewController {
 
     var viewModel = EventListViewModel()
     
-    @IBOutlet weak var saveButtonOutlet: UIButton!
     @IBOutlet var tableViewEvents: UITableView!
     @IBOutlet weak var buttonCreate: UIButton!
     
+    var event = Event()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +31,25 @@ class EventListViewController: UIViewController {
     
     func loadData() {
         viewModel.loadData { success in
-            self.tableViewEvents.reloadData()
+            if success {
+                self.tableViewEvents.reloadData()
+                self.event = self.viewModel.arrayEvents[0]
+//                self.setUpUI(event: self.event)
+            } else {
+                print("FailInLoadData")
+//                self.alertFailedInLoadData()
+            }
         }
-
     }
     
     func configureUI(){
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
-        saveButtonOutlet.layer.cornerRadius = 15
+        buttonCreate.layer.cornerRadius = 15
         buttonCreate.layer.cornerRadius = 15
     }
     @IBAction func profileButton(_ sender: Any) {
-        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            navigationController?.pushViewController(Profile, animated: true)
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            navigationController?.pushViewController(profile, animated: true)
         }
     }
     @IBAction func createEvent(_ sender: Any) {
@@ -70,12 +76,15 @@ class EventListViewController: UIViewController {
     
     func participantsListScreen() {
         if let list = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
+            list.event = self.event
             navigationController?.pushViewController(list, animated: true)
         }
     }
     
     func editAction() {
         if let actions = UIStoryboard(name: "CreateAction", bundle: nil).instantiateInitialViewController() as? CreateActionViewController {
+            actions.currentAction = "Editar"
+            actions.currentEvent = self.event
             navigationController?.pushViewController(actions, animated: true)
         }
     }
@@ -83,6 +92,7 @@ class EventListViewController: UIViewController {
 
 extension EventListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        tableViewEvents.deselectRow(at: indexPath, animated: true)
         if editingStyle == .delete {
             viewModel.arrayEvents.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)

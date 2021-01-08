@@ -10,26 +10,56 @@ import UIKit
 
 class CreateActionViewController: UIViewController {
 
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var textFieldAddress: UITextField!
+    @IBOutlet weak var textFieldEventTitle: UITextField!
+    @IBOutlet weak var textFieldTotal: UITextField!
+    @IBOutlet weak var textFieldGroups: UITextField!
+    @IBOutlet weak var textFieldAvailable: UITextField!
+    @IBOutlet weak var textFieldEventDescription: UITextField!
+    
+    
     @IBOutlet weak var saveButtonOutlet: UIButton!
     @IBOutlet weak var labelTitle: UILabel!
     
     var currentAction: String = "Criar"
+    var currentEvent = Event()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
-        // Do any additional setup after loading the view.
+        
+        if currentAction.lowercased() == "editar" {
+            editEvent()
+        }
     }
     
     func configureUI(){
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
         saveButtonOutlet.layer.cornerRadius = 15
         labelTitle.text = "\(currentAction) Ação"
+        
     }
+    
+    func editEvent() {
+//        datePicker.date = currentEvent.data
+        textFieldAddress.text = currentEvent.local
+        textFieldEventTitle.text = currentEvent.titulo
+        textFieldTotal.text = String(currentEvent.vagasTotais)
+        textFieldGroups.text = String(currentEvent.subgrupos.count)
+        textFieldAvailable.text = String(currentEvent.vagasDisponiveis)
+        textFieldEventDescription.text = currentEvent.descricao
+    }
+    @IBAction func actionDatePicker(_ sender: Any) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+    }
+    
     @IBAction func profileButton(_ sender: Any) {
-        if let Profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            navigationController?.pushViewController(Profile, animated: true)
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            navigationController?.pushViewController(profile, animated: true)
         }
     }
     

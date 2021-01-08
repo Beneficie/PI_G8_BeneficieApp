@@ -15,18 +15,20 @@ class EventListViewModel {
     var apiManager = APIManager()
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
-        apiManager.request(url: "https://beneficie-app.herokuapp.com/beneficie/events") { (json, jsonArray, string) in
-            if let jsonArray = jsonArray {
-                var events = [Event]()
-                for item in jsonArray {
-                    events.append(Event(fromDictionary: item))
-                }
-                self.arrayEvents = events
-                onComplete(true)
-                return
+        apiManager.requestArray(
+            url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseArray) in
+            var events = [Event]()
+            for item in responseArray {
+                events.append(Event(fromDictionary: item as! [String : Any]))
             }
+            self.arrayEvents = events
+            onComplete(true)
+            return
+                onComplete(true)
+        }
+        onFailure: { (error) in
+            print("Error \(error)")
             onComplete(false)
         }
     }
-    
 }
