@@ -306,13 +306,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		333FBC26258D25E300C66BD6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		336837ED256C335F00FCF70C /* User_SubscribeToAction */ = {
 			isa = PBXGroup;
 			children = (
@@ -631,7 +624,6 @@
 		33C240BE258D22B0009323CE /* Adm_EventList */ = {
 			isa = PBXGroup;
 			children = (
-				333FBC26258D25E300C66BD6 /* Model */,
 				333FBC25258D25DA00C66BD6 /* View */,
 				333FBC24258D25CE00C66BD6 /* ViewModel */,
 			);
