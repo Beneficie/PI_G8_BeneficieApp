@@ -11,7 +11,7 @@ import UIKit
 class BanksMenuViewController: UIViewController {
     
     @IBOutlet var collectionViewBanks: UICollectionView!
-    var arrayBanks = [BankAccount]()
+    var viewModel = BanksMenuViewModel()
     
     
     override func viewDidLoad() {
@@ -20,14 +20,6 @@ class BanksMenuViewController: UIViewController {
         collectionViewBanks.delegate = self
         collectionViewBanks.dataSource = self
 
-        arrayBanks.append(BankAccount(name: "PIX", photo: "PIX", agency: "", accountType: "Conta Corrente", accountNumber: "", accountBeneficited: ""))
-        arrayBanks.append( BankAccount(name: "Santander", photo: "BancoSantander", agency: "", accountType: "Conta ", accountNumber: "", accountBeneficited: "Mudadores"))
-        arrayBanks.append(BankAccount(name: "Nubank", photo: "BancoNubank", agency: "0001", accountType: "Conta Corrente", accountNumber: "000000-1", accountBeneficited: "Mudadores"))
-        arrayBanks.append(BankAccount(name: "Inter", photo: "BancoInter", agency: "BancoInter", accountType: "Conta ", accountNumber: "", accountBeneficited: "Mudadores"))
-        arrayBanks.append(BankAccount(name: "Bradesco", photo: "BancoBradesco", agency: "3142-9", accountType: "Conta Poupança", accountNumber: "1001908-7", accountBeneficited: "Mudadores"))
-        arrayBanks.append(BankAccount(name: "Banco do Brasil", photo: "BancoDoBrasil", agency: "1197-5", accountType: "Conta Corrente", accountNumber: "53923-6", accountBeneficited: "Mudadores"))
-        arrayBanks.append(BankAccount(name: "Caixa", photo: "BancoCaixa", agency: "3205", accountType: "Conta Poupança", accountNumber: "34102-3 Operação: 013", accountBeneficited: "Mudadores"))
-        arrayBanks.append(BankAccount(name: "Itaú", photo: "BancoItau", agency: "5488", accountType: "Conta ", accountNumber: "01610-5", accountBeneficited: "Mudadores"))
         
     }
     
@@ -44,7 +36,7 @@ class BanksMenuViewController: UIViewController {
 extension BanksMenuViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let financialDetails = UIStoryboard(name: "FinancialDetails", bundle: nil).instantiateInitialViewController() as? FinancialDetailsViewController {
-            financialDetails.bank = arrayBanks[indexPath.row]
+            financialDetails.bank = viewModel.arrayBanks[indexPath.row]
             present(financialDetails, animated: true, completion: nil)
         }
     }
@@ -61,12 +53,12 @@ extension BanksMenuViewController: UICollectionViewDelegateFlowLayout {
 
 extension BanksMenuViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrayBanks.count
+        return viewModel.arrayBanks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BankCell", for: indexPath) as! BankCell
-        cell.setUpCell(bank: arrayBanks[indexPath.row])
+        cell.setUpCell(bank: viewModel.arrayBanks[indexPath.row])
         return cell
     }
     

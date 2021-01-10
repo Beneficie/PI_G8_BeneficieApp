@@ -5,14 +5,14 @@ import Foundation
 
 struct Subgroup : Codable {
 
-    var _id : String
+    var _id : String?
     var grupo : String
     var inscritos : [String]
     var vagasDisponiveisSubgrupo : Int
     var vagasSubgrupo : Int
 
     init() {
-        _id = ""
+        _id = nil
         grupo = ""
         inscritos = []
         vagasDisponiveisSubgrupo = 0

@@ -18,8 +18,6 @@ class User_SubscriptionViewModel {
     func loadData(onComplete: @escaping (Bool) -> Void) {
         apiManager.getAsArray(
             url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseData) in
-            
-//            let jsonData = try Data(contentsOf: URL(fileURLWithPath:filePath), options: .alwaysMapped)
 
             let jsonDecoder = JSONDecoder()
             
@@ -31,19 +29,5 @@ class User_SubscriptionViewModel {
             print("Error \(error)")
             onComplete(false)
         }
-
-//            (json, jsonArray, string) in
-//                if let jsonArray = jsonArray {
-//                    var events = [Event]()
-//                    for item in jsonArray {
-//                        events.append(Event(fromDictionary: item))
-//                    }
-//                    self.arrayEvents = events
-//                    onComplete(true)
-//                    return
-//                }
-//                onComplete(false)
-//            }
-        }
-    
+    }
 }

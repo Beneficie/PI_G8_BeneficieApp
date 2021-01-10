@@ -13,6 +13,8 @@ class BankInformationsViewController: UIViewController {
     @IBOutlet weak var tableViewBanksList: UITableView!
     @IBOutlet weak var buttonAddNewBank: UIButton!
     
+    var viewModel = BanksMenuViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,12 +42,12 @@ extension BankInformationsViewController: UITableViewDelegate {
 
 extension BankInformationsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.arrayBanks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Banco Nubank"
+        cell.textLabel?.text = viewModel.arrayBanks[indexPath.row].name
         return cell
     }
     

@@ -6,7 +6,7 @@ import Foundation
 
 struct Event: Codable {
 
-    var _id : String
+    var _id : String?
     var clicksAcao : Int
     var data : String
     var descricao : String
@@ -17,7 +17,7 @@ struct Event: Codable {
     var vagasTotais : Int
     
     init(){
-        _id = ""
+        _id = nil
         clicksAcao = 0
         data = ""
         descricao = ""

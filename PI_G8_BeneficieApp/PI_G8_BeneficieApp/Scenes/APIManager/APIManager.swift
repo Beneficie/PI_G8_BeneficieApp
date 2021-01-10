@@ -61,48 +61,32 @@ class APIManager {
                     
                 }
             }
-//        AF.request(, method: .put, parameters: event, encoding: URLEncoding.httpBody, headers: nil).responseJSON { response in
-//
-//            switch response.result {
-//            case .success(let data):
-//                print(data)
-//                    onComplete(true)
-//
-//            case .failure(let error):
-//                onComplete(true)
-//
-//            }
-//        }
     }
     
-//    func request(url: String, completion: @escaping (_ json: [String: Any]?, _ jsonArray: [[String: Any]]?, _ error: String?) -> Void) {
-//
-//        AF.request(url).responseJSON { response in
-//
-//            switch response.result {
-//            case .success(let data): print("Success")
-//            case .failure(let error): print("Request failed \(error)")
-//            }
-//
-//            guard let jsonObj = response.value else {
-//                completion(nil, nil, "")
-//                return
-//            }
-//
-////            dic
-//            if let json = jsonObj as? [String: Any] {
-//                if let jsn = json["error"] as? [String:Any] {
-//                    completion(nil, nil, "")
-//                } else {
-//                    completion(json, nil, nil)
-//                }
-//
-////             dic array
-//            } else if let jsonArray = jsonObj as? [[String: Any]] {
-//                completion(nil, jsonArray, nil)
-//            } else {
-//                completion(nil, nil, "")
-//            }
-//        }
-//    }
+    func createEvent(
+        event: Event,
+        onComplete: @escaping (_ isOk: Bool) -> Void
+    ) {
+        let encoder = JSONEncoder()
+        let jsonData = try! encoder.encode(event)
+
+        let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/events")!
+
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+
+        AF.request(request).responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                print(data)
+                onComplete(true)
+
+            case .failure(let error):
+                onComplete(true)
+
+            }
+        }
+    }
 }

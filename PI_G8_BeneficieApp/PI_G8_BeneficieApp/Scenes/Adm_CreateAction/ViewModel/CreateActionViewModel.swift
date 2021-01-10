@@ -10,4 +10,13 @@ import Foundation
 
 class CreateActionViewModel {
     
+    var apiManager = APIManager()
+    
+    func createEvent(event: Event, onComplete: @escaping (Bool) -> Void) {
+        apiManager.createEvent(event: event) { isOk in
+            onComplete(isOk)
+        }
+    }
+    
+    
 }

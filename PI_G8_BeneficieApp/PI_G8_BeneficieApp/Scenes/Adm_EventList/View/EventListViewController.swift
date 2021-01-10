@@ -34,6 +34,7 @@ class EventListViewController: UIViewController {
             if success {
                 self.tableViewEvents.reloadData()
                 self.event = self.viewModel.arrayEvents[0]
+                print("Success")
 //                self.setUpUI(event: self.event)
             } else {
                 print("FailInLoadData")
@@ -58,12 +59,7 @@ class EventListViewController: UIViewController {
         }
     }
     
-    @IBAction func saveButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Ação Salva", message: "Ação salva com sucesso", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
+    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -74,17 +70,17 @@ class EventListViewController: UIViewController {
         }
     }
     
-    func participantsListScreen() {
+    func participantsListScreen(event: Event) {
         if let list = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
-            list.event = self.event
+            list.event = event
             navigationController?.pushViewController(list, animated: true)
         }
     }
     
-    func editAction() {
+    func editAction(event: Event) {
         if let actions = UIStoryboard(name: "CreateAction", bundle: nil).instantiateInitialViewController() as? CreateActionViewController {
             actions.currentAction = "Editar"
-            actions.currentEvent = self.event
+            actions.currentEvent = event
             navigationController?.pushViewController(actions, animated: true)
         }
     }
@@ -102,13 +98,13 @@ extension EventListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Evento", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Editar Ação", style: .default, handler: {_ in
-            self.editAction()
+            self.editAction(event: self.viewModel.arrayEvents[indexPath.row])
         }))
         alert.addAction(UIAlertAction(title: "Informações Bancárias", style: .default, handler: {_ in
             self.bankInformationsScreen()
         }))
         alert.addAction(UIAlertAction(title: "Participantes Cadastrados", style: .default, handler: {_ in
-            self.participantsListScreen()
+            self.participantsListScreen(event: self.viewModel.arrayEvents[indexPath.row])
         }))
         alert.addAction(UIAlertAction(title: "Excluir", style: .destructive, handler: {_ in
             self.viewModel.arrayEvents.remove(at: indexPath.row)
