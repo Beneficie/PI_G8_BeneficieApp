@@ -42,8 +42,8 @@ class User_SubscriptionViewController: UIViewController {
         labelEventDate.text = event.data
         labelEventLocal.text = event.local
         labelEventTitle.text = event.titulo
-        labelEventVacancies.text = String(event.vagasTotais)
-        labelEventSubGroupVacancies.text = String(event.vagasDisponiveis)
+        labelEventVacancies.text = String(event.subgrupos[0].vagasSubgrupo)
+        labelEventSubGroupVacancies.text = String(event.subgrupos[0].vagasDisponiveisSubgrupo)
         labelEventDescription.text = event.descricao
         pickerViewSubGroups.reloadComponent(0)
     }
@@ -98,8 +98,8 @@ class User_SubscriptionViewController: UIViewController {
     @IBAction func actionSubscribePressed(_ sender: Any) {
         if let userSubscribe = UIStoryboard(name: "SubscribeToAction", bundle: nil).instantiateInitialViewController() as? SubscribeToActionViewController {
             
-            userSubscribe.event = event
-            userSubscribe.subgroup = subgroup
+            userSubscribe.currentEvent = event
+            userSubscribe.currentSubgroup = subgroup
             userSubscribe.currentUser = currentUser
                 navigationController?.pushViewController(userSubscribe, animated: true)
             }
@@ -115,11 +115,9 @@ class User_SubscriptionViewController: UIViewController {
 
 extension User_SubscriptionViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let vacancy = 0
-        if let vacancy = viewModel.arrayEvents[0].subgrupos[row].vagasDisponiveisSubgrupo {
-            labelEventSubGroupVacancies.text = String(vacancy)
-            self.availabilityToSubscribe(vacancy: vacancy)
-        }
+        let vacancy = viewModel.arrayEvents[0].subgrupos[row].vagasDisponiveisSubgrupo
+        labelEventSubGroupVacancies.text = String(vacancy)
+        self.availabilityToSubscribe(vacancy: vacancy)
     }
     
 }

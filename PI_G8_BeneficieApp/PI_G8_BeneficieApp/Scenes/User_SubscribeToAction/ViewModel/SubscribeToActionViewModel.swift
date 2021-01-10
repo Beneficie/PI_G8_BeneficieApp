@@ -10,4 +10,13 @@ import Foundation
 
 class SubscribeToActionViewModel {
     
+    var apiManager = APIManager()
+    
+    func subscribeUser(event: Event, onComplete: @escaping (Bool) -> Void) {
+        apiManager.subscribeUserToEvent(event: event) { isOk in
+            onComplete(isOk)
+        }
+    }
+    
+    
 }
