@@ -44,26 +44,8 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func isAdmin(user: String) -> Bool{
-        if user.contains("admin@admin") {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func didRegister(userLogin: String) -> Bool {
-        for user in viewModel.arrayUsers {
-            if userLogin.lowercased() == currentUser.email.lowercased() {
-                return true
-            }
-            return false
-        }
-        return false
-    }
-    
     func checkEmptyTextFields() -> Bool {
-        if logInTextField.text == nil || logInTextField.text!.isEmpty && didRegister(userLogin: logInTextField.text!) == false {
+        if logInTextField.text == nil || logInTextField.text!.isEmpty && viewModel.didRegister(userLogin: logInTextField.text!, currentUser: currentUser) == false {
             alertToEmptyFields(field: "usuário")
             return false
         }
@@ -137,7 +119,7 @@ class LoginViewController: UIViewController {
             }
         } else {
             if let user = logInTextField.text {
-                if didRegister(userLogin: user) {
+                if viewModel.didRegister(userLogin: user, currentUser: currentUser) {
                     if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
                             userSubscription.currentUser = self.currentUser
                             navigationController?.pushViewController(userSubscription, animated: true)
@@ -174,7 +156,7 @@ extension LoginViewController: UITextFieldDelegate {
     }
     private func textFieldDidEndEditing(_ textField: UITextField) -> Bool {
         if let user = textField.text {
-            let login = isAdmin(user: user)
+            let login = viewModel.isAdmin(user: user)
             if login {
                 return true
             }
