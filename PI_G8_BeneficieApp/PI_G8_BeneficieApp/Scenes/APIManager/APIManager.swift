@@ -11,25 +11,22 @@ import Alamofire
 
 class APIManager {
     
-    func requestArray(
+    func getAsArray(
         url: String,
-        onSuccess: @escaping (_ responseArray: [Any]) -> Void,
+        onSuccess: @escaping (_ responseArray: Data) -> Void,
         onFailure: @escaping (_ errorMessage: String?) -> Void
     ) {
-        AF.request(url).responseJSON { response in
+        AF.request(url).response { response in
             
             switch response.result {
             case .success(let data):
-                guard let responseValue = response.value else {
-                    onFailure("No response value")
+                if let responseValue = response.data {
+                    onSuccess(responseValue)
                     return
                 }
-                
-                if let jsonArray = responseValue as? [Any] {
-                    onSuccess(jsonArray)
-                    print(data)
-                } else {
-                    onFailure("Failed to parse into [Any]")
+                else {
+                    onFailure("No response value")
+                    return
                 }
                 
             case .failure(let error):
@@ -37,6 +34,45 @@ class APIManager {
                 
             }
         }
+    }
+    
+    func subscribeUserToEvent(
+        event: Event,
+        onComplete: @escaping (_ isOk: Bool) -> Void
+    ) {
+        let encoder = JSONEncoder()
+        let jsonData = try! encoder.encode(event)
+        
+        let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/events/\(event._id)")!
+        
+        var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.put.rawValue
+            request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+
+            AF.request(request).responseJSON { response in
+                switch response.result {
+                case .success(let data):
+                    print(data)
+                    onComplete(true)
+                    
+                case .failure(let error):
+                    onComplete(true)
+                    
+                }
+            }
+//        AF.request(, method: .put, parameters: event, encoding: URLEncoding.httpBody, headers: nil).responseJSON { response in
+//
+//            switch response.result {
+//            case .success(let data):
+//                print(data)
+//                    onComplete(true)
+//
+//            case .failure(let error):
+//                onComplete(true)
+//
+//            }
+//        }
     }
     
 //    func request(url: String, completion: @escaping (_ json: [String: Any]?, _ jsonArray: [[String: Any]]?, _ error: String?) -> Void) {

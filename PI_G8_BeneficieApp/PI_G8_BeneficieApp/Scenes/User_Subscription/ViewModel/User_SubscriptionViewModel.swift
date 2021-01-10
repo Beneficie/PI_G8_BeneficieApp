@@ -16,16 +16,16 @@ class User_SubscriptionViewModel {
     var apiManager = APIManager()
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
-        apiManager.requestArray(
-            url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseArray) in
-            var events = [Event]()
-            for item in responseArray {
-                events.append(Event(fromDictionary: item as! [String : Any]))
-            }
-            self.arrayEvents = events
+        apiManager.getAsArray(
+            url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseData) in
+            
+//            let jsonData = try Data(contentsOf: URL(fileURLWithPath:filePath), options: .alwaysMapped)
+
+            let jsonDecoder = JSONDecoder()
+            
+            self.arrayEvents = try! jsonDecoder.decode(Array<Event>.self,from: responseData)
+            
             onComplete(true)
-            return
-                onComplete(true)
         }
         onFailure: { (error) in
             print("Error \(error)")

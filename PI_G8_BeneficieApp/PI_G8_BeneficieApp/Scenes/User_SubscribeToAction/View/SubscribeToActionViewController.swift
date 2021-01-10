@@ -15,9 +15,10 @@ class SubscribeToActionViewController: UIViewController {
     @IBOutlet var textFieldContact: UITextField!
     @IBOutlet var buttonConfirm: UIButton!
     
-    var event = Event()
+    var currentEvent = Event()
     var currentUser = User()
-    var subgroup: String = ""
+    var currentSubgroup: String = ""
+    var viewModel = SubscribeToActionViewModel()
     
     func openFinancialScreen() {
         if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
@@ -33,10 +34,32 @@ class SubscribeToActionViewController: UIViewController {
     }
     
     func setUpUI() {
-        labelEventTitle.text = event.titulo
-        labelSubgroup.text = "Subgrupo \(subgroup)"
+        labelEventTitle.text = currentEvent.titulo
+        labelSubgroup.text = "Subgrupo \(currentSubgroup)"
         buttonConfirm.layer.cornerRadius = 15
         textFieldContact.text = currentUser.telefone
+    }
+    
+    func subscribeUser() {
+        if let index = currentEvent.subgrupos.firstIndex(where: { $0.grupo == currentSubgroup }) {
+            currentEvent.subgrupos[index].inscritos.append(currentUser.nome)
+            currentEvent.subgrupos[index].vagasDisponiveisSubgrupo -= 1
+            viewModel.subscribeUser(event: currentEvent) { (success) in
+                if success {
+                    let alert = UIAlertController(title: "Inscrição Confirmada", message: "Você foi inscrito na ação", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                        
+                        self.openFinancialScreen()
+                    }))
+                    self.present(alert, animated: true)
+                } else {
+                    let alert = UIAlertController(title: "Erro", message: "Não foi possível realizar inscrição", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                    }))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -49,13 +72,7 @@ class SubscribeToActionViewController: UIViewController {
     }
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Inscrição Confirmada", message: "Você foi inscrito na ação", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-            print("OK")
-            self.openFinancialScreen()
-        }))
-        present(alert, animated: true)
-        
+        self.subscribeUser()
     }
     
 

@@ -18,10 +18,7 @@ class ParticipantsViewController: UIViewController {
         var participants = [String]()
         for subgroup in event.subgrupos {
             participants.append(contentsOf: subgroup.inscritos.map({ (inscrito) -> String in
-                if let subgrupo = subgroup.grupo {
-                    return "\(inscrito) - Subgrupo \(subgrupo)"
-                }
-                return inscrito + subgroup.grupo
+                return "\(inscrito) - Subgrupo \(subgroup.grupo)"
             }
             ))
         }

@@ -15,16 +15,23 @@ class LoginViewModel {
     var apiManager = APIManager()
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
-        apiManager.requestArray(
+        
+        
+        apiManager.getAsArray(
             url: "https://beneficie-app.herokuapp.com/beneficie/users/") { (responseArray) in
-            var users = [User]()
-            for item in responseArray {
-                users.append(User(fromDictionary: item as! [String : Any]))
-            }
-            self.arrayUsers = users
-            onComplete(true)
-            return
+            let decoder = JSONDecoder()
+            
+            do {
+                let users = try decoder.decode([User].self, from: responseArray)
+                self.arrayUsers = users
                 onComplete(true)
+                return
+            }
+            catch {
+                print(error.localizedDescription)
+                onComplete(false)
+            }
+            
         }
         onFailure: { (error) in
             print("Error \(error)")
