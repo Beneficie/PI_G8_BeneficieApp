@@ -45,7 +45,7 @@ class SingUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if authResult != nil {
                     let accountDataUser = authResult?.user
-                    print(accountDataUser)
+//                    print(accountDataUser)
                 } else {
                     print(error)
                 }
