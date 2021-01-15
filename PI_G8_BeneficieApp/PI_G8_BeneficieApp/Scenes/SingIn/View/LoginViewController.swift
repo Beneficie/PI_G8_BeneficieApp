@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -118,18 +119,32 @@ class LoginViewController: UIViewController {
                 }
             }
         } else {
-            if let user = logInTextField.text {
-                if viewModel.didRegister(userLogin: user, currentUser: currentUser) {
-                    if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
-                            userSubscription.currentUser = self.currentUser
-                            navigationController?.pushViewController(userSubscription, animated: true)
+            if let user = logInTextField.text, let password = passwordTextField.text {
+//                if viewModel.didRegister(userLogin: user, currentUser: currentUser) {
+//                    if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
+//                            userSubscription.currentUser = self.currentUser
+//                            navigationController?.pushViewController(userSubscription, animated: true)
+//                    }
+//                } else {
+//                    alertToRegister()
+                Auth.auth().signIn(withEmail: user, password: password) { [weak self] authResult, error in
+                  guard let strongSelf = self else { return }
+                    if authResult != nil {
+                        let accountData = authResult
+                        print(accountData?.user)
+                        if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
+//                                                    userSubscription.currentUser = self.currentUser
+                            self?.navigationController?.pushViewController(userSubscription, animated: true)
+                                            }
+                    } else {
+                        print(error)
                     }
-                } else {
-                    alertToRegister()
                 }
             }
         }
     }
+    
+    
                             
     
     @IBAction func handleForgotPassword(_ sender: UIButton) {
@@ -164,3 +179,5 @@ extension LoginViewController: UITextFieldDelegate {
         return false
     }
 }
+
+

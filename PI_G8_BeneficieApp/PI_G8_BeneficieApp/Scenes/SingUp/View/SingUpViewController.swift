@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class SingUpViewController: UIViewController {
 
-    @IBOutlet weak var loginTextFieldOutlet: UITextField!
-    @IBOutlet weak var passwordTextFieldOutlet: UITextField!
-    @IBOutlet weak var contactTextFieldOutlet: UITextField!
-    @IBOutlet weak var ConfirmPasswordTextFieldOutlet: UITextField!
-    @IBOutlet weak var FullNameTextFieldOutlet: UITextField!
-    @IBOutlet weak var CPFTextFieldOutlet: UITextField!
+    @IBOutlet weak var textFieldEmail: UITextField!
+    @IBOutlet weak var textFieldPassword: UITextField!
+    @IBOutlet weak var textFieldPhoneNumber: UITextField!
+    @IBOutlet weak var textFieldPasswordConfirmation: UITextField!
+    @IBOutlet weak var textFieldFullName: UITextField!
+    @IBOutlet weak var textFieldCPF: UITextField!
     
     @IBOutlet weak var googleButtonOutlet: UIButton!
     @IBOutlet weak var facebookButtonOutlet: UIButton!
@@ -24,35 +25,52 @@ class SingUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginTextFieldOutlet.delegate = self
-        passwordTextFieldOutlet.delegate = self
-        contactTextFieldOutlet.delegate = self
-        ConfirmPasswordTextFieldOutlet.delegate = self
-        FullNameTextFieldOutlet.delegate = self
-        CPFTextFieldOutlet.delegate = self
+        
+        // Mark: Delegates
+        textFieldEmail.delegate = self
+        textFieldPassword.delegate = self
+        textFieldPhoneNumber.delegate = self
+        textFieldPasswordConfirmation.delegate = self
+        textFieldFullName.delegate = self
+        textFieldCPF.delegate = self
+        
+        
       configureUI()
         
         
-        
     }
+    
+    func authenticationWithEmail() {
+        if let email = textFieldEmail.text, let password = textFieldPassword.text {
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if authResult != nil {
+                    let accountDataUser = authResult?.user
+                    print(accountDataUser)
+                } else {
+                    print(error)
+                }
+              }
+        }
+    }
+        
     
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func actionSignUpPressed(_ sender: Any) {
-        
+        self.authenticationWithEmail()
     }
     
      private func configureUI(){
         
-        loginTextFieldOutlet.configureTextField(placeHolder: "Email")
-        loginTextFieldOutlet.keyboardType = .emailAddress
-        FullNameTextFieldOutlet.configureTextField(placeHolder: "Nome Completo")
-        CPFTextFieldOutlet.configureTextField(placeHolder: "CPF")
-        contactTextFieldOutlet.configureTextField(placeHolder: "Contato")
-        contactTextFieldOutlet.keyboardType = .numbersAndPunctuation
-        ConfirmPasswordTextFieldOutlet.configureTextField(placeHolder: "Confirmar Senha")
-        passwordTextFieldOutlet.configureTextField(placeHolder: "Senha")
+        textFieldEmail.configureTextField(placeHolder: "Email")
+        textFieldEmail.keyboardType = .emailAddress
+        textFieldFullName.configureTextField(placeHolder: "Nome Completo")
+        textFieldCPF.configureTextField(placeHolder: "CPF")
+        textFieldPhoneNumber.configureTextField(placeHolder: "Contato")
+        textFieldPhoneNumber.keyboardType = .numbersAndPunctuation
+        textFieldPasswordConfirmation.configureTextField(placeHolder: "Confirmar Senha")
+        textFieldPassword.configureTextField(placeHolder: "Senha")
        
         
         googleButtonOutlet.layer.cornerRadius = 5
@@ -94,19 +112,34 @@ class SingUpViewController: UIViewController {
 extension SingUpViewController:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
-         case loginTextFieldOutlet:
-             FullNameTextFieldOutlet.becomeFirstResponder()
-         case FullNameTextFieldOutlet:
-             contactTextFieldOutlet.becomeFirstResponder()
-         case contactTextFieldOutlet:
-             CPFTextFieldOutlet.becomeFirstResponder()
-        case CPFTextFieldOutlet:
-            passwordTextFieldOutlet.becomeFirstResponder()
-        case passwordTextFieldOutlet:
-            ConfirmPasswordTextFieldOutlet.becomeFirstResponder()
+         case textFieldEmail:
+             textFieldFullName.becomeFirstResponder()
+         case textFieldFullName:
+             textFieldPhoneNumber.becomeFirstResponder()
+         case textFieldPhoneNumber:
+             textFieldCPF.becomeFirstResponder()
+        case textFieldCPF:
+            textFieldPassword.becomeFirstResponder()
+        case textFieldPassword:
+            textFieldPasswordConfirmation.becomeFirstResponder()
          default:
              textField.resignFirstResponder()
          }
          return false
       }
+}
+
+extension UIViewController {
+    class func replaceRootViewController(viewController: UIViewController) {
+        guard let window = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first
+        else {
+            return
+        }
+        let rootViewController = window.rootViewController!
+        viewController.view.frame = rootViewController.view.frame
+        viewController.view.layoutIfNeeded()
+        UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromLeft, animations: {
+            window.rootViewController = viewController
+        }, completion: nil)
+    }
 }

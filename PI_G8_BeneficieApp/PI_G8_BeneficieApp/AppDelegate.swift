@@ -8,12 +8,35 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    
+    static func isLogged() -> Bool {
+            return Auth.auth().currentUser != nil
+    }
+        
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
+        FirebaseApp.configure()
+        
+        if AppDelegate.isLogged() {
+//            guard let windowScene = (scene as? UIWindowScene) else { return }
+//            window = UIWindow(windowScene: windowScene)
+
+            // Seta a rootview, a primeira tela a ser exibida
+            let storyboard = UIStoryboard(name: "User_Subscription", bundle: Bundle(for: type(of: self)))
+            self.window?.rootViewController = storyboard.instantiateInitialViewController()
+            
+//            let viewDefault = User_SubscriptionViewController()
+//            window?.rootViewController = UINavigationController(rootViewController: viewDefault)
+            window?.makeKeyAndVisible()
+        }
+            
         return true
     }
 

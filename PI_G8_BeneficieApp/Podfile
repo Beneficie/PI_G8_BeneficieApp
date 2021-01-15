@@ -8,4 +8,8 @@ target 'PI_G8_BeneficieApp' do
   # Pods for PI_G8_BeneficieApp
 	pod 'Alamofire'
 	pod 'IQKeyboardManagerSwift'
+	pod 'Firebase/Analytics'
+	pod 'Firebase/Auth'
+	# pod 'FirebaseUI'
+
 end

@@ -42,6 +42,7 @@
 		33683807256C3DD700FCF70C /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33683806256C3DD700FCF70C /* BankCell.swift */; };
 		3369A333258D2B12006BB5BB /* EventList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333FBC20258D258700C66BD6 /* EventList.storyboard */; };
 		3369A336258D2E96006BB5BB /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A335258D2E96006BB5BB /* EventListViewModel.swift */; };
+		3386733425B1BDD1008AA217 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3386733325B1BDD1008AA217 /* GoogleService-Info.plist */; };
 		33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33928301256D461F0051DA2A /* BankInformationsViewController.swift */; };
 		33B9045F257E581C004DA579 /* BankInformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B9045E257E581B004DA579 /* BankInformations.storyboard */; };
 		33B90489257E5AC4004DA579 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B90488257E5AC4004DA579 /* Bank.swift */; };
@@ -110,6 +111,7 @@
 		33683802256C3DA600FCF70C /* BanksMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BanksMenu.storyboard; sourceTree = "<group>"; };
 		33683806256C3DD700FCF70C /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
 		3369A335258D2E96006BB5BB /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
+		3386733325B1BDD1008AA217 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33928301256D461F0051DA2A /* BankInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInformationsViewController.swift; sourceTree = "<group>"; };
 		33B9045E257E581B004DA579 /* BankInformations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BankInformations.storyboard; sourceTree = "<group>"; };
 		33B90488257E5AC4004DA579 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bank.swift; path = PI_G8_BeneficieApp/Scenes/User_BanksMenu/Model/Bank.swift; sourceTree = SOURCE_ROOT; };
@@ -229,6 +231,7 @@
 				0D778637255A235800255307 /* Info.plist */,
 				0D1068C725693A15002E5909 /* Assets.xcassets */,
 				0D1068D525695D72002E5909 /* Extensions.swift */,
+				3386733325B1BDD1008AA217 /* GoogleService-Info.plist */,
 			);
 			path = PI_G8_BeneficieApp;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				33D07E9E255DC35000272FBF /* FinancialDetails.storyboard in Resources */,
 				0D1068C825693A15002E5909 /* Assets.xcassets in Resources */,
 				0D1068C625693453002E5909 /* Profile.storyboard in Resources */,
+				3386733425B1BDD1008AA217 /* GoogleService-Info.plist in Resources */,
 				33B904CE257E63AD004DA579 /* User_Subscription.storyboard in Resources */,
 				0D1068CB25693C24002E5909 /* AdmActions.storyboard in Resources */,
 				33D07EA8255DCE2A00272FBF /* User_SocialNetworks.storyboard in Resources */,
