@@ -24,18 +24,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         FirebaseApp.configure()
         
-        if AppDelegate.isLogged() {
-//            guard let windowScene = (scene as? UIWindowScene) else { return }
-//            window = UIWindow(windowScene: windowScene)
-
-            // Seta a rootview, a primeira tela a ser exibida
-            let storyboard = UIStoryboard(name: "User_Subscription", bundle: Bundle(for: type(of: self)))
-            self.window?.rootViewController = storyboard.instantiateInitialViewController()
+//        if AppDelegate.isLogged() {
+////            guard let windowScene = (scene as? UIWindowScene) else { return }
+////            window = UIWindow(windowScene: windowScene)
+//
+//            // Seta a rootview, a primeira tela a ser exibida
+//            let storyboard = UIStoryboard(name: "User_Subscription", bundle: Bundle(for: type(of: self)))
+//            self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "User_Subscription")
             
 //            let viewDefault = User_SubscriptionViewController()
 //            window?.rootViewController = UINavigationController(rootViewController: viewDefault)
             window?.makeKeyAndVisible()
-        }
+//        }
             
         return true
     }

@@ -12,7 +12,7 @@
         <!--User_Subscription-->
         <scene sceneID="420-CD-LTj">
             <objects>
-                <viewController title="User_Subscription" id="o6S-to-EFc" customClass="User_SubscriptionViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="User_Subscription" title="User_Subscription" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o6S-to-EFc" customClass="User_SubscriptionViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Pc-Z9-hCv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

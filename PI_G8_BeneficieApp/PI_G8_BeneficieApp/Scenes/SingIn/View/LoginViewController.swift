@@ -134,6 +134,7 @@ class LoginViewController: UIViewController {
                         print(accountData?.user)
                         if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
 //                                                    userSubscription.currentUser = self.currentUser
+                            
                             self?.navigationController?.pushViewController(userSubscription, animated: true)
                                             }
                     } else {

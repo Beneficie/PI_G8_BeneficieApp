@@ -17,6 +17,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        if AppDelegate.isLogged() {
+//            guard let windowScene = (scene as? UIWindowScene) else { return }
+//            window = UIWindow(windowScene: windowScene)
+
+            // Seta a rootview, a primeira tela a ser exibida
+            let storyboard = UIStoryboard(name: "User_Subscription", bundle: Bundle(for: type(of: self)))
+            let navi = UINavigationController()
+            navi.pushViewController(storyboard.instantiateViewController(withIdentifier: "User_Subscription"), animated: true)
+            
+            navi.setNavigationBarHidden(true, animated: false)
+            
+            self.window?.rootViewController = navi
+        }
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
 
@@ -22,6 +23,17 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
         labelUserName.text = currentUser.nome
+    }
+    
+    func signOut() {
+        let firebaseAuth = Auth.auth()
+            do {
+              try firebaseAuth.signOut()
+                print("tappedSignOut")
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+    }
+      
     }
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -40,6 +52,6 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func exitButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        self.signOut()
     }
 }
