@@ -29,9 +29,18 @@ class ProfileViewController: UIViewController {
         let firebaseAuth = Auth.auth()
             do {
               try firebaseAuth.signOut()
-                print("tappedSignOut")
+                let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle(for: type(of: self)))
+                let navi = UINavigationController()
+                navi.pushViewController(storyboard.instantiateViewController(withIdentifier: "MainScreen"), animated: true)
+//                let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//                appDelegate?.window?.rootViewController = navi
+
             } catch let signOutError as NSError {
-              print ("Error signing out: %@", signOutError)
+                print ("Error signing out: %@", signOutError)
+                let alert = UIAlertController(title: "Não foi possível sair", message: "Tente Novamente", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                }))
+                present(alert, animated: true)
     }
       
     }
