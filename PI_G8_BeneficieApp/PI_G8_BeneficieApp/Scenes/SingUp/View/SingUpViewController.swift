@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import FBSDKLoginKit
 
 class SingUpViewController: UIViewController {
 
@@ -20,7 +21,7 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var textFieldCPF: UITextField!
     
     @IBOutlet weak var googleButtonOutlet: GIDSignInButton!
-    @IBOutlet weak var facebookButtonOutlet: UIButton!
+    @IBOutlet  var facebookButtonOutlet: FBLoginButton!
     @IBOutlet weak var singUpButtonOutlet: UIButton!
     @IBOutlet weak var singInButtonOutlet: UIButton!
     
@@ -41,6 +42,11 @@ class SingUpViewController: UIViewController {
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().signIn()
+        
+        let loginButton = FBLoginButton()
+        loginButton.center = view.center
+        view.addSubview(loginButton)
+        
         
     }
     
@@ -108,7 +114,7 @@ class SingUpViewController: UIViewController {
     @IBAction func socialLoginButton(_ sender: UIButton) {
         //****** tag = 0 para facebook e tag = 1 para google *********//
         if (sender.tag == 0){
-            print("DEBUG: Facebook")
+            
             
         }else if(sender.tag == 1){
             GIDSignIn.sharedInstance().signIn()

@@ -11,6 +11,7 @@ target 'PI_G8_BeneficieApp' do
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
 	pod 'GoogleSignIn'
+	pod 'FBSDKLoginKit'
 	# pod 'FirebaseUI'
 
 end

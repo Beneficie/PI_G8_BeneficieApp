@@ -29,13 +29,21 @@ class ProfileViewController: UIViewController {
         let firebaseAuth = Auth.auth()
             do {
               try firebaseAuth.signOut()
-                let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
-                UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
+                let alert = UIAlertController(title: "Sair", message: "Você foi deslogade", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                    
+                    let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+                    UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
+                }))
+                present(alert, animated: true)
+                
 
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
                 let alert = UIAlertController(title: "Não foi possível sair", message: "Tente Novamente", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                    let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+                    UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
                 }))
                 present(alert, animated: true)
     }
