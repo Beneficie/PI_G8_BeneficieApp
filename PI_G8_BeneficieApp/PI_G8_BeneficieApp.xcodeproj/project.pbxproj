@@ -687,6 +687,7 @@
 				0D778623255A235300255307 /* Frameworks */,
 				0D778624255A235300255307 /* Resources */,
 				D670D07D6524F36D0A0EF4EE /* [CP] Embed Pods Frameworks */,
+				D7AFBD000ADF19AA4B4B2FCA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -797,6 +798,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7AFBD000ADF19AA4B4B2FCA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

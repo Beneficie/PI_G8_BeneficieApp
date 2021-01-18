@@ -10,6 +10,7 @@ target 'PI_G8_BeneficieApp' do
 	pod 'IQKeyboardManagerSwift'
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
+	pod 'GoogleSignIn'
 	# pod 'FirebaseUI'
 
 end

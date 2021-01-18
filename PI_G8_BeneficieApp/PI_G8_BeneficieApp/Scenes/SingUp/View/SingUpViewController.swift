@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class SingUpViewController: UIViewController {
 
@@ -18,7 +19,7 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var textFieldFullName: UITextField!
     @IBOutlet weak var textFieldCPF: UITextField!
     
-    @IBOutlet weak var googleButtonOutlet: UIButton!
+    @IBOutlet weak var googleButtonOutlet: GIDSignInButton!
     @IBOutlet weak var facebookButtonOutlet: UIButton!
     @IBOutlet weak var singUpButtonOutlet: UIButton!
     @IBOutlet weak var singInButtonOutlet: UIButton!
@@ -35,8 +36,11 @@ class SingUpViewController: UIViewController {
         textFieldCPF.delegate = self
         
         
-      configureUI()
+        configureUI()
         
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
         
     }
     
@@ -60,6 +64,8 @@ class SingUpViewController: UIViewController {
     @IBAction func actionSignUpPressed(_ sender: Any) {
         self.authenticationWithEmail()
     }
+    
+    
     
      private func configureUI(){
         
@@ -103,8 +109,9 @@ class SingUpViewController: UIViewController {
         //****** tag = 0 para facebook e tag = 1 para google *********//
         if (sender.tag == 0){
             print("DEBUG: Facebook")
+            
         }else if(sender.tag == 1){
-            print("DEBUG: Google")
+            GIDSignIn.sharedInstance().signIn()
         }
     }
 }

@@ -29,11 +29,8 @@ class ProfileViewController: UIViewController {
         let firebaseAuth = Auth.auth()
             do {
               try firebaseAuth.signOut()
-                let storyboard = UIStoryboard(name: "MainScreen", bundle: Bundle(for: type(of: self)))
-                let navi = UINavigationController()
-                navi.pushViewController(storyboard.instantiateViewController(withIdentifier: "MainScreen"), animated: true)
-//                let appDelegate = UIApplication.shared.delegate as? AppDelegate
-//                appDelegate?.window?.rootViewController = navi
+                let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+                UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
 
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
