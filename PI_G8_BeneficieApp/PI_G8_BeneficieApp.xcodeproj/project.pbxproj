@@ -44,6 +44,8 @@
 		3369A336258D2E96006BB5BB /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A335258D2E96006BB5BB /* EventListViewModel.swift */; };
 		3386733425B1BDD1008AA217 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3386733325B1BDD1008AA217 /* GoogleService-Info.plist */; };
 		33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33928301256D461F0051DA2A /* BankInformationsViewController.swift */; };
+		33B05BCA25B64B490010496F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33B05BC825B64B490010496F /* Model.xcdatamodeld */; };
+		33B05BCD25B64C8C0010496F /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B05BCC25B64C8C0010496F /* DataBaseManager.swift */; };
 		33B9045F257E581C004DA579 /* BankInformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B9045E257E581B004DA579 /* BankInformations.storyboard */; };
 		33B90489257E5AC4004DA579 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B90488257E5AC4004DA579 /* Bank.swift */; };
 		33B9048C257E5BC4004DA579 /* ParticipantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B9048B257E5BC4004DA579 /* ParticipantsViewModel.swift */; };
@@ -113,6 +115,8 @@
 		3369A335258D2E96006BB5BB /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 		3386733325B1BDD1008AA217 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33928301256D461F0051DA2A /* BankInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInformationsViewController.swift; sourceTree = "<group>"; };
+		33B05BC925B64B490010496F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		33B05BCC25B64C8C0010496F /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		33B9045E257E581B004DA579 /* BankInformations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BankInformations.storyboard; sourceTree = "<group>"; };
 		33B90488257E5AC4004DA579 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bank.swift; path = PI_G8_BeneficieApp/Scenes/User_BanksMenu/Model/Bank.swift; sourceTree = SOURCE_ROOT; };
 		33B9048B257E5BC4004DA579 /* ParticipantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsViewModel.swift; sourceTree = "<group>"; };
@@ -353,6 +357,8 @@
 				336837F6256C3B9500FCF70C /* User_BanksMenu */,
 				33D07E98255DC2F800272FBF /* User_FinancialDetails */,
 				33D07EA2255DCDFA00272FBF /* User_SocialNetworks */,
+				33B05BC825B64B490010496F /* Model.xcdatamodeld */,
+				33B05BCC25B64C8C0010496F /* DataBaseManager.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -843,6 +849,7 @@
 				0D153B40256AB26600E391AB /* ParticipantsViewController.swift in Sources */,
 				0D1068CD25693EF5002E5909 /* AdmActionsViewController.swift in Sources */,
 				33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */,
+				33B05BCD25B64C8C0010496F /* DataBaseManager.swift in Sources */,
 				33B90490257E5C41004DA579 /* CreateActionViewModel.swift in Sources */,
 				0D1068D425695209002E5909 /* MonthActionViewController.swift in Sources */,
 				33B904AA257E5E41004DA579 /* LoginViewModel.swift in Sources */,
@@ -855,6 +862,7 @@
 				0D77862C255A235300255307 /* SceneDelegate.swift in Sources */,
 				33B904A6257E5E19004DA579 /* SignUpViewModel.swift in Sources */,
 				33D07E86255DB4B600272FBF /* MainScreenViewController.swift in Sources */,
+				33B05BCA25B64B490010496F /* Model.xcdatamodeld in Sources */,
 				3369A336258D2E96006BB5BB /* EventListViewModel.swift in Sources */,
 				33B904BA257E5F1C004DA579 /* UserSociaNetworksViewModel.swift in Sources */,
 				33683807256C3DD700FCF70C /* BankCell.swift in Sources */,
@@ -1066,6 +1074,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		33B05BC825B64B490010496F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				33B05BC925B64B490010496F /* Model.xcdatamodel */,
+			);
+			currentVersion = 33B05BC925B64B490010496F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0D77861E255A235300255307 /* Project object */;
 }

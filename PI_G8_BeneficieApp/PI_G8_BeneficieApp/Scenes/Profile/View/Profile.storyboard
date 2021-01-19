@@ -29,14 +29,14 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gkx-85-TdU">
-                                <rect key="frame" x="106" y="27.5" width="108.5" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configurações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gkx-85-TdU">
+                                <rect key="frame" x="96" y="51.5" width="128.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbQ-Yc-sXA">
-                                <rect key="frame" x="20" y="32.5" width="59.5" height="22"/>
+                                <rect key="frame" x="20" y="52.5" width="59.5" height="22"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Voltar" image="chevron.backward" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,7 +155,7 @@
                             <constraint firstItem="e3O-0U-UjZ" firstAttribute="top" secondItem="Le4-LC-8QJ" secondAttribute="top" constant="10" id="IvJ-aQ-Nv1"/>
                             <constraint firstItem="lKc-z7-T8m" firstAttribute="top" secondItem="Le4-LC-8QJ" secondAttribute="bottom" constant="20" id="L6m-bJ-jQr"/>
                             <constraint firstItem="LYd-OT-efo" firstAttribute="bottom" secondItem="lKc-z7-T8m" secondAttribute="bottom" constant="94" id="LVD-pt-2J2"/>
-                            <constraint firstItem="YbQ-Yc-sXA" firstAttribute="centerY" secondItem="UdL-xN-rsO" secondAttribute="centerY" id="MIu-py-O0t"/>
+                            <constraint firstItem="YbQ-Yc-sXA" firstAttribute="centerY" secondItem="UdL-xN-rsO" secondAttribute="centerY" constant="20" id="MIu-py-O0t"/>
                             <constraint firstItem="e3O-0U-UjZ" firstAttribute="leading" secondItem="Le4-LC-8QJ" secondAttribute="leading" constant="7" id="NfX-Lm-tun"/>
                             <constraint firstItem="ggO-j2-4TF" firstAttribute="bottom" secondItem="co8-Cs-Jgn" secondAttribute="bottom" constant="10" id="NrY-mR-co8"/>
                             <constraint firstItem="TkR-1B-nPF" firstAttribute="top" secondItem="Rql-Nw-Mmd" secondAttribute="top" constant="11" id="PK5-xI-QET"/>
@@ -180,7 +180,7 @@
                             <constraint firstItem="Rql-Nw-Mmd" firstAttribute="leading" secondItem="LYd-OT-efo" secondAttribute="leading" constant="28" id="qhh-PP-Oco"/>
                             <constraint firstItem="co8-Cs-Jgn" firstAttribute="top" secondItem="ggO-j2-4TF" secondAttribute="top" constant="10" id="sXf-VQ-LAL"/>
                             <constraint firstItem="Rql-Nw-Mmd" firstAttribute="bottom" secondItem="TkR-1B-nPF" secondAttribute="bottom" constant="10" id="tJo-8e-yY1"/>
-                            <constraint firstItem="Gkx-85-TdU" firstAttribute="centerY" secondItem="UdL-xN-rsO" secondAttribute="centerY" id="tah-Zs-D1w"/>
+                            <constraint firstItem="Gkx-85-TdU" firstAttribute="centerY" secondItem="UdL-xN-rsO" secondAttribute="centerY" constant="20" id="tah-Zs-D1w"/>
                             <constraint firstItem="TkR-1B-nPF" firstAttribute="bottom" secondItem="Rql-Nw-Mmd" secondAttribute="bottom" constant="10" id="uWV-00-Xtz"/>
                             <constraint firstItem="Le4-LC-8QJ" firstAttribute="trailing" secondItem="e3O-0U-UjZ" secondAttribute="trailing" constant="10" id="vRo-1g-LIM"/>
                             <constraint firstItem="TkR-1B-nPF" firstAttribute="trailing" secondItem="Rql-Nw-Mmd" secondAttribute="trailing" constant="10" id="who-n1-UHp"/>
