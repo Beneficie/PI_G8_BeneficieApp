@@ -10,4 +10,15 @@ import Foundation
 
 class SignUpViewModel {
     
+    func addUser(name: String, email: String) {
+//        email = ""
+//        nome  = ""
+//        telefone = ""
+        
+//        _id = ""
+//        admin = []
+//        cpf = ""
+//        password = ""
+//        subgrupo = ""
+    }
 }

@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class MainScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let token = AccessToken.current,
+           !token.isExpired {
+            if let userSubscription = UIStoryboard(name: "User_Subscription", bundle: nil).instantiateInitialViewController() as? User_SubscriptionViewController {
+                self.navigationController?.pushViewController(userSubscription, animated: true)
+            }
+        }
+        
     }
     
     @IBAction func goToADMFlow(_ sender: UIButton) {

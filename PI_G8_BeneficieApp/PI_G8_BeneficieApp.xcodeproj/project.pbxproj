@@ -29,6 +29,7 @@
 		0D778641255A263200255307 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D778640255A263200255307 /* LoginViewController.swift */; };
 		0DA44248255ADC2F00C82076 /* SingUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA44247255ADC2F00C82076 /* SingUp.storyboard */; };
 		0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA44249255ADC5900C82076 /* SingUpViewController.swift */; };
+		330E4FD425B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330E4FD325B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests.swift */; };
 		333FBC21258D258700C66BD6 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333FBC1F258D258700C66BD6 /* EventListViewController.swift */; };
 		3360679325A5EC4400DE3A0C /* Subgroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360679225A5EC4400DE3A0C /* Subgroup.swift */; };
 		3360679825A6619A00DE3A0C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360679725A6619A00DE3A0C /* User.swift */; };
@@ -42,7 +43,10 @@
 		33683807256C3DD700FCF70C /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33683806256C3DD700FCF70C /* BankCell.swift */; };
 		3369A333258D2B12006BB5BB /* EventList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333FBC20258D258700C66BD6 /* EventList.storyboard */; };
 		3369A336258D2E96006BB5BB /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3369A335258D2E96006BB5BB /* EventListViewModel.swift */; };
+		3386733425B1BDD1008AA217 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3386733325B1BDD1008AA217 /* GoogleService-Info.plist */; };
 		33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33928301256D461F0051DA2A /* BankInformationsViewController.swift */; };
+		33B05BCA25B64B490010496F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33B05BC825B64B490010496F /* Model.xcdatamodeld */; };
+		33B05BCD25B64C8C0010496F /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B05BCC25B64C8C0010496F /* DataBaseManager.swift */; };
 		33B9045F257E581C004DA579 /* BankInformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B9045E257E581B004DA579 /* BankInformations.storyboard */; };
 		33B90489257E5AC4004DA579 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B90488257E5AC4004DA579 /* Bank.swift */; };
 		33B9048C257E5BC4004DA579 /* ParticipantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B9048B257E5BC4004DA579 /* ParticipantsViewModel.swift */; };
@@ -71,6 +75,16 @@
 		C8B8DF0A0EAC1FD586899469 /* Pods_PI_G8_BeneficieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1FDB9B11AC600231616460 /* Pods_PI_G8_BeneficieApp.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		330E4FD625B86CCA00E5FFA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D77861E255A235300255307 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D778625255A235300255307;
+			remoteInfo = PI_G8_BeneficieApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0D1068C325693440002E5909 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0D1068C525693453002E5909 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -97,6 +111,9 @@
 		0DA44247255ADC2F00C82076 /* SingUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingUp.storyboard; sourceTree = "<group>"; };
 		0DA44249255ADC5900C82076 /* SingUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		169221CD294399835A8C4C90 /* Pods-PI_G8_BeneficieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PI_G8_BeneficieApp.release.xcconfig"; path = "Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp.release.xcconfig"; sourceTree = "<group>"; };
+		330E4FD125B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PI_G8_BeneficieAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		330E4FD325B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PI_G8_BeneficieAppTests.swift; sourceTree = "<group>"; };
+		330E4FD525B86CCA00E5FFA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		333FBC1F258D258700C66BD6 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		333FBC20258D258700C66BD6 /* EventList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventList.storyboard; sourceTree = "<group>"; };
 		3360679225A5EC4400DE3A0C /* Subgroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subgroup.swift; sourceTree = "<group>"; };
@@ -110,9 +127,12 @@
 		33683802256C3DA600FCF70C /* BanksMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BanksMenu.storyboard; sourceTree = "<group>"; };
 		33683806256C3DD700FCF70C /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
 		3369A335258D2E96006BB5BB /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
+		3386733325B1BDD1008AA217 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33928301256D461F0051DA2A /* BankInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInformationsViewController.swift; sourceTree = "<group>"; };
+		33B05BC925B64B490010496F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		33B05BCC25B64C8C0010496F /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		33B9045E257E581B004DA579 /* BankInformations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BankInformations.storyboard; sourceTree = "<group>"; };
-		33B90488257E5AC4004DA579 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bank.swift; path = PI_G8_BeneficieApp/Scenes/User_BanksMenu/Model/Bank.swift; sourceTree = SOURCE_ROOT; };
+		33B90488257E5AC4004DA579 /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bank.swift; path = PI_G8_BeneficieApp/Scenes/Models/Bank.swift; sourceTree = SOURCE_ROOT; };
 		33B9048B257E5BC4004DA579 /* ParticipantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsViewModel.swift; sourceTree = "<group>"; };
 		33B9048F257E5C41004DA579 /* CreateActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActionViewModel.swift; sourceTree = "<group>"; };
 		33B90492257E5C80004DA579 /* MonthActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthActionViewModel.swift; sourceTree = "<group>"; };
@@ -146,6 +166,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8B8DF0A0EAC1FD586899469 /* Pods_PI_G8_BeneficieApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		330E4FCE25B86CCA00E5FFA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				0D778628255A235300255307 /* PI_G8_BeneficieApp */,
+				330E4FD225B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests */,
 				0D778627255A235300255307 /* Products */,
 				2AABF31458102468FA4E7332 /* Pods */,
 				24FAD24730F524C75ECC7246 /* Frameworks */,
@@ -213,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				0D778626255A235300255307 /* PI_G8_BeneficieApp.app */,
+				330E4FD125B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,6 +258,7 @@
 				0D778637255A235800255307 /* Info.plist */,
 				0D1068C725693A15002E5909 /* Assets.xcassets */,
 				0D1068D525695D72002E5909 /* Extensions.swift */,
+				3386733325B1BDD1008AA217 /* GoogleService-Info.plist */,
 			);
 			path = PI_G8_BeneficieApp;
 			sourceTree = "<group>";
@@ -271,20 +301,33 @@
 		330A07BE25A795CF009AED05 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3360679A25A661C700DE3A0C /* Admin.swift */,
+				33B90488257E5AC4004DA579 /* Bank.swift */,
+				33D27D68259D08530014CB38 /* BankAccount.swift */,
 				3363FC0A259126040096D27A /* Event.swift */,
 				3360679225A5EC4400DE3A0C /* Subgroup.swift */,
 				3360679725A6619A00DE3A0C /* User.swift */,
-				3360679A25A661C700DE3A0C /* Admin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		330A07BF25A795FC009AED05 /* APIManager */ = {
+		330A07BF25A795FC009AED05 /* ConectionManager */ = {
 			isa = PBXGroup;
 			children = (
 				3363FC04259122B60096D27A /* APIManager.swift */,
+				33B05BCC25B64C8C0010496F /* DataBaseManager.swift */,
+				33B05BC825B64B490010496F /* Model.xcdatamodeld */,
 			);
-			path = APIManager;
+			path = ConectionManager;
+			sourceTree = "<group>";
+		};
+		330E4FD225B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				330E4FD325B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests.swift */,
+				330E4FD525B86CCA00E5FFA8 /* Info.plist */,
+			);
+			path = PI_G8_BeneficieAppTests;
 			sourceTree = "<group>";
 		};
 		333FBC24258D25CE00C66BD6 /* ViewModel */ = {
@@ -335,7 +378,7 @@
 		33B9044D257E4E43004DA579 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				330A07BF25A795FC009AED05 /* APIManager */,
+				330A07BF25A795FC009AED05 /* ConectionManager */,
 				330A07BE25A795CF009AED05 /* Models */,
 				33D07E84255DB41200272FBF /* MainScreen  */,
 				0D77863D255A25E500255307 /* SingIn */,
@@ -578,8 +621,6 @@
 		33B90480257E59FB004DA579 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				33B90488257E5AC4004DA579 /* Bank.swift */,
-				33D27D68259D08530014CB38 /* BankAccount.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -684,6 +725,7 @@
 				0D778623255A235300255307 /* Frameworks */,
 				0D778624255A235300255307 /* Resources */,
 				D670D07D6524F36D0A0EF4EE /* [CP] Embed Pods Frameworks */,
+				D7AFBD000ADF19AA4B4B2FCA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -694,18 +736,40 @@
 			productReference = 0D778626255A235300255307 /* PI_G8_BeneficieApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		330E4FD025B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 330E4FD825B86CCA00E5FFA8 /* Build configuration list for PBXNativeTarget "PI_G8_BeneficieAppTests" */;
+			buildPhases = (
+				330E4FCD25B86CCA00E5FFA8 /* Sources */,
+				330E4FCE25B86CCA00E5FFA8 /* Frameworks */,
+				330E4FCF25B86CCA00E5FFA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				330E4FD725B86CCA00E5FFA8 /* PBXTargetDependency */,
+			);
+			name = PI_G8_BeneficieAppTests;
+			productName = PI_G8_BeneficieAppTests;
+			productReference = 330E4FD125B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		0D77861E255A235300255307 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Juan Souza";
 				TargetAttributes = {
 					0D778625255A235300255307 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					330E4FD025B86CCA00E5FFA8 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 0D778625255A235300255307;
 					};
 				};
 			};
@@ -723,6 +787,7 @@
 			projectRoot = "";
 			targets = (
 				0D778625255A235300255307 /* PI_G8_BeneficieApp */,
+				330E4FD025B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -743,6 +808,7 @@
 				33D07E9E255DC35000272FBF /* FinancialDetails.storyboard in Resources */,
 				0D1068C825693A15002E5909 /* Assets.xcassets in Resources */,
 				0D1068C625693453002E5909 /* Profile.storyboard in Resources */,
+				3386733425B1BDD1008AA217 /* GoogleService-Info.plist in Resources */,
 				33B904CE257E63AD004DA579 /* User_Subscription.storyboard in Resources */,
 				0D1068CB25693C24002E5909 /* AdmActions.storyboard in Resources */,
 				33D07EA8255DCE2A00272FBF /* User_SocialNetworks.storyboard in Resources */,
@@ -750,6 +816,13 @@
 				0D77863F255A260200255307 /* Login.storyboard in Resources */,
 				33D07E8A255DB4C400272FBF /* MainScreen.storyboard in Resources */,
 				33683803256C3DA700FCF70C /* BanksMenu.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		330E4FCF25B86CCA00E5FFA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +868,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D7AFBD000ADF19AA4B4B2FCA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -821,6 +911,7 @@
 				0D153B40256AB26600E391AB /* ParticipantsViewController.swift in Sources */,
 				0D1068CD25693EF5002E5909 /* AdmActionsViewController.swift in Sources */,
 				33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */,
+				33B05BCD25B64C8C0010496F /* DataBaseManager.swift in Sources */,
 				33B90490257E5C41004DA579 /* CreateActionViewModel.swift in Sources */,
 				0D1068D425695209002E5909 /* MonthActionViewController.swift in Sources */,
 				33B904AA257E5E41004DA579 /* LoginViewModel.swift in Sources */,
@@ -833,6 +924,7 @@
 				0D77862C255A235300255307 /* SceneDelegate.swift in Sources */,
 				33B904A6257E5E19004DA579 /* SignUpViewModel.swift in Sources */,
 				33D07E86255DB4B600272FBF /* MainScreenViewController.swift in Sources */,
+				33B05BCA25B64B490010496F /* Model.xcdatamodeld in Sources */,
 				3369A336258D2E96006BB5BB /* EventListViewModel.swift in Sources */,
 				33B904BA257E5F1C004DA579 /* UserSociaNetworksViewModel.swift in Sources */,
 				33683807256C3DD700FCF70C /* BankCell.swift in Sources */,
@@ -848,7 +940,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		330E4FCD25B86CCA00E5FFA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				330E4FD425B86CCA00E5FFA8 /* PI_G8_BeneficieAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		330E4FD725B86CCA00E5FFA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D778625255A235300255307 /* PI_G8_BeneficieApp */;
+			targetProxy = 330E4FD625B86CCA00E5FFA8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0D77862F255A235300255307 /* Main.storyboard */ = {
@@ -1022,6 +1130,60 @@
 			};
 			name = Release;
 		};
+		330E4FD925B86CCA00E5FFA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8S274G86MW;
+				HEADER_SEARCH_PATHS = (
+					HEADER_SEARCH_PATHS,
+					"=",
+					"\"${SRCROOT}/Pods/Firebase/CoreOnly/Sources\"",
+				);
+				INFOPLIST_FILE = PI_G8_BeneficieAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "dominiquenb.PI-G8-BeneficieAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PI_G8_BeneficieApp.app/PI_G8_BeneficieApp";
+			};
+			name = Debug;
+		};
+		330E4FDA25B86CCA00E5FFA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8S274G86MW;
+				HEADER_SEARCH_PATHS = (
+					HEADER_SEARCH_PATHS,
+					"=",
+					"\"${SRCROOT}/Pods/Firebase/CoreOnly/Sources\"",
+				);
+				INFOPLIST_FILE = PI_G8_BeneficieAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "dominiquenb.PI-G8-BeneficieAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PI_G8_BeneficieApp.app/PI_G8_BeneficieApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1043,7 +1205,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		330E4FD825B86CCA00E5FFA8 /* Build configuration list for PBXNativeTarget "PI_G8_BeneficieAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				330E4FD925B86CCA00E5FFA8 /* Debug */,
+				330E4FDA25B86CCA00E5FFA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		33B05BC825B64B490010496F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				33B05BC925B64B490010496F /* Model.xcdatamodel */,
+			);
+			currentVersion = 33B05BC925B64B490010496F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0D77861E255A235300255307 /* Project object */;
 }

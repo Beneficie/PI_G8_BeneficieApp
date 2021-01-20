@@ -13,6 +13,7 @@ class User_SubscriptionViewModel {
     var arrayEvents = [Event]()
     var arraySubGroups = [Subgroup]()
     
+    // MARK: API Request
     var apiManager = APIManager()
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
@@ -28,6 +29,37 @@ class User_SubscriptionViewModel {
         onFailure: { (error) in
             print("Error \(error)")
             onComplete(false)
+        }
+    }
+    
+    // MARK: Database functions
+    
+//    var arrayTasks = [Task]()
+    var dataBaseManager = DataBaseManager()
+//
+//
+    func saveNewEvent(eventName: String, eventDate: String) {
+        dataBaseManager.save(eventNameDB: eventName, eventDateDB: eventDate)
+        loadSavedEvents()
+    }
+
+    func editEvent(event: CurrentEventDB, eventName: String, eventDate: String) {
+        let id = event.objectID
+        dataBaseManager.edit(id: id, eventNameDB: eventName, eventDateDB: eventDate)
+        loadSavedEvents()
+    }
+
+    func deleteEvent(event: CurrentEventDB) {
+        let id = event.objectID
+        dataBaseManager.delete(id: id)
+        loadSavedEvents()
+    }
+
+    func loadSavedEvents() {
+        dataBaseManager.loadData { (arrayEvents) in
+//            if let arrayEventsDB = arrayEvents {
+//                self.arrayEvents = arrayEventsDB
+//            }
         }
     }
 }

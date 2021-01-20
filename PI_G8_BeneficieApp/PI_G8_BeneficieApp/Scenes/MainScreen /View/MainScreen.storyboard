@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Screen View Controller-->
+        <!--MainScreenViewController-->
         <scene sceneID="iGs-JW-kib">
             <objects>
-                <viewController id="ZyD-5R-aqa" customClass="MainScreenViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainScreen" title="MainScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZyD-5R-aqa" customClass="MainScreenViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dAr-kH-Xot">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -199,10 +199,10 @@
             </objects>
             <point key="canvasLocation" x="923.1884057971015" y="61.141304347826093"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--MainScreenViewController-->
         <scene sceneID="lnV-74-Sj7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="D5x-LU-2sG" sceneMemberID="viewController">
+                <navigationController title="MainScreenViewController" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="D5x-LU-2sG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FeN-ud-Fcm">
                         <autoresizingMask key="autoresizingMask"/>
