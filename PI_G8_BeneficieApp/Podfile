@@ -12,7 +12,6 @@ target 'PI_G8_BeneficieApp' do
 	pod 'Firebase/Auth'
 	pod 'GoogleSignIn'
 	pod 'FBSDKLoginKit'
-	pod 'SwiftPhoneNumberFormatter'
 
 end
 

@@ -99,7 +99,6 @@ PODS:
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
-  - SwiftPhoneNumberFormatter (1.5)
 
 DEPENDENCIES:
   - Alamofire
@@ -108,7 +107,6 @@ DEPENDENCIES:
   - Firebase/Auth
   - GoogleSignIn
   - IQKeyboardManagerSwift
-  - SwiftPhoneNumberFormatter
 
 SPEC REPOS:
   trunk:
@@ -131,7 +129,6 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - nanopb
     - PromisesObjC
-    - SwiftPhoneNumberFormatter
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
@@ -153,8 +150,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  SwiftPhoneNumberFormatter: 0cc91f4daa06dd606a9defb21048a75c36a771a2
 
-PODFILE CHECKSUM: 669343c8d416460724ea043f8f465f814ce7d772
+PODFILE CHECKSUM: 14084cd7c0503cb3511c96181bc89644018dce61
 
 COCOAPODS: 1.10.0

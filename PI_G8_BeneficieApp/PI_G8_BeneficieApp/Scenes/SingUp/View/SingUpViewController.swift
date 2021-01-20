@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
-import SwiftPhoneNumberFormatter
 
 class SingUpViewController: UIViewController {
 
@@ -34,7 +33,7 @@ class SingUpViewController: UIViewController {
         // Mark: Delegates
         textFieldEmail.delegate = self
         textFieldPassword.delegate = self
-        textFieldPhoneNumber.delegate = self
+//        textFieldPhoneNumber.delegate = self
         textFieldPasswordConfirmation.delegate = self
         textFieldFullName.delegate = self
 //        textFieldCPF.delegate = self
@@ -98,10 +97,11 @@ class SingUpViewController: UIViewController {
         textFieldEmail.configureTextField(placeHolder: "Email")
         textFieldEmail.keyboardType = .emailAddress
         textFieldFullName.configureTextField(placeHolder: "Nome Completo")
-//        textFieldCPF.configureTextField(placeHolder: "CPF")
         textFieldPhoneNumber.configureTextField(placeHolder: "Contato")
         textFieldPhoneNumber.keyboardType = .numbersAndPunctuation
-//        textFieldPhoneNumber.config.defaultCongiguration = PhoneFormat(defaultPhoneFormat: "(##) ##### - ####")
+        
+//        textFieldPhoneNumber.config.defaultConfiguration = PhoneFormat(defaultPhoneFormat: "(##) ##### - ####")
+        
         textFieldPasswordConfirmation.configureTextField(placeHolder: "Confirmar Senha")
         textFieldPassword.configureTextField(placeHolder: "Senha")
        
