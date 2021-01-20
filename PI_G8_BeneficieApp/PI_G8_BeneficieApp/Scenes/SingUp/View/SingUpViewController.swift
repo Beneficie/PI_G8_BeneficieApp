@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import FBSDKLoginKit
+import SwiftPhoneNumberFormatter
 
 class SingUpViewController: UIViewController {
 
@@ -18,10 +19,12 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
     @IBOutlet weak var textFieldPasswordConfirmation: UITextField!
     @IBOutlet weak var textFieldFullName: UITextField!
-    @IBOutlet weak var textFieldCPF: UITextField!
+//    @IBOutlet weak var textFieldCPF: UITextField!
     
+    @IBOutlet weak var googleButtonView: GIDSignInButton!
     @IBOutlet weak var googleButtonOutlet: GIDSignInButton!
-    @IBOutlet  var facebookButtonOutlet: FBLoginButton!
+    @IBOutlet weak var gView: UIView!
+    @IBOutlet weak var fBView: UIView!
     @IBOutlet weak var singUpButtonOutlet: UIButton!
     @IBOutlet weak var singInButtonOutlet: UIButton!
     
@@ -34,7 +37,7 @@ class SingUpViewController: UIViewController {
         textFieldPhoneNumber.delegate = self
         textFieldPasswordConfirmation.delegate = self
         textFieldFullName.delegate = self
-        textFieldCPF.delegate = self
+//        textFieldCPF.delegate = self
         
         
         configureUI()
@@ -43,9 +46,11 @@ class SingUpViewController: UIViewController {
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().signIn()
         
-        let loginButton = FBLoginButton()
-        loginButton.center = view.center
-        view.addSubview(loginButton)
+        
+//        loginButton.center = fBView.center
+//        loginButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+//        loginButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
+
         
         
     }
@@ -75,18 +80,35 @@ class SingUpViewController: UIViewController {
     
      private func configureUI(){
         
+        
+        let loginButton = FBLoginButton()
+        
+//        let newCenter = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height - 220)
+//        loginButton.center = newCenter
+        fBView.addSubview(loginButton)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let horizontalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
+        
+        loginButton.frame = CGRect(x: 0, y: 0, width: 210, height: 30)
+//        loginButton.setTitle("Entre com o Facebook", for: .normal)
+        
         textFieldEmail.configureTextField(placeHolder: "Email")
         textFieldEmail.keyboardType = .emailAddress
         textFieldFullName.configureTextField(placeHolder: "Nome Completo")
-        textFieldCPF.configureTextField(placeHolder: "CPF")
+//        textFieldCPF.configureTextField(placeHolder: "CPF")
         textFieldPhoneNumber.configureTextField(placeHolder: "Contato")
         textFieldPhoneNumber.keyboardType = .numbersAndPunctuation
+//        textFieldPhoneNumber.config.defaultCongiguration = PhoneFormat(defaultPhoneFormat: "(##) ##### - ####")
         textFieldPasswordConfirmation.configureTextField(placeHolder: "Confirmar Senha")
         textFieldPassword.configureTextField(placeHolder: "Senha")
        
         
         googleButtonOutlet.layer.cornerRadius = 5
-        facebookButtonOutlet.layer.cornerRadius = 5
+        gView.layer.cornerRadius = 5
+        googleButtonView.layer.cornerRadius = 5
 
         
         singUpButtonOutlet.layer.cornerRadius = 25
@@ -113,12 +135,7 @@ class SingUpViewController: UIViewController {
     
     @IBAction func socialLoginButton(_ sender: UIButton) {
         //****** tag = 0 para facebook e tag = 1 para google *********//
-        if (sender.tag == 0){
-            
-            
-        }else if(sender.tag == 1){
-            GIDSignIn.sharedInstance().signIn()
-        }
+        GIDSignIn.sharedInstance().signIn()
     }
 }
 
@@ -130,8 +147,8 @@ extension SingUpViewController:UITextFieldDelegate{
          case textFieldFullName:
              textFieldPhoneNumber.becomeFirstResponder()
          case textFieldPhoneNumber:
-             textFieldCPF.becomeFirstResponder()
-        case textFieldCPF:
+//             textFieldCPF.becomeFirstResponder()
+//        case textFieldCPF:
             textFieldPassword.becomeFirstResponder()
         case textFieldPassword:
             textFieldPasswordConfirmation.becomeFirstResponder()

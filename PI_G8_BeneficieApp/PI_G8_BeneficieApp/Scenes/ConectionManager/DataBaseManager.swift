@@ -40,22 +40,22 @@ class DataBaseManager {
 
     }
 
-//    func edit(id: NSManagedObjectID, taskName: String, taskState: Bool) {
-//            let context = persistentContainer.viewContext
-//            let task = context.object(with: id) as? Task
-//            task?.name = taskName
-//            task?.isConcluded = taskState
-//
-//            try? context.save()
-//        }
+    func edit(id: NSManagedObjectID, eventNameDB: String, eventDateDB: String) {
+            let context = persistentContainer.viewContext
+            let currentEventDB = context.object(with: id) as? CurrentEventDB
+            currentEventDB?.eventNameDB = eventNameDB
+            currentEventDB?.eventDateDB = eventDateDB
 
-//        func delete(id: NSManagedObjectID) {
-//            let context = persistentContainer.viewContext
-//            let task = context.object(with: id)
-//            context.delete(task)
-//
-//            try? context.save()
-//        }
+            try? context.save()
+        }
+
+        func delete(id: NSManagedObjectID) {
+            let context = persistentContainer.viewContext
+            let currentEventDB = context.object(with: id)
+            context.delete(currentEventDB)
+
+            try? context.save()
+        }
 
             
     
