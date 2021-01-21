@@ -4,7 +4,7 @@
 //
 //  Created by Dominique Nascimento Bezerra on 18/01/21.
 //  Copyright © 2021 Juan Souza. All rights reserved.
-//
+// /Users/dominiquenb/Library/Developer/CoreSimulator/Devices/2C1F55BE-5A10-4AD8-B804-D91DA4C5AFE6/data/Containers/Data/Application/7982D1E0-4E83-423E-AA87-68C66708E15F/Library/Application Support/
 
 import CoreData
 import UIKit
@@ -57,15 +57,17 @@ class DataBaseManager {
             try? context.save()
         }
 
+    
+    
             
     
-//// Carregar a lista de person que já está salva
-//    func loadData(completion: ([Task]?) -> Void) {
+    // Carregar a lista de person que já está salva
+//    func loadData(completion: ([CurrentEventDB]?) -> Void) {
 //        let context = persistentContainer.viewContext
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CurrentEventDB")
 //        let result = try? context.fetch(request)
-//        let arrayPerson = result as? [Person]
-//        completion(arrayPerson)
+//        let events = result as? [CurrentEventDB]
+//        completion(events)
 //    }
 
 }

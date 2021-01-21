@@ -14,6 +14,7 @@ class User_SubscriptionViewController: UIViewController {
     var event = Event()
     var currentUser = User()
     var subgroup = ""
+    var connectionReachable = Bool()
     
     @IBOutlet weak var labelEventDate: UILabel!
     @IBOutlet weak var labelEventLocal: UILabel!
@@ -51,12 +52,15 @@ class User_SubscriptionViewController: UIViewController {
     func loadData() {
         viewModel.loadData { success in
             if success {
+                self.connectionReachable = true
                 self.event = self.viewModel.arrayEvents[0]
                 self.setUpUI(event: self.event)
                 self.availabilityToSubscribe()
             } else {
+                self.connectionReachable = false
                 print("FailInLoadData")
                 self.alertFailedInLoadData()
+                self.availabilityToSubscribe()
             }
         }
     }
@@ -68,19 +72,20 @@ class User_SubscriptionViewController: UIViewController {
         labelEventVacancies.text = ""
         labelEventSubGroupVacancies.text = ""
         labelEventDescription.text = ""
-        let alert = UIAlertController(title: "Erro", message: "Não foi possível carregar o evento", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Não foi possível carregar o evento", message: "Exibindo evento carregado anteriormente", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-            if let userSocialNetworks = UIStoryboard(name: "User_SocialNetworks", bundle: nil).instantiateInitialViewController() as? User_SocialNetworksViewController {
-                self.present(userSocialNetworks, animated: true, completion: nil)
-            }
+            let currentEvent = self.viewModel.loadFromDataBase()
+            self.labelEventDate.text = currentEvent[0].eventDateDB
+            self.labelEventTitle.text = currentEvent[0].eventNameDB
         }))
         present(alert, animated: true)
     }
     
     func canUserSubscribe() -> Bool {
-        if event.subgrupos[0].inscritos.contains(currentUser.nome) {
+        if self.connectionReachable == false {
             buttonSubscribe.backgroundColor = .lightGray
             buttonSubscribe.isEnabled = false
+//            event.subgrupos[0].inscritos.contains(currentUser.nome) ||
             return false
         } else {
             return true

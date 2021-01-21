@@ -18,7 +18,7 @@ class User_SubscriptionViewModel {
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
         apiManager.getAsArray(
-            url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseData) in
+            url: "https://beneficie-app.herokuapp.com/beneficie/events1/") { (responseData) in
 
             let jsonDecoder = JSONDecoder()
             
@@ -32,34 +32,17 @@ class User_SubscriptionViewModel {
         }
     }
     
-    // MARK: Database functions
-    
-//    var arrayTasks = [Task]()
+    // MARK: Data Base functions
     var dataBaseManager = DataBaseManager()
-//
-//
-    func saveNewEvent(eventName: String, eventDate: String) {
-        dataBaseManager.save(eventNameDB: eventName, eventDateDB: eventDate)
-        loadSavedEvents()
-    }
-
-    func editEvent(event: CurrentEventDB, eventName: String, eventDate: String) {
-        let id = event.objectID
-        dataBaseManager.edit(id: id, eventNameDB: eventName, eventDateDB: eventDate)
-        loadSavedEvents()
-    }
-
-    func deleteEvent(event: CurrentEventDB) {
-        let id = event.objectID
-        dataBaseManager.delete(id: id)
-        loadSavedEvents()
-    }
-
-    func loadSavedEvents() {
-        dataBaseManager.loadData { (arrayEvents) in
-//            if let arrayEventsDB = arrayEvents {
-//                self.arrayEvents = arrayEventsDB
-//            }
+    var currentEvent = [CurrentEventDB]()
+    
+    func loadFromDataBase() -> [CurrentEventDB] {
+        dataBaseManager.loadData { (events) in
+            if let currentEvents = events {
+                print(currentEvents)
+                self.currentEvent = currentEvents
+            }
         }
+        return self.currentEvent
     }
 }
