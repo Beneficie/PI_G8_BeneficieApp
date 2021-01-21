@@ -48,7 +48,11 @@ class SubscribeToActionViewController: UIViewController {
                 if success {
                     let alert = UIAlertController(title: "Inscrição Confirmada", message: "Você foi inscrito na ação", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-                        self.viewModel.saveNewEventToDataBase(eventName: self.currentEvent.titulo, eventDate: self.currentEvent.data)
+                        self.viewModel.saveNewEventToDataBase(eventName: self.currentEvent.titulo,
+                                                              eventDate: self.currentEvent.data,
+                                                              eventAddress: self.currentEvent.local,
+                                                              eventDescription: self.currentEvent.descricao,
+                                                              eventSubgroup: self.currentSubgroup)
                         self.viewModel.getCoreDataDBPath()
                         self.openFinancialScreen()
                     }))

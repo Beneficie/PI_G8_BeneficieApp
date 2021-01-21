@@ -37,6 +37,8 @@ class User_SubscriptionViewController: UIViewController {
         buttonSubscribe.layer.cornerRadius = 15
 
         loadData()
+        
+        viewModel.getCoreDataDBPath()
     }
     
     func setUpUI(event: Event) {
@@ -74,9 +76,17 @@ class User_SubscriptionViewController: UIViewController {
         labelEventDescription.text = ""
         let alert = UIAlertController(title: "Não foi possível carregar o evento", message: "Exibindo evento carregado anteriormente", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-            let currentEvent = self.viewModel.loadFromDataBase()
-            self.labelEventDate.text = currentEvent[0].eventDateDB
-            self.labelEventTitle.text = currentEvent[0].eventNameDB
+            if self.viewModel.loadFromDataBase() != nil {
+                let loadedEvent = self.viewModel.loadFromDataBase()
+                self.labelEventDate.text = loadedEvent[0]?.eventDateDB
+                self.labelEventTitle.text = loadedEvent[0]?.eventNameDB
+                self.labelEventLocal.text = loadedEvent[0]?.eventAddressDB
+                self.labelEventDescription.text = loadedEvent[0]?.eventDescriptionDB
+                self.subgroup = (loadedEvent[0]?.eventSubgroupDB)!
+                self.labelEventVacancies.text = "0"
+                self.labelEventSubGroupVacancies.text = "0"
+                self.pickerViewSubGroups.reloadAllComponents()
+            }
         }))
         present(alert, animated: true)
     }
@@ -95,7 +105,7 @@ class User_SubscriptionViewController: UIViewController {
     func availabilityToSubscribe() {
         if canUserSubscribe() {
             let vacancy = event.subgrupos[0].vagasDisponiveisSubgrupo
-            if vacancy > 0 && event.subgrupos[0].inscritos.contains(currentUser.nome) {
+            if vacancy > 0 || event.subgrupos[0].inscritos.contains(currentUser.nome) {
                 buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
                 buttonSubscribe.isEnabled = true
             } else {
@@ -161,9 +171,8 @@ extension User_SubscriptionViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let groups = String(viewModel.arrayEvents[0].subgrupos[row].grupo)
-        self.subgroup = groups
-        return groups
+        let subgroup = String(viewModel.arrayEvents[0].subgrupos[row].grupo)
+        return self.subgroup
     }
 }
 

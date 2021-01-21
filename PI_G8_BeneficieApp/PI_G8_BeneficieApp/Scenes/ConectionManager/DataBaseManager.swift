@@ -30,11 +30,14 @@ class DataBaseManager {
     }
 //
 //    // Salvar novo objeto
-    func save(eventNameDB: String, eventDateDB: String) {
+    func save(eventName: String, eventDate: String, eventAddress: String, eventDescription: String, eventSubgroup: String) {
         let context = persistentContainer.viewContext
         let currentEventDB = CurrentEventDB(context: context)
-        currentEventDB.eventNameDB = eventNameDB
-        currentEventDB.eventDateDB = eventDateDB
+        currentEventDB.eventNameDB = eventName
+        currentEventDB.eventDateDB = eventDate
+        currentEventDB.eventAddressDB = eventAddress
+        currentEventDB.eventSubgroupDB = eventSubgroup
+        currentEventDB.eventDescriptionDB = eventDescription
 
         try? context.save()
 

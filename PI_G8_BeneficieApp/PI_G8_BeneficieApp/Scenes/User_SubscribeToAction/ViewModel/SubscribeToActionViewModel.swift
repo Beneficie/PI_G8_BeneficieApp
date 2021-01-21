@@ -24,8 +24,8 @@ class SubscribeToActionViewModel {
     var dataBaseManager = DataBaseManager()
 //
 //
-    func saveNewEventToDataBase(eventName: String, eventDate: String) {
-        dataBaseManager.save(eventNameDB: eventName, eventDateDB: eventDate)
+    func saveNewEventToDataBase(eventName: String, eventDate: String, eventAddress: String, eventDescription: String, eventSubgroup: String) {
+        dataBaseManager.save(eventName: eventName, eventDate: eventDate, eventAddress: eventAddress, eventDescription: eventDescription, eventSubgroup: eventSubgroup)
         loadSavedEvents()
 //        loadSavedEvents()
     }
@@ -47,6 +47,7 @@ class SubscribeToActionViewModel {
 //            if let arrayEventsDB = arrayEvents {
 //                self.arrayEvents = arrayEventsDB
 //            }
+            print(arrayEvents)
         }
     }
     

@@ -36,13 +36,27 @@ class User_SubscriptionViewModel {
     var dataBaseManager = DataBaseManager()
     var currentEvent = [CurrentEventDB]()
     
-    func loadFromDataBase() -> [CurrentEventDB] {
+    func loadFromDataBase() -> [CurrentEventDB?] {
         dataBaseManager.loadData { (events) in
             if let currentEvents = events {
-                print(currentEvents)
+//                print(currentEvents)
                 self.currentEvent = currentEvents
+                print(self.currentEvent)
+//                getCoreDataDBPath()
             }
         }
         return self.currentEvent
+    }
+
+    func getCoreDataDBPath() {
+        let path = FileManager
+            .default
+            .urls(for: .applicationSupportDirectory, in: .userDomainMask)
+            .last?
+            .absoluteString
+            .replacingOccurrences(of: "file://", with: "")
+            .removingPercentEncoding
+        
+        print("Core Data DB Path :: \(path ?? "Not found")")
     }
 }
