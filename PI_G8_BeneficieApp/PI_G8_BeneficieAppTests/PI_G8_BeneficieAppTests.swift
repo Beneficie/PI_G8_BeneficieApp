@@ -3,7 +3,6 @@
 //  PI_G8_BeneficieAppTests
 //
 //  Created by Dominique Nascimento Bezerra on 20/01/21.
-//  Copyright © 2021 Juan Souza. All rights reserved.
 //
 
 import XCTest

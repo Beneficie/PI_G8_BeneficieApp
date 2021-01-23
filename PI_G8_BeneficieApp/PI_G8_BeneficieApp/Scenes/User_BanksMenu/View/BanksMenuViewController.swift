@@ -3,7 +3,6 @@
 //  PI_G8_BeneficieApp
 //
 //  Created by Dominique Nascimento Bezerra on 23/11/20.
-//  Copyright © 2020 Juan Souza. All rights reserved.
 //
 
 import UIKit

@@ -3,7 +3,6 @@
 //  PI_G8_BeneficieApp
 //
 //  Created by Dominique Nascimento Bezerra on 18/01/21.
-//  Copyright © 2021 Juan Souza. All rights reserved.
 // /Users/dominiquenb/Library/Developer/CoreSimulator/Devices/2C1F55BE-5A10-4AD8-B804-D91DA4C5AFE6/data/Containers/Data/Application/7982D1E0-4E83-423E-AA87-68C66708E15F/Library/Application Support/
 
 import CoreData
