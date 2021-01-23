@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:PI_G8_BeneficieApp.xcodeproj">
+      location = "group:/Users/dominiquenb/dev/PI_G8_BeneficieApp/Beneficie.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
