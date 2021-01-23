@@ -11,23 +11,19 @@ import Foundation
 struct User: Codable {
 
     let _id : String
-    let admin : [Admin]
-    let cpf : String
     let email : String
-    let nome : String
-    let password : String
-    let subgrupo : String
-    let telefone : String
+    let name : String
+    let phoneNumber : String
+    let uid: String
+    let isAdmin: Bool?
 
     init(){
         _id = ""
-        admin = []
-        cpf = ""
         email = ""
-        nome  = ""
-        password = ""
-        subgrupo = ""
-        telefone = ""
+        name  = ""
+        phoneNumber = ""
+        uid = ""
+        isAdmin = nil
     }
     
 

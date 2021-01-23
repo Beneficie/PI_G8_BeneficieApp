@@ -43,13 +43,7 @@ class SingUpViewController: UIViewController {
         
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().signIn()
-        
-        
-//        loginButton.center = fBView.center
-//        loginButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-//        loginButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-
+//        GIDSignIn.sharedInstance().signIn()
         
         
     }
@@ -81,9 +75,6 @@ class SingUpViewController: UIViewController {
         
         
         let loginButton = FBLoginButton()
-        
-//        let newCenter = CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height - 220)
-//        loginButton.center = newCenter
         fBView.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -91,7 +82,7 @@ class SingUpViewController: UIViewController {
         let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
         
-        loginButton.frame = CGRect(x: 0, y: 0, width: 210, height: 30)
+        loginButton.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
         let buttonText = NSAttributedString(string: "Entre com o Facebook")
         loginButton.setAttributedTitle(buttonText, for: .normal)
         

@@ -217,7 +217,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
                 return
             }
             
-            
+            if let user = Auth.auth().currentUser {
+                user.getIDTokenForcingRefresh(true) { idToken, error in
+                    if let error = error {
+                        print("error on getting idToken \(error)")
+                        return
+                    }
+                    print("idToken \(idToken)")
+                    
+                }
+            }
+
             let storyboard = UIStoryboard(name: "User_Subscription", bundle: nil)
             UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
             
