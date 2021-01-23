@@ -85,7 +85,8 @@ class User_SubscriptionViewController: UIViewController {
                 self.subgroup = (loadedEvent[0]?.eventSubgroupDB)!
                 self.labelEventVacancies.text = "0"
                 self.labelEventSubGroupVacancies.text = "0"
-                self.pickerViewSubGroups.reloadAllComponents()
+                self.pickerViewSubGroups.reloadComponent(0)
+                self.pickerViewSubGroups.isUserInteractionEnabled = false
             }
         }))
         present(alert, animated: true)
@@ -166,13 +167,17 @@ extension User_SubscriptionViewController: UIPickerViewDataSource {
             viewModel.arrayEvents[0].subgrupos.count > 0  {
             return viewModel.arrayEvents[0].subgrupos.count
         } else {
-            return 0
+            return 1
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let subgroup = String(viewModel.arrayEvents[0].subgrupos[row].grupo)
-        return self.subgroup
+        if viewModel.arrayEvents != nil && viewModel.arrayEvents.count > 0 {
+            let groups = String(viewModel.arrayEvents[0].subgrupos[row].grupo)
+            self.subgroup = groups
+            return groups
+        }
+        return subgroup
     }
 }
 

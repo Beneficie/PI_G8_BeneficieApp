@@ -59,18 +59,4 @@ class DataBaseManager {
 
             try? context.save()
         }
-
-    
-    
-            
-    
-    // Carregar a lista de person que já está salva
-//    func loadData(completion: ([CurrentEventDB]?) -> Void) {
-//        let context = persistentContainer.viewContext
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "CurrentEventDB")
-//        let result = try? context.fetch(request)
-//        let events = result as? [CurrentEventDB]
-//        completion(events)
-//    }
-
 }

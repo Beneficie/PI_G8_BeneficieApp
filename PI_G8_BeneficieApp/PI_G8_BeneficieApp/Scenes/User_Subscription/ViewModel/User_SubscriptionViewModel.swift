@@ -18,7 +18,7 @@ class User_SubscriptionViewModel {
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
         apiManager.getAsArray(
-            url: "https://beneficie-app.herokuapp.com/beneficie/events1/") { (responseData) in
+            url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseData) in
 
             let jsonDecoder = JSONDecoder()
             
