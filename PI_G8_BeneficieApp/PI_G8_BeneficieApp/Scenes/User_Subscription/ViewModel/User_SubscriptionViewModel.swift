@@ -32,34 +32,31 @@ class User_SubscriptionViewModel {
         }
     }
     
-    // MARK: Database functions
-    
-//    var arrayTasks = [Task]()
+    // MARK: Data Base functions
     var dataBaseManager = DataBaseManager()
-//
-//
-    func saveNewEvent(eventName: String, eventDate: String) {
-        dataBaseManager.save(eventNameDB: eventName, eventDateDB: eventDate)
-        loadSavedEvents()
-    }
-
-    func editEvent(event: CurrentEventDB, eventName: String, eventDate: String) {
-        let id = event.objectID
-        dataBaseManager.edit(id: id, eventNameDB: eventName, eventDateDB: eventDate)
-        loadSavedEvents()
-    }
-
-    func deleteEvent(event: CurrentEventDB) {
-        let id = event.objectID
-        dataBaseManager.delete(id: id)
-        loadSavedEvents()
-    }
-
-    func loadSavedEvents() {
-        dataBaseManager.loadData { (arrayEvents) in
-//            if let arrayEventsDB = arrayEvents {
-//                self.arrayEvents = arrayEventsDB
-//            }
+    var currentEvent = [CurrentEventDB]()
+    
+    func loadFromDataBase() -> [CurrentEventDB?] {
+        dataBaseManager.loadData { (events) in
+            if let currentEvents = events {
+//                print(currentEvents)
+                self.currentEvent = currentEvents
+                print(self.currentEvent)
+//                getCoreDataDBPath()
+            }
         }
+        return self.currentEvent
+    }
+
+    func getCoreDataDBPath() {
+        let path = FileManager
+            .default
+            .urls(for: .applicationSupportDirectory, in: .userDomainMask)
+            .last?
+            .absoluteString
+            .replacingOccurrences(of: "file://", with: "")
+            .removingPercentEncoding
+        
+        print("Core Data DB Path :: \(path ?? "Not found")")
     }
 }

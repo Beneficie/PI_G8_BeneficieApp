@@ -92,7 +92,8 @@ class SingUpViewController: UIViewController {
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
         
         loginButton.frame = CGRect(x: 0, y: 0, width: 210, height: 30)
-//        loginButton.setTitle("Entre com o Facebook", for: .normal)
+        let buttonText = NSAttributedString(string: "Entre com o Facebook")
+        loginButton.setAttributedTitle(buttonText, for: .normal)
         
         textFieldEmail.configureTextField(placeHolder: "Email")
         textFieldEmail.keyboardType = .emailAddress

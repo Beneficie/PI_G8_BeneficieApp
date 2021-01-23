@@ -71,6 +71,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
                     didFinishLaunchingWithOptions: launchOptions
         )
             window?.makeKeyAndVisible()
+        
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        print(paths[0])
 //        }
             
         return true
@@ -98,20 +101,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
         print(message)
     }
 
-    func signInWithGoogle(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
-        if let error = error {
-            // ...
-            return
-        }
-        
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-        
-        
-        
-    }
     
     func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         
@@ -195,7 +184,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
                         displayNameString += " "
                     }
                     
-                    self.showTextInputPrompt(withMessage: "Select factor to sign in\n\(displayNameString)", completionBlock: { userPressedOK, displayName in
+                    self.showTextInputPrompt(withMessage: "Selecione o método de login\n\(displayNameString)", completionBlock: { userPressedOK, displayName in
                         var selectedHint: PhoneMultiFactorInfo?
                         for tmpFactorInfo in resolver.hints {
                             if (displayName == tmpFactorInfo.displayName) {
@@ -232,8 +221,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
             let storyboard = UIStoryboard(name: "User_Subscription", bundle: nil)
             UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
             
-//            let navi = UINavigationController()
-//            navi.pushViewController(storyboard.instantiateViewController(withIdentifier: "User_Subscription"), animated: true)
         }
     }
     
