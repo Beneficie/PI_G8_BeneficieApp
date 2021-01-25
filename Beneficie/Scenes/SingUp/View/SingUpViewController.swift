@@ -42,7 +42,6 @@ class SingUpViewController: UIViewController {
         
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
-//        GIDSignIn.sharedInstance().signIn()
         
         
     }

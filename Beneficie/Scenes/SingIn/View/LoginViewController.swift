@@ -7,10 +7,17 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
     //  MARK: - Outlets
+    @IBOutlet weak var googleButtonView: GIDSignInButton!
+    @IBOutlet weak var googleButtonOutlet: GIDSignInButton!
+    @IBOutlet weak var gView: UIView!
+    @IBOutlet weak var fBView: UIView!
+    
     @IBOutlet weak var singUpButtonOutlet: UIButton!
     @IBOutlet weak var loginButtonOutlet: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -30,6 +37,8 @@ class LoginViewController: UIViewController {
         
         configureUI()
         loadData()
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         
     }
     
@@ -81,6 +90,25 @@ class LoginViewController: UIViewController {
     //MARK: - Helper Functions
     
     func configureUI(){
+        let loginButton = FBLoginButton()
+        fBView.addSubview(loginButton)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let horizontalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
+        
+        loginButton.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
+        let buttonText = NSAttributedString(string: "Entre com o Facebook")
+        loginButton.setAttributedTitle(buttonText, for: .normal)
+        
+        googleButtonOutlet.layer.cornerRadius = 5
+        gView.layer.cornerRadius = 5
+        gView.layer.borderWidth = 1
+        gView.layer.borderColor = CGColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+//        UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+        googleButtonView.layer.cornerRadius = 5
+        
         logInTextField.keyboardAppearance = .dark
         logInTextField.leftViewMode = .always
         logInTextField.borderStyle = .none
@@ -105,6 +133,9 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - Events
+    @IBAction func loginGoogle(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
+    }
     
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)

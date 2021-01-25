@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        labelUserName.text = currentUser.nome
+        labelUserName.text = currentUser.name
     }
     
     func signOut() {
@@ -32,7 +32,9 @@ class ProfileViewController: UIViewController {
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
                     
                     let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+                    let vc = storyboard as? MainScreenViewController
                     UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
+//                    self.navigationController?.pushViewController(vc!, animated: true)
                 }))
                 present(alert, animated: true)
                 

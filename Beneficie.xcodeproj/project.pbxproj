@@ -345,13 +345,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		336837ED256C335F00FCF70C /* User_SubscribeToAction */ = {
+		336837ED256C335F00FCF70C /* User_ConfirmEvent */ = {
 			isa = PBXGroup;
 			children = (
 				33B9047C257E59C9004DA579 /* View */,
 				33B9047B257E59C1004DA579 /* ViewModel */,
 			);
-			path = User_SubscribeToAction;
+			path = User_ConfirmEvent;
 			sourceTree = "<group>";
 		};
 		336837F6256C3B9500FCF70C /* User_BanksMenu */ = {
@@ -386,8 +386,8 @@
 				0D153B37256A9D5300E391AB /* Adm_CreateEvent */,
 				0D153B3C256AB03D00E391AB /* Adm_Participants */,
 				339282F6256D3F790051DA2A /* Adm_BankInformations */,
-				33D07E8C255DBE2600272FBF /* User_Subscription */,
-				336837ED256C335F00FCF70C /* User_SubscribeToAction */,
+				33D07E8C255DBE2600272FBF /* User_Event */,
+				336837ED256C335F00FCF70C /* User_ConfirmEvent */,
 				336837F6256C3B9500FCF70C /* User_BanksMenu */,
 				33D07E98255DC2F800272FBF /* User_FinancialDetails */,
 				33D07EA2255DCDFA00272FBF /* User_SocialNetworks */,
@@ -675,13 +675,13 @@
 			path = "MainScreen ";
 			sourceTree = "<group>";
 		};
-		33D07E8C255DBE2600272FBF /* User_Subscription */ = {
+		33D07E8C255DBE2600272FBF /* User_Event */ = {
 			isa = PBXGroup;
 			children = (
 				33B90479257E59AA004DA579 /* View */,
 				33B90478257E59A5004DA579 /* ViewModel */,
 			);
-			path = User_Subscription;
+			path = User_Event;
 			sourceTree = "<group>";
 		};
 		33D07E98255DC2F800272FBF /* User_FinancialDetails */ = {

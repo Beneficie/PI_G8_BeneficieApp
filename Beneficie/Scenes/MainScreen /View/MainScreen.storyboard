@@ -12,7 +12,7 @@
         <!--MainScreenViewController-->
         <scene sceneID="iGs-JW-kib">
             <objects>
-                <viewController storyboardIdentifier="MainScreen" title="MainScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZyD-5R-aqa" customClass="MainScreenViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainScreen" title="MainScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZyD-5R-aqa" customClass="MainScreenViewController" customModule="Beneficie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dAr-kH-Xot">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,8 +81,8 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="actionSignIn:" destination="ZyD-5R-aqa" eventType="touchUpInside" id="EU8-5p-XHx"/>
                                     <action selector="actionSignIn:" destination="sPd-GW-5P9" eventType="touchUpInside" id="pd6-5b-yd1"/>
+                                    <action selector="loginTapped:" destination="ZyD-5R-aqa" eventType="touchUpInside" id="FP2-W0-uh7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgE-H2-OAn">
@@ -103,7 +103,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="actionSignUp:" destination="ZyD-5R-aqa" eventType="touchUpInside" id="t3A-dX-gkR"/>
+                                    <action selector="signUpTapped:" destination="ZyD-5R-aqa" eventType="touchUpInside" id="sII-3t-ByA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeE-nW-OcO">

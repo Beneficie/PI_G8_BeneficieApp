@@ -70,9 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
                     didFinishLaunchingWithOptions: launchOptions
         )
             window?.makeKeyAndVisible()
-        
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        print(paths[0])
 //        }
             
         return true
@@ -224,12 +221,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
                     }
                     print("idToken \(idToken)")
                     
+                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "User_Event", bundle: nil)
+                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "User_Event") as! User_EventViewController
+                    viewController.currentUserToken = idToken!
+                    
+                    let navi = UINavigationController()
+                    navi.pushViewController(viewController, animated: true)
+                    
+                    navi.setNavigationBarHidden(true, animated: false)
+                    UIApplication.shared.windows.first!.rootViewController = navi
+                    
+//                    let storyboard = UIStoryboard(name: "User_Event", bundle: nil)
+//                    let vc = storyboard.instantiateInitialViewController()! as User_EventViewController
+//                    vc.currentUserToken = idToken!
+//                    UIViewController.replaceRootViewController(viewController: vc)
+
                 }
             }
-
-            let storyboard = UIStoryboard(name: "User_Event", bundle: nil)
-            UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
-            
         }
     }
     

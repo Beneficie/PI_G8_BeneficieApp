@@ -6,12 +6,13 @@
 //
 
 import UIKit
+//import
 
 class User_EventViewController: UIViewController {
 
     var viewModel = User_EventViewModel()
     var event = Event()
-    var currentUser = User()
+    var currentUserToken = ""
     var subgroup = ""
     var connectionReachable = Bool()
     
@@ -32,15 +33,24 @@ class User_EventViewController: UIViewController {
         pickerViewSubGroups.delegate = self
         pickerViewSubGroups.dataSource = self
         
-        buttonDonate.layer.cornerRadius = 15
-        buttonSubscribe.layer.cornerRadius = 15
-
-        loadData()
+        setupUI()
         
-        viewModel.getCoreDataDBPath()
+        loadData()
     }
     
-    func setUpUI(event: Event) {
+    func setupUI() {
+        buttonDonate.layer.cornerRadius = 15
+        buttonSubscribe.layer.cornerRadius = 15
+        labelEventDate.text = ""
+        labelEventLocal.text = ""
+        labelEventTitle.text = ""
+        labelEventVacancies.text = ""
+        labelEventSubGroupVacancies.text = ""
+        labelEventDescription.text = ""
+    }
+    
+    
+    func updateUIForSubscription(event: Event) {
         labelEventDate.text = event.data
         labelEventLocal.text = event.local
         labelEventTitle.text = event.titulo
@@ -48,14 +58,16 @@ class User_EventViewController: UIViewController {
         labelEventSubGroupVacancies.text = String(event.subgrupos[0].vagasDisponiveisSubgrupo)
         labelEventDescription.text = event.descricao
         pickerViewSubGroups.reloadComponent(0)
+        
     }
     
     func loadData() {
+        viewModel.getUserToken()
         viewModel.loadData { success in
             if success {
                 self.connectionReachable = true
                 self.event = self.viewModel.arrayEvents[0]
-                self.setUpUI(event: self.event)
+                self.updateUIForSubscription(event: self.event)
                 self.availabilityToSubscribe()
             } else {
                 self.connectionReachable = false
@@ -67,12 +79,6 @@ class User_EventViewController: UIViewController {
     }
     
     func alertFailedInLoadData() {
-        labelEventDate.text = ""
-        labelEventLocal.text = ""
-        labelEventTitle.text = ""
-        labelEventVacancies.text = ""
-        labelEventSubGroupVacancies.text = ""
-        labelEventDescription.text = ""
         let alert = UIAlertController(title: "Não foi possível carregar o evento", message: "Exibindo evento carregado anteriormente", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
             if self.viewModel.loadFromDataBase() != nil {
@@ -95,7 +101,6 @@ class User_EventViewController: UIViewController {
         if self.connectionReachable == false {
             buttonSubscribe.backgroundColor = .lightGray
             buttonSubscribe.isEnabled = false
-//            event.subgrupos[0].inscritos.contains(currentUser.nome) ||
             return false
         } else {
             return true
@@ -105,7 +110,8 @@ class User_EventViewController: UIViewController {
     func availabilityToSubscribe() {
         if canUserSubscribe() {
             let vacancy = event.subgrupos[0].vagasDisponiveisSubgrupo
-            if vacancy > 0 || event.subgrupos[0].inscritos.contains(currentUser.nome) {
+            if vacancy > 0 || event.subgrupos[0].inscritos.contains(viewModel.currentUser.email)
+            {
                 buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
                 buttonSubscribe.isEnabled = true
             } else {
@@ -122,7 +128,7 @@ class User_EventViewController: UIViewController {
     
     @IBAction func profileButton(_ sender: Any) {
         if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            profile.currentUser = currentUser
+            profile.currentUser = viewModel.currentUser
             navigationController?.pushViewController(profile, animated: true) }
     }
     
@@ -131,7 +137,7 @@ class User_EventViewController: UIViewController {
             
             userSubscribe.currentEvent = event
             userSubscribe.currentSubgroup = subgroup
-            userSubscribe.currentUser = currentUser
+            userSubscribe.currentUser = viewModel.currentUser
                 navigationController?.pushViewController(userSubscribe, animated: true)
             }
     }

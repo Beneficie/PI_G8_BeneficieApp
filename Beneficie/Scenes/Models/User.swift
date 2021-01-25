@@ -10,9 +10,9 @@ import Foundation
 struct User: Codable {
 
     let _id : String
-    let email : String
-    let name : String
-    let phoneNumber : String
+    var email : String
+    var name : String
+    var phoneNumber : String?
     let uid: String
     let isAdmin: Bool?
 

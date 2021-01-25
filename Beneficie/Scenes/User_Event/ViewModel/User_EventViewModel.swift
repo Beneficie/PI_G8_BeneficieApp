@@ -6,13 +6,16 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class User_EventViewModel {
     
     var arrayEvents = [Event]()
     var arraySubGroups = [Subgroup]()
+    var userToken = ""
+    var currentUser = User()
     
-    // MARK: API Request
+    // MARK: - API Request for Event
     var apiManager = APIManager()
     
     func loadData(onComplete: @escaping (Bool) -> Void) {
@@ -30,6 +33,32 @@ class User_EventViewModel {
             onComplete(false)
         }
     }
+    
+    // MARK: - API Request for User
+    
+    func getUserToken() {
+        Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { (idToken, error) in
+            self.userToken = idToken!
+            self.loadUserData()
+        }
+    }
+    
+    func loadUserData() {
+        apiManager.requestUser(userToken: self.userToken, onComplete: { response, e in
+            let decoder = JSONDecoder()
+            do {
+                let user = try decoder.decode(User.self, from: response!)
+                self.currentUser.name = user.name
+                self.currentUser.email = user.email
+                self.currentUser.phoneNumber = user.phoneNumber
+                return
+            }
+            catch {
+                print(error)
+            }
+        }
+    )}
+    
     
     // MARK: Data Base functions
     var dataBaseManager = DataBaseManager()
