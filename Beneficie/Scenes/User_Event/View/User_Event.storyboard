@@ -12,7 +12,7 @@
         <!--User_Event-->
         <scene sceneID="420-CD-LTj">
             <objects>
-                <viewController storyboardIdentifier="User_Event" title="User_Event" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o6S-to-EFc" customClass="ConfirmEventSubscriptionViewController" customModule="Beneficie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="User_Event" title="User_Event" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o6S-to-EFc" customClass="User_EventViewController" customModule="Beneficie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Pc-Z9-hCv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,24 +29,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0n-PH-95Q">
-                                <rect key="frame" x="20" y="52.5" width="59.5" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="17v-pG-b8j"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Voltar" image="chevron.backward" catalog="system">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="17v-pG-b8j"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="backButton:" destination="o6S-to-EFc" eventType="touchUpInside" id="PiJ-aj-Zrh"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WW-jp-raa">
                                 <rect key="frame" x="273.5" y="50" width="26.5" height="27.5"/>
                                 <state key="normal" image="Path 176"/>
@@ -291,7 +273,6 @@
                             <constraint firstItem="CN1-Fu-1y4" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="CRg-DD-Myt"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerX" secondItem="qGh-0W-C3s" secondAttribute="centerX" id="EZA-Id-WwK"/>
                             <constraint firstItem="mkO-Z9-d0O" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="IPX-RG-fm8"/>
-                            <constraint firstItem="y0n-PH-95Q" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="20" id="Iky-cP-1zd"/>
                             <constraint firstItem="CN1-Fu-1y4" firstAttribute="centerY" secondItem="4Pc-Z9-hCv" secondAttribute="bottom" constant="-50" id="Jkj-zB-DrX"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="KRm-My-CIh"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="NIP-cq-hbe"/>
@@ -303,7 +284,6 @@
                             <constraint firstItem="b3x-mg-ggc" firstAttribute="centerY" secondItem="4Pc-Z9-hCv" secondAttribute="centerY" constant="-45" id="o2N-3f-NRV"/>
                             <constraint firstItem="qGh-0W-C3s" firstAttribute="centerY" secondItem="CN1-Fu-1y4" secondAttribute="centerY" constant="-104" id="slt-Dg-8TG"/>
                             <constraint firstItem="NBa-7K-jPh" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="vuZ-ZB-Cjo"/>
-                            <constraint firstItem="y0n-PH-95Q" firstAttribute="centerY" secondItem="mkO-Z9-d0O" secondAttribute="centerY" constant="20" id="x37-sJ-P54"/>
                             <constraint firstItem="qGh-0W-C3s" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="27" id="y1g-DA-Fjs"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerY" secondItem="mkO-Z9-d0O" secondAttribute="centerY" constant="90" id="zTI-n6-TYC"/>
                         </constraints>
@@ -341,7 +321,6 @@
     <resources>
         <image name="Path 176" width="26.5" height="27.5"/>
         <image name="Rectangle 366" width="187.5" height="87"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

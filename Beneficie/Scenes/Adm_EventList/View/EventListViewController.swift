@@ -58,11 +58,6 @@ class EventListViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func backButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-    
     func bankInformationsScreen() {
         if let banks = UIStoryboard(name: "BankInformations", bundle: nil).instantiateInitialViewController() as? BankInformationsViewController {
             navigationController?.pushViewController(banks, animated: true)

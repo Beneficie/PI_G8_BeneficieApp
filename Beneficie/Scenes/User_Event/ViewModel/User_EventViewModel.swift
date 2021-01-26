@@ -13,7 +13,10 @@ class User_EventViewModel {
     var arrayEvents = [Event]()
     var arraySubGroups = [Subgroup]()
     var userToken = ""
+    var currentEvent = Event()
     var currentUser = User()
+    var connectionReachable = Bool()
+    var subgroup = ""
     
     // MARK: - API Request for Event
     var apiManager = APIManager()
@@ -25,7 +28,6 @@ class User_EventViewModel {
             let jsonDecoder = JSONDecoder()
             
             self.arrayEvents = try! jsonDecoder.decode(Array<Event>.self,from: responseData)
-            
             onComplete(true)
         }
         onFailure: { (error) in
@@ -38,13 +40,22 @@ class User_EventViewModel {
     
     func getUserToken() {
         Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { (idToken, error) in
+            if error != nil {
+//                todo logout user to main screen
+                return
+            }
             self.userToken = idToken!
+            
             self.loadUserData()
         }
     }
     
     func loadUserData() {
         apiManager.requestUser(userToken: self.userToken, onComplete: { response, e in
+            print(self.userToken)
+            if response == nil {
+                return
+            }
             let decoder = JSONDecoder()
             do {
                 let user = try decoder.decode(User.self, from: response!)
@@ -57,23 +68,23 @@ class User_EventViewModel {
                 print(error)
             }
         }
-    )}
+        )}
     
     
     // MARK: Data Base functions
     var dataBaseManager = DataBaseManager()
-    var currentEvent = [CurrentEventDB]()
+    var currentEventDB = [CurrentEventDB]()
     
     func loadFromDataBase() -> [CurrentEventDB?] {
         dataBaseManager.loadData { (events) in
             if let currentEvents = events {
 //                print(currentEvents)
-                self.currentEvent = currentEvents
-                print(self.currentEvent)
+                self.currentEventDB = currentEvents
+                print(self.currentEventDB)
 //                getCoreDataDBPath()
             }
         }
-        return self.currentEvent
+        return self.currentEventDB
     }
 
     func getCoreDataDBPath() {

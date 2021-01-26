@@ -17,7 +17,7 @@
         <!--Sing Up View Controller-->
         <scene sceneID="bMn-fe-tUw">
             <objects>
-                <viewController id="Tpx-qR-TpX" customClass="SingUpViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tpx-qR-TpX" customClass="SingUpViewController" customModule="Beneficie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hTD-rA-8eP" customClass="IQPreviousNextView" customModule="IQKeyboardManagerSwift">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,6 +54,9 @@
                                 <state key="normal" title="Cadastrar">
                                     <color key="titleColor" red="0.46091520790000001" green="0.47264128919999998" blue="0.90709859130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUpTapped:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="3Dy-gY-PSd"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FullName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRm-pW-4Pd" userLabel="ContactTextField">
                                 <rect key="frame" x="20" y="345" width="335" height="34"/>

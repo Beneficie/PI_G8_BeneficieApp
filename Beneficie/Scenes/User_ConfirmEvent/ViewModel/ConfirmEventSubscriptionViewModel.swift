@@ -17,6 +17,10 @@ class ConfirmEventSubscriptionViewModel {
         }
     }
     
+    func updateUser(user: User) {
+        
+    }
+    
     // MARK: Database functions
     
 //    var arrayTasks = [Task]()

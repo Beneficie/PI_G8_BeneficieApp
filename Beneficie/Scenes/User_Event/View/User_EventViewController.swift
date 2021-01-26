@@ -6,15 +6,12 @@
 //
 
 import UIKit
-//import
+import FBSDKLoginKit
 
 class User_EventViewController: UIViewController {
 
     var viewModel = User_EventViewModel()
-    var event = Event()
-    var currentUserToken = ""
-    var subgroup = ""
-    var connectionReachable = Bool()
+
     
     @IBOutlet weak var labelEventDate: UILabel!
     @IBOutlet weak var labelEventLocal: UILabel!
@@ -35,7 +32,14 @@ class User_EventViewController: UIViewController {
         
         setupUI()
         
+        if let token = AccessToken.current, !token.isExpired {
+            self.viewModel.userToken = token.tokenString
+        }
+        
         loadData()
+        
+        
+            
     }
     
     func setupUI() {
@@ -58,19 +62,25 @@ class User_EventViewController: UIViewController {
         labelEventSubGroupVacancies.text = String(event.subgrupos[0].vagasDisponiveisSubgrupo)
         labelEventDescription.text = event.descricao
         pickerViewSubGroups.reloadComponent(0)
-        
+        if !didSubscribe() {
+                buttonSubscribe.backgroundColor = .lightGray
+                buttonSubscribe.isEnabled = false
+        }
     }
     
     func loadData() {
         viewModel.getUserToken()
         viewModel.loadData { success in
             if success {
-                self.connectionReachable = true
-                self.event = self.viewModel.arrayEvents[0]
-                self.updateUIForSubscription(event: self.event)
+                self.viewModel.connectionReachable = true
+                self.viewModel.currentEvent = self.viewModel.arrayEvents[0]
+                DispatchQueue.main.async {
+                    self.updateUIForSubscription(event: self.viewModel.currentEvent)
+                }
+//                self.updateUIForSubscription(event: self.viewModel.currentEvent)
                 self.availabilityToSubscribe()
             } else {
-                self.connectionReachable = false
+                self.viewModel.connectionReachable = false
                 print("FailInLoadData")
                 self.alertFailedInLoadData()
                 self.availabilityToSubscribe()
@@ -87,7 +97,7 @@ class User_EventViewController: UIViewController {
                 self.labelEventTitle.text = loadedEvent[0]?.eventNameDB
                 self.labelEventLocal.text = loadedEvent[0]?.eventAddressDB
                 self.labelEventDescription.text = loadedEvent[0]?.eventDescriptionDB
-                self.subgroup = (loadedEvent[0]?.eventSubgroupDB)!
+                self.viewModel.subgroup = (loadedEvent[0]?.eventSubgroupDB)!
                 self.labelEventVacancies.text = "0"
                 self.labelEventSubGroupVacancies.text = "0"
                 self.pickerViewSubGroups.reloadComponent(0)
@@ -97,33 +107,43 @@ class User_EventViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    func canUserSubscribe() -> Bool {
-        if self.connectionReachable == false {
-            buttonSubscribe.backgroundColor = .lightGray
-            buttonSubscribe.isEnabled = false
-            return false
-        } else {
-            return true
+    func didSubscribe() -> Bool {
+        for group in viewModel.arrayEvents[0].subgrupos {
+            if group.inscritos.contains(viewModel.currentUser.uid) {
+                    buttonSubscribe.backgroundColor = .lightGray
+                    buttonSubscribe.isEnabled = false
+                return true
+            }
         }
+        return false
     }
     
     func availabilityToSubscribe() {
-        if canUserSubscribe() {
-            let vacancy = event.subgrupos[0].vagasDisponiveisSubgrupo
-            if vacancy > 0 || event.subgrupos[0].inscritos.contains(viewModel.currentUser.email)
-            {
-                buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
-                buttonSubscribe.isEnabled = true
-            } else {
-                buttonSubscribe.backgroundColor = .lightGray
-                buttonSubscribe.isEnabled = false
-            }
-        }
+//        if self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo != nil {
+//            let vacancy = self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo
+//            if vacancy > 0 && !didSubscribe() {
+//                buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+//                buttonSubscribe.isEnabled = true
+//            }
+//        }
     }
     
-    
-    @IBAction func backButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    func changeSubgroup() {
+        let alert = UIAlertController(title: "Você já se inscreveu", message: "Deseja Trocar subgrupo?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Sim", style: .default, handler: {_ in
+            if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
+                
+                userSubscribe.currentEvent = self.viewModel.currentEvent
+                userSubscribe.currentSubgroup = self.viewModel.subgroup
+                userSubscribe.currentUser = self.viewModel.currentUser
+                
+                self.navigationController?.pushViewController(userSubscribe, animated: true)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Não", style: .default, handler: {_ in
+            
+        }))
+        present(alert, animated: true)
     }
     
     @IBAction func profileButton(_ sender: Any) {
@@ -133,13 +153,18 @@ class User_EventViewController: UIViewController {
     }
     
     @IBAction func actionSubscribePressed(_ sender: Any) {
-        if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
-            
-            userSubscribe.currentEvent = event
-            userSubscribe.currentSubgroup = subgroup
-            userSubscribe.currentUser = viewModel.currentUser
+        if didSubscribe() {
+            changeSubgroup()
+        } else {
+            if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
+                
+                userSubscribe.currentEvent = self.viewModel.currentEvent
+                userSubscribe.currentSubgroup = self.viewModel.subgroup
+                userSubscribe.currentUser = viewModel.currentUser
+                
                 navigationController?.pushViewController(userSubscribe, animated: true)
             }
+        }
     }
     
     @IBAction func actionDonatePressed(_ sender: Any) {
@@ -152,7 +177,8 @@ class User_EventViewController: UIViewController {
 
 extension User_EventViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let vacancy = viewModel.arrayEvents[0].subgrupos[row].vagasDisponiveisSubgrupo
+        let vacancy = viewModel.currentEvent.subgrupos[row].vagasDisponiveisSubgrupo
+        self.viewModel.subgroup = viewModel.currentEvent.subgrupos[row].grupo
         labelEventSubGroupVacancies.text = String(vacancy)
         self.availabilityToSubscribe()
     }
@@ -179,10 +205,10 @@ extension User_EventViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if viewModel.arrayEvents != nil && viewModel.arrayEvents.count > 0 {
             let groups = String(viewModel.arrayEvents[0].subgrupos[row].grupo)
-            self.subgroup = groups
+            self.viewModel.subgroup = groups
             return groups
         }
-        return subgroup
+        return self.viewModel.subgroup
     }
 }
 

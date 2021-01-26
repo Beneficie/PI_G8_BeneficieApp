@@ -12,7 +12,7 @@
         <!--Confirm Event Subscription View Controller-->
         <scene sceneID="420-CD-LTj">
             <objects>
-                <viewController id="o6S-to-EFc" customClass="ConfirmEventSubscriptionViewController" sceneMemberID="viewController">
+                <viewController id="o6S-to-EFc" customClass="ConfirmEventSubscriptionViewController" customModule="Beneficie" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Pc-Z9-hCv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

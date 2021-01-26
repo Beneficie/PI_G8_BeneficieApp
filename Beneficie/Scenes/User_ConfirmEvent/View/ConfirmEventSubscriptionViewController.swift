@@ -36,12 +36,21 @@ class ConfirmEventSubscriptionViewController: UIViewController {
         labelEventTitle.text = currentEvent.titulo
         labelSubgroup.text = "Subgrupo \(currentSubgroup)"
         buttonConfirm.layer.cornerRadius = 15
-//        textFieldContact.text = currentUser.telefone
+        textFieldContact.text = currentUser.phoneNumber
+    }
+    
+    func newRootController() {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "User_Event", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "User_Event") as! User_EventViewController
+//        let navi = UINavigationController()
+        UIViewController.replaceRootViewController(viewController: viewController)
+//        UIApplication.shared.windows.first!.rootViewController = navi
     }
     
     func subscribeUser() {
         if let index = currentEvent.subgrupos.firstIndex(where: { $0.grupo == currentSubgroup }) {
-//            currentEvent.subgrupos[index].inscritos.append(currentUser.nome)
+            currentEvent.subgrupos[index].inscritos.append(currentUser.uid)
+            currentUser.phoneNumber = textFieldContact.text
             currentEvent.subgrupos[index].vagasDisponiveisSubgrupo -= 1
             viewModel.subscribeUser(event: currentEvent) { (success) in
                 if success {
@@ -52,7 +61,7 @@ class ConfirmEventSubscriptionViewController: UIViewController {
                                                               eventAddress: self.currentEvent.local,
                                                               eventDescription: self.currentEvent.descricao,
                                                               eventSubgroup: self.currentSubgroup)
-//                        self.viewModel.getCoreDataDBPath()
+                        self.newRootController()
                         self.openFinancialScreen()
                     }))
                     self.present(alert, animated: true)

@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
 class ProfileViewController: UIViewController {
 
@@ -30,9 +31,8 @@ class ProfileViewController: UIViewController {
               try firebaseAuth.signOut()
                 let alert = UIAlertController(title: "Sair", message: "Você foi deslogade", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-                    
                     let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
-                    let vc = storyboard as? MainScreenViewController
+//                    let vc = storyboard as? MainScreenViewController
                     UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
 //                    self.navigationController?.pushViewController(vc!, animated: true)
                 }))
@@ -67,6 +67,21 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func exitButton(_ sender: Any) {
-        self.signOut()
+        guard Auth.auth().currentUser != nil else {
+                return
+            }
+
+            do {
+                try Auth.auth().signOut()
+                AccessToken.current = nil
+                let alert = UIAlertController(title: "Até Logo!", message: "Você foi desconectado(a).", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                    let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+                    UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
+                }))
+                present(alert, animated: true)
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
     }
 }

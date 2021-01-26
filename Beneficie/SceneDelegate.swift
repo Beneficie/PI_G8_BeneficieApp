@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 sourceApplication: nil,
                 annotation: [UIApplication.OpenURLOptionsKey.annotation]
             )
+            
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -35,11 +36,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if AppDelegate.isLogged() {
 //            guard let windowScene = (scene as? UIWindowScene) else { return }
 //            window = UIWindow(windowScene: windowScene)
-
             // Seta a rootview, a primeira tela a ser exibida
             let storyboard = UIStoryboard(name: "User_Event", bundle: Bundle(for: type(of: self)))
             let navi = UINavigationController()
             navi.pushViewController(storyboard.instantiateViewController(withIdentifier: "User_Event"), animated: true)
+            
+            navi.setNavigationBarHidden(true, animated: false)
+            
+            self.window?.rootViewController = navi
+        }
+        if AppDelegate.isAdmin() {
+            let storyboard = UIStoryboard(name: "EventList", bundle: Bundle(for: type(of: self)))
+            let navi = UINavigationController()
+            navi.pushViewController(storyboard.instantiateViewController(withIdentifier: "EventList"), animated: true)
             
             navi.setNavigationBarHidden(true, animated: false)
             

@@ -11,7 +11,7 @@ import GoogleSignIn
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
-    
+        
     //  MARK: - Outlets
     @IBOutlet weak var googleButtonView: GIDSignInButton!
     @IBOutlet weak var googleButtonOutlet: GIDSignInButton!
@@ -37,6 +37,7 @@ class LoginViewController: UIViewController {
         
         configureUI()
         loadData()
+        
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
@@ -91,6 +92,7 @@ class LoginViewController: UIViewController {
     
     func configureUI(){
         let loginButton = FBLoginButton()
+        loginButton.delegate = self
         fBView.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -101,6 +103,7 @@ class LoginViewController: UIViewController {
         loginButton.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
         let buttonText = NSAttributedString(string: "Entre com o Facebook")
         loginButton.setAttributedTitle(buttonText, for: .normal)
+        loginButton.permissions = ["public_profile", "email"]
         
         googleButtonOutlet.layer.cornerRadius = 5
         gView.layer.cornerRadius = 5
@@ -161,12 +164,16 @@ class LoginViewController: UIViewController {
                   guard let strongSelf = self else { return }
                     if authResult != nil {
                         let accountData = authResult
-                        print(accountData?.user)
-                        if let userSubscription = UIStoryboard(name: "User_Event", bundle: nil).instantiateInitialViewController() as? User_EventViewController {
-//                                                    userSubscription.currentUser = self.currentUser
-                            
-                            self?.navigationController?.pushViewController(userSubscription, animated: true)
-                                            }
+                        print(accountData?.user.email)
+                        if accountData?.user.email == "admin@admin.com" {
+                            if let edit = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
+                                self?.navigationController?.pushViewController(edit, animated: true)
+                            }
+                        } else {
+                            if let userSubscription = UIStoryboard(name: "User_Event", bundle: nil).instantiateInitialViewController() as? User_EventViewController {
+                                self?.navigationController?.pushViewController(userSubscription, animated: true)
+                                                }
+                        }
                     } else {
                         print(error)
                     }
@@ -208,6 +215,26 @@ extension LoginViewController: UITextFieldDelegate {
             }
         }
         return false
+    }
+}
+
+extension LoginViewController: LoginButtonDelegate {
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        
+        if let error = error {
+            print(error.localizedDescription)
+            return
+          }
+        if FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString) != nil {
+            let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+            let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+            appDelegate!.signToFirebase(credential: credential)
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        print("FBLogOut")
     }
 }
 

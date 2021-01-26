@@ -9,6 +9,8 @@ import Foundation
 
 class LoginViewModel {
     
+//    var userToken = ""
+    
     var arrayUsers = [User]()
     
     var apiManager = APIManager()
@@ -44,8 +46,10 @@ class LoginViewModel {
     
     func didRegister(userLogin: String, currentUser: User) -> Bool {
         for user in arrayUsers {
-            if userLogin.lowercased() == currentUser.email.lowercased() {
-                return true
+            if let email = currentUser.email {
+                if userLogin == email, userLogin == currentUser.uid {
+                    return true
+                }
             }
             return false
         }
