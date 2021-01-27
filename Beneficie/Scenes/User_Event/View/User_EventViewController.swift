@@ -62,7 +62,7 @@ class User_EventViewController: UIViewController {
         labelEventSubGroupVacancies.text = String(event.subgrupos[0].vagasDisponiveisSubgrupo)
         labelEventDescription.text = event.descricao
         pickerViewSubGroups.reloadComponent(0)
-        if !didSubscribe() {
+        if didSubscribe() {
                 buttonSubscribe.backgroundColor = .lightGray
                 buttonSubscribe.isEnabled = false
         }
@@ -119,13 +119,13 @@ class User_EventViewController: UIViewController {
     }
     
     func availabilityToSubscribe() {
-//        if self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo != nil {
-//            let vacancy = self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo
-//            if vacancy > 0 && !didSubscribe() {
-//                buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
-//                buttonSubscribe.isEnabled = true
-//            }
-//        }
+        if self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo != nil {
+            let vacancy = self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo
+            if vacancy > 0 && !didSubscribe() {
+                buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+                buttonSubscribe.isEnabled = true
+            }
+        }
     }
     
     func changeSubgroup() {

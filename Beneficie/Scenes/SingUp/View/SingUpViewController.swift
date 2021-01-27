@@ -32,7 +32,7 @@ class SingUpViewController: UIViewController {
         // Mark: Delegates
         textFieldEmail.delegate = self
         textFieldPassword.delegate = self
-//        textFieldPhoneNumber.delegate = self
+        textFieldPhoneNumber.delegate = self
         textFieldPasswordConfirmation.delegate = self
         textFieldFullName.delegate = self
 //        textFieldCPF.delegate = self
@@ -70,8 +70,7 @@ class SingUpViewController: UIViewController {
     
     
      private func configureUI(){
-        
-        
+        // MARK: - Facebook button setup
         let loginButton = FBLoginButton()
         fBView.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -84,35 +83,36 @@ class SingUpViewController: UIViewController {
         let buttonText = NSAttributedString(string: "Entre com o Facebook")
         loginButton.setAttributedTitle(buttonText, for: .normal)
         
+        // MARK: - Google button setup
+        googleButtonOutlet.layer.cornerRadius = 5
+        gView.layer.cornerRadius = 5
+        googleButtonView.layer.cornerRadius = 5
+        
+        // MARK: - Textfields setup
         textFieldEmail.configureTextField(placeHolder: "Email")
         textFieldEmail.keyboardType = .emailAddress
         textFieldFullName.configureTextField(placeHolder: "Nome Completo")
         textFieldPhoneNumber.configureTextField(placeHolder: "Contato")
         textFieldPhoneNumber.keyboardType = .numbersAndPunctuation
+        textFieldPasswordConfirmation.configureTextField(placeHolder: "Confirmar Senha")
+        textFieldPassword.configureTextField(placeHolder: "Senha")
         
 //        textFieldPhoneNumber.config.defaultConfiguration = PhoneFormat(defaultPhoneFormat: "(##) ##### - ####")
         
-        textFieldPasswordConfirmation.configureTextField(placeHolder: "Confirmar Senha")
-        textFieldPassword.configureTextField(placeHolder: "Senha")
-       
-        
-        googleButtonOutlet.layer.cornerRadius = 5
-        gView.layer.cornerRadius = 5
-        googleButtonView.layer.cornerRadius = 5
-
-        
+        // MARK: - SignIn button setup
         singUpButtonOutlet.layer.cornerRadius = 25
         singUpButtonOutlet.layer.shadowOpacity = 0.3
         singUpButtonOutlet.layer.shadowRadius = 25
         singUpButtonOutlet.layer.shadowOffset = .zero
         singUpButtonOutlet.layer.shadowColor = UIColor.black.cgColor
         
+        let attrbText = NSMutableAttributedString(string: "Já Possui uma conta? ",
+                                                  attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),
+                                                               NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        
-        let attrbText = NSMutableAttributedString(string: "Já Possui uma conta? ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),                                                                                      NSAttributedString.Key.foregroundColor: UIColor.white])
-        
-             attrbText.append(NSAttributedString(string: "Entrar", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15),NSAttributedString.Key.foregroundColor: UIColor.white]))
-             
+             attrbText.append(NSAttributedString(string: "Entrar",
+                                                 attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15),
+                                                              NSAttributedString.Key.foregroundColor: UIColor.white]))
              singInButtonOutlet.setAttributedTitle(attrbText, for: .normal)
     }
     
@@ -124,29 +124,38 @@ class SingUpViewController: UIViewController {
     }
     
     @IBAction func socialLoginButton(_ sender: UIButton) {
-        //****** tag = 0 para facebook e tag = 1 para google *********//
         GIDSignIn.sharedInstance().signIn()
     }
 }
 
 extension SingUpViewController:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switch textField {
-         case textFieldEmail:
-             textFieldFullName.becomeFirstResponder()
-         case textFieldFullName:
-             textFieldPhoneNumber.becomeFirstResponder()
-         case textFieldPhoneNumber:
-//             textFieldCPF.becomeFirstResponder()
-//        case textFieldCPF:
+        if textField.text == "" {
+            return false
+        } else if textField == textFieldFullName {
+            textField.resignFirstResponder()
+            textFieldEmail.becomeFirstResponder()
+            return true
+        } else if textField == textFieldEmail {
+            textField.resignFirstResponder()
+            textFieldPhoneNumber.becomeFirstResponder()
+            return true
+        } else if textField == textFieldPhoneNumber {
+            textField.resignFirstResponder()
             textFieldPassword.becomeFirstResponder()
-        case textFieldPassword:
+            return true
+        } else if textField == textFieldPassword {
+            textField.resignFirstResponder()
             textFieldPasswordConfirmation.becomeFirstResponder()
-         default:
-             textField.resignFirstResponder()
-         }
-         return false
-      }
+            return true
+        } else if textField == textFieldPasswordConfirmation {
+            textField.resignFirstResponder()
+            self.authenticationWithEmail()
+            return true
+        }else {
+            return false
+        }
+    }
 }
 
 extension UIViewController {
@@ -158,8 +167,9 @@ extension UIViewController {
         let rootViewController = window.rootViewController!
         viewController.view.frame = rootViewController.view.frame
         viewController.view.layoutIfNeeded()
-        UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromLeft, animations: {
-            window.rootViewController = viewController
-        }, completion: nil)
+        UIView.transition(with: window,
+                          duration: 0.3,
+                          options: .transitionFlipFromLeft,
+                          animations: { window.rootViewController = viewController }, completion: nil)
     }
 }

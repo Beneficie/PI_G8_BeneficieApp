@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         
         configureUI()
-        loadData()
+//        loadData()
         
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
     }
     
     func checkEmptyTextFields() -> Bool {
-        if logInTextField.text == nil || logInTextField.text!.isEmpty && viewModel.didRegister(userLogin: logInTextField.text!, currentUser: currentUser) == false {
+        if logInTextField.text == nil || logInTextField.text!.isEmpty {
             alertToEmptyFields(field: "usuário")
             return false
         }
@@ -64,16 +64,6 @@ class LoginViewController: UIViewController {
             return false
         }
         return false
-    }
-    
-    func loadData() {
-        viewModel.loadData { success in
-            if success {
-                self.currentUser = self.viewModel.arrayUsers[0]
-            } else {
-                print("FailInLoadData")
-            }
-        }
     }
     
     func alertToRegister() {
@@ -109,7 +99,6 @@ class LoginViewController: UIViewController {
         gView.layer.cornerRadius = 5
         gView.layer.borderWidth = 1
         gView.layer.borderColor = CGColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
-//        UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
         googleButtonView.layer.cornerRadius = 5
         
         logInTextField.keyboardAppearance = .dark
@@ -134,6 +123,17 @@ class LoginViewController: UIViewController {
         singUpButtonOutlet.setAttributedTitle(attrbText, for: .normal)
         
     }
+    func adminFlow() {
+        if let admScreen = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
+            navigationController?.pushViewController(admScreen, animated: true)
+        }
+    }
+    
+    func userFlow() {
+        if let userSubscription = UIStoryboard(name: "User_Event", bundle: nil).instantiateInitialViewController() as? User_EventViewController {
+            self.navigationController?.pushViewController(userSubscription, animated: true)
+        }
+    }
     
     //MARK: - Events
     @IBAction func loginGoogle(_ sender: Any) {
@@ -147,35 +147,27 @@ class LoginViewController: UIViewController {
     @IBAction func handleLogIn(_ sender: Any) {
         if checkEmptyTextFields() {
             if textFieldDidEndEditing(logInTextField) {
-                if let admScreen = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
-                    navigationController?.pushViewController(admScreen, animated: true)
-                }
+                adminFlow()
             }
         } else {
             if let user = logInTextField.text, let password = passwordTextField.text {
-//                if viewModel.didRegister(userLogin: user, currentUser: currentUser) {
-//                    if let userSubscription = UIStoryboard(name: "User_Event", bundle: nil).instantiateInitialViewController() as? User_EventViewController {
-//                            userSubscription.currentUser = self.currentUser
-//                            navigationController?.pushViewController(userSubscription, animated: true)
-//                    }
-//                } else {
-//                    alertToRegister()
+                
                 Auth.auth().signIn(withEmail: user, password: password) { [weak self] authResult, error in
                   guard let strongSelf = self else { return }
                     if authResult != nil {
                         let accountData = authResult
-                        print(accountData?.user.email)
-                        if accountData?.user.email == "admin@admin.com" {
-                            if let edit = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
-                                self?.navigationController?.pushViewController(edit, animated: true)
-                            }
+//                        print(accountData?.user.email)
+                        if accountData?.user.uid == self!.viewModel.userDefaultID {
+                            self!.adminFlow()
                         } else {
-                            if let userSubscription = UIStoryboard(name: "User_Event", bundle: nil).instantiateInitialViewController() as? User_EventViewController {
-                                self?.navigationController?.pushViewController(userSubscription, animated: true)
-                                                }
+                            self!.userFlow()
                         }
                     } else {
-                        print(error)
+//                        print(error)
+                        let alert = UIAlertController(title: "Erro", message: "Cheque as informações de login", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                        }))
+                        self!.present(alert, animated: true)
                     }
                 }
             }
@@ -199,20 +191,17 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if logInTextField.text != nil {
             passwordTextField.becomeFirstResponder()
-        } else {
             textField.resignFirstResponder()
+        } else {
+            checkEmptyTextFields()
+            handleLogIn(loginButtonOutlet)
         }
-        checkEmptyTextFields()
-        handleLogIn(loginButtonOutlet)
         return true
-        
     }
+    
     private func textFieldDidEndEditing(_ textField: UITextField) -> Bool {
-        if let user = textField.text {
-            let login = viewModel.isAdmin(user: user)
-            if login {
-                return true
-            }
+        if let user = logInTextField.text {
+            return true
         }
         return false
     }

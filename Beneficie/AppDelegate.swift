@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     
     static func isLogged() -> Bool {
-        if Auth.auth().currentUser == nil, !isAdmin() {
+        if Auth.auth().currentUser == nil {
                 let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
 //                let vc = storyboard as? MainScreenViewController
                 UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)

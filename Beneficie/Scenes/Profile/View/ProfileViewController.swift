@@ -22,7 +22,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        labelUserName.text = currentUser.name
+        if currentUser.name.isEmpty {
+            labelUserName.text = currentUser.email
+        }
     }
     
     func signOut() {
