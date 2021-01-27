@@ -17,7 +17,6 @@ class SingUpViewController: UIViewController {
     @IBOutlet weak var textFieldPhoneNumber: UITextField!
     @IBOutlet weak var textFieldPasswordConfirmation: UITextField!
     @IBOutlet weak var textFieldFullName: UITextField!
-//    @IBOutlet weak var textFieldCPF: UITextField!
     
     @IBOutlet weak var googleButtonView: GIDSignInButton!
     @IBOutlet weak var googleButtonOutlet: GIDSignInButton!
@@ -35,7 +34,6 @@ class SingUpViewController: UIViewController {
         textFieldPhoneNumber.delegate = self
         textFieldPasswordConfirmation.delegate = self
         textFieldFullName.delegate = self
-//        textFieldCPF.delegate = self
         
         
         configureUI()
@@ -51,7 +49,6 @@ class SingUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if authResult != nil {
                     let accountDataUser = authResult?.user
-//                    print(accountDataUser)
                 } else {
                     print(error)
                 }
