@@ -158,18 +158,39 @@
                                     <action selector="backButton:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="CAy-y3-5Ea"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a97-cW-H0y">
+                                <rect key="frame" x="80" y="367" width="254" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="238" id="2Ac-6v-oeX"/>
+                                    <constraint firstAttribute="height" constant="30" id="4s5-jU-6Sq"/>
+                                    <constraint firstAttribute="height" constant="47" id="OdT-mU-igP"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2Ac-6v-oeX"/>
+                                        <exclude reference="OdT-mU-igP"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqW-Ff-nu4">
+                                <rect key="frame" x="197" y="414" width="20" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.46198064090000002" green="0.475060761" blue="0.87847304339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqB-hP-gFr">
-                                <rect key="frame" x="89" y="317" width="236" height="30"/>
+                                <rect key="frame" x="98" y="317" width="219" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdu-sS-UAQ">
-                                        <rect key="frame" x="30" y="0.0" width="206" height="30"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdu-sS-UAQ">
+                                        <rect key="frame" x="30" y="0.0" width="189" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="F0p-Tm-Yfe"/>
                                             <constraint firstAttribute="width" constant="185" id="Wuf-Xq-RnE"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="15"/>
-                                        <state key="normal" title="    Entre com o Google"/>
+                                        <state key="normal" title="Entre com o Google"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="Wuf-Xq-RnE"/>
@@ -207,27 +228,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a97-cW-H0y">
-                                <rect key="frame" x="80" y="367" width="254" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="238" id="2Ac-6v-oeX"/>
-                                    <constraint firstAttribute="height" constant="30" id="4s5-jU-6Sq"/>
-                                    <constraint firstAttribute="height" constant="47" id="OdT-mU-igP"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2Ac-6v-oeX"/>
-                                        <exclude reference="OdT-mU-igP"/>
-                                    </mask>
-                                </variation>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqW-Ff-nu4">
-                                <rect key="frame" x="197" y="414" width="20" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.46198064090000002" green="0.475060761" blue="0.87847304339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bZg-yi-i5t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -262,10 +262,10 @@
                             <constraint firstItem="aqB-hP-gFr" firstAttribute="leading" secondItem="bZg-yi-i5t" secondAttribute="leading" constant="102" id="akQ-3W-ySH"/>
                             <constraint firstItem="E73-ww-DBA" firstAttribute="leading" secondItem="bZg-yi-i5t" secondAttribute="leading" constant="20" id="dL8-wk-6aj"/>
                             <constraint firstItem="dZe-Ha-E1i" firstAttribute="top" secondItem="a97-cW-H0y" secondAttribute="bottom" constant="45" id="eJX-jI-2qp"/>
-                            <constraint firstItem="aqB-hP-gFr" firstAttribute="leading" secondItem="bZg-yi-i5t" secondAttribute="leading" constant="89" id="heU-1a-4kf"/>
+                            <constraint firstItem="aqB-hP-gFr" firstAttribute="leading" secondItem="bZg-yi-i5t" secondAttribute="leading" constant="98" id="heU-1a-4kf"/>
                             <constraint firstItem="bZg-yi-i5t" firstAttribute="trailing" secondItem="O86-N2-Luf" secondAttribute="trailing" constant="20" id="huI-FI-dbS"/>
                             <constraint firstItem="bZg-yi-i5t" firstAttribute="trailing" secondItem="Evs-5T-nvV" secondAttribute="trailing" constant="20" id="nrB-Mi-Jgl"/>
-                            <constraint firstItem="bZg-yi-i5t" firstAttribute="trailing" secondItem="aqB-hP-gFr" secondAttribute="trailing" constant="89" id="tqk-h4-jXc"/>
+                            <constraint firstItem="bZg-yi-i5t" firstAttribute="trailing" secondItem="aqB-hP-gFr" secondAttribute="trailing" constant="97" id="tqk-h4-jXc"/>
                             <constraint firstItem="O86-N2-Luf" firstAttribute="leading" secondItem="bZg-yi-i5t" secondAttribute="leading" constant="20" id="uCd-XI-9FX"/>
                             <constraint firstItem="bZg-yi-i5t" firstAttribute="trailing" secondItem="Ied-lQ-2cQ" secondAttribute="trailing" constant="149" id="uqB-Bz-aOt"/>
                             <constraint firstItem="Ied-lQ-2cQ" firstAttribute="leading" secondItem="E73-ww-DBA" secondAttribute="trailing" constant="96.5" id="vUN-nG-1pi"/>

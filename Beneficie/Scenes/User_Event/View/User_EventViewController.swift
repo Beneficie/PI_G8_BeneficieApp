@@ -110,8 +110,8 @@ class User_EventViewController: UIViewController {
     func didSubscribe() -> Bool {
         for group in viewModel.arrayEvents[0].subgrupos {
             if group.inscritos.contains(viewModel.currentUser.uid) {
-                    buttonSubscribe.backgroundColor = .lightGray
-                    buttonSubscribe.isEnabled = false
+                buttonSubscribe.backgroundColor = .lightGray
+                buttonSubscribe.isEnabled = false
                 return true
             }
         }
