@@ -52,13 +52,15 @@ class User_EventViewModel {
     
     func loadUserData() {
         apiManager.requestUser(userToken: self.userToken, onComplete: { response, e in
-            print(self.userToken)
+//            print(self.userToken)
             if response == nil {
                 return
             }
             let decoder = JSONDecoder()
             do {
                 let user = try decoder.decode(User.self, from: response!)
+                self.currentUser.uid = user.uid
+                self.currentUser._id = user._id
                 self.currentUser.name = user.name
                 self.currentUser.email = user.email
                 self.currentUser.phoneNumber = user.phoneNumber
@@ -80,7 +82,7 @@ class User_EventViewModel {
             if let currentEvents = events {
 //                print(currentEvents)
                 self.currentEventDB = currentEvents
-                print(self.currentEventDB)
+//                print(self.currentEventDB)
 //                getCoreDataDBPath()
             }
         }
@@ -97,5 +99,23 @@ class User_EventViewModel {
             .removingPercentEncoding
         
         print("Core Data DB Path :: \(path ?? "Not found")")
+    }
+    
+    func changeSubgroup() {
+//        let alert = UIAlertController(title: "Você já se inscreveu", message: "Deseja Trocar subgrupo?", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Sim", style: .default, handler: {_ in
+//            if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
+//
+//                self.nextViewModel.currentEvent = self.viewModel.currentEvent
+//                self.nextViewModel.currentSubgroup = self.viewModel.subgroup
+//                self.nextViewModel.currentUser = self.viewModel.currentUser
+//
+//                self.navigationController?.pushViewController(userSubscribe, animated: true)
+//            }
+//        }))
+//        alert.addAction(UIAlertAction(title: "Não", style: .default, handler: {_ in
+//
+//        }))
+//        present(alert, animated: true)
     }
 }

@@ -54,7 +54,7 @@ class APIManager {
                 AF.request(request).responseJSON { response in
                     switch response.result {
                     case .success(let data):
-                        print(data)
+//                        print(data)
                         onComplete(true)
                         
                     case .failure(let error):
@@ -81,7 +81,7 @@ class APIManager {
         AF.request(request).responseJSON { response in
             switch response.result {
             case .success(let data):
-                print(data)
+//                print(data)
                 onComplete(true)
 
             case .failure(let error):
@@ -108,7 +108,7 @@ class APIManager {
             switch response.result {
             case .success(let data):
                 if let responseValue = response.data {
-                    print(responseValue)
+//                    print(responseValue)
                     onComplete(responseValue, nil)
                 } else {
                     onComplete(nil, "Received Empty Response")
@@ -116,6 +116,34 @@ class APIManager {
             case .failure(let error):
                 onComplete(nil, error.failureReason)
                 
+            }
+        }
+    }
+    
+    func updateUserInformation(
+        user: User,
+        onComplete: @escaping (_ isOk: Bool) -> Void
+    ) {
+        let encoder = JSONEncoder()
+        let jsonData = try! encoder.encode(user)
+        
+        let userId = user._id
+        let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/users/\(userId)")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.put.rawValue
+        request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        AF.request(request).validate().response { response in
+            switch response.result {
+            case .success(let data):
+                print(data)
+                onComplete(true)
+                
+            case .failure(let error):
+                onComplete(true)
+                print (error)
             }
         }
     }

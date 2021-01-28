@@ -33,10 +33,10 @@ class EventListViewController: UIViewController {
             if success {
                 self.tableViewEvents.reloadData()
                 self.event = self.viewModel.arrayEvents[0]
-                print("Success")
+//                print("Success")
 //                self.setUpUI(event: self.event)
             } else {
-                print("FailInLoadData")
+                print("Error: LoadData from eventList")
 //                self.alertFailedInLoadData()
             }
         }

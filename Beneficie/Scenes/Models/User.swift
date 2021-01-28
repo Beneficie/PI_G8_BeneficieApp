@@ -9,12 +9,12 @@ import Foundation
 
 struct User: Codable {
 
-    let _id : String
+    var _id : String
     var email : String?
-    var name : String
+    var name : String?
     var phoneNumber : String?
-    let uid: String
-    let isAdmin: Bool?
+    var uid: String
+    var isAdmin: Bool?
 
     init(){
         _id = ""

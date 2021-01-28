@@ -94,7 +94,6 @@ class CreateEventViewController: UIViewController {
                 newEvent.subgrupos = subgroups
                 viewModel.createEvent(event: newEvent) { (success) in
                     if success {
-                        print("succ")
                         let alert = UIAlertController(title: "Ação Salva", message: "Ação salva com sucesso", preferredStyle: .alert)
                         
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
@@ -106,7 +105,6 @@ class CreateEventViewController: UIViewController {
                         }))
                         self.present(alert, animated: true, completion: nil)
                     } else {
-                        print("nnnnn")
                         let alert = UIAlertController(title: "Não foi possível", message: "Erro ao criar evento", preferredStyle: .alert)
                         
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

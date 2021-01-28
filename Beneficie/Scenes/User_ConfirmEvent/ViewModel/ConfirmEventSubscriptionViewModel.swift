@@ -6,10 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
 class ConfirmEventSubscriptionViewModel {
     
     var apiManager = APIManager()
+    var currentEvent = Event()
+    var currentUser = User()
+    var currentSubgroup = ""
+    
+    func goToProfileScreen(navigationController: UINavigationController?) {
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = self.currentUser
+            navigationController?.pushViewController(profile, animated: true)
+        }
+    }
     
     func subscribeUser(event: Event, onComplete: @escaping (Bool) -> Void) {
         apiManager.subscribeUserToEvent(event: event) { isOk in
@@ -17,8 +28,42 @@ class ConfirmEventSubscriptionViewModel {
         }
     }
     
-    func updateUser(user: User) {
+    func isUserUpdated(name: String, phoneNumber: String) -> Bool {
+        if currentUser.name != name && currentUser.phoneNumber != phoneNumber {
+            currentUser.name = name
+            currentUser.phoneNumber = phoneNumber
+            return false
+        } else {
+            return true
+        }
+    }
         
+    func updateUser(onComplete: @escaping (Bool) -> Void) {
+        apiManager.updateUserInformation(user: currentUser) { isOk in
+            onComplete(isOk)
+        }
+    }
+    
+    func checkUser(name: String, phoneNumber: String) {
+        if !isUserUpdated(name: name, phoneNumber: phoneNumber) {
+            print(currentUser.name, name, currentUser.phoneNumber, phoneNumber)
+        }
+        updateUser { (success) in
+            if success {
+                print("user updated")
+            } else {
+                print("user NOT updated")
+            }
+        }
+    }
+    
+    func newRootController() {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "User_Event", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "User_Event") as! User_EventViewController
+        let navi = UINavigationController()
+        navi.pushViewController(viewController, animated: true)
+        UIViewController.replaceRootViewController(viewController: navi)
+        navi.setNavigationBarHidden(true, animated: false)
     }
     
     // MARK: Database functions
@@ -50,7 +95,7 @@ class ConfirmEventSubscriptionViewModel {
 //            if let arrayEventsDB = arrayEvents {
 //                self.arrayEvents = arrayEventsDB
 //            }
-            print(arrayEvents)
+//            print(arrayEvents)
         }
     }
     

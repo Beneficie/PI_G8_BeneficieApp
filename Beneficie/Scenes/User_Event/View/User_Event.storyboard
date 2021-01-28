@@ -238,7 +238,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmr-lo-hUO">
                                         <rect key="frame" x="136" y="0.0" width="120" height="65"/>
-                                        <color key="backgroundColor" red="0.45882352939999999" green="0.47450980390000003" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="7Im-K0-JnT"/>
                                             <constraint firstAttribute="width" constant="150" id="ACm-mj-3qV"/>

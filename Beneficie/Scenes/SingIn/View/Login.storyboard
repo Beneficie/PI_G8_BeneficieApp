@@ -176,7 +176,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="loginGoogle:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="wTE-Wh-baX"/>
+                                            <action selector="googleLogin:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="wTE-Wh-baX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="opx-Xf-rK9" userLabel="GoogleButton">
@@ -188,7 +188,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                         </state>
                                         <connections>
-                                            <action selector="loginGoogle:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="NBB-hk-Zyb"/>
+                                            <action selector="googleLogin:" destination="1QS-Mh-Vwb" eventType="touchUpInside" id="NBB-hk-Zyb"/>
                                         </connections>
                                     </button>
                                 </subviews>

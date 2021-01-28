@@ -22,36 +22,41 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if currentUser.name.isEmpty {
+        
+        getProfileTitle()
+    }
+    
+    func getProfileTitle() {
+        if currentUser.name != "" {
+            labelUserName.text = currentUser.name
+        } else {
             labelUserName.text = currentUser.email
         }
     }
     
+    func mainScreenAsRoot() {
+        let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+        UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
+    }
+    
     func signOut() {
-        let firebaseAuth = Auth.auth()
-            do {
-              try firebaseAuth.signOut()
-                let alert = UIAlertController(title: "Sair", message: "Você foi deslogade", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-                    let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
-//                    let vc = storyboard as? MainScreenViewController
-                    UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
-//                    self.navigationController?.pushViewController(vc!, animated: true)
-                }))
-                present(alert, animated: true)
-                
-
-            } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
-                let alert = UIAlertController(title: "Não foi possível sair", message: "Tente Novamente", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-//                    let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
-//                    UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
-                }))
-                present(alert, animated: true)
+        guard Auth.auth().currentUser != nil else {
+            return
+        }
+        
+        do {
+            try Auth.auth().signOut()
+            AccessToken.current = nil
+            let alert = UIAlertController(title: "Até Logo!", message: "Você foi desconectado(a).", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
+                self.mainScreenAsRoot()
+            }))
+            present(alert, animated: true)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
-      
-    }
+    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -69,21 +74,6 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func exitButton(_ sender: Any) {
-        guard Auth.auth().currentUser != nil else {
-                return
-            }
-
-            do {
-                try Auth.auth().signOut()
-                AccessToken.current = nil
-                let alert = UIAlertController(title: "Até Logo!", message: "Você foi desconectado(a).", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-                    let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
-                    UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
-                }))
-                present(alert, animated: true)
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
+        self.signOut()
     }
 }

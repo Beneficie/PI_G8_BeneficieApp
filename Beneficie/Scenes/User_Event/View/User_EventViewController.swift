@@ -11,7 +11,7 @@ import FBSDKLoginKit
 class User_EventViewController: UIViewController {
 
     var viewModel = User_EventViewModel()
-
+    var nextViewModel = ConfirmEventSubscriptionViewModel()
     
     @IBOutlet weak var labelEventDate: UILabel!
     @IBOutlet weak var labelEventLocal: UILabel!
@@ -62,9 +62,9 @@ class User_EventViewController: UIViewController {
         labelEventSubGroupVacancies.text = String(event.subgrupos[0].vagasDisponiveisSubgrupo)
         labelEventDescription.text = event.descricao
         pickerViewSubGroups.reloadComponent(0)
-        if didSubscribe() {
-                buttonSubscribe.backgroundColor = .lightGray
-                buttonSubscribe.isEnabled = false
+        if !didSubscribe() {
+                buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+                buttonSubscribe.isEnabled = true
         }
     }
     
@@ -81,7 +81,7 @@ class User_EventViewController: UIViewController {
                 self.availabilityToSubscribe()
             } else {
                 self.viewModel.connectionReachable = false
-                print("FailInLoadData")
+                print("Erro in LoadData from User_Event")
                 self.alertFailedInLoadData()
                 self.availabilityToSubscribe()
             }
@@ -128,23 +128,7 @@ class User_EventViewController: UIViewController {
         }
     }
     
-    func changeSubgroup() {
-        let alert = UIAlertController(title: "Você já se inscreveu", message: "Deseja Trocar subgrupo?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Sim", style: .default, handler: {_ in
-            if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
-                
-                userSubscribe.currentEvent = self.viewModel.currentEvent
-                userSubscribe.currentSubgroup = self.viewModel.subgroup
-                userSubscribe.currentUser = self.viewModel.currentUser
-                
-                self.navigationController?.pushViewController(userSubscribe, animated: true)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Não", style: .default, handler: {_ in
-            
-        }))
-        present(alert, animated: true)
-    }
+
     
     @IBAction func profileButton(_ sender: Any) {
         if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
@@ -154,7 +138,7 @@ class User_EventViewController: UIViewController {
     
     @IBAction func actionSubscribePressed(_ sender: Any) {
         if didSubscribe() {
-            changeSubgroup()
+            self.viewModel.changeSubgroup()
         } else {
             if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
                 

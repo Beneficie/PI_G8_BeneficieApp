@@ -90,7 +90,7 @@
                                     <constraint firstAttribute="height" constant="34" id="pL6-OB-pX8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmar Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sWy-n2-8qj" userLabel="PasswordConfirmationTextField">
                                 <rect key="frame" x="20" y="513" width="335" height="34"/>
@@ -98,7 +98,7 @@
                                     <constraint firstAttribute="height" constant="34" id="AgL-xa-mx3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3Q-A4-LLR">
                                 <rect key="frame" x="90" y="237" width="210" height="30"/>
@@ -118,7 +118,7 @@
                                             </mask>
                                         </variation>
                                         <connections>
-                                            <action selector="socialLoginButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="fE5-VV-Vjr"/>
+                                            <action selector="googleLoginButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="fE5-VV-Vjr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uB8-IV-pmv" userLabel="GoogleButton">
@@ -130,7 +130,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                         </state>
                                         <connections>
-                                            <action selector="socialLoginButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="98U-Uw-KbV"/>
+                                            <action selector="googleLoginButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="98U-Uw-KbV"/>
                                         </connections>
                                     </button>
                                 </subviews>
