@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7UJ-2Y-rug">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,11 +12,11 @@
             <objects>
                 <viewController id="7UJ-2Y-rug" customClass="FinancialDetailsViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jzx-IE-VTM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cEo-Ee-gc1">
-                                <rect key="frame" x="58" y="156" width="298" height="24"/>
+                                <rect key="frame" x="58" y="112" width="484" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="pWi-cL-mnp"/>
                                     <constraint firstAttribute="height" constant="24" id="s43-Wg-Ge3"/>
@@ -33,13 +31,13 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informações Financeiras" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5j-HP-63Q">
-                                <rect key="frame" x="20" y="76" width="374" height="30"/>
+                                <rect key="frame" x="20" y="32" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nubank" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMT-2H-KBi">
-                                <rect key="frame" x="64" y="190" width="210" height="66"/>
+                                <rect key="frame" x="64" y="146" width="396" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="M78-sR-Sck"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="262" id="mob-5O-5Dh"/>
@@ -49,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agência" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDP-Dq-gbV">
-                                <rect key="frame" x="58" y="276" width="298" height="24"/>
+                                <rect key="frame" x="58" y="232" width="484" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="6wW-WY-fVc"/>
                                     <constraint firstAttribute="width" constant="262" id="baK-rZ-Q9Y"/>
@@ -64,7 +62,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rd-CJ-16M">
-                                <rect key="frame" x="64" y="310" width="210" height="21"/>
+                                <rect key="frame" x="64" y="266" width="396" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="DfS-Lt-QHa"/>
                                     <constraint firstAttribute="width" constant="262" id="Qct-KL-rwX"/>
@@ -79,7 +77,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Conta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rL4-Lu-kcL">
-                                <rect key="frame" x="58" y="351" width="298" height="24"/>
+                                <rect key="frame" x="58" y="307" width="484" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="1vm-Hv-yIT"/>
                                     <constraint firstAttribute="width" constant="262" id="NpB-6S-HHA"/>
@@ -94,7 +92,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000000-0" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huK-n1-dfb">
-                                <rect key="frame" x="64" y="385" width="210" height="66"/>
+                                <rect key="frame" x="64" y="341" width="396" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="Df3-Xp-j7p"/>
                                     <constraint firstAttribute="width" constant="262" id="eyP-u0-z59"/>
@@ -109,7 +107,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficiado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlA-K7-825">
-                                <rect key="frame" x="58" y="471" width="298" height="24"/>
+                                <rect key="frame" x="58" y="427" width="484" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="65c-jf-dw8"/>
                                     <constraint firstAttribute="width" constant="262" id="giy-A6-ogm"/>
@@ -131,20 +129,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wME-cX-e7H">
-                                <rect key="frame" x="182.5" y="607" width="51" height="31"/>
+                                <rect key="frame" x="275.5" y="563" width="51" height="31"/>
                                 <color key="onTintColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="switchDonation:" destination="7UJ-2Y-rug" eventType="valueChanged" id="Zh7-8U-neh"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Já contribuiu? Marque aqui" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKH-21-Did">
-                                <rect key="frame" x="100" y="581" width="214" height="18"/>
+                                <rect key="frame" x="100" y="537" width="400" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DH-pm-bJX" userLabel="agencyClipboard">
-                                <rect key="frame" x="282" y="307" width="32" height="32"/>
+                                <rect key="frame" x="468" y="263" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="fHM-Vr-KUl"/>
                                     <constraint firstAttribute="height" constant="32" id="fHe-ym-fL2"/>
@@ -156,7 +154,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbd-97-ati" userLabel="bankClipboard">
-                                <rect key="frame" x="282" y="210" width="32" height="22"/>
+                                <rect key="frame" x="468" y="166" width="32" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="3C2-3J-7oo"/>
                                 </constraints>
@@ -168,7 +166,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulano de tal da Silva" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyV-xy-esD">
-                                <rect key="frame" x="64" y="505" width="292" height="66"/>
+                                <rect key="frame" x="64" y="461" width="478" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="262" id="IZ0-33-Ieq"/>
                                     <constraint firstAttribute="height" constant="66" id="x0F-hp-17p"/>
@@ -183,7 +181,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXO-sR-1kD" userLabel="accountClipboard">
-                                <rect key="frame" x="282" y="405" width="32" height="26"/>
+                                <rect key="frame" x="468" y="361" width="32" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="mN0-QR-sxt"/>
                                     <constraint firstAttribute="width" constant="32" id="ooL-Ow-blX"/>
@@ -251,14 +249,14 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="agencyTitle" destination="JDP-Dq-gbV" id="eH9-L8-aoY"/>
-                        <outlet property="bankTitle" destination="cEo-Ee-gc1" id="hVp-rN-EiS"/>
-                        <outlet property="benefitedTitle" destination="nlA-K7-825" id="MzI-sy-c4r"/>
-                        <outlet property="choosenBankAccount" destination="huK-n1-dfb" id="RPT-bf-CY8"/>
-                        <outlet property="choosenBankAccountType" destination="rL4-Lu-kcL" id="ADQ-ia-7W1"/>
-                        <outlet property="choosenBankAgency" destination="0rd-CJ-16M" id="hby-uO-Jlp"/>
-                        <outlet property="choosenBankBenefited" destination="qyV-xy-esD" id="o6p-2t-Rha"/>
-                        <outlet property="choosenBankName" destination="YMT-2H-KBi" id="9hu-7K-tep"/>
+                        <outlet property="agencyTitleLabel" destination="JDP-Dq-gbV" id="eH9-L8-aoY"/>
+                        <outlet property="bankTitleLabel" destination="cEo-Ee-gc1" id="hVp-rN-EiS"/>
+                        <outlet property="benefitedTitleLabel" destination="nlA-K7-825" id="MzI-sy-c4r"/>
+                        <outlet property="choosenBankAccountLabel" destination="huK-n1-dfb" id="RPT-bf-CY8"/>
+                        <outlet property="choosenBankAccountTypeLabel" destination="rL4-Lu-kcL" id="ADQ-ia-7W1"/>
+                        <outlet property="choosenBankAgencyLabel" destination="0rd-CJ-16M" id="hby-uO-Jlp"/>
+                        <outlet property="choosenBankBenefitedLabel" destination="qyV-xy-esD" id="o6p-2t-Rha"/>
+                        <outlet property="choosenBankNameLabel" destination="YMT-2H-KBi" id="9hu-7K-tep"/>
                         <outlet property="switchButton" destination="wME-cX-e7H" id="r9Q-DJ-Vva"/>
                     </connections>
                 </viewController>

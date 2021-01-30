@@ -13,7 +13,7 @@ import FBSDKLoginKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginButtonDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
     var window: UIWindow?
     
@@ -41,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
                     sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                     annotation: options[UIApplication.OpenURLOptionsKey.annotation]
                 )
+        ApplicationDelegate.shared.application(
+            app, open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation] )
         
         return GIDSignIn.sharedInstance().handle(url)
     }
@@ -51,7 +55,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
 
     
     static func isLogged() -> Bool {
-            return Auth.auth().currentUser != nil
+        if Auth.auth().currentUser == nil {
+                let storyboard = UIStoryboard(name: "MainScreen", bundle: nil)
+//                let vc = storyboard as? MainScreenViewController
+                UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
+            return false
+        }
+        return true
+    }
+    
+    static func isAdmin() -> Bool {
+        if Auth.auth().currentUser == nil, Auth.auth().currentUser?.email == "admin@admin.com" {
+                let storyboard = UIStoryboard(name: "EventList", bundle: nil)
+//                let vc = storyboard as? EventListViewController
+                UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
+            return false
+        }
+        return true
     }
         
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -62,17 +82,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        let loginButton = FBLoginButton()
-        loginButton.delegate = self
+//        let loginButton = FBLoginButton()
+//        loginButton.delegate = self
         
         ApplicationDelegate.shared.application(
                     application,
                     didFinishLaunchingWithOptions: launchOptions
         )
             window?.makeKeyAndVisible()
-        
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        print(paths[0])
 //        }
             
         return true
@@ -99,78 +116,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
     func showMessagePrompt(_ message: String) {
         print(message)
     }
-
     
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        
-        if let error = error {
-            print(error.localizedDescription)
-            return
-          }
-        
-        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
-        
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-          if let error = error {
-            let authError = error as NSError
-            if (authError.code == AuthErrorCode.secondFactorRequired.rawValue) {
-              // The user is a multi-factor user. Second factor challenge is required.
-              let resolver = authError.userInfo[AuthErrorUserInfoMultiFactorResolverKey] as! MultiFactorResolver
-              var displayNameString = ""
-              for tmpFactorInfo in (resolver.hints) {
-                displayNameString += tmpFactorInfo.displayName ?? ""
-                displayNameString += " "
-              }
-              self.showTextInputPrompt(withMessage: "Select factor to sign in\n\(displayNameString)", completionBlock: { userPressedOK, displayName in
-                var selectedHint: PhoneMultiFactorInfo?
-                for tmpFactorInfo in resolver.hints {
-                  if (displayName == tmpFactorInfo.displayName) {
-                    selectedHint = tmpFactorInfo as? PhoneMultiFactorInfo
-                  }
-                }
-                PhoneAuthProvider.provider().verifyPhoneNumber(with: selectedHint!, uiDelegate: nil, multiFactorSession: resolver.session) { verificationID, error in
-                  if error != nil {
-                    print("Multi factor start sign in failed. Error: \(error.debugDescription)")
-                  } else {
-                    self.showTextInputPrompt(withMessage: "Verification code for \(selectedHint?.displayName ?? "")", completionBlock: { userPressedOK, verificationCode in
-                      let credential: PhoneAuthCredential? = PhoneAuthProvider.provider().credential(withVerificationID: verificationID!, verificationCode: verificationCode!)
-                      let assertion: MultiFactorAssertion? = PhoneMultiFactorGenerator.assertion(with: credential!)
-                      resolver.resolveSignIn(with: assertion!) { authResult, error in
-                        if error != nil {
-                          print("Multi factor finanlize sign in failed. Error: \(error.debugDescription)")
-                        } else {
-//                          self.navigationController?.popViewController(animated: true)
-                        }
-                      }
-                    })
-                  }
-                }
-              })
-            } else {
-              self.showMessagePrompt(error.localizedDescription)
-              return
-            }
-            // ...
-            return
-          }
-          
-            let storyboard = UIStoryboard(name: "User_Event", bundle: nil)
-            UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
-        }
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        // Use Firebase library to configure APIs
-        
-        if let error = error {
-            // ...
-            return
-        }
-        
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-        
+    func signToFirebase(credential: AuthCredential) {
         Auth.auth().signIn(with: credential) { (authResult, error) in
             if let error = error {
                 let authError = error as NSError
@@ -224,13 +171,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, LoginB
                     }
                     print("idToken \(idToken)")
                     
+                    let mainStoryboard: UIStoryboard = UIStoryboard(name: "User_Event", bundle: nil)
+                    let viewController = mainStoryboard.instantiateViewController(withIdentifier: "User_Event") as! User_EventViewController
+                    let viewModel = User_EventViewModel()
+                    viewModel.userToken = idToken!
+                    
+                    let navi = UINavigationController()
+                    navi.pushViewController(viewController, animated: true)
+                    
+                    navi.setNavigationBarHidden(true, animated: false)
+                    UIApplication.shared.windows.first!.rootViewController = navi
+
                 }
             }
-
-            let storyboard = UIStoryboard(name: "User_Event", bundle: nil)
-            UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
-            
         }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        // Use Firebase library to configure APIs
+        
+        if let error = error {
+            // ...
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        signToFirebase(credential: credential)
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

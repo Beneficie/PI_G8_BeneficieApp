@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o6S-to-EFc">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,11 +12,11 @@
             <objects>
                 <viewController id="o6S-to-EFc" customClass="CreateEventViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Pc-Z9-hCv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 366" translatesAutoresizingMaskIntoConstraints="NO" id="mkO-Z9-d0O">
-                                <rect key="frame" x="-111" y="0.0" width="540" height="87"/>
+                                <rect key="frame" x="-111" y="0.0" width="820" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mkO-Z9-d0O" secondAttribute="height" multiplier="207:98" id="IbI-CV-yWv"/>
                                 </constraints>
@@ -29,7 +27,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Criar Ação" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-Sz-8d8">
-                                <rect key="frame" x="108" y="90.5" width="104" height="27.5"/>
+                                <rect key="frame" x="248" y="106.5" width="104" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W5-Lr-sCn">
-                                <rect key="frame" x="92.5" y="514" width="135" height="40"/>
+                                <rect key="frame" x="232.5" y="530" width="135" height="40"/>
                                 <color key="backgroundColor" red="0.45882352939999999" green="0.47450980390000003" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="135" id="iOp-rY-hQn"/>
@@ -60,20 +58,20 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBa-7K-jPh">
-                                <rect key="frame" x="114" y="30" width="92.5" height="27.5"/>
+                                <rect key="frame" x="254" y="30" width="92.5" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WW-jp-raa">
-                                <rect key="frame" x="273.5" y="30" width="26.5" height="27.5"/>
+                                <rect key="frame" x="553.5" y="30" width="26.5" height="27.5"/>
                                 <state key="normal" image="Path 176"/>
                                 <connections>
                                     <action selector="profileButton:" destination="o6S-to-EFc" eventType="touchUpInside" id="wst-eb-vdp"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xN-sL-QxN">
-                                <rect key="frame" x="21.5" y="140" width="277" height="288"/>
+                                <rect key="frame" x="161.5" y="156" width="277" height="288"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yX-Si-KVy">
                                         <rect key="frame" x="0.0" y="0.0" width="31" height="17"/>
@@ -276,15 +274,15 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="cS3-Hf-hsw" id="4TG-ap-Dpr"/>
-                        <outlet property="labelGroupVacancy" destination="8j2-oQ-Wen" id="ql6-La-Fbe"/>
-                        <outlet property="labelTitle" destination="jBs-Sz-8d8" id="Bc6-ok-PZK"/>
-                        <outlet property="saveButtonOutlet" destination="5W5-Lr-sCn" id="R7x-M0-4Fi"/>
-                        <outlet property="textFieldAddress" destination="fos-i1-BJB" id="Duf-D9-boI"/>
-                        <outlet property="textFieldEventDescription" destination="ldl-r7-VFF" id="GRl-mh-0p9"/>
-                        <outlet property="textFieldEventTitle" destination="INb-pz-lp0" id="hi3-Ni-mWL"/>
-                        <outlet property="textFieldGroups" destination="N3D-hL-tBN" id="6Xd-eg-0pJ"/>
-                        <outlet property="textFieldTotal" destination="ac3-Qd-yZ9" id="xzl-mP-FcO"/>
+                        <outlet property="addressTextField" destination="fos-i1-BJB" id="Duf-D9-boI"/>
+                        <outlet property="currentActionLabel" destination="jBs-Sz-8d8" id="Bc6-ok-PZK"/>
+                        <outlet property="eventDatePicker" destination="cS3-Hf-hsw" id="4TG-ap-Dpr"/>
+                        <outlet property="eventDescriptionTextField" destination="ldl-r7-VFF" id="GRl-mh-0p9"/>
+                        <outlet property="eventTitleTextField" destination="INb-pz-lp0" id="hi3-Ni-mWL"/>
+                        <outlet property="eventTotalVacancyTextField" destination="ac3-Qd-yZ9" id="xzl-mP-FcO"/>
+                        <outlet property="groupVacancyLabel" destination="8j2-oQ-Wen" id="ql6-La-Fbe"/>
+                        <outlet property="groupsNumberTextField" destination="N3D-hL-tBN" id="6Xd-eg-0pJ"/>
+                        <outlet property="saveButton" destination="5W5-Lr-sCn" id="R7x-M0-4Fi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gJ-gx-w4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

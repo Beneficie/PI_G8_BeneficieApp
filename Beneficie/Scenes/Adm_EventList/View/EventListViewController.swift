@@ -11,16 +11,16 @@ class EventListViewController: UIViewController {
 
     var viewModel = EventListViewModel()
     
-    @IBOutlet var tableViewEvents: UITableView!
-    @IBOutlet weak var buttonCreate: UIButton!
+    @IBOutlet var eventListTableView: UITableView!
+    @IBOutlet weak var createEventButton: UIButton!
     
     var event = Event()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        tableViewEvents.delegate = self
-        tableViewEvents.dataSource = self
+        eventListTableView.delegate = self
+        eventListTableView.dataSource = self
         
         loadData()
         
@@ -31,12 +31,12 @@ class EventListViewController: UIViewController {
     func loadData() {
         viewModel.loadData { success in
             if success {
-                self.tableViewEvents.reloadData()
+                self.eventListTableView.reloadData()
                 self.event = self.viewModel.arrayEvents[0]
-                print("Success")
+//                print("Success")
 //                self.setUpUI(event: self.event)
             } else {
-                print("FailInLoadData")
+                print("Error: LoadData from eventList")
 //                self.alertFailedInLoadData()
             }
         }
@@ -44,8 +44,8 @@ class EventListViewController: UIViewController {
     
     func configureUI(){
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
-        buttonCreate.layer.cornerRadius = 15
-        buttonCreate.layer.cornerRadius = 15
+        createEventButton.layer.cornerRadius = 15
+        createEventButton.layer.cornerRadius = 15
     }
     @IBAction func profileButton(_ sender: Any) {
         if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
@@ -56,11 +56,6 @@ class EventListViewController: UIViewController {
         if let newEvent = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as? CreateEventViewController {
             navigationController?.pushViewController(newEvent, animated: true)
         }
-    }
-    
-    
-    @IBAction func backButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
     }
     
     func bankInformationsScreen() {
@@ -87,7 +82,7 @@ class EventListViewController: UIViewController {
 
 extension EventListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        tableViewEvents.deselectRow(at: indexPath, animated: true)
+        eventListTableView.deselectRow(at: indexPath, animated: true)
         if editingStyle == .delete {
             viewModel.arrayEvents.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)

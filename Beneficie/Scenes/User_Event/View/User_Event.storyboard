@@ -29,24 +29,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0n-PH-95Q">
-                                <rect key="frame" x="20" y="52.5" width="59.5" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="17v-pG-b8j"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Voltar" image="chevron.backward" catalog="system">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="17v-pG-b8j"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="backButton:" destination="o6S-to-EFc" eventType="touchUpInside" id="PiJ-aj-Zrh"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WW-jp-raa">
                                 <rect key="frame" x="273.5" y="50" width="26.5" height="27.5"/>
                                 <state key="normal" image="Path 176"/>
@@ -254,9 +236,9 @@
                                             <action selector="actionDonatePressed:" destination="o6S-to-EFc" eventType="touchUpInside" id="UXh-x1-1pF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmr-lo-hUO">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmr-lo-hUO">
                                         <rect key="frame" x="136" y="0.0" width="120" height="65"/>
-                                        <color key="backgroundColor" red="0.45882352939999999" green="0.47450980390000003" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="65" id="7Im-K0-JnT"/>
                                             <constraint firstAttribute="width" constant="150" id="ACm-mj-3qV"/>
@@ -291,7 +273,6 @@
                             <constraint firstItem="CN1-Fu-1y4" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="CRg-DD-Myt"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerX" secondItem="qGh-0W-C3s" secondAttribute="centerX" id="EZA-Id-WwK"/>
                             <constraint firstItem="mkO-Z9-d0O" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="IPX-RG-fm8"/>
-                            <constraint firstItem="y0n-PH-95Q" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="20" id="Iky-cP-1zd"/>
                             <constraint firstItem="CN1-Fu-1y4" firstAttribute="centerY" secondItem="4Pc-Z9-hCv" secondAttribute="bottom" constant="-50" id="Jkj-zB-DrX"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="KRm-My-CIh"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="NIP-cq-hbe"/>
@@ -303,7 +284,6 @@
                             <constraint firstItem="b3x-mg-ggc" firstAttribute="centerY" secondItem="4Pc-Z9-hCv" secondAttribute="centerY" constant="-45" id="o2N-3f-NRV"/>
                             <constraint firstItem="qGh-0W-C3s" firstAttribute="centerY" secondItem="CN1-Fu-1y4" secondAttribute="centerY" constant="-104" id="slt-Dg-8TG"/>
                             <constraint firstItem="NBa-7K-jPh" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="vuZ-ZB-Cjo"/>
-                            <constraint firstItem="y0n-PH-95Q" firstAttribute="centerY" secondItem="mkO-Z9-d0O" secondAttribute="centerY" constant="20" id="x37-sJ-P54"/>
                             <constraint firstItem="qGh-0W-C3s" firstAttribute="leading" secondItem="MHt-k1-2uj" secondAttribute="leading" constant="27" id="y1g-DA-Fjs"/>
                             <constraint firstItem="jBs-Sz-8d8" firstAttribute="centerY" secondItem="mkO-Z9-d0O" secondAttribute="centerY" constant="90" id="zTI-n6-TYC"/>
                         </constraints>
@@ -322,15 +302,15 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="buttonDonate" destination="5W5-Lr-sCn" id="XvT-C7-OhI"/>
-                        <outlet property="buttonSubscribe" destination="fmr-lo-hUO" id="FEy-ae-faO"/>
-                        <outlet property="labelEventDate" destination="dEy-rD-0kM" id="ydk-oj-0hG"/>
-                        <outlet property="labelEventDescription" destination="qGh-0W-C3s" id="RmA-eF-DRM"/>
-                        <outlet property="labelEventLocal" destination="Iae-xD-K26" id="SOo-Du-rb2"/>
-                        <outlet property="labelEventSubGroupVacancies" destination="i8p-qm-7wM" id="LMT-wD-jE5"/>
-                        <outlet property="labelEventTitle" destination="f4C-dC-wbf" id="Naw-wg-liW"/>
-                        <outlet property="labelEventVacancies" destination="g5o-VP-iSr" id="sF6-Wj-3Qi"/>
-                        <outlet property="pickerViewSubGroups" destination="tQq-BA-E8w" id="V2n-8G-Mca"/>
+                        <outlet property="donateButton" destination="5W5-Lr-sCn" id="XvT-C7-OhI"/>
+                        <outlet property="eventAddressLabel" destination="Iae-xD-K26" id="SOo-Du-rb2"/>
+                        <outlet property="eventDateLabel" destination="dEy-rD-0kM" id="ydk-oj-0hG"/>
+                        <outlet property="eventDescriptionLabel" destination="qGh-0W-C3s" id="RmA-eF-DRM"/>
+                        <outlet property="eventSubGroupVacanciesLabel" destination="i8p-qm-7wM" id="LMT-wD-jE5"/>
+                        <outlet property="eventTitleLabel" destination="f4C-dC-wbf" id="Naw-wg-liW"/>
+                        <outlet property="eventTotalVacanciesLabel" destination="g5o-VP-iSr" id="sF6-Wj-3Qi"/>
+                        <outlet property="subGroupsPickerView" destination="tQq-BA-E8w" id="V2n-8G-Mca"/>
+                        <outlet property="subscribeButton" destination="fmr-lo-hUO" id="FEy-ae-faO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gJ-gx-w4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -341,7 +321,6 @@
     <resources>
         <image name="Path 176" width="26.5" height="27.5"/>
         <image name="Rectangle 366" width="187.5" height="87"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

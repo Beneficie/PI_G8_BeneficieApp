@@ -7,45 +7,52 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
-    
-    //  MARK: - Outlets
-    @IBOutlet weak var singUpButtonOutlet: UIButton!
-    @IBOutlet weak var loginButtonOutlet: UIButton!
+        
+    @IBOutlet weak var googleButtonView: GIDSignInButton!
+    @IBOutlet weak var googleButtonOutlet: GIDSignInButton!
+    @IBOutlet weak var gView: UIView!
+    @IBOutlet weak var fBView: UIView!
+    @IBOutlet weak var singUpButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var logInTextField: UITextField!
+    @IBOutlet weak var loginTextField: UITextField!
     
-    var eventListViewModel = EventListViewModel()
     var viewModel = LoginViewModel()
     
-    var currentUser = User()
     
-    //  MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        logInTextField.delegate = self
+        // MARK: - Delegates
+        loginTextField.delegate = self
         passwordTextField.delegate = self
         
-        configureUI()
-        loadData()
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         
+        configureUI()
+    }
+    
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)? ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: cancelHandler))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func alertToInvalidUserOrPassword() {
+        showAlert(title: "Erro", message: "Cheque as informações e tente novamente", okHandler: nil, cancelHandler: nil)
     }
     
     func alertToEmptyFields(field: String){
-        let alert = UIAlertController(title: "Atenção", message: "Falta \(field)", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
-        }
-        alert.addAction(okAction)
-        self.present(alert, animated: true) {
-            
-        }
+        showAlert(title: "Atenção", message: "Falta \(field)", okHandler: nil, cancelHandler: nil)
     }
     
     func checkEmptyTextFields() -> Bool {
-        if logInTextField.text == nil || logInTextField.text!.isEmpty && viewModel.didRegister(userLogin: logInTextField.text!, currentUser: currentUser) == false {
+        if loginTextField.text == nil || loginTextField.text!.isEmpty {
             alertToEmptyFields(field: "usuário")
             return false
         }
@@ -56,96 +63,25 @@ class LoginViewController: UIViewController {
         return false
     }
     
-    func loadData() {
-        viewModel.loadData { success in
-            if success {
-                self.currentUser = self.viewModel.arrayUsers[0]
-            } else {
-                print("FailInLoadData")
-            }
-        }
+    @IBAction func googleLogin(_ sender: Any) {
+        GIDSignIn.sharedInstance().signIn()
     }
-    
-    func alertToRegister() {
-        let alert = UIAlertController(title: "Usuário Inválido", message: "Registre-se", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-            if let signUp = UIStoryboard(name: "SingUp", bundle: nil).instantiateInitialViewController() as? SingUpViewController {
-                self.navigationController?.pushViewController(signUp, animated: true)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: {_ in
-        }))
-        present(alert, animated: true)
-    }
-    
-    //MARK: - Helper Functions
-    
-    func configureUI(){
-        logInTextField.keyboardAppearance = .dark
-        logInTextField.leftViewMode = .always
-        logInTextField.borderStyle = .none
-        
-        passwordTextField.keyboardAppearance = .dark
-        passwordTextField.leftViewMode = .always
-        passwordTextField.borderStyle = .none
-        passwordTextField.isSecureTextEntry = true
-        
-        loginButtonOutlet.layer.cornerRadius = 25
-        loginButtonOutlet.layer.shadowOpacity = 0.3
-        loginButtonOutlet.layer.shadowRadius = 25
-        loginButtonOutlet.layer.shadowOffset = .zero
-        loginButtonOutlet.layer.shadowColor = UIColor.black.cgColor
-        
-        let attrbText = NSMutableAttributedString(string: "Não tem conta? ", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),                                                                                      NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        
-        attrbText.append(NSAttributedString(string: "Cadastre-se", attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15),NSAttributedString.Key.foregroundColor: UIColor.gray]))
-        
-        singUpButtonOutlet.setAttributedTitle(attrbText, for: .normal)
-        
-    }
-    
-    //MARK: - Events
     
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
     @IBAction func handleLogIn(_ sender: Any) {
-        if checkEmptyTextFields() {
-            if textFieldDidEndEditing(logInTextField) {
-                if let admScreen = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
-                    navigationController?.pushViewController(admScreen, animated: true)
+        if let user = loginTextField.text, let password = passwordTextField.text {
+            self.viewModel.authenticateWithFirebase(user: user, password: password,
+                                                    navigationController: self.navigationController,
+                                                    didAuthenticate: {(result) in
+                if !result {
+                    self.alertToInvalidUserOrPassword()
                 }
             }
-        } else {
-            if let user = logInTextField.text, let password = passwordTextField.text {
-//                if viewModel.didRegister(userLogin: user, currentUser: currentUser) {
-//                    if let userSubscription = UIStoryboard(name: "User_Event", bundle: nil).instantiateInitialViewController() as? User_EventViewController {
-//                            userSubscription.currentUser = self.currentUser
-//                            navigationController?.pushViewController(userSubscription, animated: true)
-//                    }
-//                } else {
-//                    alertToRegister()
-                Auth.auth().signIn(withEmail: user, password: password) { [weak self] authResult, error in
-                  guard let strongSelf = self else { return }
-                    if authResult != nil {
-                        let accountData = authResult
-                        print(accountData?.user)
-                        if let userSubscription = UIStoryboard(name: "User_Event", bundle: nil).instantiateInitialViewController() as? User_EventViewController {
-//                                                    userSubscription.currentUser = self.currentUser
-                            
-                            self?.navigationController?.pushViewController(userSubscription, animated: true)
-                                            }
-                    } else {
-                        print(error)
-                    }
-                }
-            }
-        }
+        )}
     }
-    
-    
-                            
     
     @IBAction func handleForgotPassword(_ sender: UIButton) {
         print("DEBUG: Forgot Password")
@@ -155,29 +91,111 @@ class LoginViewController: UIViewController {
             navigationController?.pushViewController(signUp, animated: true)
         }
     }
+    
+    func configureUI() {
+        let fBButton = configureFacebookButton()
+        addSubview(button: fBButton)
+        configureConstraints(button: fBButton)
+        configureLayout(button: fBButton)
+        
+    }
+    
+    func addSubview(button: FBLoginButton) {
+        
+        fBView.addSubview(button)
+    }
+    
+    func configureLayout(button: FBLoginButton) {
+        button.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
+        let buttonText = NSAttributedString(string: "Entre com o Facebook")
+        button.setAttributedTitle(buttonText, for: .normal)
+        
+        googleButtonOutlet.layer.cornerRadius = 5
+        gView.layer.cornerRadius = 5
+        gView.layer.borderWidth = 1
+        gView.layer.borderColor = CGColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+        googleButtonView.layer.cornerRadius = 5
+        
+        loginTextField.keyboardAppearance = .dark
+        loginTextField.leftViewMode = .always
+        loginTextField.borderStyle = .none
+        
+        passwordTextField.keyboardAppearance = .dark
+        passwordTextField.leftViewMode = .always
+        passwordTextField.borderStyle = .none
+        passwordTextField.isSecureTextEntry = true
+        
+        loginButton.layer.cornerRadius = 25
+        loginButton.layer.shadowOpacity = 0.3
+        loginButton.layer.shadowRadius = 25
+        loginButton.layer.shadowOffset = .zero
+        loginButton.layer.shadowColor = UIColor.black.cgColor
+        
+        let attrbText = NSMutableAttributedString(string: "Não tem conta? ",
+                                                  attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),
+                                                               NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        attrbText.append(NSAttributedString(string: "Cadastre-se",
+                                            attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15),
+                                                         NSAttributedString.Key.foregroundColor: UIColor.gray]))
+        
+        singUpButton.setAttributedTitle(attrbText, for: .normal)
+    }
+    
+    func configureConstraints(button: FBLoginButton) {
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerX,
+                                                      relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
+                                                      attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY,
+                                                    relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
+                                                    attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
+    }
+    
+    func configureFacebookButton() -> FBLoginButton {
+        
+        let loginButton = FBLoginButton()
+        loginButton.delegate = self
+        loginButton.permissions = ["public_profile", "email"]
+        
+        return loginButton
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if logInTextField.text != nil {
-            passwordTextField.becomeFirstResponder()
-        } else {
+        if textField.text == "" {
+            return false
+        } else if textField == loginTextField, loginTextField != nil {
             textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+            return true
+        } else {
+            checkEmptyTextFields()
+            
         }
-        checkEmptyTextFields()
-        handleLogIn(loginButtonOutlet)
+        handleLogIn(loginButton)
         return true
+    }
+}
+
+extension LoginViewController: LoginButtonDelegate {
+    
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         
-    }
-    private func textFieldDidEndEditing(_ textField: UITextField) -> Bool {
-        if let user = textField.text {
-            let login = viewModel.isAdmin(user: user)
-            if login {
-                return true
-            }
+        if let error = error {
+            print(error.localizedDescription)
+            return
+          }
+        if FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString) != nil {
+            let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+            let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+            appDelegate!.signToFirebase(credential: credential)
         }
-        return false
     }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) { print("FBLogOut") }
 }
 
 
