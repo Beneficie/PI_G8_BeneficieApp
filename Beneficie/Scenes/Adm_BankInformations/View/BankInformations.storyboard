@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GAI-oz-sG2">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,11 +12,11 @@
             <objects>
                 <viewController id="GAI-oz-sG2" customClass="BankInformationsViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NnQ-Re-Ugo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 366" translatesAutoresizingMaskIntoConstraints="NO" id="oeU-n7-tSZ">
-                                <rect key="frame" x="-110" y="0.0" width="540" height="87"/>
+                                <rect key="frame" x="30" y="0.0" width="540" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="540" id="dik-hd-HrA"/>
                                     <constraint firstAttribute="width" secondItem="oeU-n7-tSZ" secondAttribute="height" multiplier="207:98" id="t62-kT-5lC"/>
@@ -30,13 +28,13 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRf-Xy-nA3">
-                                <rect key="frame" x="114" y="30" width="92.5" height="27.5"/>
+                                <rect key="frame" x="254" y="30" width="92.5" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informações Bancárias" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hW2-PB-iQp">
-                                <rect key="frame" x="47.5" y="107" width="225.5" height="27.5"/>
+                                <rect key="frame" x="187.5" y="107" width="225.5" height="27.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="132" id="EHx-oy-BLd"/>
                                     <constraint firstAttribute="height" constant="21" id="L5S-pT-zzO"/>
@@ -72,7 +70,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zqo-F4-q0R">
-                                <rect key="frame" x="273.5" y="30" width="26.5" height="27.5"/>
+                                <rect key="frame" x="553.5" y="30" width="26.5" height="27.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zqo-F4-q0R" secondAttribute="height" multiplier="27:28" id="5qF-zo-dTH"/>
                                 </constraints>
@@ -87,7 +85,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OB3-oU-HRb">
-                                <rect key="frame" x="30" y="493.5" width="260" height="45"/>
+                                <rect key="frame" x="30" y="525.5" width="540" height="45"/>
                                 <color key="backgroundColor" red="0.46198064090000002" green="0.475060761" blue="0.87847304339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Iy6-mN-cVJ"/>
@@ -104,7 +102,7 @@
                                 </variation>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jwO-qL-Ax8">
-                                <rect key="frame" x="30" y="142.5" width="260" height="341"/>
+                                <rect key="frame" x="30" y="142.5" width="540" height="373"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="341" id="jcD-W1-6fR"/>
@@ -164,8 +162,8 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="buttonAddNewBank" destination="OB3-oU-HRb" id="8Jf-aG-sIu"/>
-                        <outlet property="tableViewBanksList" destination="jwO-qL-Ax8" id="0E9-Js-Z4B"/>
+                        <outlet property="BanksListTableView" destination="jwO-qL-Ax8" id="0E9-Js-Z4B"/>
+                        <outlet property="newBankButton" destination="OB3-oU-HRb" id="8Jf-aG-sIu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1iD-7c-nax" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

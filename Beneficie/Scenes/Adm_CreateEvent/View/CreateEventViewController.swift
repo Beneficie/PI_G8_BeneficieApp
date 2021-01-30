@@ -9,17 +9,17 @@ import UIKit
 
 class CreateEventViewController: UIViewController {
 
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var textFieldAddress: UITextField!
-    @IBOutlet weak var textFieldEventTitle: UITextField!
-    @IBOutlet weak var textFieldTotal: UITextField!
-    @IBOutlet weak var textFieldGroups: UITextField!
-    @IBOutlet weak var labelGroupVacancy: UILabel!
-    @IBOutlet weak var textFieldEventDescription: UITextField!
+    @IBOutlet weak var eventDatePicker: UIDatePicker!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var eventTitleTextField: UITextField!
+    @IBOutlet weak var eventTotalVacancyTextField: UITextField!
+    @IBOutlet weak var groupsNumberTextField: UITextField!
+    @IBOutlet weak var groupVacancyLabel: UILabel!
+    @IBOutlet weak var eventDescriptionTextField: UITextField!
     
     
-    @IBOutlet weak var saveButtonOutlet: UIButton!
-    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var currentActionLabel: UILabel!
     
     var viewModel = CreateEventViewModel()
     var currentAction: String = "Criar"
@@ -30,11 +30,11 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textFieldAddress.delegate = self
-        textFieldEventTitle.delegate = self
-        textFieldTotal.delegate = self
-        textFieldGroups.delegate = self
-        textFieldEventDescription.delegate = self
+        addressTextField.delegate = self
+        eventTitleTextField.delegate = self
+        eventTotalVacancyTextField.delegate = self
+        groupsNumberTextField.delegate = self
+        eventDescriptionTextField.delegate = self
         
         configureUI()
         
@@ -45,20 +45,20 @@ class CreateEventViewController: UIViewController {
     }
     
     func handleVacancy() {
-        if textFieldAddress.text != nil,
-        textFieldEventTitle.text != nil,
-        textFieldTotal.text != nil,
-        textFieldGroups.text != nil,
-        textFieldEventDescription.text != nil {
-            if textFieldTotal.text!.isEmpty == false,
-               textFieldGroups.text!.isEmpty == false {
-                if let totalVacancy = textFieldTotal.text,
-                   let groupVacancy = textFieldGroups.text {
+        if addressTextField.text != nil,
+        eventTitleTextField.text != nil,
+        eventTotalVacancyTextField.text != nil,
+        groupsNumberTextField.text != nil,
+        eventDescriptionTextField.text != nil {
+            if eventTotalVacancyTextField.text!.isEmpty == false,
+               groupsNumberTextField.text!.isEmpty == false {
+                if let totalVacancy = eventTotalVacancyTextField.text,
+                   let groupVacancy = groupsNumberTextField.text {
                     if groupVacancy == "1" {
-                        textFieldTotal.text = groupVacancy
+                        eventTotalVacancyTextField.text = groupVacancy
                     } else {
                         let result = Int(totalVacancy)!/Int(groupVacancy)!
-                        labelGroupVacancy.text = String(result)
+                        groupVacancyLabel.text = String(result)
                     }
                 }
             }
@@ -66,17 +66,17 @@ class CreateEventViewController: UIViewController {
     }
     
     func createEvent() {
-        if let address = textFieldAddress.text,
-           let title = textFieldEventTitle.text,
-           let totalVacancy = textFieldTotal.text,
-           let groups = textFieldGroups.text,
-           let eventDescription = textFieldEventDescription.text
+        if let address = addressTextField.text,
+           let title = eventTitleTextField.text,
+           let totalVacancy = eventTotalVacancyTextField.text,
+           let groups = groupsNumberTextField.text,
+           let eventDescription = eventDescriptionTextField.text
         {
-            if textFieldAddress.text?.isEmpty == false,
-               textFieldEventTitle.text?.isEmpty == false,
-               textFieldTotal.text?.isEmpty == false,
-               textFieldGroups.text?.isEmpty == false,
-               textFieldEventDescription.text?.isEmpty == false
+            if addressTextField.text?.isEmpty == false,
+               eventTitleTextField.text?.isEmpty == false,
+               eventTotalVacancyTextField.text?.isEmpty == false,
+               groupsNumberTextField.text?.isEmpty == false,
+               eventDescriptionTextField.text?.isEmpty == false
             {
                 newEvent.local = address
                 newEvent.titulo = title
@@ -124,23 +124,23 @@ class CreateEventViewController: UIViewController {
     
     func configureUI(){
         //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
-        saveButtonOutlet.layer.cornerRadius = 15
-        labelTitle.text = "\(currentAction) Ação"
+        saveButton.layer.cornerRadius = 15
+        currentActionLabel.text = "\(currentAction) Ação"
         
     }
     
     func editEvent() {
-        datePicker.setDate(Date(), animated: true)
-        textFieldAddress.text = currentEvent.local
-        textFieldEventTitle.text = currentEvent.titulo
-        textFieldTotal.text = String(currentEvent.vagasTotais)
-        labelGroupVacancy.text = String(currentEvent.vagasDisponiveis)
-        textFieldEventDescription.text = currentEvent.descricao
+        eventDatePicker.setDate(Date(), animated: true)
+        addressTextField.text = currentEvent.local
+        eventTitleTextField.text = currentEvent.titulo
+        eventTotalVacancyTextField.text = String(currentEvent.vagasTotais)
+        groupVacancyLabel.text = String(currentEvent.vagasDisponiveis)
+        eventDescriptionTextField.text = currentEvent.descricao
     }
     @IBAction func datePickerFormatter(_ sender: Any) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
-        let eventDate = dateFormatter.string(from: datePicker.date)
+        let eventDate = dateFormatter.string(from: eventDatePicker.date)
         newEvent.data = eventDate
     }
     
@@ -160,12 +160,12 @@ class CreateEventViewController: UIViewController {
 
 extension CreateEventViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textFieldAddress != nil,
-           textFieldAddress != nil,
-           textFieldEventTitle != nil,
-           textFieldTotal.text != nil
+        if addressTextField != nil,
+           addressTextField != nil,
+           eventTitleTextField != nil,
+           eventTotalVacancyTextField.text != nil
            {
-            textFieldEventDescription.becomeFirstResponder()
+            eventDescriptionTextField.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
         }

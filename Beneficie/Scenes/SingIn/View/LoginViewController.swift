@@ -16,10 +16,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var googleButtonOutlet: GIDSignInButton!
     @IBOutlet weak var gView: UIView!
     @IBOutlet weak var fBView: UIView!
-    @IBOutlet weak var singUpButtonOutlet: UIButton!
-    @IBOutlet weak var loginButtonOutlet: UIButton!
+    @IBOutlet weak var singUpButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var logInTextField: UITextField!
+    @IBOutlet weak var loginTextField: UITextField!
     
     var viewModel = LoginViewModel()
     
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // MARK: - Delegates
-        logInTextField.delegate = self
+        loginTextField.delegate = self
         passwordTextField.delegate = self
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
     }
     
     func checkEmptyTextFields() -> Bool {
-        if logInTextField.text == nil || logInTextField.text!.isEmpty {
+        if loginTextField.text == nil || loginTextField.text!.isEmpty {
             alertToEmptyFields(field: "usuário")
             return false
         }
@@ -72,7 +72,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func handleLogIn(_ sender: Any) {
-        if let user = logInTextField.text, let password = passwordTextField.text {
+        if let user = loginTextField.text, let password = passwordTextField.text {
             self.viewModel.authenticateWithFirebase(user: user, password: password,
                                                     navigationController: self.navigationController,
                                                     didAuthenticate: {(result) in
@@ -93,24 +93,22 @@ class LoginViewController: UIViewController {
     }
     
     func configureUI() {
-        let loginButton = FBLoginButton()
-        loginButton.delegate = self
-        fBView.addSubview(loginButton)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        let fBButton = configureFacebookButton()
+        addSubview(button: fBButton)
+        configureConstraints(button: fBButton)
+        configureLayout(button: fBButton)
         
-        let horizontalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerX,
-                                                      relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
-                                                      attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
-        let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY,
-                                                    relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
-                                                    attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+    }
+    
+    func addSubview(button: FBLoginButton) {
         
-        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
-        
-        loginButton.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
+        fBView.addSubview(button)
+    }
+    
+    func configureLayout(button: FBLoginButton) {
+        button.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
         let buttonText = NSAttributedString(string: "Entre com o Facebook")
-        loginButton.setAttributedTitle(buttonText, for: .normal)
-        loginButton.permissions = ["public_profile", "email"]
+        button.setAttributedTitle(buttonText, for: .normal)
         
         googleButtonOutlet.layer.cornerRadius = 5
         gView.layer.cornerRadius = 5
@@ -118,31 +116,50 @@ class LoginViewController: UIViewController {
         gView.layer.borderColor = CGColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
         googleButtonView.layer.cornerRadius = 5
         
-        logInTextField.keyboardAppearance = .dark
-        logInTextField.leftViewMode = .always
-        logInTextField.borderStyle = .none
+        loginTextField.keyboardAppearance = .dark
+        loginTextField.leftViewMode = .always
+        loginTextField.borderStyle = .none
         
         passwordTextField.keyboardAppearance = .dark
         passwordTextField.leftViewMode = .always
         passwordTextField.borderStyle = .none
         passwordTextField.isSecureTextEntry = true
         
-        loginButtonOutlet.layer.cornerRadius = 25
-        loginButtonOutlet.layer.shadowOpacity = 0.3
-        loginButtonOutlet.layer.shadowRadius = 25
-        loginButtonOutlet.layer.shadowOffset = .zero
-        loginButtonOutlet.layer.shadowColor = UIColor.black.cgColor
+        loginButton.layer.cornerRadius = 25
+        loginButton.layer.shadowOpacity = 0.3
+        loginButton.layer.shadowRadius = 25
+        loginButton.layer.shadowOffset = .zero
+        loginButton.layer.shadowColor = UIColor.black.cgColor
         
         let attrbText = NSMutableAttributedString(string: "Não tem conta? ",
                                                   attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),
                                                                NSAttributedString.Key.foregroundColor: UIColor.lightGray])
-        
         attrbText.append(NSAttributedString(string: "Cadastre-se",
                                             attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15),
                                                          NSAttributedString.Key.foregroundColor: UIColor.gray]))
         
-        singUpButtonOutlet.setAttributedTitle(attrbText, for: .normal)
+        singUpButton.setAttributedTitle(attrbText, for: .normal)
+    }
+    
+    func configureConstraints(button: FBLoginButton) {
         
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerX,
+                                                      relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
+                                                      attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY,
+                                                    relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
+                                                    attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
+    }
+    
+    func configureFacebookButton() -> FBLoginButton {
+        
+        let loginButton = FBLoginButton()
+        loginButton.delegate = self
+        loginButton.permissions = ["public_profile", "email"]
+        
+        return loginButton
     }
 }
 
@@ -150,7 +167,7 @@ extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.text == "" {
             return false
-        } else if textField == logInTextField, logInTextField != nil {
+        } else if textField == loginTextField, loginTextField != nil {
             textField.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
             return true
@@ -158,7 +175,7 @@ extension LoginViewController: UITextFieldDelegate {
             checkEmptyTextFields()
             
         }
-        handleLogIn(loginButtonOutlet)
+        handleLogIn(loginButton)
         return true
     }
 }

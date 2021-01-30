@@ -9,11 +9,11 @@ import UIKit
 
 class ConfirmEventSubscriptionViewController: UIViewController {
 
-    @IBOutlet var labelSubgroup: UILabel!
-    @IBOutlet var labelEventTitle: UILabel!
-    @IBOutlet var textFieldFullName: UITextField!
-    @IBOutlet var textFieldContact: UITextField!
-    @IBOutlet var buttonConfirm: UIButton!
+    @IBOutlet var subgroupLabel: UILabel!
+    @IBOutlet var eventTitleLabel: UILabel!
+    @IBOutlet var fullNameTextField: UITextField!
+    @IBOutlet var phoneNumberTextField: UITextField!
+    @IBOutlet var confirmButton: UIButton!
     
     var viewModel = ConfirmEventSubscriptionViewModel()
     var currentEvent = Event()
@@ -29,21 +29,19 @@ class ConfirmEventSubscriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.currentEvent = currentEvent
-        viewModel.currentUser = currentUser
-        viewModel.currentSubgroup = currentSubgroup
+        self.viewModel.setupValues(currentEvent, currentUser, currentSubgroup)
         
         setUpUI()
         
     }
     
     func setUpUI() {
-        textFieldFullName.delegate = self
-        textFieldContact.delegate = self
-        labelEventTitle.text = self.viewModel.currentEvent.titulo
-        labelSubgroup.text = "Subgrupo \(viewModel.currentSubgroup)"
-        buttonConfirm.layer.cornerRadius = 15
-        textFieldContact.text = viewModel.currentUser.phoneNumber
+        fullNameTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        eventTitleLabel.text = self.viewModel.currentEvent.titulo
+        subgroupLabel.text = "Subgrupo \(viewModel.currentSubgroup)"
+        confirmButton.layer.cornerRadius = 15
+        phoneNumberTextField.text = viewModel.currentUser.phoneNumber
     }
     
     func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)? ) {
@@ -56,7 +54,7 @@ class ConfirmEventSubscriptionViewController: UIViewController {
 
     
     func subscribeUser() {
-        viewModel.checkUser(name: self.textFieldFullName.text!, phoneNumber: self.textFieldContact.text!)
+        viewModel.checkUser(name: self.fullNameTextField.text!, phoneNumber: self.phoneNumberTextField.text!)
         if let index = viewModel.currentEvent.subgrupos.firstIndex(where: { $0.grupo == viewModel.currentSubgroup }) {
             viewModel.currentEvent.subgrupos[index].inscritos.append(viewModel.currentUser.uid)
 //            viewModel.currentUser.phoneNumber = textFieldContact.text
@@ -97,12 +95,12 @@ extension ConfirmEventSubscriptionViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.text == "" {
             return false
-        } else if textField == textFieldFullName {
-            textFieldFullName.resignFirstResponder()
-            textFieldContact.becomeFirstResponder()
+        } else if textField == fullNameTextField {
+            fullNameTextField.resignFirstResponder()
+            phoneNumberTextField.becomeFirstResponder()
             return true
-        }else if textField == textFieldContact {
-            textFieldContact.resignFirstResponder()
+        }else if textField == phoneNumberTextField {
+            phoneNumberTextField.resignFirstResponder()
             self.subscribeUser()
             return true
         }else {

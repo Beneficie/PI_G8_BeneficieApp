@@ -44,6 +44,12 @@ class ConfirmEventSubscriptionViewModel {
         }
     }
     
+    func setupValues(_ currentEvent: Event, _ currentUser: User, _ currentSubgroup: String) {
+        self.currentEvent = currentEvent
+        self.currentUser = currentUser
+        self.currentSubgroup = currentSubgroup
+    }
+    
     func checkUser(name: String, phoneNumber: String) {
         if !isUserUpdated(name: name, phoneNumber: phoneNumber) {
             print(currentUser.name, name, currentUser.phoneNumber, phoneNumber)

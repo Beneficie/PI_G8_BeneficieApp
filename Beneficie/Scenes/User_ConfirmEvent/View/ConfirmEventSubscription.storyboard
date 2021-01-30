@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o6S-to-EFc">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,11 +12,11 @@
             <objects>
                 <viewController id="o6S-to-EFc" customClass="ConfirmEventSubscriptionViewController" customModule="Beneficie" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Pc-Z9-hCv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 366" translatesAutoresizingMaskIntoConstraints="NO" id="mkO-Z9-d0O">
-                                <rect key="frame" x="-89" y="0.0" width="500" height="87"/>
+                                <rect key="frame" x="51" y="0.0" width="500" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mkO-Z9-d0O" secondAttribute="height" multiplier="207:98" id="IbI-CV-yWv"/>
                                     <constraint firstAttribute="height" constant="87" id="X16-ej-PLt"/>
@@ -31,7 +29,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WW-jp-raa">
-                                <rect key="frame" x="273.5" y="50" width="26.5" height="27.5"/>
+                                <rect key="frame" x="553.5" y="50" width="26.5" height="27.5"/>
                                 <state key="normal" image="Path 176"/>
                                 <connections>
                                     <action selector="profileButton:" destination="o6S-to-EFc" eventType="touchUpInside" id="Q9h-wO-wVQ"/>
@@ -48,7 +46,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmar Inscrição" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-Sz-8d8">
-                                <rect key="frame" x="-1" y="119.5" width="322" height="27.5"/>
+                                <rect key="frame" x="139.5" y="135.5" width="321.5" height="27.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="321.5" id="UWn-A2-mhY"/>
                                 </constraints>
@@ -57,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W5-Lr-sCn">
-                                <rect key="frame" x="10" y="485.5" width="300" height="65"/>
+                                <rect key="frame" x="150" y="517.5" width="300" height="65"/>
                                 <color key="backgroundColor" red="0.45882352939999999" green="0.47450980390000003" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="bEX-8W-zDo"/>
@@ -72,19 +70,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subgrupo X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es6-f8-LNl">
-                                <rect key="frame" x="108" y="232" width="104.5" height="24"/>
+                                <rect key="frame" x="248" y="248" width="104.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Título da Ação" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uv-d7-qrv">
-                                <rect key="frame" x="97.5" y="172" width="125" height="24"/>
+                                <rect key="frame" x="237.5" y="188" width="125" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Deg-7m-3xV">
-                                <rect key="frame" x="53.5" y="336" width="213.5" height="34"/>
+                                <rect key="frame" x="193.5" y="352" width="213.5" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contato" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3Q-kt-G1H">
                                         <rect key="frame" x="0.0" y="0.0" width="61" height="34"/>
@@ -119,7 +117,7 @@
                                 </variation>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c7Y-kb-zTb">
-                                <rect key="frame" x="24.5" y="287" width="271.5" height="34"/>
+                                <rect key="frame" x="164.5" y="303" width="271.5" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UQ-Ga-nY5">
                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="34"/>
@@ -225,11 +223,11 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="buttonConfirm" destination="5W5-Lr-sCn" id="pfu-p9-fd7"/>
-                        <outlet property="labelEventTitle" destination="6uv-d7-qrv" id="evI-Uh-EZy"/>
-                        <outlet property="labelSubgroup" destination="es6-f8-LNl" id="BGN-TZ-BQv"/>
-                        <outlet property="textFieldContact" destination="34a-qF-NrK" id="JRi-Qn-opJ"/>
-                        <outlet property="textFieldFullName" destination="zbz-QT-PjI" id="bfj-Ut-nWg"/>
+                        <outlet property="confirmButton" destination="5W5-Lr-sCn" id="pfu-p9-fd7"/>
+                        <outlet property="eventTitleLabel" destination="6uv-d7-qrv" id="evI-Uh-EZy"/>
+                        <outlet property="fullNameTextField" destination="zbz-QT-PjI" id="bfj-Ut-nWg"/>
+                        <outlet property="phoneNumberTextField" destination="34a-qF-NrK" id="JRi-Qn-opJ"/>
+                        <outlet property="subgroupLabel" destination="es6-f8-LNl" id="BGN-TZ-BQv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gJ-gx-w4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

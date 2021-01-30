@@ -643,8 +643,8 @@
 		33B90484257E5A2A004DA579 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				33D07EA3255DCE2000272FBF /* User_SocialNetworksViewController.swift */,
 				33D07EA7255DCE2A00272FBF /* User_SocialNetworks.storyboard */,
+				33D07EA3255DCE2000272FBF /* User_SocialNetworksViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

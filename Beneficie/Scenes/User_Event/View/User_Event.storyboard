@@ -236,7 +236,7 @@
                                             <action selector="actionDonatePressed:" destination="o6S-to-EFc" eventType="touchUpInside" id="UXh-x1-1pF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmr-lo-hUO">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmr-lo-hUO">
                                         <rect key="frame" x="136" y="0.0" width="120" height="65"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -302,15 +302,15 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="buttonDonate" destination="5W5-Lr-sCn" id="XvT-C7-OhI"/>
-                        <outlet property="buttonSubscribe" destination="fmr-lo-hUO" id="FEy-ae-faO"/>
-                        <outlet property="labelEventDate" destination="dEy-rD-0kM" id="ydk-oj-0hG"/>
-                        <outlet property="labelEventDescription" destination="qGh-0W-C3s" id="RmA-eF-DRM"/>
-                        <outlet property="labelEventLocal" destination="Iae-xD-K26" id="SOo-Du-rb2"/>
-                        <outlet property="labelEventSubGroupVacancies" destination="i8p-qm-7wM" id="LMT-wD-jE5"/>
-                        <outlet property="labelEventTitle" destination="f4C-dC-wbf" id="Naw-wg-liW"/>
-                        <outlet property="labelEventVacancies" destination="g5o-VP-iSr" id="sF6-Wj-3Qi"/>
-                        <outlet property="pickerViewSubGroups" destination="tQq-BA-E8w" id="V2n-8G-Mca"/>
+                        <outlet property="donateButton" destination="5W5-Lr-sCn" id="XvT-C7-OhI"/>
+                        <outlet property="eventAddressLabel" destination="Iae-xD-K26" id="SOo-Du-rb2"/>
+                        <outlet property="eventDateLabel" destination="dEy-rD-0kM" id="ydk-oj-0hG"/>
+                        <outlet property="eventDescriptionLabel" destination="qGh-0W-C3s" id="RmA-eF-DRM"/>
+                        <outlet property="eventSubGroupVacanciesLabel" destination="i8p-qm-7wM" id="LMT-wD-jE5"/>
+                        <outlet property="eventTitleLabel" destination="f4C-dC-wbf" id="Naw-wg-liW"/>
+                        <outlet property="eventTotalVacanciesLabel" destination="g5o-VP-iSr" id="sF6-Wj-3Qi"/>
+                        <outlet property="subGroupsPickerView" destination="tQq-BA-E8w" id="V2n-8G-Mca"/>
+                        <outlet property="subscribeButton" destination="fmr-lo-hUO" id="FEy-ae-faO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2gJ-gx-w4x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

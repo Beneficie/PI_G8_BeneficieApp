@@ -13,22 +13,22 @@ class User_EventViewController: UIViewController {
     var viewModel = User_EventViewModel()
     var nextViewModel = ConfirmEventSubscriptionViewModel()
     
-    @IBOutlet weak var labelEventDate: UILabel!
-    @IBOutlet weak var labelEventLocal: UILabel!
-    @IBOutlet weak var labelEventTitle: UILabel!
-    @IBOutlet weak var labelEventVacancies: UILabel!
-    @IBOutlet weak var pickerViewSubGroups: UIPickerView!
-    @IBOutlet weak var labelEventSubGroupVacancies: UILabel!
-    @IBOutlet weak var labelEventDescription: UILabel!
+    @IBOutlet weak var eventDateLabel: UILabel!
+    @IBOutlet weak var eventAddressLabel: UILabel!
+    @IBOutlet weak var eventTitleLabel: UILabel!
+    @IBOutlet weak var eventTotalVacanciesLabel: UILabel!
+    @IBOutlet weak var subGroupsPickerView: UIPickerView!
+    @IBOutlet weak var eventSubGroupVacanciesLabel: UILabel!
+    @IBOutlet weak var eventDescriptionLabel: UILabel!
     
-    @IBOutlet var buttonDonate: UIButton!
-    @IBOutlet var buttonSubscribe: UIButton!
+    @IBOutlet var donateButton: UIButton!
+    @IBOutlet var subscribeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        pickerViewSubGroups.delegate = self
-        pickerViewSubGroups.dataSource = self
+        subGroupsPickerView.delegate = self
+        subGroupsPickerView.dataSource = self
         
         setupUI()
         
@@ -43,28 +43,28 @@ class User_EventViewController: UIViewController {
     }
     
     func setupUI() {
-        buttonDonate.layer.cornerRadius = 15
-        buttonSubscribe.layer.cornerRadius = 15
-        labelEventDate.text = ""
-        labelEventLocal.text = ""
-        labelEventTitle.text = ""
-        labelEventVacancies.text = ""
-        labelEventSubGroupVacancies.text = ""
-        labelEventDescription.text = ""
+        donateButton.layer.cornerRadius = 15
+        subscribeButton.layer.cornerRadius = 15
+        eventDateLabel.text = ""
+        eventAddressLabel.text = ""
+        eventTitleLabel.text = ""
+        eventTotalVacanciesLabel.text = ""
+        eventSubGroupVacanciesLabel.text = ""
+        eventDescriptionLabel.text = ""
     }
     
     
     func updateUIForSubscription(event: Event) {
-        labelEventDate.text = event.data
-        labelEventLocal.text = event.local
-        labelEventTitle.text = event.titulo
-        labelEventVacancies.text = String(event.subgrupos[0].vagasSubgrupo)
-        labelEventSubGroupVacancies.text = String(event.subgrupos[0].vagasDisponiveisSubgrupo)
-        labelEventDescription.text = event.descricao
-        pickerViewSubGroups.reloadComponent(0)
+        eventDateLabel.text = event.data
+        eventAddressLabel.text = event.local
+        eventTitleLabel.text = event.titulo
+        eventTotalVacanciesLabel.text = String(event.subgrupos[0].vagasSubgrupo)
+        eventSubGroupVacanciesLabel.text = String(event.subgrupos[0].vagasDisponiveisSubgrupo)
+        eventDescriptionLabel.text = event.descricao
+        subGroupsPickerView.reloadComponent(0)
         if !didSubscribe() {
-                buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
-                buttonSubscribe.isEnabled = true
+                subscribeButton.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+                subscribeButton.isEnabled = true
         }
     }
     
@@ -93,15 +93,15 @@ class User_EventViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
             if self.viewModel.loadFromDataBase() != nil {
                 let loadedEvent = self.viewModel.loadFromDataBase()
-                self.labelEventDate.text = loadedEvent[0]?.eventDateDB
-                self.labelEventTitle.text = loadedEvent[0]?.eventNameDB
-                self.labelEventLocal.text = loadedEvent[0]?.eventAddressDB
-                self.labelEventDescription.text = loadedEvent[0]?.eventDescriptionDB
+                self.eventDateLabel.text = loadedEvent[0]?.eventDateDB
+                self.eventTitleLabel.text = loadedEvent[0]?.eventNameDB
+                self.eventAddressLabel.text = loadedEvent[0]?.eventAddressDB
+                self.eventDescriptionLabel.text = loadedEvent[0]?.eventDescriptionDB
                 self.viewModel.subgroup = (loadedEvent[0]?.eventSubgroupDB)!
-                self.labelEventVacancies.text = "0"
-                self.labelEventSubGroupVacancies.text = "0"
-                self.pickerViewSubGroups.reloadComponent(0)
-                self.pickerViewSubGroups.isUserInteractionEnabled = false
+                self.eventTotalVacanciesLabel.text = "0"
+                self.eventSubGroupVacanciesLabel.text = "0"
+                self.subGroupsPickerView.reloadComponent(0)
+                self.subGroupsPickerView.isUserInteractionEnabled = false
             }
         }))
         present(alert, animated: true)
@@ -110,8 +110,8 @@ class User_EventViewController: UIViewController {
     func didSubscribe() -> Bool {
         for group in viewModel.arrayEvents[0].subgrupos {
             if group.inscritos.contains(viewModel.currentUser.uid) {
-                buttonSubscribe.backgroundColor = .lightGray
-                buttonSubscribe.isEnabled = false
+                subscribeButton.backgroundColor = .lightGray
+                subscribeButton.isEnabled = false
                 return true
             }
         }
@@ -122,8 +122,8 @@ class User_EventViewController: UIViewController {
         if self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo != nil {
             let vacancy = self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo
             if vacancy > 0 && !didSubscribe() {
-                buttonSubscribe.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
-                buttonSubscribe.isEnabled = true
+                subscribeButton.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+                subscribeButton.isEnabled = true
             }
         }
     }
@@ -163,7 +163,7 @@ extension User_EventViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let vacancy = viewModel.currentEvent.subgrupos[row].vagasDisponiveisSubgrupo
         self.viewModel.subgroup = viewModel.currentEvent.subgrupos[row].grupo
-        labelEventSubGroupVacancies.text = String(vacancy)
+        eventSubGroupVacanciesLabel.text = String(vacancy)
         self.availabilityToSubscribe()
     }
     

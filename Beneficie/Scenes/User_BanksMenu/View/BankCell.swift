@@ -9,11 +9,11 @@ import UIKit
 
 class BankCell: UICollectionViewCell {
     
-    @IBOutlet weak var imageViewBank: UIImageView!
+    @IBOutlet weak var bankImageView: UIImageView!
     
     func setUpCell(bank: BankAccount?) {
         if let bank = bank {
-            imageViewBank.image = UIImage(named: bank.photo!)
+            bankImageView.image = UIImage(named: bank.photo!)
         }
     }
 }

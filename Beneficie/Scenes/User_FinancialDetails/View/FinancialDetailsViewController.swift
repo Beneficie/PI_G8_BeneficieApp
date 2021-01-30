@@ -9,14 +9,14 @@ import UIKit
 
 class FinancialDetailsViewController: UIViewController {
 
-    @IBOutlet weak var choosenBankName: UILabel!
-    @IBOutlet weak var choosenBankAgency: UILabel!
-    @IBOutlet weak var choosenBankAccountType: UILabel!
-    @IBOutlet weak var choosenBankAccount: UILabel!
-    @IBOutlet weak var choosenBankBenefited: UILabel!
-    @IBOutlet weak var bankTitle: UILabel!
-    @IBOutlet weak var agencyTitle: UILabel!
-    @IBOutlet weak var benefitedTitle: UILabel!
+    @IBOutlet weak var choosenBankNameLabel: UILabel!
+    @IBOutlet weak var choosenBankAgencyLabel: UILabel!
+    @IBOutlet weak var choosenBankAccountTypeLabel: UILabel!
+    @IBOutlet weak var choosenBankAccountLabel: UILabel!
+    @IBOutlet weak var choosenBankBenefitedLabel: UILabel!
+    @IBOutlet weak var bankTitleLabel: UILabel!
+    @IBOutlet weak var agencyTitleLabel: UILabel!
+    @IBOutlet weak var benefitedTitleLabel: UILabel!
     
     
     @IBOutlet weak var switchButton: UISwitch!
@@ -32,21 +32,21 @@ class FinancialDetailsViewController: UIViewController {
     
     func setUpLabels(bank: BankAccount) {
         if bank.name?.lowercased() != "pix" {
-            choosenBankName.text = bank.name
-            choosenBankAgency.text  = bank.agency
-            choosenBankAccountType.text  = bank.accountType
-            choosenBankAccount.text = bank.accountNumber
-            choosenBankBenefited.text = bank.accountBeneficited
+            choosenBankNameLabel.text = bank.name
+            choosenBankAgencyLabel.text  = bank.agency
+            choosenBankAccountTypeLabel.text  = bank.accountType
+            choosenBankAccountLabel.text = bank.accountNumber
+            choosenBankBenefitedLabel.text = bank.accountBeneficited
         } else {
-            bankTitle.text = "Chave Pix"
-            choosenBankName.text = bank.name
-            agencyTitle.text = bank.accountBeneficited
-            choosenBankAgency.text = ""
-            choosenBankAccountType.text  = ""
+            bankTitleLabel.text = "Chave Pix"
+            choosenBankNameLabel.text = bank.name
+            agencyTitleLabel.text = bank.accountBeneficited
+            choosenBankAgencyLabel.text = ""
+            choosenBankAccountTypeLabel.text  = ""
 //            accountTitle.text = ""
-            benefitedTitle.text = ""
-            choosenBankAccount.text = ""
-            choosenBankBenefited.text = ""
+            benefitedTitleLabel.text = ""
+            choosenBankAccountLabel.text = ""
+            choosenBankBenefitedLabel.text = ""
         }
     }
     
@@ -70,15 +70,15 @@ class FinancialDetailsViewController: UIViewController {
     }
     @IBAction func copyBank(_ sender: Any) {
         let pasteboard = UIPasteboard.general
-        pasteboard.string = choosenBankName.text
+        pasteboard.string = choosenBankNameLabel.text
     }
     @IBAction func copyAgency(_ sender: Any) {
         let pasteboard = UIPasteboard.general
-        pasteboard.string = choosenBankAgency.text
+        pasteboard.string = choosenBankAgencyLabel.text
     }
     @IBAction func copyAccount(_ sender: Any) {
         let pasteboard = UIPasteboard.general
-        pasteboard.string = choosenBankAccount.text
+        pasteboard.string = choosenBankAccountLabel.text
     }
     
     @IBAction func switchDonation(_ sender: Any) {

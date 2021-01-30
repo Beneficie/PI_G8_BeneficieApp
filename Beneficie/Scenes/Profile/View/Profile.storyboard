@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qn9-rD-5DG">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,11 +12,11 @@
             <objects>
                 <viewController id="Qn9-rD-5DG" customClass="ProfileViewController" customModule="PI_G8_BeneficieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZvY-hb-lsq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 366" translatesAutoresizingMaskIntoConstraints="NO" id="UdL-xN-rsO">
-                                <rect key="frame" x="-110" y="0.0" width="540" height="87"/>
+                                <rect key="frame" x="30" y="0.0" width="540" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="540" id="POp-kW-wFl"/>
                                     <constraint firstAttribute="width" secondItem="UdL-xN-rsO" secondAttribute="height" multiplier="207:98" id="cYf-TO-njL"/>
@@ -30,7 +28,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configurações" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gkx-85-TdU">
-                                <rect key="frame" x="96" y="51.5" width="128.5" height="24"/>
+                                <rect key="frame" x="236" y="51.5" width="128.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -207,7 +205,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="labelUserName" destination="MLO-ZB-66S" id="H5v-hZ-Rng"/>
+                        <outlet property="userNameLabel" destination="MLO-ZB-66S" id="H5v-hZ-Rng"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5M-PN-Kdr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

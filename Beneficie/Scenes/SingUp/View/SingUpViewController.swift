@@ -12,17 +12,17 @@ import FBSDKLoginKit
 
 class SingUpViewController: UIViewController {
 
-    @IBOutlet weak var textFieldEmail: UITextField!
-    @IBOutlet weak var textFieldPassword: UITextField!
-    @IBOutlet weak var textFieldPhoneNumber: UITextField!
-    @IBOutlet weak var textFieldPasswordConfirmation: UITextField!
-    @IBOutlet weak var textFieldFullName: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var passwordConfirmationTextField: UITextField!
+    @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var googleButtonView: GIDSignInButton!
     @IBOutlet weak var googleButtonOutlet: GIDSignInButton!
     @IBOutlet weak var gView: UIView!
     @IBOutlet weak var fBView: UIView!
-    @IBOutlet weak var singUpButtonOutlet: UIButton!
-    @IBOutlet weak var singInButtonOutlet: UIButton!
+    @IBOutlet weak var singUpButton: UIButton!
+    @IBOutlet weak var singInButton: UIButton!
     
     var viewModel = SignUpViewModel()
     var nextViewModel = User_EventViewModel()
@@ -31,11 +31,11 @@ class SingUpViewController: UIViewController {
         super.viewDidLoad()
         
         // MARK: - Delegates
-        textFieldEmail.delegate = self
-        textFieldPassword.delegate = self
-        textFieldPhoneNumber.delegate = self
-        textFieldPasswordConfirmation.delegate = self
-        textFieldFullName.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        passwordConfirmationTextField.delegate = self
+        fullNameTextField.delegate = self
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
@@ -69,22 +69,22 @@ class SingUpViewController: UIViewController {
         googleButtonView.layer.cornerRadius = 5
         
         // MARK: - Textfields setup
-        textFieldEmail.configureTextField(placeHolder: "Email")
-        textFieldEmail.keyboardType = .emailAddress
-        textFieldFullName.configureTextField(placeHolder: "Nome Completo")
-        textFieldPhoneNumber.configureTextField(placeHolder: "Contato")
-        textFieldPhoneNumber.keyboardType = .numbersAndPunctuation
-        textFieldPasswordConfirmation.configureTextField(placeHolder: "Confirmar Senha")
-        textFieldPassword.configureTextField(placeHolder: "Senha")
+        emailTextField.configureTextField(placeHolder: "Email")
+        emailTextField.keyboardType = .emailAddress
+        fullNameTextField.configureTextField(placeHolder: "Nome Completo")
+        phoneNumberTextField.configureTextField(placeHolder: "Contato")
+        phoneNumberTextField.keyboardType = .numbersAndPunctuation
+        passwordConfirmationTextField.configureTextField(placeHolder: "Confirmar Senha")
+        passwordTextField.configureTextField(placeHolder: "Senha")
         
         // textFieldPhoneNumber.config.defaultConfiguration = PhoneFormat(defaultPhoneFormat: "(##) ##### - ####")
         
         // MARK: - SignIn button setup
-        singUpButtonOutlet.layer.cornerRadius = 25
-        singUpButtonOutlet.layer.shadowOpacity = 0.3
-        singUpButtonOutlet.layer.shadowRadius = 25
-        singUpButtonOutlet.layer.shadowOffset = .zero
-        singUpButtonOutlet.layer.shadowColor = UIColor.black.cgColor
+        singUpButton.layer.cornerRadius = 25
+        singUpButton.layer.shadowOpacity = 0.3
+        singUpButton.layer.shadowRadius = 25
+        singUpButton.layer.shadowOffset = .zero
+        singUpButton.layer.shadowColor = UIColor.black.cgColor
         
         let attrbText = NSMutableAttributedString(string: "Já Possui uma conta? ",
                                                   attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),
@@ -93,7 +93,7 @@ class SingUpViewController: UIViewController {
              attrbText.append(NSAttributedString(string: "Entrar",
                                                  attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15),
                                                               NSAttributedString.Key.foregroundColor: UIColor.white]))
-             singInButtonOutlet.setAttributedTitle(attrbText, for: .normal)
+             singInButton.setAttributedTitle(attrbText, for: .normal)
     }
     
     // MARK: - IBActions
@@ -109,11 +109,11 @@ class SingUpViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func signUpTapped(_ sender: Any) {
-        if let email = textFieldEmail.text, let password = textFieldPassword.text, let fullName = textFieldFullName.text, let phoneNumber = textFieldPhoneNumber.text, let passwordConfirmation = textFieldPasswordConfirmation.text {
+        if let email = emailTextField.text, let password = passwordTextField.text, let fullName = fullNameTextField.text, let phoneNumber = phoneNumberTextField.text, let passwordConfirmation = passwordConfirmationTextField.text {
 //            , fullName: fullName, phoneNumber: phoneNumber
             if password != passwordConfirmation {
                 self.showAlert(title: "Erro", message: "As senhas fornecidas não conferem", okHandler: {(ok) in
-                    self.textFieldPassword.becomeFirstResponder()
+                    self.passwordTextField.becomeFirstResponder()
                 }, cancelHandler: nil)
             } else {
                 nextViewModel.currentUser.name = fullName
@@ -128,25 +128,25 @@ extension SingUpViewController : UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.text == "" {
             return false
-        } else if textField == textFieldFullName {
+        } else if textField == fullNameTextField {
             textField.resignFirstResponder()
-            textFieldEmail.becomeFirstResponder()
+            emailTextField.becomeFirstResponder()
             return true
-        } else if textField == textFieldEmail {
+        } else if textField == emailTextField {
             textField.resignFirstResponder()
-            textFieldPhoneNumber.becomeFirstResponder()
+            phoneNumberTextField.becomeFirstResponder()
             return true
-        } else if textField == textFieldPhoneNumber {
+        } else if textField == phoneNumberTextField {
             textField.resignFirstResponder()
-            textFieldPassword.becomeFirstResponder()
+            passwordTextField.becomeFirstResponder()
             return true
-        } else if textField == textFieldPassword {
+        } else if textField == passwordTextField {
             textField.resignFirstResponder()
-            textFieldPasswordConfirmation.becomeFirstResponder()
+            passwordConfirmationTextField.becomeFirstResponder()
             return true
-        } else if textField == textFieldPasswordConfirmation {
+        } else if textField == passwordConfirmationTextField {
             textField.resignFirstResponder()
-            if let email = textFieldEmail.text, let password = textFieldPassword.text {
+            if let email = emailTextField.text, let password = passwordTextField.text {
                 self.viewModel.authenticationWithEmail(email: email, password: password, navigationController: self.navigationController)
             }
             return true

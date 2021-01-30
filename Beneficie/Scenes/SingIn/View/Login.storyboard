@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QS-Mh-Vwb">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,17 +17,17 @@
             <objects>
                 <viewController id="1QS-Mh-Vwb" customClass="LoginViewController" customModule="Beneficie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dss-W0-gBv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_hands (2)" translatesAutoresizingMaskIntoConstraints="NO" id="X6I-nS-smC" userLabel="LogoImage">
-                                <rect key="frame" x="127" y="159" width="160" height="128"/>
+                                <rect key="frame" x="127" y="115" width="346" height="277"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="X6I-nS-smC" secondAttribute="height" multiplier="5:4" id="Gc9-wd-Y2R"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ied-lQ-2cQ" userLabel="LogoLabel">
-                                <rect key="frame" x="149.5" y="95" width="115" height="33"/>
+                                <rect key="frame" x="242.5" y="51" width="115" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ied-lQ-2cQ" secondAttribute="height" multiplier="115:33" id="Jct-Il-AkG"/>
                                 </constraints>
@@ -43,7 +41,7 @@
                                 </variation>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZe-Ha-E1i" userLabel="LogInView">
-                                <rect key="frame" x="20" y="442" width="374" height="54"/>
+                                <rect key="frame" x="20" y="547" width="560" height="54"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="q5E-WK-PJ4" userLabel="LoginTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -82,7 +80,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Evs-5T-nvV" userLabel="PasswordView">
-                                <rect key="frame" x="20" y="516" width="374" height="54"/>
+                                <rect key="frame" x="20" y="621" width="560" height="54"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="qVa-L7-MZU" userLabel="PasswordTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -117,13 +115,13 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8SC-zV-kDH" userLabel="ForgotPasswordButton">
-                                <rect key="frame" x="139" y="585" width="136" height="30"/>
+                                <rect key="frame" x="232" y="690" width="136" height="30"/>
                                 <state key="normal" title="Esqueceu a senha ?">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O86-N2-Luf" userLabel="LoginButton">
-                                <rect key="frame" x="57" y="637" width="300" height="45"/>
+                                <rect key="frame" x="150" y="742" width="300" height="45"/>
                                 <color key="backgroundColor" red="0.46091520790000001" green="0.47264128919999998" blue="0.90709859130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="fw3-79-IX0"/>
@@ -144,13 +142,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-dQ-GxA" userLabel="SingUpButton">
-                                <rect key="frame" x="108.5" y="703" width="197" height="30"/>
+                                <rect key="frame" x="201.5" y="808" width="197" height="30"/>
                                 <state key="normal" title="Não tem conta? Cadastre-se">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E73-ww-DBA">
-                                <rect key="frame" x="20" y="84" width="47" height="34"/>
+                                <rect key="frame" x="20" y="40" width="47" height="34"/>
                                 <state key="normal" title="Voltar">
                                     <color key="titleColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -159,7 +157,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a97-cW-H0y">
-                                <rect key="frame" x="80" y="367" width="254" height="30"/>
+                                <rect key="frame" x="80" y="472" width="440" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="238" id="2Ac-6v-oeX"/>
@@ -174,16 +172,16 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ou" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqW-Ff-nu4">
-                                <rect key="frame" x="197" y="414" width="20" height="18"/>
+                                <rect key="frame" x="290" y="519" width="20" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.46198064090000002" green="0.475060761" blue="0.87847304339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqB-hP-gFr">
-                                <rect key="frame" x="98" y="317" width="219" height="30"/>
+                                <rect key="frame" x="98" y="422" width="405" height="30"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdu-sS-UAQ">
-                                        <rect key="frame" x="30" y="0.0" width="189" height="30"/>
+                                        <rect key="frame" x="30" y="0.0" width="375" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="F0p-Tm-Yfe"/>
@@ -290,10 +288,10 @@
                         <outlet property="gView" destination="aqB-hP-gFr" id="6GZ-Zl-zTx"/>
                         <outlet property="googleButtonOutlet" destination="opx-Xf-rK9" id="8B4-0Z-2By"/>
                         <outlet property="googleButtonView" destination="sdu-sS-UAQ" id="IB1-Q4-nHs"/>
-                        <outlet property="logInTextField" destination="q5E-WK-PJ4" id="zcl-zG-gYf"/>
-                        <outlet property="loginButtonOutlet" destination="O86-N2-Luf" id="wTO-ub-7nk"/>
+                        <outlet property="loginButton" destination="O86-N2-Luf" id="wTO-ub-7nk"/>
+                        <outlet property="loginTextField" destination="q5E-WK-PJ4" id="zcl-zG-gYf"/>
                         <outlet property="passwordTextField" destination="qVa-L7-MZU" id="nQg-SY-tNO"/>
-                        <outlet property="singUpButtonOutlet" destination="aLD-dQ-GxA" id="W1e-2F-gJw"/>
+                        <outlet property="singUpButton" destination="aLD-dQ-GxA" id="W1e-2F-gJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UC5-13-2DP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

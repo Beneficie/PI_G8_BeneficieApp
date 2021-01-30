@@ -11,7 +11,7 @@ import FBSDKLoginKit
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var labelUserName: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
     var currentUser = User()
     
     static func getView() -> ProfileViewController {
@@ -28,9 +28,9 @@ class ProfileViewController: UIViewController {
     
     func getProfileTitle() {
         if currentUser.name != "" {
-            labelUserName.text = currentUser.name
+            userNameLabel.text = currentUser.name
         } else {
-            labelUserName.text = currentUser.email
+            userNameLabel.text = currentUser.email
         }
     }
     
