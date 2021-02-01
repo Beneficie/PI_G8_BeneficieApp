@@ -95,8 +95,9 @@ class LoginViewController: UIViewController {
     func configureUI() {
         let fBButton = configureFacebookButton()
         addSubview(button: fBButton)
-        configureConstraints(button: fBButton)
         configureLayout(button: fBButton)
+        configureConstraints(button: fBButton)
+
         
     }
     
@@ -144,13 +145,20 @@ class LoginViewController: UIViewController {
     func configureConstraints(button: FBLoginButton) {
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerX,
+        
+        let horizontalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerX,
                                                       relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
                                                       attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
-        let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY,
+        let verticalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY,
                                                     relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
                                                     attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
+        
+//        segmentProgressBar?.translatesAutoresizingMaskIntoConstraints = false
+//        segmentProgressBar?.leftAnchor.constraint(equalTo: viewContainerProgress.leftAnchor, constant: 15).isActive = true
+//        segmentProgressBar?.trailingAnchor.constraint(equalTo: viewContainerProgress.trailingAnchor, constant: -15).isActive = true
+//        segmentProgressBar?.topAnchor.constraint(equalTo: viewContainerProgress.topAnchor, constant: 0).isActive = true
+//        segmentProgressBar?.bottomAnchor.constraint(equalTo: viewContainerProgress.bottomAnchor, constant: 0).isActive = true
     }
     
     func configureFacebookButton() -> FBLoginButton {

@@ -39,7 +39,7 @@ class User_EventViewController: UIViewController {
         loadData()
         
         
-            
+        print(subscribeButton.state)
     }
     
     func setupUI() {
@@ -63,22 +63,27 @@ class User_EventViewController: UIViewController {
         eventDescriptionLabel.text = event.descricao
         subGroupsPickerView.reloadComponent(0)
         if !didSubscribe() {
-                subscribeButton.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
-                subscribeButton.isEnabled = true
+//                subscribeButton.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+//                subscribeButton.isEnabled = true
         }
+        print(subscribeButton.state)
     }
     
     func loadData() {
-        viewModel.getUserToken()
+        
         viewModel.loadData { success in
             if success {
                 self.viewModel.connectionReachable = true
                 self.viewModel.currentEvent = self.viewModel.arrayEvents[0]
-                DispatchQueue.main.async {
+                self.viewModel.getUserToken { (success) in
+                    if success {
+                        DispatchQueue.main.async {
+                            self.updateUIForSubscription(event: self.viewModel.currentEvent)
+                            self.availabilityToSubscribe()
+                        }
+                    }
                     self.updateUIForSubscription(event: self.viewModel.currentEvent)
                 }
-//                self.updateUIForSubscription(event: self.viewModel.currentEvent)
-                self.availabilityToSubscribe()
             } else {
                 self.viewModel.connectionReachable = false
                 print("Erro in LoadData from User_Event")
@@ -115,15 +120,15 @@ class User_EventViewController: UIViewController {
                 return true
             }
         }
+        subscribeButton.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+        subscribeButton.isEnabled = true
         return false
     }
     
     func availabilityToSubscribe() {
-        if self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo != nil {
-            let vacancy = self.viewModel.currentEvent.subgrupos[0].vagasDisponiveisSubgrupo
+        if let vacancy = self.viewModel.currentEvent.subgrupos.first?.vagasDisponiveisSubgrupo {
             if vacancy > 0 && !didSubscribe() {
-                subscribeButton.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
-                subscribeButton.isEnabled = true
+                
             }
         }
     }

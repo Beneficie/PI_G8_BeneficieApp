@@ -38,19 +38,28 @@ class User_EventViewModel {
     
     // MARK: - API Request for User
     
-    func getUserToken() {
+    func getUserToken(onComplete: @escaping ( Bool ) -> Void ) {
         Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { (idToken, error) in
             if error != nil {
 //                todo logout user to main screen
+                onComplete(false)
                 return
             }
             self.userToken = idToken!
             
-            self.loadUserData()
+            self.loadUserData { (success) in
+                if success {
+                    onComplete(true)
+                    return
+                } else {
+                    onComplete(false)
+                    print("loadUserData success false")
+                }
+            }
         }
     }
     
-    func loadUserData() {
+    func loadUserData(onComplete: @escaping ( Bool ) -> Void ) {
         apiManager.requestUser(userToken: self.userToken, onComplete: { response, e in
 //            print(self.userToken)
             if response == nil {
@@ -64,6 +73,8 @@ class User_EventViewModel {
                 self.currentUser.name = user.name
                 self.currentUser.email = user.email
                 self.currentUser.phoneNumber = user.phoneNumber
+                
+                onComplete(true)
                 return
             }
             catch {
