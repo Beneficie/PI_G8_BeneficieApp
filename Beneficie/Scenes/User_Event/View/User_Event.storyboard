@@ -259,11 +259,17 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Chm-es-cq6">
+                                <rect key="frame" x="141.5" y="265.5" width="37" height="37"/>
+                                <color key="tintColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="color" red="0.46198064090000002" green="0.475060761" blue="0.87847304339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MHt-k1-2uj"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NBa-7K-jPh" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="1H6-0v-kp8"/>
+                            <constraint firstItem="Chm-es-cq6" firstAttribute="centerY" secondItem="4Pc-Z9-hCv" secondAttribute="centerY" id="1pW-24-g4C"/>
                             <constraint firstItem="b3x-mg-ggc" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="28O-Hp-nmJ"/>
                             <constraint firstAttribute="trailing" secondItem="mkO-Z9-d0O" secondAttribute="trailing" constant="-94" id="3F3-uS-E5Z"/>
                             <constraint firstItem="mkO-Z9-d0O" firstAttribute="top" secondItem="4Pc-Z9-hCv" secondAttribute="top" id="4CT-Dj-ZSL"/>
@@ -280,6 +286,7 @@
                             <constraint firstItem="mkO-Z9-d0O" firstAttribute="leading" secondItem="4Pc-Z9-hCv" secondAttribute="leading" id="Ozz-Er-jYw"/>
                             <constraint firstItem="1WW-jp-raa" firstAttribute="centerY" secondItem="mkO-Z9-d0O" secondAttribute="centerY" constant="20" id="R9i-Ce-l4E"/>
                             <constraint firstItem="MHt-k1-2uj" firstAttribute="trailing" secondItem="qGh-0W-C3s" secondAttribute="trailing" constant="29" id="exx-hj-4Yp"/>
+                            <constraint firstItem="Chm-es-cq6" firstAttribute="centerX" secondItem="4Pc-Z9-hCv" secondAttribute="centerX" id="fYR-Ed-Y1m"/>
                             <constraint firstItem="qGh-0W-C3s" firstAttribute="centerX" secondItem="CN1-Fu-1y4" secondAttribute="centerX" id="nT5-zH-EaF"/>
                             <constraint firstItem="b3x-mg-ggc" firstAttribute="centerY" secondItem="4Pc-Z9-hCv" secondAttribute="centerY" constant="-45" id="o2N-3f-NRV"/>
                             <constraint firstItem="qGh-0W-C3s" firstAttribute="centerY" secondItem="CN1-Fu-1y4" secondAttribute="centerY" constant="-104" id="slt-Dg-8TG"/>
@@ -309,6 +316,7 @@
                         <outlet property="eventSubGroupVacanciesLabel" destination="i8p-qm-7wM" id="LMT-wD-jE5"/>
                         <outlet property="eventTitleLabel" destination="f4C-dC-wbf" id="Naw-wg-liW"/>
                         <outlet property="eventTotalVacanciesLabel" destination="g5o-VP-iSr" id="sF6-Wj-3Qi"/>
+                        <outlet property="loadingActivityIndicator" destination="Chm-es-cq6" id="fmU-1G-JYs"/>
                         <outlet property="subGroupsPickerView" destination="tQq-BA-E8w" id="V2n-8G-Mca"/>
                         <outlet property="subscribeButton" destination="fmr-lo-hUO" id="FEy-ae-faO"/>
                     </connections>

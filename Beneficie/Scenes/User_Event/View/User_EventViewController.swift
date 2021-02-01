@@ -20,6 +20,7 @@ class User_EventViewController: UIViewController {
     @IBOutlet weak var subGroupsPickerView: UIPickerView!
     @IBOutlet weak var eventSubGroupVacanciesLabel: UILabel!
     @IBOutlet weak var eventDescriptionLabel: UILabel!
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     
     @IBOutlet var donateButton: UIButton!
     @IBOutlet var subscribeButton: UIButton!
@@ -62,15 +63,11 @@ class User_EventViewController: UIViewController {
         eventSubGroupVacanciesLabel.text = String(event.subgrupos[0].vagasDisponiveisSubgrupo)
         eventDescriptionLabel.text = event.descricao
         subGroupsPickerView.reloadComponent(0)
-        if !didSubscribe() {
-//                subscribeButton.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
-//                subscribeButton.isEnabled = true
-        }
-        print(subscribeButton.state)
+        loadingActivityIndicator.stopAnimating()
     }
     
     func loadData() {
-        
+        loadingActivityIndicator.startAnimating()
         viewModel.loadData { success in
             if success {
                 self.viewModel.connectionReachable = true
