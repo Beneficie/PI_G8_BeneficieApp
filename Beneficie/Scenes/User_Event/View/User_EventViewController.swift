@@ -39,8 +39,6 @@ class User_EventViewController: UIViewController {
         
         loadData()
         
-        
-        print(subscribeButton.state)
     }
     
     func setupUI() {
@@ -59,8 +57,8 @@ class User_EventViewController: UIViewController {
         eventDateLabel.text = event.data
         eventAddressLabel.text = event.local
         eventTitleLabel.text = event.titulo
-        eventTotalVacanciesLabel.text = String(event.subgrupos[0].vagasSubgrupo)
-        eventSubGroupVacanciesLabel.text = String(event.subgrupos[0].vagasDisponiveisSubgrupo)
+        eventTotalVacanciesLabel.text = String(event.subgrupos.first!.vagasSubgrupo)
+        eventSubGroupVacanciesLabel.text = String(event.subgrupos.first!.vagasDisponiveisSubgrupo)
         eventDescriptionLabel.text = event.descricao
         subGroupsPickerView.reloadComponent(0)
         loadingActivityIndicator.stopAnimating()
@@ -71,7 +69,7 @@ class User_EventViewController: UIViewController {
         viewModel.loadData { success in
             if success {
                 self.viewModel.connectionReachable = true
-                self.viewModel.currentEvent = self.viewModel.arrayEvents[0]
+                self.viewModel.currentEvent = self.viewModel.arrayEvents.first!
                 self.viewModel.getUserToken { (success) in
                     if success {
                         DispatchQueue.main.async {
@@ -93,24 +91,28 @@ class User_EventViewController: UIViewController {
     func alertFailedInLoadData() {
         let alert = UIAlertController(title: "Não foi possível carregar o evento", message: "Exibindo evento carregado anteriormente", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-            if self.viewModel.loadFromDataBase() != nil {
-                let loadedEvent = self.viewModel.loadFromDataBase()
-                self.eventDateLabel.text = loadedEvent[0]?.eventDateDB
-                self.eventTitleLabel.text = loadedEvent[0]?.eventNameDB
-                self.eventAddressLabel.text = loadedEvent[0]?.eventAddressDB
-                self.eventDescriptionLabel.text = loadedEvent[0]?.eventDescriptionDB
-                self.viewModel.subgroup = (loadedEvent[0]?.eventSubgroupDB)!
+            let loadedEvent = self.viewModel.loadFromDataBase()
+            if let subgroup = loadedEvent.first?!.eventSubgroupDB {
+                self.eventDateLabel.text = loadedEvent.first?!.eventDateDB
+                self.eventTitleLabel.text = loadedEvent.first?!.eventNameDB
+                self.eventAddressLabel.text = loadedEvent.first?!.eventAddressDB
+                self.eventDescriptionLabel.text = loadedEvent.first?!.eventDescriptionDB
+                self.viewModel.subgroup = subgroup
                 self.eventTotalVacanciesLabel.text = "0"
                 self.eventSubGroupVacanciesLabel.text = "0"
                 self.subGroupsPickerView.reloadComponent(0)
                 self.subGroupsPickerView.isUserInteractionEnabled = false
+                self.loadingActivityIndicator.stopAnimating()
+            } else {
+                self.loadingActivityIndicator.stopAnimating()
+                self.showAlert(title: "Não foi possível carregar o evento", message: "Conecte-se para inscrever-se em eventos e muito mais!", okHandler: nil)
             }
         }))
         present(alert, animated: true)
     }
     
     func didSubscribe() -> Bool {
-        for group in viewModel.arrayEvents[0].subgrupos {
+        for group in viewModel.arrayEvents.first!.subgrupos {
             if group.inscritos.contains(viewModel.currentUser.uid) {
                 subscribeButton.backgroundColor = .lightGray
                 subscribeButton.isEnabled = false
@@ -130,6 +132,11 @@ class User_EventViewController: UIViewController {
         }
     }
     
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
+        present(alert, animated: true, completion: nil)
+    }
 
     
     @IBAction func profileButton(_ sender: Any) {
@@ -155,7 +162,8 @@ class User_EventViewController: UIViewController {
     
     @IBAction func actionDonatePressed(_ sender: Any) {
         if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
-                navigationController?.pushViewController(userFinanceData, animated: true)
+            let navi = UINavigationController()
+            self.navigationController?.pushViewController(userFinanceData, animated: true)
         }
     }
 
@@ -180,9 +188,9 @@ extension User_EventViewController: UIPickerViewDataSource {
         
         if viewModel.arrayEvents != nil &&
             viewModel.arrayEvents.count > 0 &&
-            viewModel.arrayEvents[0].subgrupos != nil &&
-            viewModel.arrayEvents[0].subgrupos.count > 0  {
-            return viewModel.arrayEvents[0].subgrupos.count
+            viewModel.arrayEvents.first?.subgrupos != nil &&
+            (viewModel.arrayEvents.first?.subgrupos.count)! > 0  {
+            return (viewModel.arrayEvents.first?.subgrupos.count)!
         } else {
             return 1
         }
@@ -190,7 +198,7 @@ extension User_EventViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if viewModel.arrayEvents != nil && viewModel.arrayEvents.count > 0 {
-            let groups = String(viewModel.arrayEvents[0].subgrupos[row].grupo)
+            let groups = String((viewModel.arrayEvents.first?.subgrupos[row].grupo)!)
             self.viewModel.subgroup = groups
             return groups
         }
