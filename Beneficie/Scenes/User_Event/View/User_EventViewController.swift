@@ -162,7 +162,6 @@ class User_EventViewController: UIViewController {
     
     @IBAction func actionDonatePressed(_ sender: Any) {
         if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
-            let navi = UINavigationController()
             self.navigationController?.pushViewController(userFinanceData, animated: true)
         }
     }

@@ -23,7 +23,7 @@ class BanksMenuViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func profileButton(_ sender: Any) {
         if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController { navigationController?.pushViewController(profile, animated: true) }

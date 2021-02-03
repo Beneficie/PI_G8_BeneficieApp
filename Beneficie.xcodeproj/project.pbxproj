@@ -71,7 +71,7 @@
 		33D07EA4255DCE2000272FBF /* User_SocialNetworksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D07EA3255DCE2000272FBF /* User_SocialNetworksViewController.swift */; };
 		33D07EA8255DCE2A00272FBF /* User_SocialNetworks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33D07EA7255DCE2A00272FBF /* User_SocialNetworks.storyboard */; };
 		33D27D69259D08530014CB38 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D27D68259D08530014CB38 /* BankAccount.swift */; };
-		C8B8DF0A0EAC1FD586899469 /* Pods_PI_G8_BeneficieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1FDB9B11AC600231616460 /* Pods_PI_G8_BeneficieApp.framework */; };
+		D5F5CD0D2790F9AB5AE81315 /* Pods_Beneficie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B805D65EEA28F55CB2FC50 /* Pods_Beneficie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,7 +155,9 @@
 		33D27D68259D08530014CB38 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
 		33D52BED25BCDF3E00384E82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		33D52BEF25BCDF4F00384E82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
-		5A1FDB9B11AC600231616460 /* Pods_PI_G8_BeneficieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PI_G8_BeneficieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5482AE2C6A32BBAC794A5325 /* Pods-Beneficie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beneficie.release.xcconfig"; path = "Target Support Files/Pods-Beneficie/Pods-Beneficie.release.xcconfig"; sourceTree = "<group>"; };
+		A28876DF3B56DECED4D4B409 /* Pods-Beneficie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beneficie.debug.xcconfig"; path = "Target Support Files/Pods-Beneficie/Pods-Beneficie.debug.xcconfig"; sourceTree = "<group>"; };
+		A4B805D65EEA28F55CB2FC50 /* Pods_Beneficie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beneficie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7C43B157917F34BB7E9EF1B /* Pods-PI_G8_BeneficieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PI_G8_BeneficieApp.debug.xcconfig"; path = "Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,7 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8B8DF0A0EAC1FD586899469 /* Pods_PI_G8_BeneficieApp.framework in Frameworks */,
+				D5F5CD0D2790F9AB5AE81315 /* Pods_Beneficie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +285,7 @@
 		24FAD24730F524C75ECC7246 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A1FDB9B11AC600231616460 /* Pods_PI_G8_BeneficieApp.framework */,
+				A4B805D65EEA28F55CB2FC50 /* Pods_Beneficie.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,6 +295,8 @@
 			children = (
 				C7C43B157917F34BB7E9EF1B /* Pods-PI_G8_BeneficieApp.debug.xcconfig */,
 				169221CD294399835A8C4C90 /* Pods-PI_G8_BeneficieApp.release.xcconfig */,
+				A28876DF3B56DECED4D4B409 /* Pods-Beneficie.debug.xcconfig */,
+				5482AE2C6A32BBAC794A5325 /* Pods-Beneficie.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -634,8 +638,8 @@
 		33B90482257E5A0F004DA579 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				33D07E99255DC33A00272FBF /* FinancialDetailsViewController.swift */,
 				33D07E9D255DC35000272FBF /* FinancialDetails.storyboard */,
+				33D07E99255DC33A00272FBF /* FinancialDetailsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -842,7 +846,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PI_G8_BeneficieApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Beneficie-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -855,15 +859,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Beneficie/Pods-Beneficie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Beneficie/Pods-Beneficie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Beneficie/Pods-Beneficie-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D7AFBD000ADF19AA4B4B2FCA /* [CP] Copy Pods Resources */ = {
@@ -872,15 +876,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Beneficie/Pods-Beneficie-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Beneficie/Pods-Beneficie-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PI_G8_BeneficieApp/Pods-PI_G8_BeneficieApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Beneficie/Pods-Beneficie-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1100,7 +1104,7 @@
 		};
 		0D77863B255A235800255307 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7C43B157917F34BB7E9EF1B /* Pods-PI_G8_BeneficieApp.debug.xcconfig */;
+			baseConfigurationReference = A28876DF3B56DECED4D4B409 /* Pods-Beneficie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1119,7 +1123,7 @@
 		};
 		0D77863C255A235800255307 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 169221CD294399835A8C4C90 /* Pods-PI_G8_BeneficieApp.release.xcconfig */;
+			baseConfigurationReference = 5482AE2C6A32BBAC794A5325 /* Pods-Beneficie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
