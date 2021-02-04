@@ -41,6 +41,7 @@ class ConfirmEventSubscriptionViewController: UIViewController {
         eventTitleLabel.text = self.viewModel.currentEvent.titulo
         subgroupLabel.text = "Subgrupo \(viewModel.currentSubgroup)"
         confirmButton.layer.cornerRadius = 15
+        fullNameTextField.text = viewModel.currentUser.name
         phoneNumberTextField.text = viewModel.currentUser.phoneNumber
     }
     
@@ -57,7 +58,6 @@ class ConfirmEventSubscriptionViewController: UIViewController {
         viewModel.checkUser(name: self.fullNameTextField.text!, phoneNumber: self.phoneNumberTextField.text!)
         if let index = viewModel.currentEvent.subgrupos.firstIndex(where: { $0.grupo == viewModel.currentSubgroup }) {
             viewModel.currentEvent.subgrupos[index].inscritos.append(viewModel.currentUser.uid)
-//            viewModel.currentUser.phoneNumber = textFieldContact.text
             viewModel.currentEvent.subgrupos[index].vagasDisponiveisSubgrupo -= 1
             viewModel.subscribeUser(event: viewModel.currentEvent) { (success) in
                 if success {

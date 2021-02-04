@@ -154,11 +154,6 @@ class LoginViewController: UIViewController {
                                                     attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
         
-//        segmentProgressBar?.translatesAutoresizingMaskIntoConstraints = false
-//        segmentProgressBar?.leftAnchor.constraint(equalTo: viewContainerProgress.leftAnchor, constant: 15).isActive = true
-//        segmentProgressBar?.trailingAnchor.constraint(equalTo: viewContainerProgress.trailingAnchor, constant: -15).isActive = true
-//        segmentProgressBar?.topAnchor.constraint(equalTo: viewContainerProgress.topAnchor, constant: 0).isActive = true
-//        segmentProgressBar?.bottomAnchor.constraint(equalTo: viewContainerProgress.bottomAnchor, constant: 0).isActive = true
     }
     
     func configureFacebookButton() -> FBLoginButton {
@@ -196,10 +191,12 @@ extension LoginViewController: LoginButtonDelegate {
             print(error.localizedDescription)
             return
           }
-        if FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString) != nil {
-            let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+        if let currentAccessToken = AccessToken.current {
+            let credential = FacebookAuthProvider.credential(withAccessToken: currentAccessToken.tokenString)
             let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
             appDelegate!.signToFirebase(credential: credential)
+        } else {
+            showAlert(title: "Erro", message: "Forneça a permissão para continuar", okHandler: nil, cancelHandler: nil)
         }
     }
     

@@ -25,6 +25,8 @@ class User_EventViewController: UIViewController {
     @IBOutlet var donateButton: UIButton!
     @IBOutlet var subscribeButton: UIButton!
     
+    var currentUser = User()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,6 +38,8 @@ class User_EventViewController: UIViewController {
         if let token = AccessToken.current, !token.isExpired {
             self.viewModel.userToken = token.tokenString
         }
+        
+        self.viewModel.setupValues(currentUser)
         
         loadData()
         
@@ -70,7 +74,7 @@ class User_EventViewController: UIViewController {
             if success {
                 self.viewModel.connectionReachable = true
                 self.viewModel.currentEvent = self.viewModel.arrayEvents.first!
-                self.viewModel.getUserToken { (success) in
+                self.viewModel.getUserToken(onComplete: { (success) in
                     if success {
                         DispatchQueue.main.async {
                             self.updateUIForSubscription(event: self.viewModel.currentEvent)
@@ -78,7 +82,7 @@ class User_EventViewController: UIViewController {
                         }
                     }
                     self.updateUIForSubscription(event: self.viewModel.currentEvent)
-                }
+                })
             } else {
                 self.viewModel.connectionReachable = false
                 print("Erro in LoadData from User_Event")

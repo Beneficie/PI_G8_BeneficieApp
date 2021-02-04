@@ -21,6 +21,10 @@ class User_EventViewModel {
     // MARK: - API Request for Event
     var apiManager = APIManager()
     
+    func setupValues(_ currentUser: User) {
+        self.currentUser = currentUser
+    }
+    
     func loadData(onComplete: @escaping (Bool) -> Void) {
         apiManager.getAsArray(
             url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseData) in
@@ -41,14 +45,16 @@ class User_EventViewModel {
     func getUserToken(onComplete: @escaping ( Bool ) -> Void ) {
         Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { (idToken, error) in
             if error != nil {
-//                todo logout user to main screen
+                //                todo logout user to main screen
                 onComplete(false)
                 return
             }
+            
             self.userToken = idToken!
             
             self.loadUserData { (success) in
                 if success {
+                    
                     onComplete(true)
                     return
                 } else {

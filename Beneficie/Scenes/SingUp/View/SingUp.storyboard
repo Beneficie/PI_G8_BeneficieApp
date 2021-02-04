@@ -38,15 +38,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOg-be-HDH">
-                                <rect key="frame" x="20" y="10" width="51" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Voltar"/>
-                                <connections>
-                                    <action selector="backButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="J2W-Wz-u6B"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3M-8R-HIj" userLabel="LoginButton">
                                 <rect key="frame" x="20" y="567" width="335" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -175,6 +166,15 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOg-be-HDH">
+                                <rect key="frame" x="20" y="44.5" width="64" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Voltar" image="chevron.backward" catalog="system"/>
+                                <connections>
+                                    <action selector="backButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="J2W-Wz-u6B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BDC-pf-7Oj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -220,7 +220,8 @@
                             <constraint firstItem="BDC-pf-7Oj" firstAttribute="trailing" secondItem="BRm-pW-4Pd" secondAttribute="trailing" constant="20" id="efY-1e-tC8"/>
                             <constraint firstItem="MOg-be-HDH" firstAttribute="leading" secondItem="BDC-pf-7Oj" secondAttribute="leading" constant="20" id="ejP-1O-hLA"/>
                             <constraint firstItem="DcR-Sh-57O" firstAttribute="centerX" secondItem="hTD-rA-8eP" secondAttribute="centerX" id="fSv-sB-IpI"/>
-                            <constraint firstItem="MOg-be-HDH" firstAttribute="top" secondItem="BDC-pf-7Oj" secondAttribute="top" constant="10" id="fl2-GQ-prD"/>
+                            <constraint firstItem="MOg-be-HDH" firstAttribute="centerY" secondItem="W2e-oI-aRc" secondAttribute="centerY" id="fZf-55-cAD"/>
+                            <constraint firstItem="MOg-be-HDH" firstAttribute="top" secondItem="BDC-pf-7Oj" secondAttribute="top" constant="44" id="fl2-GQ-prD"/>
                             <constraint firstItem="Ppk-OX-yBw" firstAttribute="top" secondItem="BRm-pW-4Pd" secondAttribute="bottom" constant="8" symbolic="YES" id="gyV-G2-TtQ"/>
                             <constraint firstItem="Ppk-OX-yBw" firstAttribute="centerX" secondItem="hTD-rA-8eP" secondAttribute="centerX" id="hKK-zM-VW2"/>
                             <constraint firstItem="Ds6-Zg-erq" firstAttribute="centerY" secondItem="W2e-oI-aRc" secondAttribute="centerY" constant="96" id="j0f-03-ylS"/>
@@ -254,6 +255,7 @@
                         </userDefinedRuntimeAttributes>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="fl2-GQ-prD"/>
                                 <exclude reference="1Sy-R1-cVx"/>
                                 <exclude reference="85S-hS-igV"/>
                                 <exclude reference="SNm-4Q-BP5"/>
@@ -262,9 +264,9 @@
                                 <exclude reference="AZW-fy-uWQ"/>
                                 <exclude reference="bLC-kJ-82g"/>
                                 <exclude reference="zS0-UE-OsE"/>
+                                <exclude reference="phS-jL-m7b"/>
                                 <exclude reference="FMm-vA-XoL"/>
                                 <exclude reference="lHa-Ni-MEq"/>
-                                <exclude reference="phS-jL-m7b"/>
                                 <exclude reference="AQu-8q-kV0"/>
                                 <exclude reference="XjN-aR-oop"/>
                                 <exclude reference="MNk-Md-V2g"/>
@@ -295,6 +297,7 @@
     </scenes>
     <resources>
         <image name="New Project" width="1125" height="2436"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="google" width="512" height="512"/>
         <image name="image_hands (1)" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">

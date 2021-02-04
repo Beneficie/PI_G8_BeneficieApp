@@ -39,6 +39,8 @@ class SingUpViewController: UIViewController {
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
+        
+        
         configureUI()
     }
     
@@ -110,15 +112,12 @@ class SingUpViewController: UIViewController {
     }
     @IBAction func signUpTapped(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text, let fullName = fullNameTextField.text, let phoneNumber = phoneNumberTextField.text, let passwordConfirmation = passwordConfirmationTextField.text {
-//            , fullName: fullName, phoneNumber: phoneNumber
             if password != passwordConfirmation {
                 self.showAlert(title: "Erro", message: "As senhas fornecidas não conferem", okHandler: {(ok) in
                     self.passwordTextField.becomeFirstResponder()
                 }, cancelHandler: nil)
             } else {
-                nextViewModel.currentUser.name = fullName
-                nextViewModel.currentUser.phoneNumber = phoneNumber
-                self.viewModel.authenticationWithEmail(email: email, password: password, navigationController: self.navigationController)
+                self.viewModel.authenticationWithEmail(email: email, password: password, fullName: fullName, phoneNumber: phoneNumber, navigationController: self.navigationController)
             }
         }
     }
@@ -146,8 +145,8 @@ extension SingUpViewController : UITextFieldDelegate{
             return true
         } else if textField == passwordConfirmationTextField {
             textField.resignFirstResponder()
-            if let email = emailTextField.text, let password = passwordTextField.text {
-                self.viewModel.authenticationWithEmail(email: email, password: password, navigationController: self.navigationController)
+            if let email = emailTextField.text, let password = passwordTextField.text, let fullName = fullNameTextField.text, let phoneNumber = phoneNumberTextField.text {
+                self.viewModel.authenticationWithEmail(email: email, password: password, fullName: fullName, phoneNumber: phoneNumber, navigationController: self.navigationController)
             }
             return true
         }else {

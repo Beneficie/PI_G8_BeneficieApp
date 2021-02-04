@@ -65,6 +65,7 @@ class FinancialDetailsViewController: UIViewController {
         let alert = UIAlertController(title: "Doação", message: "Deseja marcar como doado?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Realizei Doação", style: .default, handler: {_ in
             if let nextScreen = self.openSocialNetwork() {
+                self.icConfetti.velocities = [128, 144, 128]
                 self.icConfetti.rain(in: nextScreen)
             }
         }))
