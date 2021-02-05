@@ -43,20 +43,11 @@ class ParticipantsViewController: UIViewController {
 }
 
 //MARK: - TableViewDelegate and DataSource
-extension ParticipantsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        participantsTableView.deselectRow(at: indexPath, animated: true)
-//        if editingStyle == .delete {
-//            viewModel.arrayEvents.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-    }
-}
+extension ParticipantsViewController: UITableViewDelegate {}
 
 
 extension ParticipantsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.getNumberofRows()
         return getParticipantsList().count
     }
     

@@ -30,6 +30,13 @@ class User_EventViewModel {
             navigationController?.pushViewController(profile, animated: true) }
     }
     
+    func goToBanksMenuScreen(user: User, navigationController: UINavigationController?) {
+        if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
+            userFinanceData.currentUser = user
+            navigationController?.pushViewController(userFinanceData, animated: true)
+        }
+    }
+    
     func loadData(userToken: String, onComplete: @escaping (Bool) -> Void) {
         apiManager.getEvent(userToken: userToken, onSuccess: { (responseData) in
             

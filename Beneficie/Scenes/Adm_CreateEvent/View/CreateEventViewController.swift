@@ -25,7 +25,7 @@ class CreateEventViewController: UIViewController {
     var currentAction: String = "Criar"
     var currentEvent = Event()
     var currentUser = User()
-    var newEvent = Event()
+    
     var arrayPickerView = String()
     
     override func viewDidLoad() {
@@ -45,86 +45,32 @@ class CreateEventViewController: UIViewController {
 
     }
     
-    func handleVacancy() {
-        if addressTextField.text != nil,
-        eventTitleTextField.text != nil,
-        eventTotalVacancyTextField.text != nil,
-        groupsNumberTextField.text != nil,
-        eventDescriptionTextField.text != nil {
-            if eventTotalVacancyTextField.text!.isEmpty == false,
-               groupsNumberTextField.text!.isEmpty == false {
-                if let totalVacancy = eventTotalVacancyTextField.text,
-                   let groupVacancy = groupsNumberTextField.text {
-                    if groupVacancy == "1" {
-                        eventTotalVacancyTextField.text = groupVacancy
-                    } else {
-                        let result = Int(totalVacancy)!/Int(groupVacancy)!
-                        groupVacancyLabel.text = String(result)
-                    }
-                }
-            }
-        }
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
+        present(alert, animated: true, completion: nil)
     }
-    
+        
     func createEvent() {
         if let address = addressTextField.text,
            let title = eventTitleTextField.text,
            let totalVacancy = eventTotalVacancyTextField.text,
            let groups = groupsNumberTextField.text,
-           let eventDescription = eventDescriptionTextField.text
-        {
-            if addressTextField.text?.isEmpty == false,
-               eventTitleTextField.text?.isEmpty == false,
-               eventTotalVacancyTextField.text?.isEmpty == false,
-               groupsNumberTextField.text?.isEmpty == false,
-               eventDescriptionTextField.text?.isEmpty == false
-            {
-                newEvent.local = address
-                newEvent.titulo = title
-                newEvent.vagasTotais = Int(totalVacancy)!
-                newEvent.descricao = eventDescription
-                let groupsCount = Int(groups)!
-                var subgroups = [Subgroup]()
-                for groupIndex in 1...groupsCount {
-                    var subgroup = Subgroup()
-                    subgroup.grupo = "Grupo \(groupIndex)"
-                    subgroup.vagasSubgrupo = Int(totalVacancy)!/Int(groups)!
-                    subgroup.vagasDisponiveisSubgrupo = subgroup.vagasSubgrupo
-                    subgroups.append(subgroup)
+           let eventDescription = eventDescriptionTextField.text {
+            let newEvent = viewModel.getEvent(address: address, title: title, totalVacancy: Int(totalVacancy)!, description: description, groupCount: Int(groups)!)
+            viewModel.createEvent(event: newEvent) { (success) in
+                if success {
+                    self.showAlert(title: "Ação Salva", message: "Ação salva com sucesso", okHandler: nil)
+                } else {
+                    self.showAlert(title: "Não foi possível", message: "Erro ao criar evento", okHandler: nil)
                 }
-                newEvent.subgrupos = subgroups
-                viewModel.createEvent(event: newEvent) { (success) in
-                    if success {
-                        let alert = UIAlertController(title: "Ação Salva", message: "Ação salva com sucesso", preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-                            if let main = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
-                                main.loadData()
-                                self.navigationController?.pushViewController(main, animated: true)
-                            }
-
-                        }))
-                        self.present(alert, animated: true, completion: nil)
-                    } else {
-                        let alert = UIAlertController(title: "Não foi possível", message: "Erro ao criar evento", preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                }
-            } else {
-                let alert = UIAlertController(title: "Erro", message: "Preencha todos os campos", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-                
-                        }))
-                        present(alert, animated: true)
             }
-            
+        } else {
+            showAlert(title: "Erro", message: "Preencha todos os campos", okHandler: nil)
         }
     }
     
     func configureUI(){
-        //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
         saveButton.layer.cornerRadius = 15
         currentActionLabel.text = "\(currentAction) Ação"
         
@@ -142,7 +88,7 @@ class CreateEventViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let eventDate = dateFormatter.string(from: eventDatePicker.date)
-        newEvent.data = eventDate
+        viewModel.newEvent.data = eventDate
     }
     
     @IBAction func profileButton(_ sender: Any) {
@@ -172,7 +118,10 @@ extension CreateEventViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        handleVacancy()
+        if let totalVacancy = eventTotalVacancyTextField.text,
+           let groupsCount = groupsNumberTextField.text {
+            let vacancypergroup = viewModel.handleVacancy(totalVacancy: Int(totalVacancy)!, groupCount: Int(groupsCount)!)
+        }
     }
 }
 

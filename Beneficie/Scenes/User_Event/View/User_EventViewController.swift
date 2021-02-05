@@ -46,6 +46,91 @@ class User_EventViewController: UIViewController {
         
     }
     
+    
+    
+    func availabilityToSubscribe() {
+        let vacancy = self.viewModel.subgroup.vagasDisponiveisSubgrupo
+        if vacancy > 0 && !didSubscribe() {
+            subscribeButton.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
+            subscribeButton.isEnabled = true
+        } else {
+            subscribeButton.backgroundColor = .lightGray
+            subscribeButton.isEnabled = false
+        }
+    }
+    
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
+    
+    func didSubscribe() -> Bool {
+        for group in viewModel.currentEvent.subgrupos {
+            if group.inscritos.contains(viewModel.currentUser.uid) {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func loadData() {
+        self.viewModel.getUserToken(onComplete: { (success) in
+            if success {
+                self.viewModel.loadData(userToken: self.viewModel.userToken, onComplete: { success in
+                    if success {
+                        self.viewModel.connectionReachable = true
+                        self.viewModel.subgroup = self.viewModel.currentEvent.subgrupos.first!
+                        DispatchQueue.main.async {
+                            self.updateUIForSubscription(event: self.viewModel.currentEvent)
+                            self.availabilityToSubscribe()
+                        }
+                        
+                    } else {
+                        self.viewModel.connectionReachable = false
+                        print("Erro in LoadData from User_Event")
+                        self.alertFailedInLoadData()
+                        self.availabilityToSubscribe()
+                    }
+                })
+            }
+            //            self.updateUIForSubscription(event: self.viewModel.currentEvent)
+        })
+        loadingActivityIndicator.startAnimating()
+    }
+    
+   
+    
+    func alertFailedInLoadData() {
+        let loadedEvent = self.viewModel.loadFromDataBase()
+        if loadedEvent.isEmpty == false {
+            self.showAlert(title: "Não foi possível carregar o evento", message: "Exibindo evento carregado anteriormente", okHandler: {_ in
+                self.updateUIForNoConnection(dataBaseEvents: loadedEvent)
+            })
+        }
+    }
+        
+    @IBAction func profileButton(_ sender: Any) {
+        self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
+    }
+    
+    @IBAction func actionSubscribePressed(_ sender: Any) {
+        if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
+            
+            userSubscribe.currentEvent = self.viewModel.currentEvent
+            userSubscribe.currentSubgroup = self.viewModel.subgroup.grupo
+            userSubscribe.currentUser = viewModel.currentUser
+            
+            navigationController?.pushViewController(userSubscribe, animated: true)
+        }
+    }
+    
+    @IBAction func actionDonatePressed(_ sender: Any) {
+        viewModel.goToBanksMenuScreen(user: viewModel.currentUser, navigationController: self.navigationController)
+    }
+        
     func setupUI() {
         donateButton.layer.cornerRadius = 15
         subscribeButton.layer.cornerRadius = 15
@@ -69,138 +154,57 @@ class User_EventViewController: UIViewController {
         loadingActivityIndicator.stopAnimating()
     }
     
-    func loadData() {
-        self.viewModel.getUserToken(onComplete: { (success) in
-            if success {
-                self.viewModel.loadData(userToken: self.viewModel.userToken, onComplete: { success in
-                    if success {
-                        self.viewModel.connectionReachable = true
-                        self.viewModel.subgroup = self.viewModel.currentEvent.subgrupos.first!
-                        DispatchQueue.main.async {
-                            self.updateUIForSubscription(event: self.viewModel.currentEvent)
-                            self.availabilityToSubscribe()
-                        }
-                        
-                    } else {
-                        self.viewModel.connectionReachable = false
-                        print("Erro in LoadData from User_Event")
-                        self.alertFailedInLoadData()
-                        self.availabilityToSubscribe()
-                    }
-                })
-            }
-//            self.updateUIForSubscription(event: self.viewModel.currentEvent)
-        })
-        loadingActivityIndicator.startAnimating()
-    }
-    
-    func alertFailedInLoadData() {
-        let alert = UIAlertController(title: "Não foi possível carregar o evento", message: "Exibindo evento carregado anteriormente", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-            let loadedEvent = self.viewModel.loadFromDataBase()
-            if let subgroup = loadedEvent.first?!.eventSubgroupDB {
-                self.eventDateLabel.text = loadedEvent.first?!.eventDateDB
-                self.eventTitleLabel.text = loadedEvent.first?!.eventNameDB
-                self.eventAddressLabel.text = loadedEvent.first?!.eventAddressDB
-                self.eventDescriptionLabel.text = loadedEvent.first?!.eventDescriptionDB
-                self.viewModel.subgroup.grupo = subgroup
-                self.eventTotalVacanciesLabel.text = "0"
-                self.eventSubGroupVacanciesLabel.text = "0"
-                self.subGroupsPickerView.reloadComponent(0)
-                self.subGroupsPickerView.isUserInteractionEnabled = false
-                self.loadingActivityIndicator.stopAnimating()
-            } else {
-                self.loadingActivityIndicator.stopAnimating()
-                self.showAlert(title: "Não foi possível carregar o evento", message: "Conecte-se para inscrever-se em eventos e muito mais!", okHandler: nil)
-            }
-        }))
-        present(alert, animated: true)
-    }
-    
-    func didSubscribe() -> Bool {
-        for group in viewModel.currentEvent.subgrupos {
-            if group.inscritos.contains(viewModel.currentUser.uid) {
-                return true
-            }
-        }
-        return false
-    }
-    
-    func availabilityToSubscribe() {
-        let vacancy = self.viewModel.subgroup.vagasDisponiveisSubgrupo
-        if vacancy > 0 && !didSubscribe() {
-            subscribeButton.backgroundColor = UIColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
-            subscribeButton.isEnabled = true
-        } else {
-            subscribeButton.backgroundColor = .lightGray
-            subscribeButton.isEnabled = false
+    func updateUIForNoConnection(dataBaseEvents: [CurrentEventDB?]) {
+        let loadedEvent = dataBaseEvents
+        if let subgroup = loadedEvent[0]?.eventSubgroupDB {
+            self.eventDateLabel.text = loadedEvent[0]?.eventDateDB
+            self.eventTitleLabel.text = loadedEvent[0]?.eventNameDB
+            self.eventAddressLabel.text = loadedEvent[0]?.eventAddressDB
+            self.eventDescriptionLabel.text = loadedEvent[0]?.eventDescriptionDB
+            self.viewModel.subgroup.grupo = subgroup
+            self.eventTotalVacanciesLabel.text = "0"
+            self.eventSubGroupVacanciesLabel.text = "0"
+            self.subGroupsPickerView.reloadComponent(0)
+            self.subGroupsPickerView.isUserInteractionEnabled = false
+            self.loadingActivityIndicator.stopAnimating()
         }
     }
     
-    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
-        present(alert, animated: true, completion: nil)
     }
-
     
-    @IBAction func profileButton(_ sender: Any) {
-        self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
+    extension User_EventViewController: UIPickerViewDelegate {
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            let vacancy = viewModel.currentEvent.subgrupos[row].vagasDisponiveisSubgrupo
+            self.viewModel.subgroup.grupo = viewModel.currentEvent.subgrupos[row].grupo
+            eventSubGroupVacanciesLabel.text = String(vacancy)
+            self.availabilityToSubscribe()
         }
-    
-    @IBAction func actionSubscribePressed(_ sender: Any) {
-        if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
-            
-            userSubscribe.currentEvent = self.viewModel.currentEvent
-            userSubscribe.currentSubgroup = self.viewModel.subgroup.grupo
-            userSubscribe.currentUser = viewModel.currentUser
-            
-            navigationController?.pushViewController(userSubscribe, animated: true)
-        }
-    }
-    
-    @IBAction func actionDonatePressed(_ sender: Any) {
-        if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
-            userFinanceData.currentUser = self.viewModel.currentUser
-            self.navigationController?.pushViewController(userFinanceData, animated: true)
-        }
-    }
-
-}
-
-extension User_EventViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let vacancy = viewModel.currentEvent.subgrupos[row].vagasDisponiveisSubgrupo
-        self.viewModel.subgroup.grupo = viewModel.currentEvent.subgrupos[row].grupo
-        eventSubGroupVacanciesLabel.text = String(vacancy)
-        self.availabilityToSubscribe()
-    }
-    
-}
-
-extension User_EventViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        if viewModel.currentEvent.subgrupos != nil &&
-            (viewModel.currentEvent.subgrupos.count) > 0  {
-            return (viewModel.currentEvent.subgrupos.count)
-        } else {
+    }
+    
+    extension User_EventViewController: UIPickerViewDataSource {
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 1
         }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if viewModel.currentEvent.subgrupos.count > 0 {
-            let group = viewModel.currentEvent.subgrupos[row].grupo
-            self.viewModel.subgroup.grupo = group
-            return group
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            
+            if viewModel.currentEvent.subgrupos != nil &&
+                (viewModel.currentEvent.subgrupos.count) > 0  {
+                return (viewModel.currentEvent.subgrupos.count)
+            } else {
+                return 1
+            }
         }
-        return self.viewModel.subgroup.grupo
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            if viewModel.currentEvent.subgrupos.count > 0 {
+                let group = viewModel.currentEvent.subgrupos[row].grupo
+                self.viewModel.subgroup.grupo = group
+                return group
+            }
+            return self.viewModel.subgroup.grupo
+        }
     }
-}
 
 

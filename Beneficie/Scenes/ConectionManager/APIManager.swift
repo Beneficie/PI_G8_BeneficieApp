@@ -41,6 +41,31 @@ class APIManager {
         }
     }
     
+    func getAsArray(
+            url: String,
+            onSuccess: @escaping (_ responseArray: Data) -> Void,
+            onFailure: @escaping (_ errorMessage: String?) -> Void
+        ) {
+            AF.request(url).validate().response { response in
+                
+                switch response.result {
+                case .success(let data):
+                    if let responseValue = response.data {
+                        onSuccess(responseValue)
+                        return
+                    }
+                    else {
+                        onFailure("No response value")
+                        return
+                    }
+                    
+                case .failure(let error):
+                    onFailure(error.failureReason)
+                    
+                }
+            }
+        }
+    
     func subscribeUserToEvent(
         event: Event,
         onComplete: @escaping (_ isOk: Bool) -> Void

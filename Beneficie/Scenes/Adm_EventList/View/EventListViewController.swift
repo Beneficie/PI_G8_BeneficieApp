@@ -44,18 +44,18 @@ class EventListViewController: UIViewController {
                 print("user loading fail")
             }
         }
-//        viewModel.loadData { success in
-//            if success {
-//                self.loadingActivityIndicator.stopAnimating()
-//                self.eventListTableView.reloadData()
-//                self.event = self.viewModel.arrayEvents[0]
-////                print("Success")
-////                self.setUpUI(event: self.event)
-//            } else {
-//                print("Error: LoadData from eventList")
-////                self.alertFailedInLoadData()
-//            }
-//        }
+        viewModel.loadData { success in
+            if success {
+                self.loadingActivityIndicator.stopAnimating()
+                self.eventListTableView.reloadData()
+                self.event = self.viewModel.arrayEvents[0]
+//                print("Success")
+//                self.setUpUI(event: self.event)
+            } else {
+                print("Error: LoadData from eventList")
+//                self.alertFailedInLoadData()
+            }
+        }
     }
     
     func configureUI(){
@@ -63,7 +63,7 @@ class EventListViewController: UIViewController {
         createEventButton.layer.cornerRadius = 15
     }
     @IBAction func profileButton(_ sender: Any) {
-        self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
+        self.viewModel.goToProfileScreen(user: viewModel.currentUser, navigationController: self.navigationController)
     }
     @IBAction func createEvent(_ sender: Any) {
         if let newEvent = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as? CreateEventViewController {
