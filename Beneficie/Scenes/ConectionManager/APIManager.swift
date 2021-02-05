@@ -67,14 +67,14 @@ class APIManager {
         }
     
     func subscribeUserToEvent(
-        event: Event,
+        user: User, event: Event, subgroup: Subgroup,
         onComplete: @escaping (_ isOk: Bool) -> Void
     ) {
         let encoder = JSONEncoder()
         let jsonData = try! encoder.encode(event)
         
         if let eventId = event._id {
-            let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/events/\(eventId)")!
+            let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/events/\(eventId)/subgroup/\(subgroup._id)")!
         
             var request = URLRequest(url: url)
                 request.httpMethod = HTTPMethod.put.rawValue
@@ -84,7 +84,7 @@ class APIManager {
                 AF.request(request).responseJSON { response in
                     switch response.result {
                     case .success(let data):
-//                        print(data)
+                        print(data)
                         onComplete(true)
                         
                     case .failure(let error):

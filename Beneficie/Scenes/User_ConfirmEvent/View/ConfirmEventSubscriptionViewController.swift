@@ -18,7 +18,7 @@ class ConfirmEventSubscriptionViewController: UIViewController {
     var viewModel = ConfirmEventSubscriptionViewModel()
     var currentEvent = Event()
     var currentUser = User()
-    var currentSubgroup = ""
+    var currentSubgroup = Subgroup()
     
     
     
@@ -52,23 +52,23 @@ class ConfirmEventSubscriptionViewController: UIViewController {
     
     func subscribeUser() {
         viewModel.checkUser(name: self.fullNameTextField.text!, phoneNumber: self.phoneNumberTextField.text!)
-        if let index = viewModel.currentEvent.subgrupos.firstIndex(where: { $0.grupo == viewModel.currentSubgroup }) {
-            viewModel.currentEvent.subgrupos[index].inscritos.append(viewModel.currentUser.uid)
+        if let index = viewModel.currentEvent.subgrupos.firstIndex(where: { $0.grupo == viewModel.currentSubgroup.grupo }) {
+            viewModel.currentEvent.subgrupos[index].inscritos.append(viewModel.currentUser)
             viewModel.currentEvent.subgrupos[index].vagasDisponiveisSubgrupo -= 1
-            viewModel.subscribeUser(event: viewModel.currentEvent) { (success) in
+            viewModel.subscribeUser(user: viewModel.currentUser, event: viewModel.currentEvent, subgroup: viewModel.currentSubgroup, onComplete: { (success) in
                 if success {
                     self.showAlert(title: "Inscrição Confirmada", message: "Você foi inscrito na ação", okHandler: {_ in
                         self.viewModel.saveNewEventToDataBase(eventName: self.viewModel.currentEvent.titulo,
                                                               eventDate: self.viewModel.currentEvent.data,
                                                               eventAddress: self.viewModel.currentEvent.local,
                                                               eventDescription: self.viewModel.currentEvent.descricao,
-                                                              eventSubgroup: self.viewModel.currentSubgroup)
+                                                              eventSubgroup: self.viewModel.currentSubgroup.grupo)
                         self.viewModel.newRootController()
                     }, cancelHandler: nil)
                 } else {
                     self.showAlert(title: "Erro", message: "Não foi possível realizar inscrição", okHandler: nil, cancelHandler: nil)
                 }
-            }
+            })
         }
     }
     

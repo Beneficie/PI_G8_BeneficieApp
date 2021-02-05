@@ -24,6 +24,17 @@ class User_EventViewModel {
         self.currentUser = currentUser
     }
     
+    func goToConfirmEventScreen(user: User, event: Event, subgroup: Subgroup, navigationController: UINavigationController?) {
+        if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
+            
+            userSubscribe.currentUser = user
+            userSubscribe.currentEvent = event
+            userSubscribe.currentSubgroup = subgroup
+            
+            navigationController?.pushViewController(userSubscribe, animated: true)
+        }
+    }
+    
     func goToProfileScreen(user: User, navigationController: UINavigationController?) {
         if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
             profile.currentUser = user

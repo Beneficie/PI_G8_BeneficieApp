@@ -13,11 +13,11 @@ class ConfirmEventSubscriptionViewModel {
     var apiManager = APIManager()
     var currentEvent = Event()
     var currentUser = User()
-    var currentSubgroup = ""
+    var currentSubgroup = Subgroup()
     
     
-    func subscribeUser(event: Event, onComplete: @escaping (Bool) -> Void) {
-        apiManager.subscribeUserToEvent(event: event) { isOk in
+    func subscribeUser(user: User, event: Event, subgroup: Subgroup, onComplete: @escaping (Bool) -> Void) {
+        apiManager.subscribeUserToEvent(user: user, event: event, subgroup: subgroup) { isOk in
             onComplete(isOk)
         }
     }
@@ -38,7 +38,7 @@ class ConfirmEventSubscriptionViewModel {
         }
     }
     
-    func setupValues(_ currentEvent: Event, _ currentUser: User, _ currentSubgroup: String) {
+    func setupValues(_ currentEvent: Event, _ currentUser: User, _ currentSubgroup: Subgroup) {
         self.currentEvent = currentEvent
         self.currentUser = currentUser
         self.currentSubgroup = currentSubgroup

@@ -111,26 +111,19 @@ class User_EventViewController: UIViewController {
             })
         }
     }
-        
+    
     @IBAction func profileButton(_ sender: Any) {
         self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
     }
     
     @IBAction func actionSubscribePressed(_ sender: Any) {
-        if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
-            
-            userSubscribe.currentEvent = self.viewModel.currentEvent
-            userSubscribe.currentSubgroup = self.viewModel.subgroup.grupo
-            userSubscribe.currentUser = viewModel.currentUser
-            
-            navigationController?.pushViewController(userSubscribe, animated: true)
-        }
+        
     }
     
     @IBAction func actionDonatePressed(_ sender: Any) {
         viewModel.goToBanksMenuScreen(user: viewModel.currentUser, navigationController: self.navigationController)
     }
-        
+    
     func setupUI() {
         donateButton.layer.cornerRadius = 15
         subscribeButton.layer.cornerRadius = 15
