@@ -17,6 +17,7 @@ class EventListViewController: UIViewController {
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     
     var event = Event()
+    var currentUser = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,19 +63,18 @@ class EventListViewController: UIViewController {
         createEventButton.layer.cornerRadius = 15
     }
     @IBAction func profileButton(_ sender: Any) {
-        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            profile.currentUser = viewModel.currentUser
-            navigationController?.pushViewController(profile, animated: true)
-        }
+        self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
     }
     @IBAction func createEvent(_ sender: Any) {
         if let newEvent = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as? CreateEventViewController {
+            newEvent.currentUser = currentUser
             navigationController?.pushViewController(newEvent, animated: true)
         }
     }
     
     func bankInformationsScreen() {
         if let banks = UIStoryboard(name: "BankInformations", bundle: nil).instantiateInitialViewController() as? BankInformationsViewController {
+            banks.currentUser = currentUser
             navigationController?.pushViewController(banks, animated: true)
         }
     }
@@ -82,6 +82,7 @@ class EventListViewController: UIViewController {
     func participantsListScreen(event: Event) {
         if let list = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
             list.event = event
+            list.currentUser = currentUser
             navigationController?.pushViewController(list, animated: true)
         }
     }

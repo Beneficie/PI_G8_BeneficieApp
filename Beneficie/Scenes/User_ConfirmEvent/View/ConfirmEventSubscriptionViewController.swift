@@ -20,11 +20,7 @@ class ConfirmEventSubscriptionViewController: UIViewController {
     var currentUser = User()
     var currentSubgroup = ""
     
-    func openFinancialScreen() {
-        if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
-            navigationController?.pushViewController(userFinanceData, animated: true)
-        }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +64,6 @@ class ConfirmEventSubscriptionViewController: UIViewController {
                                                               eventDescription: self.viewModel.currentEvent.descricao,
                                                               eventSubgroup: self.viewModel.currentSubgroup)
                         self.viewModel.newRootController()
-                        self.openFinancialScreen()
                     }, cancelHandler: nil)
                 } else {
                     self.showAlert(title: "Erro", message: "Não foi possível realizar inscrição", okHandler: nil, cancelHandler: nil)
@@ -81,7 +76,7 @@ class ConfirmEventSubscriptionViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func profileButton(_ sender: Any) {
-        self.viewModel.goToProfileScreen(navigationController: self.navigationController)
+        self.viewModel.goToProfileScreen(user: currentUser,navigationController: self.navigationController)
     }
     
     @IBAction func confirmButtonPressed(_ sender: Any) {

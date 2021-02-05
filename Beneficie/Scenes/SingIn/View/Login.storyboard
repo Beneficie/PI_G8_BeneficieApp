@@ -99,7 +99,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="jU0-Pb-3Hc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qcN-8a-uAg" userLabel="SeparatorView">
                                         <rect key="frame" x="0.0" y="35" width="374" height="2"/>
@@ -150,7 +150,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-dQ-GxA" userLabel="SingUpButton">
-                                <rect key="frame" x="108.5" y="703" width="197" height="30"/>
+                                <rect key="frame" x="114" y="703" width="186" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Não tem conta? Cadastre-se">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

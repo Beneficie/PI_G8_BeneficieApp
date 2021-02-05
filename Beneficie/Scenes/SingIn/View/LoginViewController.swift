@@ -87,9 +87,7 @@ class LoginViewController: UIViewController {
         print("DEBUG: Forgot Password")
     }
     @IBAction func handleSingUp(_ sender: UIButton) {
-        if let signUp = UIStoryboard(name: "SingUp", bundle: nil).instantiateInitialViewController() as? SingUpViewController {
-            navigationController?.pushViewController(signUp, animated: true)
-        }
+        viewModel.goToSignUpScreen(navigationController: self.navigationController)
     }
     
     func configureUI() {
@@ -102,7 +100,6 @@ class LoginViewController: UIViewController {
     }
     
     func addSubview(button: FBLoginButton) {
-        
         fBView.addSubview(button)
     }
     

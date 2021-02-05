@@ -15,12 +15,6 @@ class ConfirmEventSubscriptionViewModel {
     var currentUser = User()
     var currentSubgroup = ""
     
-    func goToProfileScreen(navigationController: UINavigationController?) {
-        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            profile.currentUser = self.currentUser
-            navigationController?.pushViewController(profile, animated: true)
-        }
-    }
     
     func subscribeUser(event: Event, onComplete: @escaping (Bool) -> Void) {
         apiManager.subscribeUserToEvent(event: event) { isOk in
@@ -70,6 +64,12 @@ class ConfirmEventSubscriptionViewModel {
         navi.pushViewController(viewController, animated: true)
         UIViewController.replaceRootViewController(viewController: navi)
         navi.setNavigationBarHidden(true, animated: false)
+    }
+    
+    func goToProfileScreen(user: User, navigationController: UINavigationController?) {
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = user
+            navigationController?.pushViewController(profile, animated: true) }
     }
     
     // MARK: Database functions

@@ -79,8 +79,6 @@ class SingUpViewController: UIViewController {
         passwordConfirmationTextField.configureTextField(placeHolder: "Confirmar Senha")
         passwordTextField.configureTextField(placeHolder: "Senha")
         
-        // textFieldPhoneNumber.config.defaultConfiguration = PhoneFormat(defaultPhoneFormat: "(##) ##### - ####")
-        
         // MARK: - SignIn button setup
         singUpButton.layer.cornerRadius = 25
         singUpButton.layer.shadowOpacity = 0.3

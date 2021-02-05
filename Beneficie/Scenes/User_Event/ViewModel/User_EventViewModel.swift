@@ -24,6 +24,12 @@ class User_EventViewModel {
         self.currentUser = currentUser
     }
     
+    func goToProfileScreen(user: User, navigationController: UINavigationController?) {
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = user
+            navigationController?.pushViewController(profile, animated: true) }
+    }
+    
     func loadData(userToken: String, onComplete: @escaping (Bool) -> Void) {
         apiManager.getEvent(userToken: userToken, onSuccess: { (responseData) in
             

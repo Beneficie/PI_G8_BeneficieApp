@@ -10,11 +10,6 @@
 		0D1068C425693440002E5909 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1068C325693440002E5909 /* ProfileViewController.swift */; };
 		0D1068C625693453002E5909 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1068C525693453002E5909 /* Profile.storyboard */; };
 		0D1068C825693A15002E5909 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D1068C725693A15002E5909 /* Assets.xcassets */; };
-		0D1068CB25693C24002E5909 /* AdmActions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1068CA25693C24002E5909 /* AdmActions.storyboard */; };
-		0D1068CD25693EF5002E5909 /* AdmActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1068CC25693EF5002E5909 /* AdmActionsViewController.swift */; };
-		0D1068CF25693FC6002E5909 /* ActionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1068CE25693FC6002E5909 /* ActionsCell.swift */; };
-		0D1068D225694CF1002E5909 /* MonthAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D1068D125694CF1002E5909 /* MonthAction.storyboard */; };
-		0D1068D425695209002E5909 /* MonthActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1068D325695209002E5909 /* MonthActionViewController.swift */; };
 		0D1068D625695D72002E5909 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1068D525695D72002E5909 /* Extensions.swift */; };
 		0D153B39256A9D8E00E391AB /* CreateEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D153B38256A9D8E00E391AB /* CreateEvent.storyboard */; };
 		0D153B3B256AA35400E391AB /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D153B3A256AA35400E391AB /* CreateEventViewController.swift */; };
@@ -50,9 +45,7 @@
 		33B9045F257E581C004DA579 /* BankInformations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B9045E257E581B004DA579 /* BankInformations.storyboard */; };
 		33B9048C257E5BC4004DA579 /* ParticipantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B9048B257E5BC4004DA579 /* ParticipantsViewModel.swift */; };
 		33B90490257E5C41004DA579 /* CreateEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B9048F257E5C41004DA579 /* CreateEventViewModel.swift */; };
-		33B90493257E5C80004DA579 /* MonthActionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B90492257E5C80004DA579 /* MonthActionViewModel.swift */; };
 		33B90497257E5CE4004DA579 /* BankInformationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B90496257E5CE4004DA579 /* BankInformationsViewModel.swift */; };
-		33B9049A257E5D36004DA579 /* AdmActionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B90499257E5D36004DA579 /* AdmActionsViewModel.swift */; };
 		33B9049E257E5D99004DA579 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B9049D257E5D99004DA579 /* ProfileViewModel.swift */; };
 		33B904A2257E5DCC004DA579 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B904A1257E5DCC004DA579 /* MainScreenViewModel.swift */; };
 		33B904A6257E5E19004DA579 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B904A5257E5E19004DA579 /* SignUpViewModel.swift */; };
@@ -88,11 +81,6 @@
 		0D1068C325693440002E5909 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0D1068C525693453002E5909 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0D1068C725693A15002E5909 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0D1068CA25693C24002E5909 /* AdmActions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdmActions.storyboard; sourceTree = "<group>"; };
-		0D1068CC25693EF5002E5909 /* AdmActionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmActionsViewController.swift; sourceTree = "<group>"; };
-		0D1068CE25693FC6002E5909 /* ActionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsCell.swift; sourceTree = "<group>"; };
-		0D1068D125694CF1002E5909 /* MonthAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MonthAction.storyboard; sourceTree = "<group>"; };
-		0D1068D325695209002E5909 /* MonthActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthActionViewController.swift; sourceTree = "<group>"; };
 		0D1068D525695D72002E5909 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0D153B38256A9D8E00E391AB /* CreateEvent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateEvent.storyboard; sourceTree = "<group>"; };
 		0D153B3A256AA35400E391AB /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
@@ -132,9 +120,7 @@
 		33B9045E257E581B004DA579 /* BankInformations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BankInformations.storyboard; sourceTree = "<group>"; };
 		33B9048B257E5BC4004DA579 /* ParticipantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsViewModel.swift; sourceTree = "<group>"; };
 		33B9048F257E5C41004DA579 /* CreateEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewModel.swift; sourceTree = "<group>"; };
-		33B90492257E5C80004DA579 /* MonthActionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthActionViewModel.swift; sourceTree = "<group>"; };
 		33B90496257E5CE4004DA579 /* BankInformationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankInformationsViewModel.swift; sourceTree = "<group>"; };
-		33B90499257E5D36004DA579 /* AdmActionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmActionsViewModel.swift; sourceTree = "<group>"; };
 		33B9049D257E5D99004DA579 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		33B904A1257E5DCC004DA579 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		33B904A5257E5E19004DA579 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -189,25 +175,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		0D1068C925693BB2002E5909 /* Adm_ListActions */ = {
-			isa = PBXGroup;
-			children = (
-				33B90469257E58EF004DA579 /* View */,
-				33B90468257E58E7004DA579 /* ViewModel */,
-			);
-			path = Adm_ListActions;
-			sourceTree = "<group>";
-		};
-		0D1068D025694CC3002E5909 /* DISABLED_Adm_MonthAction */ = {
-			isa = PBXGroup;
-			children = (
-				33B90456257E4F44004DA579 /* Model */,
-				33B90455257E4F3D004DA579 /* View */,
-				33B90454257E4F35004DA579 /* ViewModel */,
-			);
-			path = DISABLED_Adm_MonthAction;
-			sourceTree = "<group>";
-		};
 		0D153B37256A9D5300E391AB /* Adm_CreateEvent */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				33B9044D257E4E43004DA579 /* Scenes */,
-				33D27D66259B6F490014CB38 /* DisabledScenes */,
 				0D778629255A235300255307 /* AppDelegate.swift */,
 				0D77862B255A235300255307 /* SceneDelegate.swift */,
 				0D77862F255A235300255307 /* Main.storyboard */,
@@ -441,30 +407,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		33B90454257E4F35004DA579 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				33B90492257E5C80004DA579 /* MonthActionViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		33B90455257E4F3D004DA579 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				0D1068D125694CF1002E5909 /* MonthAction.storyboard */,
-				0D1068D325695209002E5909 /* MonthActionViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		33B90456257E4F44004DA579 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		33B90465257E58B0004DA579 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,24 +420,6 @@
 			children = (
 				33B9045E257E581B004DA579 /* BankInformations.storyboard */,
 				33928301256D461F0051DA2A /* BankInformationsViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		33B90468257E58E7004DA579 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				33B90499257E5D36004DA579 /* AdmActionsViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		33B90469257E58EF004DA579 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				0D1068CA25693C24002E5909 /* AdmActions.storyboard */,
-				0D1068CC25693EF5002E5909 /* AdmActionsViewController.swift */,
-				0D1068CE25693FC6002E5909 /* ActionsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -706,15 +630,6 @@
 			path = User_SocialNetworks;
 			sourceTree = "<group>";
 		};
-		33D27D66259B6F490014CB38 /* DisabledScenes */ = {
-			isa = PBXGroup;
-			children = (
-				0D1068D025694CC3002E5909 /* DISABLED_Adm_MonthAction */,
-				0D1068C925693BB2002E5909 /* Adm_ListActions */,
-			);
-			path = DisabledScenes;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -812,9 +727,7 @@
 				0D1068C625693453002E5909 /* Profile.storyboard in Resources */,
 				3386733425B1BDD1008AA217 /* GoogleService-Info.plist in Resources */,
 				33B904CE257E63AD004DA579 /* User_Event.storyboard in Resources */,
-				0D1068CB25693C24002E5909 /* AdmActions.storyboard in Resources */,
 				33D07EA8255DCE2A00272FBF /* User_SocialNetworks.storyboard in Resources */,
-				0D1068D225694CF1002E5909 /* MonthAction.storyboard in Resources */,
 				0D77863F255A260200255307 /* Login.storyboard in Resources */,
 				33D07E8A255DB4C400272FBF /* MainScreen.storyboard in Resources */,
 				33683803256C3DA700FCF70C /* BanksMenu.storyboard in Resources */,
@@ -895,14 +808,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				33D07E9A255DC33A00272FBF /* FinancialDetailsViewController.swift in Sources */,
-				33B90493257E5C80004DA579 /* MonthActionViewModel.swift in Sources */,
 				33D07E8E255DC0CD00272FBF /* User_EventViewController.swift in Sources */,
 				0D1068C425693440002E5909 /* ProfileViewController.swift in Sources */,
 				333FBC21258D258700C66BD6 /* EventListViewController.swift in Sources */,
 				0D778641255A263200255307 /* LoginViewController.swift in Sources */,
-				0D1068CF25693FC6002E5909 /* ActionsCell.swift in Sources */,
 				33B9049E257E5D99004DA579 /* ProfileViewModel.swift in Sources */,
-				33B9049A257E5D36004DA579 /* AdmActionsViewModel.swift in Sources */,
 				33D27D69259D08530014CB38 /* BankAccount.swift in Sources */,
 				0D153B3B256AA35400E391AB /* CreateEventViewController.swift in Sources */,
 				0D153B42256AB28C00E391AB /* ParticipantsCell.swift in Sources */,
@@ -910,11 +820,9 @@
 				3360679B25A661C700DE3A0C /* Admin.swift in Sources */,
 				0D77862A255A235300255307 /* AppDelegate.swift in Sources */,
 				0D153B40256AB26600E391AB /* ParticipantsViewController.swift in Sources */,
-				0D1068CD25693EF5002E5909 /* AdmActionsViewController.swift in Sources */,
 				33928302256D461F0051DA2A /* BankInformationsViewController.swift in Sources */,
 				33B05BCD25B64C8C0010496F /* DataBaseManager.swift in Sources */,
 				33B90490257E5C41004DA579 /* CreateEventViewModel.swift in Sources */,
-				0D1068D425695209002E5909 /* MonthActionViewController.swift in Sources */,
 				33B904AA257E5E41004DA579 /* LoginViewModel.swift in Sources */,
 				336837EF256C33A200FCF70C /* ConfirmEventSubscriptionViewController.swift in Sources */,
 				0DA4424A255ADC5900C82076 /* SingUpViewController.swift in Sources */,

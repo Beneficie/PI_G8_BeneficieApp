@@ -10,35 +10,32 @@ import FBSDKLoginKit
 
 class MainScreenViewController: UIViewController {
 
+    var viewModel = MainScreenViewModel()
+    
+    func handleTokenValue() {
+        if viewModel.isTokenExpired() {
+            viewModel.goToUserEventScreen(navigationController: self.navigationController)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let token = AccessToken.current,
-           !token.isExpired {
-            if let userSubscription = UIStoryboard(name: "User_Event", bundle: nil).instantiateInitialViewController() as? User_EventViewController {
-                self.navigationController?.pushViewController(userSubscription, animated: true)
-            }
-        }
+        handleTokenValue()
         
     }
     
     @IBAction func goToADMFlow(_ sender: UIButton) {
-        if let edit = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
-            navigationController?.pushViewController(edit, animated: true)
-        }
+        viewModel.goToUserAdministratorScreen(navigationController: self.navigationController)
     }
     
     
     @IBAction func loginTapped(_ sender: Any) {
-        if let signIn = UIStoryboard(name: "Login", bundle: nil).instantiateInitialViewController() as? LoginViewController {
-            navigationController?.pushViewController(signIn, animated: true)
-        }
+        viewModel.goToLoginScreen(navigationController: self.navigationController)
     }
     
     @IBAction func signUpTapped(_ sender: Any) {
-        if let signUp = UIStoryboard(name: "SingUp", bundle: nil).instantiateInitialViewController() as? SingUpViewController {
-            navigationController?.pushViewController(signUp, animated: true)
-        }
+        viewModel.goToSignUp(navigationController: self.navigationController)
     }
     
 }

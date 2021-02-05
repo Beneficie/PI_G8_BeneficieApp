@@ -11,6 +11,7 @@ class ParticipantsViewController: UIViewController {
 
     var viewModel = ParticipantsViewModel()
     var event = Event()
+    var currentUser = User()
 //    var subgroup = Subgroup()
     
     func getParticipantsList() -> [String] {
@@ -36,9 +37,7 @@ class ParticipantsViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func profilleButton(_ sender: Any) {
-        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            navigationController?.pushViewController(profile, animated: true)
-        }
+        self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
     }
     
 }

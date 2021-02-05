@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CreateEventViewModel {
     
@@ -15,6 +16,12 @@ class CreateEventViewModel {
         apiManager.createEvent(event: event) { isOk in
             onComplete(isOk)
         }
+    }
+    
+    func goToProfileScreen(user: User, navigationController: UINavigationController?) {
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = user
+            navigationController?.pushViewController(profile, animated: true) }
     }
     
     

@@ -24,6 +24,7 @@ class CreateEventViewController: UIViewController {
     var viewModel = CreateEventViewModel()
     var currentAction: String = "Criar"
     var currentEvent = Event()
+    var currentUser = User()
     var newEvent = Event()
     var arrayPickerView = String()
     
@@ -145,9 +146,7 @@ class CreateEventViewController: UIViewController {
     }
     
     @IBAction func profileButton(_ sender: Any) {
-        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            navigationController?.pushViewController(profile, animated: true)
-        }
+        self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
     }
     
     @IBAction func saveButton(_ sender: UIButton) {

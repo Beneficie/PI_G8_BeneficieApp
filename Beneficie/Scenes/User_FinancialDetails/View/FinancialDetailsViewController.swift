@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import ICConfetti
 
 class FinancialDetailsViewController: UIViewController {
 
@@ -27,16 +26,7 @@ class FinancialDetailsViewController: UIViewController {
     
     var viewModel = FinancialDetailsViewModel()
     var bank = BankAccount()
-    
-    var icConfetti = ICConfetti()
-    
-    func openSocialNetwork() -> UIView? {
-        if let userSocialNetworks = UIStoryboard(name: "User_SocialNetworks", bundle: nil).instantiateInitialViewController() as? User_SocialNetworksViewController {
-            present(userSocialNetworks, animated: true, completion: nil)
-            return userSocialNetworks.view
-        }
-        return nil
-    }
+ 
     
     func setUpLabels(bank: BankAccount) {
         if bank.name?.lowercased() != "pix" {
@@ -61,22 +51,23 @@ class FinancialDetailsViewController: UIViewController {
         }
     }
     
-    func alertDonation() {
-        let alert = UIAlertController(title: "Doação", message: "Deseja marcar como doado?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Realizei Doação", style: .default, handler: {_ in
-            if let nextScreen = self.openSocialNetwork() {
-                self.icConfetti.velocities = [128, 144, 128]
-                self.icConfetti.rain(in: nextScreen)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: {_ in
-        }))
-        present(alert, animated: true)
-
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)? ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: cancelHandler))
+        present(alert, animated: true, completion: nil)
     }
     
     func setupUI() {
         didDonateButton.layer.cornerRadius = 15
+    }
+    
+    func manageDonationConfirmation() {
+        showAlert(title: "Doação", message: "Deseja marcar como doado?", okHandler: {_ in
+            if let socialNetworksScreen = self.viewModel.openSocialNetwork() {
+                self.present(socialNetworksScreen, animated: true, completion: nil)
+            }
+        }, cancelHandler: nil)
     }
     
     override func viewDidLoad() {
@@ -85,6 +76,8 @@ class FinancialDetailsViewController: UIViewController {
         self.setUpLabels(bank: self.bank)
         self.setupUI()
     }
+    
+    
     @IBAction func copyBank(_ sender: Any) {
         let pasteboard = UIPasteboard.general
         pasteboard.string = choosenBankNameLabel.text
@@ -99,7 +92,8 @@ class FinancialDetailsViewController: UIViewController {
     }
     
     @IBAction func didDonate(_ sender: Any) {
-        self.alertDonation()
+        self.manageDonationConfirmation()
     }
+    
     
 }

@@ -145,10 +145,8 @@ class User_EventViewController: UIViewController {
 
     
     @IBAction func profileButton(_ sender: Any) {
-        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            profile.currentUser = viewModel.currentUser
-            navigationController?.pushViewController(profile, animated: true) }
-    }
+        self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
+        }
     
     @IBAction func actionSubscribePressed(_ sender: Any) {
         if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
@@ -163,6 +161,7 @@ class User_EventViewController: UIViewController {
     
     @IBAction func actionDonatePressed(_ sender: Any) {
         if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
+            userFinanceData.currentUser = self.viewModel.currentUser
             self.navigationController?.pushViewController(userFinanceData, animated: true)
         }
     }

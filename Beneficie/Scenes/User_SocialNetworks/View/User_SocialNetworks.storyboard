@@ -115,6 +115,9 @@
                                     <constraint firstAttribute="height" constant="99" id="Z5Q-Uz-Isv"/>
                                 </constraints>
                                 <color key="tintColor" red="0.35626590250000001" green="0.2807468474" blue="0.87848192449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="shareDonation:" destination="DEq-sF-emY" eventType="touchUpInside" id="jwE-z0-NXA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@beneficieApp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSm-rj-IPd">
                                 <rect key="frame" x="149" y="373" width="116" height="21"/>
