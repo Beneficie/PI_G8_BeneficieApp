@@ -65,13 +65,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     static func isAdmin() -> Bool {
-        if Auth.auth().currentUser == nil, Auth.auth().currentUser?.email == "admin@admin.com" {
+        if let currentUser = Auth.auth().currentUser, currentUser.email == "admin@admin.com" {
                 let storyboard = UIStoryboard(name: "EventList", bundle: nil)
 //                let vc = storyboard as? EventListViewController
                 UIViewController.replaceRootViewController(viewController: storyboard.instantiateInitialViewController()!)
-            return false
+            return true
         }
-        return true
+        return false
     }
         
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

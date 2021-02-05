@@ -61,7 +61,7 @@ class SingUpViewController: UIViewController {
         let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
         
-        loginButton.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
+        loginButton.frame = CGRect(x: 0, y: 0, width: 210, height: 30)
         let buttonText = NSAttributedString(string: "Entre com o Facebook")
         loginButton.setAttributedTitle(buttonText, for: .normal)
         

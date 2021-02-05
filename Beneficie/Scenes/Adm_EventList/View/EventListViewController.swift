@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class EventListViewController: UIViewController {
 
@@ -13,6 +14,7 @@ class EventListViewController: UIViewController {
     
     @IBOutlet var eventListTableView: UITableView!
     @IBOutlet weak var createEventButton: UIButton!
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     
     var event = Event()
     
@@ -25,30 +27,43 @@ class EventListViewController: UIViewController {
         loadData()
         
         configureUI()
-        // Do any additional setup after loading the view.
-    }
-    
-    func loadData() {
-        viewModel.loadData { success in
-            if success {
-                self.eventListTableView.reloadData()
-                self.event = self.viewModel.arrayEvents[0]
-//                print("Success")
-//                self.setUpUI(event: self.event)
-            } else {
-                print("Error: LoadData from eventList")
-//                self.alertFailedInLoadData()
-            }
+        
+        if let token = AccessToken.current, !token.isExpired {
+            self.viewModel.userToken = token.tokenString
         }
     }
     
+    func loadData() {
+        loadingActivityIndicator.startAnimating()
+        viewModel.getUserToken { (success) in
+            if success {
+                print(self.viewModel.currentUser.name)
+                print("user loaded")
+            } else {
+                print("user loading fail")
+            }
+        }
+//        viewModel.loadData { success in
+//            if success {
+//                self.loadingActivityIndicator.stopAnimating()
+//                self.eventListTableView.reloadData()
+//                self.event = self.viewModel.arrayEvents[0]
+////                print("Success")
+////                self.setUpUI(event: self.event)
+//            } else {
+//                print("Error: LoadData from eventList")
+////                self.alertFailedInLoadData()
+//            }
+//        }
+    }
+    
     func configureUI(){
-        //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
         createEventButton.layer.cornerRadius = 15
         createEventButton.layer.cornerRadius = 15
     }
     @IBAction func profileButton(_ sender: Any) {
         if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = viewModel.currentUser
             navigationController?.pushViewController(profile, animated: true)
         }
     }

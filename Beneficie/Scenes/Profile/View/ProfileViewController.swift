@@ -40,9 +40,9 @@ class ProfileViewController: UIViewController {
     }
     
     func signOut() {
-        guard Auth.auth().currentUser != nil else {
-            return
-        }
+//        guard Auth.auth().currentUser != nil else {
+//            return
+//        }
         
         do {
             try Auth.auth().signOut()

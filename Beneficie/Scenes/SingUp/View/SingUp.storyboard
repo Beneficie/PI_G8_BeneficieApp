@@ -56,7 +56,7 @@
                                     <constraint firstAttribute="height" constant="34" id="JEx-C7-5f8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ppk-OX-yBw" userLabel="EmailTextField">
                                 <rect key="frame" x="20" y="387" width="335" height="34"/>
@@ -65,7 +65,7 @@
                                     <constraint firstAttribute="height" constant="34" id="kGm-UG-usU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contato" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="egL-e8-GER" userLabel="ContactTextField">
                                 <rect key="frame" x="20" y="429" width="335" height="34"/>
@@ -73,7 +73,7 @@
                                     <constraint firstAttribute="height" constant="34" id="CYd-BD-hzy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                             </textField>
                             <textField opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DcR-Sh-57O" userLabel="PasswordTextField">
                                 <rect key="frame" x="20" y="471" width="335" height="34"/>
@@ -81,7 +81,7 @@
                                     <constraint firstAttribute="height" constant="34" id="pL6-OB-pX8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirmar Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sWy-n2-8qj" userLabel="PasswordConfirmationTextField">
                                 <rect key="frame" x="20" y="513" width="335" height="34"/>
@@ -89,11 +89,23 @@
                                     <constraint firstAttribute="height" constant="34" id="AgL-xa-mx3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3Q-A4-LLR">
-                                <rect key="frame" x="90" y="237" width="210" height="30"/>
+                                <rect key="frame" x="82.5" y="237" width="210" height="30"/>
                                 <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uB8-IV-pmv" userLabel="GoogleButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="google">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="googleLoginButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="98U-Uw-KbV"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tr-2s-USF">
                                         <rect key="frame" x="30" y="0.0" width="180" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -112,24 +124,13 @@
                                             <action selector="googleLoginButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="fE5-VV-Vjr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uB8-IV-pmv" userLabel="GoogleButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                        <state key="normal" image="google">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="googleLoginButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="98U-Uw-KbV"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="4tr-2s-USF" firstAttribute="top" secondItem="j3Q-A4-LLR" secondAttribute="top" id="9SZ-My-hVP"/>
                                     <constraint firstAttribute="width" constant="210" id="QZD-Ld-NmL"/>
                                     <constraint firstAttribute="bottom" secondItem="4tr-2s-USF" secondAttribute="bottom" id="Srs-g7-9ft"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="q3z-gT-Hqr"/>
                                     <constraint firstAttribute="trailing" secondItem="4tr-2s-USF" secondAttribute="trailing" id="q4d-GU-9Bm"/>
                                     <constraint firstItem="4tr-2s-USF" firstAttribute="leading" secondItem="uB8-IV-pmv" secondAttribute="trailing" id="vQJ-7J-0CW"/>
                                     <constraint firstAttribute="height" constant="30" id="ySO-jb-PK5"/>
@@ -151,21 +152,6 @@
                                     <constraint firstAttribute="width" constant="256" id="tHb-33-Od3"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W29-d3-kxW">
-                                <rect key="frame" x="65" y="275" width="251" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="238" id="0oc-d0-X4c"/>
-                                    <constraint firstAttribute="height" constant="47" id="Egb-Xf-Pnn"/>
-                                    <constraint firstAttribute="height" constant="30" id="uW7-qe-TNk"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="0oc-d0-X4c"/>
-                                        <exclude reference="Egb-Xf-Pnn"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOg-be-HDH">
                                 <rect key="frame" x="20" y="44.5" width="64" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -175,6 +161,22 @@
                                     <action selector="backButton:" destination="Tpx-qR-TpX" eventType="touchUpInside" id="J2W-Wz-u6B"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W29-d3-kxW">
+                                <rect key="frame" x="82.5" y="275" width="210" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="238" id="0oc-d0-X4c"/>
+                                    <constraint firstAttribute="height" constant="47" id="Egb-Xf-Pnn"/>
+                                    <constraint firstAttribute="width" constant="210" id="WFn-lA-hdZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="uW7-qe-TNk"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0oc-d0-X4c"/>
+                                        <exclude reference="Egb-Xf-Pnn"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BDC-pf-7Oj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -193,7 +195,7 @@
                             <constraint firstItem="BRm-pW-4Pd" firstAttribute="top" secondItem="bsG-Qa-4sg" secondAttribute="bottom" id="Anh-7M-LMW"/>
                             <constraint firstItem="bsG-Qa-4sg" firstAttribute="centerX" secondItem="hTD-rA-8eP" secondAttribute="centerX" id="BId-Jw-5gk"/>
                             <constraint firstItem="Ds6-Zg-erq" firstAttribute="centerX" secondItem="hTD-rA-8eP" secondAttribute="centerX" id="CE9-h5-B3f"/>
-                            <constraint firstItem="BDC-pf-7Oj" firstAttribute="trailing" secondItem="j3Q-A4-LLR" secondAttribute="trailing" constant="75" id="Drp-KU-Ie4"/>
+                            <constraint firstItem="BDC-pf-7Oj" firstAttribute="trailing" secondItem="j3Q-A4-LLR" secondAttribute="trailing" constant="115" id="Drp-KU-Ie4"/>
                             <constraint firstItem="BRm-pW-4Pd" firstAttribute="centerY" secondItem="hTD-rA-8eP" secondAttribute="centerY" id="FMm-vA-XoL"/>
                             <constraint firstItem="VWP-hl-8iA" firstAttribute="top" secondItem="C3M-8R-HIj" secondAttribute="bottom" constant="25" id="G94-v4-0ob"/>
                             <constraint firstItem="sWy-n2-8qj" firstAttribute="leading" secondItem="BDC-pf-7Oj" secondAttribute="leading" constant="20" id="GFa-9d-gFm"/>
@@ -203,10 +205,12 @@
                             <constraint firstItem="Ppk-OX-yBw" firstAttribute="leading" secondItem="BDC-pf-7Oj" secondAttribute="leading" constant="20" id="PEA-2y-fab"/>
                             <constraint firstItem="BRm-pW-4Pd" firstAttribute="centerX" secondItem="hTD-rA-8eP" secondAttribute="centerX" id="PZQ-SQ-NOd"/>
                             <constraint firstItem="Ds6-Zg-erq" firstAttribute="top" secondItem="W2e-oI-aRc" secondAttribute="bottom" constant="10" id="Pkj-mo-Rfr"/>
+                            <constraint firstItem="W29-d3-kxW" firstAttribute="centerX" secondItem="hTD-rA-8eP" secondAttribute="centerX" id="Qnc-xR-Rcj"/>
                             <constraint firstItem="Ds6-Zg-erq" firstAttribute="centerX" secondItem="hTD-rA-8eP" secondAttribute="centerX" id="SNm-4Q-BP5"/>
                             <constraint firstItem="egL-e8-GER" firstAttribute="top" secondItem="Ppk-OX-yBw" secondAttribute="bottom" constant="8" symbolic="YES" id="ST1-Id-ZGO"/>
                             <constraint firstItem="VWP-hl-8iA" firstAttribute="bottom" secondItem="BDC-pf-7Oj" secondAttribute="bottom" id="VL7-HN-ylQ"/>
                             <constraint firstItem="W29-d3-kxW" firstAttribute="top" secondItem="j3Q-A4-LLR" secondAttribute="bottom" constant="8" id="VQl-Uv-nvb"/>
+                            <constraint firstItem="j3Q-A4-LLR" firstAttribute="centerX" secondItem="hTD-rA-8eP" secondAttribute="centerX" id="WYK-Pw-UV7"/>
                             <constraint firstItem="C3M-8R-HIj" firstAttribute="leading" secondItem="BDC-pf-7Oj" secondAttribute="leading" constant="20" id="WhG-Ds-xla"/>
                             <constraint firstItem="Ppk-OX-yBw" firstAttribute="centerY" secondItem="hTD-rA-8eP" secondAttribute="centerY" id="XjN-aR-oop"/>
                             <constraint firstItem="DcR-Sh-57O" firstAttribute="centerY" secondItem="hTD-rA-8eP" secondAttribute="centerY" id="Y9i-Tl-MFb"/>
@@ -255,6 +259,8 @@
                         </userDefinedRuntimeAttributes>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Drp-KU-Ie4"/>
+                                <exclude reference="qju-0X-eJs"/>
                                 <exclude reference="fl2-GQ-prD"/>
                                 <exclude reference="1Sy-R1-cVx"/>
                                 <exclude reference="85S-hS-igV"/>
@@ -264,7 +270,9 @@
                                 <exclude reference="AZW-fy-uWQ"/>
                                 <exclude reference="bLC-kJ-82g"/>
                                 <exclude reference="zS0-UE-OsE"/>
+                                <exclude reference="4wT-sg-jcf"/>
                                 <exclude reference="phS-jL-m7b"/>
+                                <exclude reference="rF0-pw-Tzn"/>
                                 <exclude reference="FMm-vA-XoL"/>
                                 <exclude reference="lHa-Ni-MEq"/>
                                 <exclude reference="AQu-8q-kV0"/>

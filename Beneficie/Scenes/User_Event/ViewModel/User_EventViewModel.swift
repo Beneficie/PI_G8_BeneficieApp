@@ -10,13 +10,12 @@ import FirebaseAuth
 
 class User_EventViewModel {
     
-    var arrayEvents = [Event]()
     var arraySubGroups = [Subgroup]()
     var userToken = ""
     var currentEvent = Event()
     var currentUser = User()
     var connectionReachable = Bool()
-    var subgroup = ""
+    var subgroup = Subgroup()
     
     // MARK: - API Request for Event
     var apiManager = APIManager()
@@ -25,19 +24,17 @@ class User_EventViewModel {
         self.currentUser = currentUser
     }
     
-    func loadData(onComplete: @escaping (Bool) -> Void) {
-        apiManager.getAsArray(
-            url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseData) in
-
+    func loadData(userToken: String, onComplete: @escaping (Bool) -> Void) {
+        apiManager.getEvent(userToken: userToken, onSuccess: { (responseData) in
+            
             let jsonDecoder = JSONDecoder()
             
-            self.arrayEvents = try! jsonDecoder.decode(Array<Event>.self,from: responseData)
+            self.currentEvent = try! jsonDecoder.decode(Event.self,from: responseData)
             onComplete(true)
-        }
-        onFailure: { (error) in
+        }, onFailure: { (error) in
             print("Error \(error)")
             onComplete(false)
-        }
+        })
     }
     
     // MARK: - API Request for User

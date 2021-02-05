@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class EventListViewModel {
     
@@ -13,21 +14,70 @@ class EventListViewModel {
     
     var apiManager = APIManager()
     
-    func loadData(onComplete: @escaping (Bool) -> Void) {
-        apiManager.getAsArray(
-            url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseData) in
+    var userToken = ""
+    var currentUser = User()
+    
+    func loadData(userToken: String, onComplete: @escaping (Bool) -> Void) {
+//        apiManager.getEvent(userToken: userToken, onSuccess: { (responseData) in
+//            
+////            let jsonData = try Data(contentsOf: URL(fileURLWithPath:filePath), options: .alwaysMapped)
+//
+//            let jsonDecoder = JSONDecoder()
+//            
+//            self.arrayEvents = try! jsonDecoder.decode(Array<Event>.self,from: responseData)
+//            
+//            onComplete(true)
+//        }, onFailure: { (error) in
+//            print("Error \(error)")
+//            onComplete(false)
+//        })
+    }
+    
+    func getUserToken(onComplete: @escaping ( Bool ) -> Void ) {
+        let user = Auth.auth().currentUser
+        user?.getIDTokenForcingRefresh(true) { (idToken, error) in
+            if error != nil {
+                //                todo logout user to main screen
+                onComplete(false)
+                return
+            }
             
-//            let jsonData = try Data(contentsOf: URL(fileURLWithPath:filePath), options: .alwaysMapped)
-
-            let jsonDecoder = JSONDecoder()
+            self.userToken = idToken!
             
-            self.arrayEvents = try! jsonDecoder.decode(Array<Event>.self,from: responseData)
-            
-            onComplete(true)
-        }
-        onFailure: { (error) in
-            print("Error \(error)")
-            onComplete(false)
+            self.loadUserData { (success) in
+                if success {
+                    
+                    onComplete(true)
+                    return
+                } else {
+                    onComplete(false)
+                    print("loadUserData success false")
+                }
+            }
         }
     }
+    
+    func loadUserData(onComplete: @escaping ( Bool ) -> Void ) {
+        apiManager.requestUser(userToken: self.userToken, onComplete: { response, e in
+//            print(self.userToken)
+            if response == nil {
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let user = try decoder.decode(User.self, from: response!)
+                self.currentUser.uid = user.uid
+                self.currentUser._id = user._id
+                self.currentUser.name = user.name
+                self.currentUser.email = user.email
+                self.currentUser.phoneNumber = user.phoneNumber
+                
+                onComplete(true)
+                return
+            }
+            catch {
+                print(error)
+            }
+        }
+        )}
 }

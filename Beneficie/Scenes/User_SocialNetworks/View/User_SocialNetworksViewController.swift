@@ -9,10 +9,17 @@ import UIKit
 
 class User_SocialNetworksViewController: UIViewController {
 
+    @IBOutlet weak var twitterImage: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        twitterImage.layer.cornerRadius = 15
+//        shareButton.layer.cornerRadius = 15
+//        shareButton.layer.borderWidth = 2
+//        shareButton.layer.borderColor = CGColor(red: 115/255, green: 121/255, blue: 224/255, alpha: 1.0)
     }
     
 

@@ -11,15 +11,20 @@ import Alamofire
 class APIManager {
     
     // MARK: - Request URL and save response as array
-    func getAsArray(
-        url: String,
+    func getEvent(
+        userToken: String,
         onSuccess: @escaping (_ responseArray: Data) -> Void,
         onFailure: @escaping (_ errorMessage: String?) -> Void
     ) {
-        AF.request(url).validate().response { response in
+        let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/events/last")
+        var request = URLRequest(url: url!)
+        request.httpMethod = HTTPMethod.get.rawValue
+        request.setValue(userToken, forHTTPHeaderField: "firebaseauth")
+
+        AF.request(request).validate().response { response in
             
             switch response.result {
-            case .success(let data):
+            case .success:
                 if let responseValue = response.data {
                     onSuccess(responseValue)
                     return
