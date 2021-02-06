@@ -10,7 +10,7 @@ import FirebaseAuth
 
 class EventListViewModel {
     
-    var arrayEvents = [Event]()
+    var arrayEvents = [EventADM]()
     
     var apiManager = APIManager()
     
@@ -24,7 +24,7 @@ class EventListViewModel {
     //            let jsonData = try Data(contentsOf: URL(fileURLWithPath:filePath), options: .alwaysMapped)
                 let jsonDecoder = JSONDecoder()
                 
-                self.arrayEvents = try! jsonDecoder.decode(Array<Event>.self,from: responseData)
+                self.arrayEvents = try! jsonDecoder.decode(Array<EventADM>.self,from: responseData)
                 
                 onComplete(true)
             }

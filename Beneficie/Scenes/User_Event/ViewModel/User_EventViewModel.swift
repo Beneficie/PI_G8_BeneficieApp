@@ -24,9 +24,10 @@ class User_EventViewModel {
         self.currentUser = currentUser
     }
     
-    func goToConfirmEventScreen(user: User, event: Event, subgroup: Subgroup, navigationController: UINavigationController?) {
+    func goToConfirmEventScreen(userToken: String, user: User, _ event: Event, _ subgroup: Subgroup, navigationController: UINavigationController?) {
         if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
             
+            userSubscribe.userToken = userToken
             userSubscribe.currentUser = user
             userSubscribe.currentEvent = event
             userSubscribe.currentSubgroup = subgroup

@@ -113,11 +113,11 @@ class User_EventViewController: UIViewController {
     }
     
     @IBAction func profileButton(_ sender: Any) {
-        self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
+        self.viewModel.goToProfileScreen(user: viewModel.currentUser, navigationController: self.navigationController)
     }
     
     @IBAction func actionSubscribePressed(_ sender: Any) {
-        
+        viewModel.goToConfirmEventScreen(userToken: viewModel.userToken, user: viewModel.currentUser, viewModel.currentEvent, viewModel.subgroup, navigationController: self.navigationController)
     }
     
     @IBAction func actionDonatePressed(_ sender: Any) {

@@ -16,7 +16,7 @@ class EventListViewController: UIViewController {
     @IBOutlet weak var createEventButton: UIButton!
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     
-    var event = Event()
+    var event = EventADM()
     var currentUser = User()
     
     override func viewDidLoad() {
@@ -79,7 +79,7 @@ class EventListViewController: UIViewController {
         }
     }
     
-    func participantsListScreen(event: Event) {
+    func participantsListScreen(event: EventADM) {
         if let list = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
             list.event = event
             list.currentUser = currentUser
@@ -87,7 +87,7 @@ class EventListViewController: UIViewController {
         }
     }
     
-    func editEvent(event: Event) {
+    func editEvent(event: EventADM) {
         if let newEvent = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as? CreateEventViewController {
             newEvent.currentAction = "Editar"
             newEvent.currentEvent = event

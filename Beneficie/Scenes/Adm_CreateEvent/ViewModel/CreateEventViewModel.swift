@@ -12,7 +12,7 @@ class CreateEventViewModel {
     
     var apiManager = APIManager()
     
-    var newEvent = Event()
+    var newEvent = EventADM()
     
     func getEvent(address: String, title: String, totalVacancy: Int, description: String, groupCount: Int) -> Event {
         var newEvent = Event()

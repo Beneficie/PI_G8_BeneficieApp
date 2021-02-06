@@ -16,8 +16,8 @@ class ConfirmEventSubscriptionViewModel {
     var currentSubgroup = Subgroup()
     
     
-    func subscribeUser(user: User, event: Event, subgroup: Subgroup, onComplete: @escaping (Bool) -> Void) {
-        apiManager.subscribeUserToEvent(user: user, event: event, subgroup: subgroup) { isOk in
+    func subscribeUser(userToken: String, event: Event, subgroup: Subgroup, onComplete: @escaping (Bool) -> Void) {
+        apiManager.subscribeUserToEvent(userToken: userToken, event: event, subgroup: subgroup) { isOk in
             onComplete(isOk)
         }
     }
@@ -46,15 +46,15 @@ class ConfirmEventSubscriptionViewModel {
     
     func checkUser(name: String, phoneNumber: String) {
         if !isUserUpdated(name: name, phoneNumber: phoneNumber) {
-            print(currentUser.name, name, currentUser.phoneNumber, phoneNumber)
-        }
-        updateUser { (success) in
-            if success {
-                print("user updated")
-            } else {
-                print("user NOT updated")
+            updateUser { (success) in
+                if success {
+                    print("user updated")
+                }
             }
+        } else {
+            print("user NOT updated")
         }
+        
     }
     
     func newRootController() {

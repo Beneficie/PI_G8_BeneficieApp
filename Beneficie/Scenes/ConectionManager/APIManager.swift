@@ -67,28 +67,30 @@ class APIManager {
         }
     
     func subscribeUserToEvent(
-        user: User, event: Event, subgroup: Subgroup,
+        userToken: String, event: Event, subgroup: Subgroup,
         onComplete: @escaping (_ isOk: Bool) -> Void
     ) {
-        let encoder = JSONEncoder()
-        let jsonData = try! encoder.encode(event)
+//        let encoder = JSONEncoder()
+//        let jsonData = try! encoder.encode(event)
         
-        if let eventId = event._id {
-            let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/events/\(eventId)/subgroup/\(subgroup._id)")!
         
+        if let eventId = event._id, let subgroupID = subgroup._id {
+            let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/events/\(eventId)/subgroup/\(subgroupID)/subscribe")!
+        
+            
             var request = URLRequest(url: url)
-                request.httpMethod = HTTPMethod.put.rawValue
-                request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-                request.httpBody = jsonData
+            request.httpMethod = HTTPMethod.put.rawValue
+            request.setValue(userToken, forHTTPHeaderField: "firebaseauth")
 
-                AF.request(request).responseJSON { response in
+            AF.request(request).responseJSON { response in
                     switch response.result {
                     case .success(let data):
                         print(data)
                         onComplete(true)
                         
                     case .failure(let error):
-                        onComplete(true)
+                        onComplete(false)
+                        print(error)
                     }
                 }
             }

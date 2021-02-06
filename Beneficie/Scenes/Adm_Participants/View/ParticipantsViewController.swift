@@ -10,9 +10,9 @@ import UIKit
 class ParticipantsViewController: UIViewController {
 
     var viewModel = ParticipantsViewModel()
-    var event = Event()
+    var event = EventADM()
     var currentUser = User()
-//    var subgroup = Subgroup()
+    var subgroup = SubgroupADM()
     
     func getParticipantsList() -> [String] {
         var participants = [String]()

@@ -23,7 +23,7 @@ class CreateEventViewController: UIViewController {
     
     var viewModel = CreateEventViewModel()
     var currentAction: String = "Criar"
-    var currentEvent = Event()
+    var currentEvent = EventADM()
     var currentUser = User()
     
     var arrayPickerView = String()
