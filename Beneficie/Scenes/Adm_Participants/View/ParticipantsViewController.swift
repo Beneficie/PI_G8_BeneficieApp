@@ -35,12 +35,12 @@ class ParticipantsViewController: UIViewController {
 
 //MARK: - TableViewDelegate and DataSource
 extension ParticipantsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        participantsTableView.deselectRow(at: indexPath, animated: true)
-        if editingStyle == .delete {
-            
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        participantsTableView.deselectRow(at: indexPath, animated: true)
+//        if editingStyle == .delete {
+//            
+//        }
+//    }
 }
 
 

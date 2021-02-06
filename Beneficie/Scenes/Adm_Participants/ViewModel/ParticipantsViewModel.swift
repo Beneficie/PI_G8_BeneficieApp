@@ -33,6 +33,10 @@ class ParticipantsViewModel {
         return participants
     }
     
+//    func deleteUser(user: User, subgroup: Subgroup) {
+//        
+//    }
+    
     func goToProfileScreen(user: User, navigationController: UINavigationController?) {
         if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
             profile.currentUser = user
