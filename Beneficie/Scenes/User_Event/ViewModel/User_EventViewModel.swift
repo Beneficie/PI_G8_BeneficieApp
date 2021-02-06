@@ -20,10 +20,6 @@ class User_EventViewModel {
     // MARK: - API Request for Event
     var apiManager = APIManager()
     
-    func setupValues(_ currentUser: User) {
-        self.currentUser = currentUser
-    }
-    
     func goToConfirmEventScreen(userToken: String, user: User, _ event: Event, _ subgroup: Subgroup, navigationController: UINavigationController?) {
         if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
             

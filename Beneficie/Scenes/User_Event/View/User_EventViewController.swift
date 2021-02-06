@@ -40,8 +40,6 @@ class User_EventViewController: UIViewController {
             self.viewModel.userToken = token.tokenString
         }
         
-        self.viewModel.setupValues(currentUser)
-        
         loadData()
         
     }
@@ -82,7 +80,6 @@ class User_EventViewController: UIViewController {
                 self.viewModel.loadData(userToken: self.viewModel.userToken, onComplete: { success in
                     if success {
                         self.viewModel.connectionReachable = true
-                        self.viewModel.subgroup = self.viewModel.currentEvent.subgrupos.first!
                         DispatchQueue.main.async {
                             self.updateUIForSubscription(event: self.viewModel.currentEvent)
                             self.availabilityToSubscribe()
@@ -96,7 +93,6 @@ class User_EventViewController: UIViewController {
                     }
                 })
             }
-            //            self.updateUIForSubscription(event: self.viewModel.currentEvent)
         })
         loadingActivityIndicator.startAnimating()
     }
