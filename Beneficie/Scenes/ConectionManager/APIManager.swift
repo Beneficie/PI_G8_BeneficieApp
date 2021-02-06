@@ -97,7 +97,7 @@ class APIManager {
     }
     
     func createEvent(
-        event: Event,
+        event: EventADM,
         onComplete: @escaping (_ isOk: Bool) -> Void
     ) {
         let encoder = JSONEncoder()
@@ -119,6 +119,24 @@ class APIManager {
             case .failure(let error):
                 onComplete(true)
 
+            }
+        }
+    }
+    
+    func deleteEvent(event: EventADM, onComplete: @escaping (_ isOk: Bool) -> Void) {
+        if let eventId = event._id,
+           let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/events/\(eventId)") {
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.delete.rawValue
+            
+            AF.request(request).validate().response { response in
+                switch response.result {
+                case .success:
+                    onComplete(true)
+                case.failure:
+                    onComplete(false)
+                }
             }
         }
     }
@@ -176,6 +194,33 @@ class APIManager {
             case .failure(let error):
                 onComplete(true)
                 print (error)
+            }
+        }
+    }
+    
+    func updateEvent(
+        event: EventADM,
+        onComplete: @escaping (_ isOk: Bool) -> Void
+    ) {
+        let encoder = JSONEncoder()
+        let jsonData = try! encoder.encode(event)
+        
+        if let eventId = event._id, let url = URL(string: "https://beneficie-app.herokuapp.com/beneficie/events/\(eventId)") {
+            var request = URLRequest(url: url)
+            request.httpMethod = HTTPMethod.put.rawValue
+            request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonData
+            
+            AF.request(request).validate().response { response in
+                switch response.result {
+                case .success(let data):
+                    print(data)
+                    onComplete(true)
+                    
+                case .failure(let error):
+                    onComplete(true)
+                    print (error)
+                }
             }
         }
     }

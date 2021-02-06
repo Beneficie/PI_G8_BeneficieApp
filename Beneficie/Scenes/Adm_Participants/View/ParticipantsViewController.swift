@@ -38,13 +38,17 @@ extension ParticipantsViewController: UITableViewDelegate {
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 //        participantsTableView.deselectRow(at: indexPath, animated: true)
 //        if editingStyle == .delete {
-//            
+//
 //        }
 //    }
 }
 
 
 extension ParticipantsViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel.subgroup.grupo
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let participantsCount = viewModel.getParticipantsList()?.count {
             return participantsCount

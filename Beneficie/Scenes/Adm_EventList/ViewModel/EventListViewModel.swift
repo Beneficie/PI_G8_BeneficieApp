@@ -87,4 +87,47 @@ class EventListViewModel {
             profile.currentUser = user
             navigationController?.pushViewController(profile, animated: true) }
     }
+    
+    func goToNewEventScreen(user: User, navigationController: UINavigationController?) {
+        if let newEvent = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as? CreateEventViewController {
+            newEvent.currentUser = user
+            navigationController?.pushViewController(newEvent, animated: true)
+        }
+    }
+    
+    
+    func goToBankInformationsScreen(user: User, navigationController: UINavigationController?) {
+        if let banks = UIStoryboard(name: "BankInformations", bundle: nil).instantiateInitialViewController() as? BankInformationsViewController {
+            banks.currentUser = user
+            navigationController?.pushViewController(banks, animated: true)
+        }
+    }
+    
+    func goToParticipantsListScreen(event: EventADM, user: User, navigationController: UINavigationController?) {
+        if let list = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
+            list.event = event
+            list.currentUser = currentUser
+            navigationController?.pushViewController(list, animated: true)
+        }
+    }
+    
+    func editEvent(event: EventADM, user: User, navigationController: UINavigationController?) {
+        if let newEvent = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as? CreateEventViewController {
+            newEvent.currentAction = .editar
+            newEvent.currentEvent = event
+            navigationController?.pushViewController(newEvent, animated: true)
+        }
+    }
+    
+    func deleteEvent(event: EventADM, onComplete: @escaping ( Bool ) -> Void) {
+        apiManager.deleteEvent(event: event) { (success) in
+            if success {
+                onComplete(true)
+            } else {
+                onComplete(false)
+            }
+        }
+    }
+    
+    
 }

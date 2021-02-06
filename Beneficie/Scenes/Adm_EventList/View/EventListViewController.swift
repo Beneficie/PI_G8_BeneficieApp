@@ -62,37 +62,32 @@ class EventListViewController: UIViewController {
         createEventButton.layer.cornerRadius = 15
         createEventButton.layer.cornerRadius = 15
     }
+    
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)? ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func deleteEvent(indexPath: IndexPath, tableView: UITableView){
+        self.viewModel.deleteEvent(event: self.viewModel.arrayEvents[indexPath.row], onComplete: { (success) in
+            if success {
+                self.viewModel.arrayEvents.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                self.showAlert(title: "Sucesso", message: "Evento Removido", okHandler: nil)
+            } else {
+                self.showAlert(title: "Erro", message: "Não foi possível remover o evento", okHandler: nil)
+            }
+        })
+    }
+
+    
     @IBAction func profileButton(_ sender: Any) {
         self.viewModel.goToProfileScreen(user: viewModel.currentUser, navigationController: self.navigationController)
     }
+    
     @IBAction func createEvent(_ sender: Any) {
-        if let newEvent = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as? CreateEventViewController {
-            newEvent.currentUser = currentUser
-            navigationController?.pushViewController(newEvent, animated: true)
-        }
-    }
-    
-    func bankInformationsScreen() {
-        if let banks = UIStoryboard(name: "BankInformations", bundle: nil).instantiateInitialViewController() as? BankInformationsViewController {
-            banks.currentUser = currentUser
-            navigationController?.pushViewController(banks, animated: true)
-        }
-    }
-    
-    func participantsListScreen(event: EventADM) {
-        if let list = UIStoryboard(name: "ParticipantsList", bundle: nil).instantiateInitialViewController() as? ParticipantsViewController {
-            list.event = event
-            list.currentUser = currentUser
-            navigationController?.pushViewController(list, animated: true)
-        }
-    }
-    
-    func editEvent(event: EventADM) {
-        if let newEvent = UIStoryboard(name: "CreateEvent", bundle: nil).instantiateInitialViewController() as? CreateEventViewController {
-            newEvent.currentAction = "Editar"
-            newEvent.currentEvent = event
-            navigationController?.pushViewController(newEvent, animated: true)
-        }
+        self.viewModel.goToNewEventScreen(user: viewModel.currentUser, navigationController: self.navigationController)
     }
 }
 
@@ -100,25 +95,28 @@ extension EventListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         eventListTableView.deselectRow(at: indexPath, animated: true)
         if editingStyle == .delete {
-            viewModel.arrayEvents.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            deleteEvent(indexPath: indexPath, tableView: tableView)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: "Evento", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Editar Ação", style: .default, handler: {_ in
-            self.editEvent(event: self.viewModel.arrayEvents[indexPath.row])
+            self.viewModel.editEvent(event: self.viewModel.arrayEvents[indexPath.row],
+                                     user: self.viewModel.currentUser,
+                                     navigationController: self.navigationController)
         }))
         alert.addAction(UIAlertAction(title: "Informações Bancárias", style: .default, handler: {_ in
-            self.bankInformationsScreen()
+            self.viewModel.goToBankInformationsScreen(user: self.viewModel.currentUser,
+                                                  navigationController: self.navigationController)
         }))
         alert.addAction(UIAlertAction(title: "Participantes Cadastrados", style: .default, handler: {_ in
-            self.participantsListScreen(event: self.viewModel.arrayEvents[indexPath.row])
+            self.viewModel.goToParticipantsListScreen(event: self.viewModel.arrayEvents[indexPath.row],
+                                                  user: self.viewModel.currentUser,
+                                                  navigationController: self.navigationController)
         }))
         alert.addAction(UIAlertAction(title: "Excluir", style: .destructive, handler: {_ in
-            self.viewModel.arrayEvents.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.deleteEvent(indexPath: indexPath, tableView: tableView)
         }))
         alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: {_ in
         }))
