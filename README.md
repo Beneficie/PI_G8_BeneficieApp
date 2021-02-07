@@ -59,8 +59,11 @@ Login | Criar | Deletar
 - Problema
 
 Onde estão os grupos que faz ações beneficentes?
+
 Como fazer pra integrar um deles?
+
 Como é o processo de inscrição nos eventos?
+
 Em grupos grandes muitas pessoas querem participar e nem sempre conseguem acompanhar grupos de mensagens.
 
 - Solução
