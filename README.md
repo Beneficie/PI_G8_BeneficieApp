@@ -49,7 +49,9 @@ ADM - Login | Criar | Deletar
 
 </div>
 
-https://user-images.githubusercontent.com/70452352/107155508-8dfa6280-6957-11eb-8ecb-e9912c9e3491.mp4
+<video width="320" height="240" controls>
+       <source src="https://user-images.githubusercontent.com/70452352/107155508-8dfa6280-6957-11eb-8ecb-e9912c9e3491.mp4" type="video/mp4">
+   </video>
 
 ---
 ## :computer: **Sobre**
