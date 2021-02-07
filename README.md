@@ -37,7 +37,7 @@
 
 USER - Cadastro | Inscrição | Doação 
 ---|---|---
-<img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155498-85099100-6957-11eb-8992-1d5d91074aa5.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155493-7e7b1980-6957-11eb-9267-f00de34b67c6.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155502-86d35480-6957-11eb-8193-a42361521139.mp4"> |
+<video width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155498-85099100-6957-11eb-8992-1d5d91074aa5.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155493-7e7b1980-6957-11eb-9267-f00de34b67c6.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155502-86d35480-6957-11eb-8193-a42361521139.mp4"> |
 
 </div>
 
