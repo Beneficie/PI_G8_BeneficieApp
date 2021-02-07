@@ -56,14 +56,14 @@ Login | Criar | Deletar
 
 **Beneficie**, um aplicativo para organizações beneficentes.
 
-Problema
+- Problema
 
 Onde estão os grupos que faz ações beneficentes?
 Como fazer pra integrar um deles?
 Como é o processo de inscrição nos eventos?
 Em grupos grandes muitas pessoas querem participar e nem sempre conseguem acompanhar grupos de mensagens.
 
-Solução
+- Solução
 
 E se reuníssemos em um aplicativo a oportunidade de consultar eventos beneficentes disponíveis, se inscrever pra ajudar pessoas, e ter as informações organizadas pra contribuir financeiramente com os grupos?
 
