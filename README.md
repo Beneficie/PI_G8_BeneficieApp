@@ -54,23 +54,13 @@ Login | Criar | Deletar
 ---
 ## :computer: **Sobre**
 
-**Beneficie**, um aplicativo para organizações beneficentes.
+O aplicativo surgiu da necesidade de uma organização de ações beneficentes, que auxilie na simplificação dos precessos dos voluntários e seus administradores trazendo informaçãoes atualizadas de forma justa e acessível.
 
-- Problema
-
-Onde estão os grupos que faz ações beneficentes?
-
-Como fazer pra integrar um deles?
-
-Como é o processo de inscrição nos eventos?
-
-Em grupos grandes muitas pessoas querem participar e nem sempre conseguem acompanhar grupos de mensagens.
-
-- Solução
-
-E se reuníssemos em um aplicativo a oportunidade de consultar eventos beneficentes disponíveis, se inscrever pra ajudar pessoas, e ter as informações organizadas pra contribuir financeiramente com os grupos?
+Temos a oportunidade de consultar ações disponíveis, se inscrever pra ajudar pessoas, contribuir financeiramente com os grupos?
 
 **Beneficie traz essa possibilidade!**
+
+**Beneficie**, um aplicativo para organizações beneficentes.
 
 Projeto desenvolvido durante o **Santander Coders Mobile 2020** no curso **Desenvolvimento Mobile iOS** em parceria com a [DigitalHouse](https://www.digitalhouse.com/br/).
 
