@@ -45,7 +45,7 @@ USER - Cadastro | Inscrição | Doação
 
 ADM - Login | Criar | Deletar
 ---|---|---
-<img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155506-8c309f00-6957-11eb-9a83-c96bb92cc921.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155510-8fc42600-6957-11eb-836f-353f15cee1e4.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155508-8dfa6280-6957-11eb-8ecb-e9912c9e3491.mp4"> |
+<video width="320" height="240" controls> <src="https://user-images.githubusercontent.com/70452352/107155506-8c309f00-6957-11eb-9a83-c96bb92cc921.mp4" type="video/mp4"> </video> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155510-8fc42600-6957-11eb-836f-353f15cee1e4.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155508-8dfa6280-6957-11eb-8ecb-e9912c9e3491.mp4"> |
 
 </div>
 
