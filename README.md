@@ -97,15 +97,15 @@ O Santander Coders é uma experiência online e imersiva com muito conteúdo pr�
 ### :dvd: **Executar o Projeto**
 
 Este projeto deverá ser executado:
-1. No sistema operacional MacOS X
-2. No simulador do Xcode X ou IPhone X 
+1. No sistema operacional MacOS
+2. No simulador do Xcode ou IPhone
 
 💡É preciso efetuar a simulação no ambiente de desenvolvimento Xcode ou integra-ló com Iphone para funcionar.
 
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [CocoaPods](https://cocoapods.org/), [Fastlane](https://fastlane.tools/)
+[Git](https://git-scm.com), [CocoaPods](https://cocoapods.org/)
 
 
 ```bash
