@@ -38,7 +38,7 @@
 USER
 Cadastro | Inscrição | Doação 
 ---|---|---
-<img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo Beneficie" src="https://j.gifs.com/oVMxXX.gif"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://j.gifs.com/oVMxXX.gif"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://j.gifs.com/oVMxXX.gif"> |
+<img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107157464-fa2e9380-6962-11eb-87ee-719e672c33a0.gif"> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107157462-f7cc3980-6962-11eb-94ab-d399689010ca.gif"> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107157456-f3a01c00-6962-11eb-8bca-dee0da3d4969.gif"> |
 
 </div>
 
