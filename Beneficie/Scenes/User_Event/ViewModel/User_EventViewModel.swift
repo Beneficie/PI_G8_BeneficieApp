@@ -51,6 +51,7 @@ class User_EventViewModel {
             let jsonDecoder = JSONDecoder()
             
             self.currentEvent = try! jsonDecoder.decode(Event.self,from: responseData)
+            self.subgroup = self.currentEvent.subgrupos[0]
             onComplete(true)
         }, onFailure: { (error) in
             print("Error \(error)")

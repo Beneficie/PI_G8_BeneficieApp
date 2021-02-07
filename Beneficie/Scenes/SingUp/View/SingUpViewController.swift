@@ -147,7 +147,7 @@ extension SingUpViewController : UITextFieldDelegate{
                 self.viewModel.authenticationWithEmail(email: email, password: password, fullName: fullName, phoneNumber: phoneNumber, navigationController: self.navigationController)
             }
             return true
-        }else {
+        } else {
             return false
         }
     }

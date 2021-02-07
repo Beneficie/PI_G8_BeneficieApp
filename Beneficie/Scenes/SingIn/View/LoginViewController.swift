@@ -76,11 +76,11 @@ class LoginViewController: UIViewController {
             self.viewModel.authenticateWithFirebase(user: user, password: password,
                                                     navigationController: self.navigationController,
                                                     didAuthenticate: {(result) in
-                if !result {
-                    self.alertToInvalidUserOrPassword()
-                }
-            }
-        )}
+                                                        if !result {
+                                                            self.alertToInvalidUserOrPassword()
+                                                        }
+                                                    }
+            )}
     }
     
     @IBAction func handleForgotPassword(_ sender: UIButton) {

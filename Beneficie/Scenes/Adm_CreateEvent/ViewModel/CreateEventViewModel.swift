@@ -45,6 +45,11 @@ class CreateEventViewModel {
             onComplete(isOk)
         }
     }
+    
+    func handleVacancy(totalVacancy: String, groups: String) -> Int {
+        let result = Int(totalVacancy)! / Int(groups)!
+        return result
+    }
 
     
     func editEvent(eventId: String, address: String, title: String, totalVacancy: Int, groups: Int, eventDescription: String, onComplete: @escaping (Bool) -> Void) {

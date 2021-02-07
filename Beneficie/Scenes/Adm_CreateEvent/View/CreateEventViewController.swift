@@ -51,6 +51,14 @@ class CreateEventViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
         present(alert, animated: true, completion: nil)
     }
+    
+    func handleGroupDivision() {
+        if let groups = Int(groupsNumberTextField.text!), let totalVacancy = Int(eventTotalVacancyTextField.text!) {
+            let vacancy = viewModel.handleVacancy(totalVacancy: totalVacancy, groupCount: groups)
+            groupVacancyLabel.text = String(vacancy)
+        }
+
+    }
         
     func createEvent() {
         if let address = addressTextField.text,
@@ -104,7 +112,9 @@ class CreateEventViewController: UIViewController {
                 groups: Int(groups)!,
                 eventDescription: eventDescription) { (success) in
                 if success {
-                    self.showAlert(title: "Sucesso", message: "Evento Atualizado", okHandler: nil)
+                    self.showAlert(title: "Sucesso", message: "Evento Atualizado", okHandler: { ok in
+                            self.viewModel.goToEventListScreen(user: self.currentUser, navigationController: self.navigationController)
+                    })
                 } else {
                     self.showAlert(title: "Erro", message: "Não foi possível atualizar o evento", okHandler: nil)
                 }
@@ -126,12 +136,11 @@ class CreateEventViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: UIButton) {
         if let eventId = currentEvent._id {
-            switch currentAction {
-            case .editar :
+            if currentAction == .editar {
                 editEvent(eventId: eventId)
-            case .criar:
-                createEvent()
             }
+        } else {
+            createEvent()
         }
     }
     
@@ -167,8 +176,10 @@ extension CreateEventViewController: UITextFieldDelegate {
             return false
         }
     }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if groupsNumberTextField != nil, eventTotalVacancyTextField != nil {
+            handleGroupDivision()
+        }
     }
 }
 

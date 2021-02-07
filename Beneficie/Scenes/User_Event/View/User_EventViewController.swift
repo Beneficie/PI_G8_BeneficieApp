@@ -34,7 +34,6 @@ class User_EventViewController: UIViewController {
         subGroupsPickerView.dataSource = self
         
         setupUI()
-        availabilityToSubscribe()
         
         if let token = AccessToken.current, !token.isExpired {
             self.viewModel.userToken = token.tokenString
@@ -44,6 +43,14 @@ class User_EventViewController: UIViewController {
         
     }
     
+    func didSubscribe() -> Bool {
+        for group in viewModel.currentEvent.subgrupos {
+            if group.inscritos.contains(viewModel.currentUser._id) {
+                return true
+            }
+        }
+        return false
+    }
     
     
     func availabilityToSubscribe() {
@@ -63,16 +70,6 @@ class User_EventViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
-    
-    func didSubscribe() -> Bool {
-        for group in viewModel.currentEvent.subgrupos {
-            if group.inscritos.contains(viewModel.currentUser.uid) {
-                return true
-            }
-        }
-        return false
-    }
     
     func loadData() {
         self.viewModel.getUserToken(onComplete: { (success) in
