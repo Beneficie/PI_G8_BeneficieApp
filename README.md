@@ -37,7 +37,7 @@
 
 USER - Cadastro | Inscrição | Doação 
 ---|---|---
-<video width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155498-85099100-6957-11eb-8992-1d5d91074aa5.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155493-7e7b1980-6957-11eb-9267-f00de34b67c6.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155502-86d35480-6957-11eb-8193-a42361521139.mp4"> |
+<video width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155498-85099100-6957-11eb-8992-1d5d91074aa5.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://j.gifs.com/oVMxXX.gif"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155502-86d35480-6957-11eb-8193-a42361521139.mp4"> |
 
 </div>
 
@@ -48,18 +48,6 @@ ADM - Login | Criar | Deletar
 <video width="320" height="240" controls> <source src="https://user-images.githubusercontent.com/70452352/107155506-8c309f00-6957-11eb-9a83-c96bb92cc921.mp4" type="video/mp4"> </video> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155510-8fc42600-6957-11eb-836f-353f15cee1e4.mp4"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107155508-8dfa6280-6957-11eb-8ecb-e9912c9e3491.mp4"> |
 
 </div>
-
-<video width="500" height="500" controls>
-       <source src="https://user-images.githubusercontent.com/70452352/107155508-8dfa6280-6957-11eb-8ecb-e9912c9e3491.mp4" type="video/mp4">
-   </video>
-
-steps:
-- title: What is GitHub?
-  description: After watching this video, close the first issue in your repository.
-  video: https://user-images.githubusercontent.com/70452352/107155508-8dfa6280-6957-11eb-8ecb-e9912c9e3491.mp4
-
-
-
 
 ---
 ## :computer: **Sobre**
