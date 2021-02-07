@@ -6,7 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 class BankInformationsViewModel {
     
+    func goToProfileScreen(user: User, navigationController: UINavigationController?) {
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = user
+            navigationController?.pushViewController(profile, animated: true) }
+    }
 }

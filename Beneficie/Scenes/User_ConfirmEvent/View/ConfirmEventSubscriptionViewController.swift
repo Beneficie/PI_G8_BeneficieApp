@@ -18,13 +18,10 @@ class ConfirmEventSubscriptionViewController: UIViewController {
     var viewModel = ConfirmEventSubscriptionViewModel()
     var currentEvent = Event()
     var currentUser = User()
-    var currentSubgroup = ""
+    var userToken = ""
+    var currentSubgroup = Subgroup()
     
-    func openFinancialScreen() {
-        if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
-            navigationController?.pushViewController(userFinanceData, animated: true)
-        }
-    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +36,15 @@ class ConfirmEventSubscriptionViewController: UIViewController {
         fullNameTextField.delegate = self
         phoneNumberTextField.delegate = self
         eventTitleLabel.text = self.viewModel.currentEvent.titulo
-        subgroupLabel.text = "Subgrupo \(viewModel.currentSubgroup)"
+        subgroupLabel.text = "Subgrupo \(viewModel.currentSubgroup.grupo)"
         confirmButton.layer.cornerRadius = 15
+        fullNameTextField.text = viewModel.currentUser.name
         phoneNumberTextField.text = viewModel.currentUser.phoneNumber
     }
     
-    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)? ) {
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: cancelHandler))
         present(alert, animated: true, completion: nil)
     }
     
@@ -55,25 +52,25 @@ class ConfirmEventSubscriptionViewController: UIViewController {
     
     func subscribeUser() {
         viewModel.checkUser(name: self.fullNameTextField.text!, phoneNumber: self.phoneNumberTextField.text!)
-        if let index = viewModel.currentEvent.subgrupos.firstIndex(where: { $0.grupo == viewModel.currentSubgroup }) {
+        if let index = viewModel.currentEvent.subgrupos.firstIndex(where: { $0.grupo == viewModel.currentSubgroup.grupo }) {
             viewModel.currentEvent.subgrupos[index].inscritos.append(viewModel.currentUser.uid)
-//            viewModel.currentUser.phoneNumber = textFieldContact.text
             viewModel.currentEvent.subgrupos[index].vagasDisponiveisSubgrupo -= 1
-            viewModel.subscribeUser(event: viewModel.currentEvent) { (success) in
+            viewModel.subscribeUser(userToken: userToken, event: viewModel.currentEvent, subgroup: viewModel.currentSubgroup, onComplete: { (success) in
                 if success {
                     self.showAlert(title: "Inscrição Confirmada", message: "Você foi inscrito na ação", okHandler: {_ in
                         self.viewModel.saveNewEventToDataBase(eventName: self.viewModel.currentEvent.titulo,
                                                               eventDate: self.viewModel.currentEvent.data,
                                                               eventAddress: self.viewModel.currentEvent.local,
                                                               eventDescription: self.viewModel.currentEvent.descricao,
-                                                              eventSubgroup: self.viewModel.currentSubgroup)
+                                                              eventSubgroup: self.viewModel.currentSubgroup.grupo)
                         self.viewModel.newRootController()
-                        self.openFinancialScreen()
-                    }, cancelHandler: nil)
+                    })
                 } else {
-                    self.showAlert(title: "Erro", message: "Não foi possível realizar inscrição", okHandler: nil, cancelHandler: nil)
+                    self.showAlert(title: "Erro", message: "Não foi possível realizar inscrição", okHandler: {_ in
+                       self.viewModel.newRootController()
+                    })
                 }
-            }
+            })
         }
     }
     
@@ -81,7 +78,7 @@ class ConfirmEventSubscriptionViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func profileButton(_ sender: Any) {
-        self.viewModel.goToProfileScreen(navigationController: self.navigationController)
+        self.viewModel.goToProfileScreen(user: viewModel.currentUser ,navigationController: self.navigationController)
     }
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
@@ -110,7 +107,7 @@ extension ConfirmEventSubscriptionViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text == nil {
-            self.showAlert(title: "Preencha os campos", message: "", okHandler: nil, cancelHandler: nil)
+            self.showAlert(title: "Preencha os campos", message: "", okHandler: nil)
         }
     }
 }

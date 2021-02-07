@@ -10,47 +10,81 @@ import FirebaseAuth
 
 class User_EventViewModel {
     
-    var arrayEvents = [Event]()
     var arraySubGroups = [Subgroup]()
     var userToken = ""
     var currentEvent = Event()
     var currentUser = User()
     var connectionReachable = Bool()
-    var subgroup = ""
+    var subgroup = Subgroup()
     
     // MARK: - API Request for Event
     var apiManager = APIManager()
     
-    func loadData(onComplete: @escaping (Bool) -> Void) {
-        apiManager.getAsArray(
-            url: "https://beneficie-app.herokuapp.com/beneficie/events/") { (responseData) in
-
+    func goToConfirmEventScreen(userToken: String, user: User, _ event: Event, _ subgroup: Subgroup, navigationController: UINavigationController?) {
+        if let userSubscribe = UIStoryboard(name: "ConfirmEventSubscription", bundle: nil).instantiateInitialViewController() as? ConfirmEventSubscriptionViewController {
+            
+            userSubscribe.userToken = userToken
+            userSubscribe.currentUser = user
+            userSubscribe.currentEvent = event
+            userSubscribe.currentSubgroup = subgroup
+            
+            navigationController?.pushViewController(userSubscribe, animated: true)
+        }
+    }
+    
+    func goToProfileScreen(user: User, navigationController: UINavigationController?) {
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = user
+            navigationController?.pushViewController(profile, animated: true) }
+    }
+    
+    func goToBanksMenuScreen(user: User, navigationController: UINavigationController?) {
+        if let userFinanceData = UIStoryboard(name: "BanksMenu", bundle: nil).instantiateInitialViewController() as? BanksMenuViewController {
+            userFinanceData.currentUser = user
+            navigationController?.pushViewController(userFinanceData, animated: true)
+        }
+    }
+    
+    func loadData(userToken: String, onComplete: @escaping (Bool) -> Void) {
+        apiManager.getEvent(userToken: userToken, onSuccess: { (responseData) in
+            
             let jsonDecoder = JSONDecoder()
             
-            self.arrayEvents = try! jsonDecoder.decode(Array<Event>.self,from: responseData)
+            self.currentEvent = try! jsonDecoder.decode(Event.self,from: responseData)
+            self.subgroup = self.currentEvent.subgrupos[0]
             onComplete(true)
-        }
-        onFailure: { (error) in
+        }, onFailure: { (error) in
             print("Error \(error)")
             onComplete(false)
-        }
+        })
     }
     
     // MARK: - API Request for User
     
-    func getUserToken() {
+    func getUserToken(onComplete: @escaping ( Bool ) -> Void ) {
         Auth.auth().currentUser?.getIDTokenForcingRefresh(true) { (idToken, error) in
             if error != nil {
-//                todo logout user to main screen
+                //                todo logout user to main screen
+                onComplete(false)
                 return
             }
+            
             self.userToken = idToken!
             
-            self.loadUserData()
+            self.loadUserData { (success) in
+                if success {
+                    
+                    onComplete(true)
+                    return
+                } else {
+                    onComplete(false)
+                    print("loadUserData success false")
+                }
+            }
         }
     }
     
-    func loadUserData() {
+    func loadUserData(onComplete: @escaping ( Bool ) -> Void ) {
         apiManager.requestUser(userToken: self.userToken, onComplete: { response, e in
 //            print(self.userToken)
             if response == nil {
@@ -64,6 +98,8 @@ class User_EventViewModel {
                 self.currentUser.name = user.name
                 self.currentUser.email = user.email
                 self.currentUser.phoneNumber = user.phoneNumber
+                
+                onComplete(true)
                 return
             }
             catch {

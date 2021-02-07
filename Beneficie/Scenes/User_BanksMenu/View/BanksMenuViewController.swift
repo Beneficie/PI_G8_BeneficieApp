@@ -10,6 +10,13 @@ import UIKit
 class BanksMenuViewController: UIViewController {
     
     @IBOutlet var collectionViewBanks: UICollectionView!
+    
+    let selectedSpacingForSection: CGFloat = 8
+    let heightForItem: CGFloat = 128
+    let widthForItem: CGFloat = 128
+    
+    var currentUser = User()
+    
     var viewModel = BanksMenuViewModel()
     
     
@@ -23,10 +30,10 @@ class BanksMenuViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     @IBAction func profileButton(_ sender: Any) {
-        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController { navigationController?.pushViewController(profile, animated: true) }
+        viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController) 
     }
     
 
@@ -43,10 +50,10 @@ extension BanksMenuViewController: UICollectionViewDelegate {
 
 extension BanksMenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 128, height: 128)
+        return CGSize(width: widthForItem, height: heightForItem)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
+        return selectedSpacingForSection
     }
 }
 

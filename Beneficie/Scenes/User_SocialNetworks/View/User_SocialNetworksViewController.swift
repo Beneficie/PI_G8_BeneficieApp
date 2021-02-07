@@ -6,57 +6,43 @@
 //
 
 import UIKit
+import ICConfetti
 
 class User_SocialNetworksViewController: UIViewController {
 
+    
+    var viewModel = UserSociaNetworksViewModel()
+    
+    @IBOutlet weak var twitterImage: UIImageView!
+    @IBOutlet weak var shareButton: UIButton!
+    
+    var icConfetti = ICConfetti()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        twitterImage.layer.cornerRadius = 15
+        
+        self.icConfetti.velocities = [128, 144, 128]
+        self.icConfetti.rain(in: self.view)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func instagramButtonTapped(_ sender: Any) {
-        let userURL = "mudadoresderua"
-        guard let url = URL(string: "https://instagram.com/\(userURL)")  else { return }
-        if UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
+        viewModel.goToInstagramProfile()
     }
     @IBAction func facebookButtonTapped(_ sender: Any) {
-        let userURL = "mudadoresderua"
-        guard let url = URL(string: "https://facebook.com/\(userURL)")  else { return }
-        if UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
+        viewModel.goToFacebookProfile()
     }
     @IBAction func twitterButtonTapped(_ sender: Any) {
-        let userURL = "mudadoresderua"
-        guard let url = URL(string: "https://twitter.com/\(userURL)")  else { return }
-        if UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
+        viewModel.goToTwitterProfile()
     }
     
+    @IBAction func shareDonation(_ sender: Any) {
+        let share = viewModel.shareDonation()
+        present(share, animated: true) {}
+
+    }
 }
+

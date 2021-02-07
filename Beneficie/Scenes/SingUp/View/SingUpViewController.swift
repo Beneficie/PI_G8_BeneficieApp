@@ -39,6 +39,8 @@ class SingUpViewController: UIViewController {
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
+        
+        
         configureUI()
     }
     
@@ -59,7 +61,7 @@ class SingUpViewController: UIViewController {
         let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
         
-        loginButton.frame = CGRect(x: 0, y: 0, width: 250, height: 30)
+        loginButton.frame = CGRect(x: 0, y: 0, width: 210, height: 30)
         let buttonText = NSAttributedString(string: "Entre com o Facebook")
         loginButton.setAttributedTitle(buttonText, for: .normal)
         
@@ -76,8 +78,6 @@ class SingUpViewController: UIViewController {
         phoneNumberTextField.keyboardType = .numbersAndPunctuation
         passwordConfirmationTextField.configureTextField(placeHolder: "Confirmar Senha")
         passwordTextField.configureTextField(placeHolder: "Senha")
-        
-        // textFieldPhoneNumber.config.defaultConfiguration = PhoneFormat(defaultPhoneFormat: "(##) ##### - ####")
         
         // MARK: - SignIn button setup
         singUpButton.layer.cornerRadius = 25
@@ -110,15 +110,12 @@ class SingUpViewController: UIViewController {
     }
     @IBAction func signUpTapped(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text, let fullName = fullNameTextField.text, let phoneNumber = phoneNumberTextField.text, let passwordConfirmation = passwordConfirmationTextField.text {
-//            , fullName: fullName, phoneNumber: phoneNumber
             if password != passwordConfirmation {
                 self.showAlert(title: "Erro", message: "As senhas fornecidas não conferem", okHandler: {(ok) in
                     self.passwordTextField.becomeFirstResponder()
                 }, cancelHandler: nil)
             } else {
-                nextViewModel.currentUser.name = fullName
-                nextViewModel.currentUser.phoneNumber = phoneNumber
-                self.viewModel.authenticationWithEmail(email: email, password: password, navigationController: self.navigationController)
+                self.viewModel.authenticationWithEmail(email: email, password: password, fullName: fullName, phoneNumber: phoneNumber, navigationController: self.navigationController)
             }
         }
     }
@@ -146,11 +143,11 @@ extension SingUpViewController : UITextFieldDelegate{
             return true
         } else if textField == passwordConfirmationTextField {
             textField.resignFirstResponder()
-            if let email = emailTextField.text, let password = passwordTextField.text {
-                self.viewModel.authenticationWithEmail(email: email, password: password, navigationController: self.navigationController)
+            if let email = emailTextField.text, let password = passwordTextField.text, let fullName = fullNameTextField.text, let phoneNumber = phoneNumberTextField.text {
+                self.viewModel.authenticationWithEmail(email: email, password: password, fullName: fullName, phoneNumber: phoneNumber, navigationController: self.navigationController)
             }
             return true
-        }else {
+        } else {
             return false
         }
     }

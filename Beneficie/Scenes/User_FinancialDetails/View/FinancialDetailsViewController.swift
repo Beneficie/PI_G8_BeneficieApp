@@ -17,18 +17,16 @@ class FinancialDetailsViewController: UIViewController {
     @IBOutlet weak var bankTitleLabel: UILabel!
     @IBOutlet weak var agencyTitleLabel: UILabel!
     @IBOutlet weak var benefitedTitleLabel: UILabel!
+    @IBOutlet weak var bankNameClipboard: UIButton!
+    @IBOutlet weak var bankAgencyClipboard: UIButton!
+    @IBOutlet weak var bankAccountClipboard: UIButton!
     
     
-    @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var didDonateButton: UIButton!
     
     var viewModel = FinancialDetailsViewModel()
     var bank = BankAccount()
-    
-    func openSocialNetwork() {
-        if let userSocialNetworks = UIStoryboard(name: "User_SocialNetworks", bundle: nil).instantiateInitialViewController() as? User_SocialNetworksViewController {
-            present(userSocialNetworks, animated: true, completion: nil)
-        }
-    }
+ 
     
     func setUpLabels(bank: BankAccount) {
         if bank.name?.lowercased() != "pix" {
@@ -40,34 +38,46 @@ class FinancialDetailsViewController: UIViewController {
         } else {
             bankTitleLabel.text = "Chave Pix"
             choosenBankNameLabel.text = bank.name
-            agencyTitleLabel.text = bank.accountBeneficited
-            choosenBankAgencyLabel.text = ""
+            agencyTitleLabel.text = " Tipo de chave:  "
+            choosenBankAgencyLabel.text = bank.accountBeneficited
             choosenBankAccountTypeLabel.text  = ""
-//            accountTitle.text = ""
             benefitedTitleLabel.text = ""
             choosenBankAccountLabel.text = ""
             choosenBankBenefitedLabel.text = ""
+            bankNameClipboard.tintColor = UIColor.white
+            bankAccountClipboard.tintColor = UIColor.white
+            bankNameClipboard.isUserInteractionEnabled = false
+            bankAccountClipboard.isUserInteractionEnabled = false
         }
     }
     
-    func alertDonation() {
-        let alert = UIAlertController(title: "Doação", message: "Deseja marcar como doado?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Realizei Doação", style: .default, handler: {_ in
-            self.switchButton.isOn = true
-            self.openSocialNetwork()
-        }))
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: {_ in
-        }))
-        present(alert, animated: true)
-
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?, cancelHandler: ((UIAlertAction) -> Void)? ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: cancelHandler))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func setupUI() {
+        didDonateButton.layer.cornerRadius = 15
+    }
+    
+    func manageDonationConfirmation() {
+        showAlert(title: "Doação", message: "Deseja marcar como doado?", okHandler: {_ in
+            if let socialNetworksScreen = self.viewModel.openSocialNetwork() {
+                self.present(socialNetworksScreen, animated: true, completion: nil)
+            }
+        }, cancelHandler: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setUpLabels(bank: self.bank)
-        // Do any additional setup after loading the view.
+        self.setupUI()
     }
+    
+    
     @IBAction func copyBank(_ sender: Any) {
         let pasteboard = UIPasteboard.general
         pasteboard.string = choosenBankNameLabel.text
@@ -81,14 +91,9 @@ class FinancialDetailsViewController: UIViewController {
         pasteboard.string = choosenBankAccountLabel.text
     }
     
-    @IBAction func switchDonation(_ sender: Any) {
-        
-        switch switchButton.isOn {
-        case true:
-            self.alertDonation()
-        case false:
-            self.openSocialNetwork()
-        }
+    @IBAction func didDonate(_ sender: Any) {
+        self.manageDonationConfirmation()
     }
+    
     
 }

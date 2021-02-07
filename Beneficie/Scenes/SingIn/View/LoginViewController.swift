@@ -76,32 +76,30 @@ class LoginViewController: UIViewController {
             self.viewModel.authenticateWithFirebase(user: user, password: password,
                                                     navigationController: self.navigationController,
                                                     didAuthenticate: {(result) in
-                if !result {
-                    self.alertToInvalidUserOrPassword()
-                }
-            }
-        )}
+                                                        if !result {
+                                                            self.alertToInvalidUserOrPassword()
+                                                        }
+                                                    }
+            )}
     }
     
     @IBAction func handleForgotPassword(_ sender: UIButton) {
         print("DEBUG: Forgot Password")
     }
     @IBAction func handleSingUp(_ sender: UIButton) {
-        if let signUp = UIStoryboard(name: "SingUp", bundle: nil).instantiateInitialViewController() as? SingUpViewController {
-            navigationController?.pushViewController(signUp, animated: true)
-        }
+        viewModel.goToSignUpScreen(navigationController: self.navigationController)
     }
     
     func configureUI() {
         let fBButton = configureFacebookButton()
         addSubview(button: fBButton)
-        configureConstraints(button: fBButton)
         configureLayout(button: fBButton)
+        configureConstraints(button: fBButton)
+
         
     }
     
     func addSubview(button: FBLoginButton) {
-        
         fBView.addSubview(button)
     }
     
@@ -144,13 +142,15 @@ class LoginViewController: UIViewController {
     func configureConstraints(button: FBLoginButton) {
         
         button.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerX,
+        
+        let horizontalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerX,
                                                       relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
                                                       attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
-        let verticalConstraint = NSLayoutConstraint(item: loginButton, attribute: NSLayoutConstraint.Attribute.centerY,
+        let verticalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY,
                                                     relatedBy: NSLayoutConstraint.Relation.equal, toItem: fBView,
                                                     attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
+        
     }
     
     func configureFacebookButton() -> FBLoginButton {
@@ -188,10 +188,12 @@ extension LoginViewController: LoginButtonDelegate {
             print(error.localizedDescription)
             return
           }
-        if FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString) != nil {
-            let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+        if let currentAccessToken = AccessToken.current {
+            let credential = FacebookAuthProvider.credential(withAccessToken: currentAccessToken.tokenString)
             let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
             appDelegate!.signToFirebase(credential: credential)
+        } else {
+            showAlert(title: "Erro", message: "Forneça a permissão para continuar", okHandler: nil, cancelHandler: nil)
         }
     }
     

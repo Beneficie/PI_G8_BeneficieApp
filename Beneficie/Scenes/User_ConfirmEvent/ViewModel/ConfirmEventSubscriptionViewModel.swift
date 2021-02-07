@@ -13,17 +13,11 @@ class ConfirmEventSubscriptionViewModel {
     var apiManager = APIManager()
     var currentEvent = Event()
     var currentUser = User()
-    var currentSubgroup = ""
+    var currentSubgroup = Subgroup()
     
-    func goToProfileScreen(navigationController: UINavigationController?) {
-        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            profile.currentUser = self.currentUser
-            navigationController?.pushViewController(profile, animated: true)
-        }
-    }
     
-    func subscribeUser(event: Event, onComplete: @escaping (Bool) -> Void) {
-        apiManager.subscribeUserToEvent(event: event) { isOk in
+    func subscribeUser(userToken: String, event: Event, subgroup: Subgroup, onComplete: @escaping (Bool) -> Void) {
+        apiManager.subscribeUserToEvent(userToken: userToken, event: event, subgroup: subgroup) { isOk in
             onComplete(isOk)
         }
     }
@@ -44,7 +38,7 @@ class ConfirmEventSubscriptionViewModel {
         }
     }
     
-    func setupValues(_ currentEvent: Event, _ currentUser: User, _ currentSubgroup: String) {
+    func setupValues(_ currentEvent: Event, _ currentUser: User, _ currentSubgroup: Subgroup) {
         self.currentEvent = currentEvent
         self.currentUser = currentUser
         self.currentSubgroup = currentSubgroup
@@ -52,15 +46,15 @@ class ConfirmEventSubscriptionViewModel {
     
     func checkUser(name: String, phoneNumber: String) {
         if !isUserUpdated(name: name, phoneNumber: phoneNumber) {
-            print(currentUser.name, name, currentUser.phoneNumber, phoneNumber)
-        }
-        updateUser { (success) in
-            if success {
-                print("user updated")
-            } else {
-                print("user NOT updated")
+            updateUser { (success) in
+                if success {
+                    print("user updated")
+                }
             }
+        } else {
+            print("user NOT updated")
         }
+        
     }
     
     func newRootController() {
@@ -70,6 +64,12 @@ class ConfirmEventSubscriptionViewModel {
         navi.pushViewController(viewController, animated: true)
         UIViewController.replaceRootViewController(viewController: navi)
         navi.setNavigationBarHidden(true, animated: false)
+    }
+    
+    func goToProfileScreen(user: User, navigationController: UINavigationController?) {
+        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
+            profile.currentUser = user
+            navigationController?.pushViewController(profile, animated: true) }
     }
     
     // MARK: Database functions

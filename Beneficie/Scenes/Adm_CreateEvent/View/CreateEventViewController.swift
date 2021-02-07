@@ -22,9 +22,10 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var currentActionLabel: UILabel!
     
     var viewModel = CreateEventViewModel()
-    var currentAction: String = "Criar"
-    var currentEvent = Event()
-    var newEvent = Event()
+    var currentAction: Action = .criar
+    var currentEvent = EventADM()
+    var currentUser = User()
+    
     var arrayPickerView = String()
     
     override func viewDidLoad() {
@@ -38,98 +39,58 @@ class CreateEventViewController: UIViewController {
         
         configureUI()
         
-        if currentAction.lowercased() == "editar" {
-            editEvent()
+    }
+    
+    enum Action: String {
+        case editar = "editar"
+        case criar = "criar"
+    }
+    
+    func showAlert(title: String, message: String, okHandler: ((UIAlertAction) -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: okHandler))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func handleGroupDivision() {
+        if let groups = Int(groupsNumberTextField.text!), let totalVacancy = Int(eventTotalVacancyTextField.text!) {
+            let vacancy = viewModel.handleVacancy(totalVacancy: totalVacancy, groupCount: groups)
+            groupVacancyLabel.text = String(vacancy)
         }
 
     }
-    
-    func handleVacancy() {
-        if addressTextField.text != nil,
-        eventTitleTextField.text != nil,
-        eventTotalVacancyTextField.text != nil,
-        groupsNumberTextField.text != nil,
-        eventDescriptionTextField.text != nil {
-            if eventTotalVacancyTextField.text!.isEmpty == false,
-               groupsNumberTextField.text!.isEmpty == false {
-                if let totalVacancy = eventTotalVacancyTextField.text,
-                   let groupVacancy = groupsNumberTextField.text {
-                    if groupVacancy == "1" {
-                        eventTotalVacancyTextField.text = groupVacancy
-                    } else {
-                        let result = Int(totalVacancy)!/Int(groupVacancy)!
-                        groupVacancyLabel.text = String(result)
-                    }
-                }
-            }
-        }
-    }
-    
+        
     func createEvent() {
         if let address = addressTextField.text,
            let title = eventTitleTextField.text,
            let totalVacancy = eventTotalVacancyTextField.text,
            let groups = groupsNumberTextField.text,
-           let eventDescription = eventDescriptionTextField.text
-        {
-            if addressTextField.text?.isEmpty == false,
-               eventTitleTextField.text?.isEmpty == false,
-               eventTotalVacancyTextField.text?.isEmpty == false,
-               groupsNumberTextField.text?.isEmpty == false,
-               eventDescriptionTextField.text?.isEmpty == false
-            {
-                newEvent.local = address
-                newEvent.titulo = title
-                newEvent.vagasTotais = Int(totalVacancy)!
-                newEvent.descricao = eventDescription
-                let groupsCount = Int(groups)!
-                var subgroups = [Subgroup]()
-                for groupIndex in 1...groupsCount {
-                    var subgroup = Subgroup()
-                    subgroup.grupo = "Grupo \(groupIndex)"
-                    subgroup.vagasSubgrupo = Int(totalVacancy)!/Int(groups)!
-                    subgroup.vagasDisponiveisSubgrupo = subgroup.vagasSubgrupo
-                    subgroups.append(subgroup)
+           let eventDescription = eventDescriptionTextField.text {
+            let newEvent = viewModel.getEvent(address: address, title: title, totalVacancy: Int(totalVacancy)!, eventDescription: eventDescription, groupCount: Int(groups)!)
+            viewModel.createEvent(event: newEvent) { (success) in
+                if success {
+                    self.showAlert(title: "Ação Salva", message: "Ação salva com sucesso", okHandler: { ok in
+                        self.viewModel.goToEventListScreen(user: self.currentUser, navigationController: self.navigationController)
+                    })
+                } else {
+                    self.showAlert(title: "Não foi possível", message: "Erro ao criar evento", okHandler: nil)
                 }
-                newEvent.subgrupos = subgroups
-                viewModel.createEvent(event: newEvent) { (success) in
-                    if success {
-                        let alert = UIAlertController(title: "Ação Salva", message: "Ação salva com sucesso", preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-                            if let main = UIStoryboard(name: "EventList", bundle: nil).instantiateInitialViewController() as? EventListViewController {
-                                main.loadData()
-                                self.navigationController?.pushViewController(main, animated: true)
-                            }
-
-                        }))
-                        self.present(alert, animated: true, completion: nil)
-                    } else {
-                        let alert = UIAlertController(title: "Não foi possível", message: "Erro ao criar evento", preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                }
-            } else {
-                let alert = UIAlertController(title: "Erro", message: "Preencha todos os campos", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {_ in
-                
-                        }))
-                        present(alert, animated: true)
             }
-            
+        } else {
+            showAlert(title: "Erro", message: "Preencha todos os campos", okHandler: nil)
         }
     }
     
     func configureUI(){
-        //ActionContainer.setupShadow(opacity: 0.2, radius: 4)
         saveButton.layer.cornerRadius = 15
-        currentActionLabel.text = "\(currentAction) Ação"
+        if currentAction == .editar {
+            currentActionLabel.text = "Editar Ação"
+            fillTextFieldInEditAction()
+        }
         
     }
     
-    func editEvent() {
+    func fillTextFieldInEditAction() {
         eventDatePicker.setDate(Date(), animated: true)
         addressTextField.text = currentEvent.local
         eventTitleTextField.text = currentEvent.titulo
@@ -137,22 +98,52 @@ class CreateEventViewController: UIViewController {
         groupVacancyLabel.text = String(currentEvent.vagasDisponiveis)
         eventDescriptionTextField.text = currentEvent.descricao
     }
+    
+    func editEvent(eventId: String) {
+        if let address = addressTextField.text,
+           let title = eventTitleTextField.text,
+           let totalVacancy = eventTotalVacancyTextField.text,
+           let groups = groupsNumberTextField.text,
+           let eventDescription = eventDescriptionTextField.text {
+            self.viewModel.editEvent(eventId: eventId,
+                address: address,
+                title: title,
+                totalVacancy: Int(totalVacancy)!,
+                groups: Int(groups)!,
+                eventDescription: eventDescription) { (success) in
+                if success {
+                    self.showAlert(title: "Sucesso", message: "Evento Atualizado", okHandler: { ok in
+                            self.viewModel.goToEventListScreen(user: self.currentUser, navigationController: self.navigationController)
+                    })
+                } else {
+                    self.showAlert(title: "Erro", message: "Não foi possível atualizar o evento", okHandler: nil)
+                }
+            }
+        }
+        
+    }
+    
     @IBAction func datePickerFormatter(_ sender: Any) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let eventDate = dateFormatter.string(from: eventDatePicker.date)
-        newEvent.data = eventDate
+        viewModel.newEvent.data = eventDate
     }
     
     @IBAction func profileButton(_ sender: Any) {
-        if let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController() as? ProfileViewController {
-            navigationController?.pushViewController(profile, animated: true)
-        }
+        self.viewModel.goToProfileScreen(user: currentUser, navigationController: self.navigationController)
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
-        createEvent()
+        if let eventId = currentEvent._id {
+            if currentAction == .editar {
+                editEvent(eventId: eventId)
+            }
+        } else {
+            createEvent()
+        }
     }
+    
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -160,20 +151,35 @@ class CreateEventViewController: UIViewController {
 
 extension CreateEventViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if addressTextField != nil,
-           addressTextField != nil,
-           eventTitleTextField != nil,
-           eventTotalVacancyTextField.text != nil
-           {
-            eventDescriptionTextField.becomeFirstResponder()
-        } else {
+        if textField.text == "" {
+            return false
+        } else if textField == addressTextField {
             textField.resignFirstResponder()
+            eventTitleTextField.becomeFirstResponder()
+            return true
+        } else if textField == eventTitleTextField {
+            textField.resignFirstResponder()
+            eventTotalVacancyTextField.becomeFirstResponder()
+            return true
+        } else if textField == eventTotalVacancyTextField {
+            textField.resignFirstResponder()
+            groupsNumberTextField.becomeFirstResponder()
+            return true
+        } else if textField == groupsNumberTextField {
+            textField.resignFirstResponder()
+            eventDescriptionTextField.becomeFirstResponder()
+            return true
+        } else if textField == eventDescriptionTextField {
+            textField.resignFirstResponder()
+            return true
+        } else {
+            return false
         }
-        return true
     }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        handleVacancy()
+        if groupsNumberTextField != nil, eventTotalVacancyTextField != nil {
+            handleGroupDivision()
+        }
     }
 }
 
