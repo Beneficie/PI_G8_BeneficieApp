@@ -56,7 +56,7 @@ Login | Criar | Deletar
 
 O aplicativo surgiu da necesidade de uma organização de ações beneficentes, que auxilie na simplificação dos precessos dos voluntários e seus administradores trazendo informaçãoes atualizadas de forma justa e acessível.
 
-Temos a oportunidade de consultar ações disponíveis, se inscrever pra ajudar pessoas, contribuir financeiramente com os grupos?
+Temos a oportunidade de consultar ações disponíveis, se inscrever pra ajudar pessoas, contribuir financeiramente com os grupos.
 
 **Beneficie traz essa possibilidade!**
 
