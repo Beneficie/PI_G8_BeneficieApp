@@ -54,7 +54,7 @@ ADM - Login | Criar | Deletar
    </video>
    
 
-<source src="https://user-images.githubusercontent.com/70452352/107155508-8dfa6280-6957-11eb-8ecb-e9912c9e3491.mp4" type="video/mp4">
+https://user-images.githubusercontent.com/70452352/107155508-8dfa6280-6957-11eb-8ecb-e9912c9e3491.mp4
 
 
 ---
