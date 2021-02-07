@@ -54,7 +54,7 @@ Login | Criar | Deletar
 ---
 ## :computer: **Sobre**
 
-Beneficie, um aplicativo para organizações beneficentes.
+**Beneficie**, um aplicativo para organizações beneficentes.
 
 Problema
 
@@ -67,7 +67,7 @@ Solução
 
 E se reuníssemos em um aplicativo a oportunidade de consultar eventos beneficentes disponíveis, se inscrever pra ajudar pessoas, e ter as informações organizadas pra contribuir financeiramente com os grupos?
 
-Beneficie traz essa possibilidade!
+**Beneficie traz essa possibilidade!**
 
 Projeto desenvolvido durante o **Santander Coders Mobile 2020** no curso **Desenvolvimento Mobile iOS** em parceria com a [DigitalHouse](https://www.digitalhouse.com/br/).
 
