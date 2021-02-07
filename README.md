@@ -47,7 +47,7 @@ Cadastro | Inscrição | Doação
 ADM
 Login | Criar | Deletar
 ---|---|---
-<img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107157252-d6b71900-6961-11eb-9c06-bfcd12c1fd86.gif"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://j.gifs.com/oVMxXX.gif"> | <img width="280" style="border-radius: 5px" height="450" alt="Demonstração do Aplicativo Beneficie" src="https://j.gifs.com/oVMxXX.gif"> |
+<img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107157252-d6b71900-6961-11eb-9c06-bfcd12c1fd86.gif"> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107157251-d454bf00-6961-11eb-93fa-29d77b4f2c84.gif"> | <img width="264" style="border-radius: 5px" height="568" alt="Demonstração do Aplicativo Beneficie" src="https://user-images.githubusercontent.com/70452352/107157249-d28afb80-6961-11eb-8d57-ecb7156c20a9.gif"> |
 
 </div>
 
