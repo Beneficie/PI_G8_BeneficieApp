@@ -64,7 +64,7 @@ Temos a oportunidade de consultar ações disponíveis, se inscrever pra ajudar 
 
 Projeto desenvolvido durante o **Santander Coders Mobile 2020** no curso **Desenvolvimento Mobile iOS** em parceria com a [DigitalHouse](https://www.digitalhouse.com/br/).
 
-O Santander Coders é uma experiência online e imersiva com muito conteúdo prático e desafios com duração de X meses, tendo como objetivo dar oportunidades reais para pessoas que querem transformar suas vidas por meio da educação de qualidade.
+O Santander Coders é uma experiência online e imersiva com muito conteúdo prático e desafios com duração de 5 meses, tendo como objetivo dar oportunidades reais para pessoas que querem transformar suas vidas por meio da educação de qualidade.
 
 ---
 ## ⚙️ **Funcionalidades**
