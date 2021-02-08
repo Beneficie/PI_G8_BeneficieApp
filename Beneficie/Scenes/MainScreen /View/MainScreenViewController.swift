@@ -13,7 +13,7 @@ class MainScreenViewController: UIViewController {
     var viewModel = MainScreenViewModel()
     
     func handleTokenValue() {
-        if viewModel.isTokenExpired() {
+        if !viewModel.isTokenExpired() {
             viewModel.goToUserEventScreen(navigationController: self.navigationController)
         }
     }
