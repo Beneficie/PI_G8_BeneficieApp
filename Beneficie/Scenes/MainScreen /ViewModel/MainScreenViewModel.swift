@@ -13,12 +13,14 @@ class MainScreenViewModel {
     
     func isTokenExpired() -> Bool {
         if let token = AccessToken.current,
-           !token.isExpired {
+           token.isExpired {
             return true
         } else {
             return false
         }
     }
+    
+    
     
     func goToUserEventScreen(navigationController: UINavigationController?) {
         if let userSubscription = UIStoryboard(name: "User_Event", bundle: nil).instantiateInitialViewController() as? User_EventViewController {
